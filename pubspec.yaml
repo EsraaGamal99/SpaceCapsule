@@ -36,6 +36,22 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
 
+  # Design
+  flutter_native_splash: ^2.4.0
+
+  # Responsive Design
+  flutter_screenutil: ^5.9.0
+
+  # An SVG library for rendering painting
+  flutter_svg: ^2.0.10+1
+
+  # State management
+  flutter_bloc: ^8.1.5
+
+  # Networking
+  dio: ^5.4.2+1
+  retrofit: ^4.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
