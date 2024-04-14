@@ -4,6 +4,7 @@ const String galaxyTextKey                    = 'Galaxy';
 const String explorerTextKey                  = 'Explorer';
 const String weWillLearnTextKey               = 'We will learn all of the scientific disciplines that involve.';
 const String skipTextKey                      = 'Skip';
+const String letsTextKey                      = 'Let’s';
 const String startTextKey                     = 'Start';
 const String insightsTextKey                  = 'Insights';
 const String embarkOnAnInterstellarTextKey    = 'Embark on an interstellar voyage like  never before. Explore distant galaxies,  uncover cosmic secrets, and witness the majesty of the universe. Your cosmic  adventure begins here.';
@@ -28,6 +29,8 @@ const String logInTextKey                      = 'Log In';
 const String forgotPasswordTextKey             = 'Forgot Password?';
 const String yourNameTextKey                   = 'Your Name';
 const String signUpTextKey                     = 'Sign Up';
+const String termsAndConditionsTextKey         = 'Terms and Conditions';
+const String forgotPassword                    = 'Forgot Password?';
 const String welcomeOnboardTextKey             = 'Welcome Onboard,';
 const String spaceVoyagerTextKey               = 'Space Voyager!';
 
