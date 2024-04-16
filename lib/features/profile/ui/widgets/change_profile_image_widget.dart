@@ -17,6 +17,15 @@ class ChangeProfileImage extends StatefulWidget {
 class _ChangeProfileImageState extends State<ChangeProfileImage> {
   File? _image;
 
+  Future pickImage(ImageSource imageSource) async {
+    final pickedFile = await ImagePicker().pickImage(source: imageSource);
+    if (pickedFile != null) {
+      setState(() {
+        _image = File(pickedFile.path);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -54,7 +63,7 @@ class _ChangeProfileImageState extends State<ChangeProfileImage> {
           bottom: 0,
           right: -2,
           child: InkWell(
-            onTap: () => showChooseImageDialog(
+            onTap: () => showChooseImageSourceBottomSheet(
               context: context,
               onCameraTapped: (source) => pickImage(source),
               onGalleryTapped: (source) => pickImage(source),
@@ -66,28 +75,17 @@ class _ChangeProfileImageState extends State<ChangeProfileImage> {
                 shape: BoxShape.circle,
                 color: AppColors.primaryWhiteColor,
               ),
-              child: Icon(Icons.edit_outlined,
-                  size: 30.sp, color: AppColors.primaryBlackColor),
+              child: Icon(Icons.edit_outlined, size: 30.sp, color: AppColors.primaryBlackColor),
             ),
           ),
         ),
       ],
     );
   }
-
-  Future pickImage(ImageSource imageSource) async {
-    final pickedFile = await ImagePicker().pickImage(source: imageSource);
-    if (pickedFile != null) {
-      setState(() {
-        _image = File(pickedFile.path);
-      });
-    }
-    return;
-  }
 }
 
 
-void showChooseImageDialog({
+void showChooseImageSourceBottomSheet({
   required BuildContext context,
   required Function(ImageSource) onCameraTapped,
   required Function(ImageSource) onGalleryTapped,
@@ -97,12 +95,12 @@ void showChooseImageDialog({
     backgroundColor: AppColors.primaryMidnightGreyColor,
     builder: (BuildContext context) {
       return Padding(
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             ListTile(
-              leading: const Icon(Icons.camera_alt, color: AppColors.primaryWhiteColor),
+              leading: const Icon(Icons.camera_alt_rounded, color: AppColors.primaryWhiteColor),
               title: const Text('Camera', style: TextStyle(color: AppColors.primaryWhiteColor)),
               onTap: () async {
                 Navigator.pop(context);
@@ -110,7 +108,7 @@ void showChooseImageDialog({
               },
             ),
             ListTile(
-              leading: const Icon(Icons.photo_library, color: AppColors.primaryWhiteColor),
+              leading: const Icon(Icons.photo_library_rounded, color: AppColors.primaryWhiteColor),
               title: const Text('Gallery', style: TextStyle(color: AppColors.primaryWhiteColor)),
               onTap: () async {
                 Navigator.pop(context);
