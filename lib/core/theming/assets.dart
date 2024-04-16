@@ -17,8 +17,8 @@ class AppAssets {
 
   // -------------------------- Profile Icons --------------------------------
   static const String adjustIcon         = 'assets/icons/adjust.svg';
-  static const String giveFeedbackIcon   = 'assets/icons/giveFeedback.svg';
-  static const String helpAndSupportIcon = 'assets/icons/helpAndSupport.svg';
+  static const String giveFeedbackIcon   = 'assets/icons/give_feedback.svg';
+  static const String helpAndSupportIcon = 'assets/icons/help_and_support.svg';
   static const String logoutIcon         = 'assets/icons/logout.svg';
   static const String pencilIcon         = 'assets/icons/pencil.svg';
 
@@ -35,4 +35,7 @@ class AppAssets {
   static const String adventurerImage  = 'assets/images/adventurer.png';
   static const String insightfulImage  = 'assets/images/insightful.png';
   static const String cheeringImage    = 'assets/images/cheering.png';
+
+  // -------------------------- Profile Icons --------------------------------
+  static const String userPlaceHolder     = 'assets/images/user_placeholder.png';
 }
