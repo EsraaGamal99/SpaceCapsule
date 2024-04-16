@@ -26,6 +26,9 @@ dependencies:
   # An SVG library for rendering painting
   flutter_svg: ^2.0.10+1
 
+  # Image Picker
+  image_picker: ^1.0.8
+
   # State management
   flutter_bloc: ^8.1.5
 
