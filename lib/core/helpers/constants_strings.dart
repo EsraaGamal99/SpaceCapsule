@@ -51,4 +51,8 @@ const String editTextKey                       = 'Edit';
 const String profileTextKey                    = 'Profile';
 const String userNameTextKey                   = 'Username';
 const String emailTextKey                      = 'Email';
+const String saveTextKey                       = 'Save';
+const String enterYourEmailTextKey             = 'Enter your email';
+const String enterYourPasswordTextKey          = 'Enter your password';
+const String enterYourUsernameTextKey          = 'Enter your username';
 
