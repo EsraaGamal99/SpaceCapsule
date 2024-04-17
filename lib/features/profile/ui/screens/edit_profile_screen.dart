@@ -42,16 +42,16 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 SizedBox(height: 40.h),
                 EditProfileTextFieldWidget(
                   controller: userNameController,
-                  title: 'Username',
-                  hintText: 'Enter your name',
+                  title: userNameTextKey,
+                  hintText: enterYourUsernameTextKey,
                   initialValue: userName,
                   onChanged: (String value) {},
                 ),
                 SizedBox(height: 20.h),
                 EditProfileTextFieldWidget(
                   controller: userPasswordController,
-                  title: 'Password',
-                  hintText: 'Enter your password',
+                  title: passwordTextKey,
+                  hintText: enterYourPasswordTextKey,
                   initialValue: userName,
                   onChanged: (String value) {},
                   obscureText: true,
@@ -59,8 +59,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 SizedBox(height: 20.h),
                 EditProfileTextFieldWidget(
                   controller: userEmailController,
-                  title: 'Email',
-                  hintText: 'Enter your email',
+                  title: emailTextKey,
+                  hintText: enterYourEmailTextKey,
                   initialValue: userEmail,
                   onChanged: (String value) {},
                   keyboardType: TextInputType.emailAddress,
@@ -77,7 +77,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       ),
                     ),
                     child: Text(
-                      'Save',
+                      saveTextKey,
                       style: TextStyle(
                         color: AppColors.primaryBlackColor,
                         fontSize: 16.sp,
