@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:space_app/core/helpers/constants_strings.dart';
 
 import '../../../../core/theming/assets.dart';
 import '../../../../core/theming/colors.dart';
@@ -101,7 +102,7 @@ void showChooseImageSourceBottomSheet({
           children: <Widget>[
             ListTile(
               leading: const Icon(Icons.camera_alt_rounded, color: AppColors.primaryWhiteColor),
-              title: const Text('Camera', style: TextStyle(color: AppColors.primaryWhiteColor)),
+              title: const Text(cameraTextKey, style: TextStyle(color: AppColors.primaryWhiteColor)),
               onTap: () async {
                 Navigator.pop(context);
                 await onCameraTapped(ImageSource.camera);
@@ -109,7 +110,7 @@ void showChooseImageSourceBottomSheet({
             ),
             ListTile(
               leading: const Icon(Icons.photo_library_rounded, color: AppColors.primaryWhiteColor),
-              title: const Text('Gallery', style: TextStyle(color: AppColors.primaryWhiteColor)),
+              title: const Text(galleryTextKey, style: TextStyle(color: AppColors.primaryWhiteColor)),
               onTap: () async {
                 Navigator.pop(context);
                 await onGalleryTapped(ImageSource.gallery);
