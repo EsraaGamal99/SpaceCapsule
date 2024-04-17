@@ -16,6 +16,7 @@ class SettingItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap.call,
+      borderRadius: BorderRadius.circular(mediumBorderRadius),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
         decoration: BoxDecoration(
