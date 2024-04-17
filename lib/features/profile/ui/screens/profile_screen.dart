@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 import 'package:space_app/core/theming/colors.dart';
 
 import '../../../../core/helpers/constants_strings.dart';
+import '../../../../core/routing/routes.dart';
 import '../../../../core/widgets/app_bars/inner_screens_app_bar.dart';
 import '../widgets/setting_item_Widget.dart';
 import '../widgets/user_info_widget.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
+
+  /// Functions to use in setting items
+  void openAppPreferencesScreen(BuildContext context) => context.pushNamed(Routes.appPreferencesScreen);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +33,7 @@ class ProfileScreen extends StatelessWidget {
                 SizedBox(height: 20.h),
                 const UserInfoWidget(name: 'Bryan Wolf', email: 'bryanwolf@gmail.com'),
                 SizedBox(height: 20.h),
-                SettingItemWidget(icon: Icons.settings, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: appPreferencesTextKey, onTap: (){},),
+                SettingItemWidget(icon: Icons.settings, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: appPreferencesTextKey, onTap: () => openAppPreferencesScreen(context)),
                 SizedBox(height: 20.h),
                 SettingItemWidget(icon: Icons.question_mark_rounded, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: helpAndSupportTextKey, onTap: () {},),
                 SizedBox(height: 20.h),
