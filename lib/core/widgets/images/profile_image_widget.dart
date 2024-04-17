@@ -1,25 +1,41 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../theming/assets.dart';
 import '../../theming/colors.dart';
+import '../loading_widgets/small_loading_widget.dart';
 
 class ProfileImageWidget extends StatelessWidget {
-  const ProfileImageWidget({super.key});
+  final String userImage;
+  const ProfileImageWidget({super.key, required this.userImage});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      decoration: const BoxDecoration(
+        color: AppColors.primaryMidnightGreyColor,
         shape: BoxShape.circle,
-        border: Border.all(color: AppColors.primaryMidnightGreyColor, width: 8),
       ),
       child: Container(
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: AppColors.primarySmokeyGreyColor, width: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+        decoration: const BoxDecoration(
+          color: AppColors.primarySmokeyGreyColor,
+          shape: BoxShape.circle,
+        ),
+        child: ClipOval(
+          child: CachedNetworkImage(
+            imageUrl: userImage,
+            placeholder: (context, url) => const SmallLoadingWidget(),
+            errorWidget: (context, url, error) => Image.asset(
+              AppAssets.userPlaceHolder,
+              width: 100,
+              height: 100,
+              fit: BoxFit.cover,
+            ),
           ),
-          child: Image.asset(AppAssets.userPlaceHolder, width: 100.w, height: 100.h)),
+        ),
+      ),
     );
   }
 }
