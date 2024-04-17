@@ -33,6 +33,8 @@ class AppAssets {
   static const String authBackground   = 'assets/images/background.png';
 
   // -------------------------- Home Images ---------------------------------
+  static const String homeBackgroundImage     = 'assets/images/homeBackground.png';
+  static const String ellipseImage     = 'assets/images/ellipse.png';
   static const String adventurerImage  = 'assets/images/adventurer.png';
   static const String insightfulImage  = 'assets/images/insightful.png';
   static const String cheeringImage    = 'assets/images/cheering.png';
