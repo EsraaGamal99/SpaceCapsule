@@ -55,4 +55,13 @@ const String saveTextKey                       = 'Save';
 const String enterYourEmailTextKey             = 'Enter your email';
 const String enterYourPasswordTextKey          = 'Enter your password';
 const String enterYourUsernameTextKey          = 'Enter your username';
+const String preferencesTextKey                = 'Preferences';
+const String galleryTextKey                    = 'Gallery';
+const String cameraTextKey                     = 'Camera';
+const String themeTextKey                      = 'Theme';
+const String languageTextKey                   = 'Language';
+const String englishTextKey                    = 'English';
+const String arabicTextKey                     = 'Arabic';
+const String lightTextKey                      = 'Light';
+const String darkTextKey                       = 'Dark';
 
