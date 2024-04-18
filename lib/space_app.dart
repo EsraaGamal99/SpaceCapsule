@@ -15,7 +15,7 @@ class SpaceApp extends StatelessWidget {
       minTextAdapt: true,
       child: MaterialApp(
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute: Routes.homeScreen,
+        initialRoute: Routes.dragonsScreen,
       ),
     );
   }
