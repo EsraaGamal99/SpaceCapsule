@@ -64,4 +64,6 @@ const String englishTextKey                    = 'English';
 const String arabicTextKey                     = 'Arabic';
 const String lightTextKey                      = 'Light';
 const String darkTextKey                       = 'Dark';
+const String feedbackTextKey                   = 'Feedback';
+const String giveYourFeedbackTextKey           = 'Give your feedback';
 
