@@ -37,7 +37,7 @@ class EditProfileScreen extends StatelessWidget {
                   bottomText: profileTextKey,
                 ),
                 SizedBox(height: 40.h),
-                const Center(child: ChangeProfileImage()),
+                const Center(child: ChangeProfileImageWidget()),
                 SizedBox(height: 40.h),
                 EditProfileTextFieldWidget(
                   controller: userNameController,
