@@ -3,19 +3,19 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:space_app/core/helpers/constants_strings.dart';
 
 import '../../../../core/theming/assets.dart';
 import '../../../../core/theming/colors.dart';
+import 'show_choose_image_source_bottom_sheet.dart';
 
-class ChangeProfileImage extends StatefulWidget {
-  const ChangeProfileImage({super.key});
+class ChangeProfileImageWidget extends StatefulWidget {
+  const ChangeProfileImageWidget({super.key});
 
   @override
-  State<ChangeProfileImage> createState() => _ChangeProfileImageState();
+  State<ChangeProfileImageWidget> createState() => _ChangeProfileImageWidgetState();
 }
 
-class _ChangeProfileImageState extends State<ChangeProfileImage> {
+class _ChangeProfileImageWidgetState extends State<ChangeProfileImageWidget> {
   File? _image;
 
   Future pickImage(ImageSource imageSource) async {
@@ -85,40 +85,3 @@ class _ChangeProfileImageState extends State<ChangeProfileImage> {
   }
 }
 
-
-void showChooseImageSourceBottomSheet({
-  required BuildContext context,
-  required Function(ImageSource) onCameraTapped,
-  required Function(ImageSource) onGalleryTapped,
-}) {
-  showModalBottomSheet(
-    context: context,
-    backgroundColor: AppColors.primaryMidnightGreyColor,
-    builder: (BuildContext context) {
-      return Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            ListTile(
-              leading: const Icon(Icons.camera_alt_rounded, color: AppColors.primaryWhiteColor),
-              title: const Text(cameraTextKey, style: TextStyle(color: AppColors.primaryWhiteColor)),
-              onTap: () async {
-                Navigator.pop(context);
-                await onCameraTapped(ImageSource.camera);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.photo_library_rounded, color: AppColors.primaryWhiteColor),
-              title: const Text(galleryTextKey, style: TextStyle(color: AppColors.primaryWhiteColor)),
-              onTap: () async {
-                Navigator.pop(context);
-                await onGalleryTapped(ImageSource.gallery);
-              },
-            ),
-          ],
-        ),
-      );
-    },
-  );
-}
