@@ -8,18 +8,17 @@ import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/app_bars/inner_screens_app_bar.dart';
 import '../widgets/edit_profile_text_field_widget.dart';
 
-class EditProfileScreen extends StatefulWidget {
-  const EditProfileScreen({super.key});
+class EditProfileScreen extends StatelessWidget {
+  EditProfileScreen({super.key});
 
-  @override
-  State<EditProfileScreen> createState() => _EditProfileScreenState();
-}
-
-class _EditProfileScreenState extends State<EditProfileScreen> {
   TextEditingController userNameController = TextEditingController();
+
   TextEditingController userEmailController = TextEditingController();
+
   TextEditingController userPasswordController = TextEditingController();
+
   String userName = 'Bryan Wolf';
+
   String userEmail = 'bryanwolf@gmail.com';
 
   @override

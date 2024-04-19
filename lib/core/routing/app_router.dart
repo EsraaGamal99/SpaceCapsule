@@ -15,7 +15,7 @@ class AppRouter {
       case Routes.profileScreen:
         return MaterialPageRoute(builder: (context) => const ProfileScreen());
       case Routes.editProfileScreen:
-        return MaterialPageRoute(builder: (context) => const EditProfileScreen());
+        return MaterialPageRoute(builder: (context) => EditProfileScreen());
       case Routes.appPreferencesScreen:
         return MaterialPageRoute(builder: (context) => const AppPreferencesScreen());
       default:
