@@ -7,10 +7,13 @@ import '../../../../core/helpers/constants_strings.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/widgets/app_bars/inner_screens_app_bar.dart';
 import '../widgets/setting_item_Widget.dart';
+import '../widgets/show_give_feedback_bottom_sheet.dart';
 import '../widgets/user_info_widget.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  ProfileScreen({super.key});
+
+  TextEditingController feedbackController = TextEditingController();
 
   /// Functions to use in setting items
   void openAppPreferencesScreen(BuildContext context) => context.pushNamed(Routes.appPreferencesScreen);
@@ -37,7 +40,7 @@ class ProfileScreen extends StatelessWidget {
                 SizedBox(height: 20.h),
                 SettingItemWidget(icon: Icons.question_mark_rounded, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: helpAndSupportTextKey, onTap: () {},),
                 SizedBox(height: 20.h),
-                SettingItemWidget(icon: Icons.star_rate_rounded, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: giveFeedbackTextKey, onTap: () {},),
+                SettingItemWidget(icon: Icons.star_rate_rounded, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: giveFeedbackTextKey, onTap: () => showGiveFeedbackBottomSheet(context: context, feedbackTextController: feedbackController, onFeedbackChanged: (String feedback) {}),),
                 SizedBox(height: 20.h),
                 SettingItemWidget(icon: Icons.logout_rounded, backgroundColor: AppColors.primaryWhiteColor, foregroundColor: AppColors.primaryBlackColor, title: signUpTextKey, onTap: () {},),
                 SizedBox(height: 50.h),
