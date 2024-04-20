@@ -15,7 +15,6 @@ class ProfileScreen extends StatelessWidget {
 
   TextEditingController feedbackController = TextEditingController();
 
-  /// Functions to use in setting items
   void openAppPreferencesScreen(BuildContext context) => context.pushNamed(Routes.appPreferencesScreen);
 
   @override
