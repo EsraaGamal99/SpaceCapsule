@@ -16,7 +16,7 @@ class DragonRepoImpl {
       final response = await dragonRepo.getAllDragons();
       return ResultHandler.success(response);
     } catch (errro) {
-      return ResultHandler.failure(Handler.handle(ApiErrorHandler(errro)));
+      return ResultHandler.failure(ErrorHandler.handle(ApiErrorHandler(errro)));
     }
 
   }

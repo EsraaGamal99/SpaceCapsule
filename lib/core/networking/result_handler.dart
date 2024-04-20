@@ -8,5 +8,5 @@ part 'result_handler.freezed.dart';
 @Freezed()
 abstract class ResultHandler<T> with _$ResultHandler<T> {
   const factory ResultHandler.success(T data) = Success<T>;
-  const factory ResultHandler.failure(Handler errorHandler) = Failure<T>;
+  const factory ResultHandler.failure(ErrorHandler errorHandler) = Failure<T>;
 }

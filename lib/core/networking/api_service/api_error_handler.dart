@@ -119,20 +119,6 @@ extension DataSourceExtension on DataSource {
   }
 }
 
-class ErrorHandler implements Exception {
-  late ErrorModel apiErrorModel;
-
-  ErrorHandler.handle(dynamic error) {
-    if (error is DioException) {
-      // dio error so its an error from response of the API or from dio itself
-      apiErrorModel = handleError(error);
-    } else {
-      // default error
-      apiErrorModel = DataSource.DEFAULT.getFailure();
-    }
-  }
-}
-
 ErrorModel handleError(DioException error) {
   switch (error.type) {
     case DioExceptionType.connectionTimeout:
@@ -166,9 +152,4 @@ ErrorModel handleError(DioException error) {
     case DioExceptionType.badResponse:
       return DataSource.DEFAULT.getFailure();
   }
-}
-
-class ApiInternalStatus {
-  static const int SUCCESS = 0;
-  static const int FAILURE = 1;
 }

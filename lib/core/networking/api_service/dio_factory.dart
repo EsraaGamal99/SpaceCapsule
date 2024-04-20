@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {
@@ -23,12 +24,14 @@ class DioFactory {
   }
 
   static void addDioInterceptor() {
-    dio?.interceptors.add(
-      PrettyDioLogger(
-        requestBody: true,
-        requestHeader: true,
-        responseHeader: true,
-      ),
-    );
+    if (kDebugMode){
+      dio?.interceptors.add(
+        PrettyDioLogger(
+          requestBody: true,
+          requestHeader: true,
+          responseHeader: true,
+        ),
+      );
+    }
   }
 }

@@ -3,9 +3,9 @@ import 'package:dio/dio.dart';
 import 'api_service/api_error_handler.dart';
 import 'error_model.dart';
 
-class Handler {
+class ErrorHandler {
   late ErrorModel errorModel;
-  Handler.handle(ErrorHandlerBaise errorHandlerBaise){
+  ErrorHandler.handle(ErrorHandlerBaise errorHandlerBaise){
     errorModel = errorHandlerBaise.handle();
   }
 }
