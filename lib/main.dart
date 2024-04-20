@@ -8,8 +8,10 @@ import 'features/localization/logic/localization_cubit.dart';
 
 void main() async {
   await initGetIt();
-  runApp(BlocProvider(
+  runApp(
+    BlocProvider(
       create: (context) => getIt<LocalizationCubit>(),
       child: SpaceApp(appRouter: AppRouter()),
-  ));
+    ),
+  );
 }
