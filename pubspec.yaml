@@ -30,6 +30,11 @@ dependencies:
 
   # State management
   flutter_bloc: ^8.1.5
+  freezed: ^2.4.5
+  freezed_annotation: ^2.4.1
+
+  # A build system for Dart code generation and modular compilation
+  build_runner: ^2.4.9
 
   # Networking
   dio: ^5.4.2+1
