@@ -28,6 +28,9 @@ dependencies:
   # An SVG library for rendering painting
   flutter_svg: ^2.0.10+1
 
+  # Dependency Injection
+  get_it: ^7.7.0
+
   # State management
   flutter_bloc: ^8.1.5
   freezed: ^2.4.5
