@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/helpers/functions/show_snack_bar.dart';
+import 'package:space_app/core/helpers/functions/show_toat.dart';
 import 'package:space_app/core/routing/routes.dart';
+import 'package:space_app/core/theming/colors.dart';
 import 'package:space_app/core/widgets/auth_back_button.dart';
 import 'package:space_app/core/widgets/custom_loading_widget.dart';
 import 'package:space_app/features/authentication/logic/login_cubit/login_cubit.dart';
@@ -26,6 +28,10 @@ class LoginBody extends StatelessWidget {
           showSnackBar(context, state.errMessage);
         } else if (state is LoginSuccessState) {
           Navigator.pushReplacementNamed(context, Routes.homeScreen);
+           showToast(
+            msg: 'You logged in successfully',
+            backgroundColor: AppColors.primaryMediumGrayColor,
+          );
         }
       },
       builder: (context, state) => Padding(
