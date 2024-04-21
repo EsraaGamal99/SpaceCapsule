@@ -33,5 +33,6 @@ class AppTextStyles {
 
   /// Black Fonts
   static TextStyle fontBlack21W500 = TextStyle(color: AppColors.primaryBlackColor, fontSize: 21.sp, fontWeight: FontWeight.w500, fontFamily: poppinsFontFamily);
+  static TextStyle fontBlack16W500 = TextStyle(color: AppColors.primaryBlackColor, fontSize: 16.sp, fontWeight: FontWeight.w500, fontFamily: poppinsFontFamily);
 
 }

@@ -14,8 +14,9 @@ class SpaceApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute: Routes.homeScreen,
+        initialRoute: Routes.registerScreen,
       ),
     );
   }
