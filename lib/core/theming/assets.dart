@@ -38,4 +38,13 @@ class AppAssets {
   static const String adventurerImage  = 'assets/images/adventurer.png';
   static const String insightfulImage  = 'assets/images/insightful.png';
   static const String cheeringImage    = 'assets/images/cheering.png';
+
+  // -------------------------- Profile Icons --------------------------------
+  static const String userPlaceHolder     = 'assets/images/user_placeholder.png';
+
+  /// Lottie
+ // -------------------------- General Icons --------------------------------
+  static const String smallLoading     = 'assets/lotties/small_loading.json';
+  static const String screensLoading   = 'assets/lotties/screens_loading.json';
+
 }
