@@ -9,6 +9,7 @@ class LocalizationCubit extends Cubit<LocalizationState> {
 
   final LocalizationRepo _localizationRepo = LocalizationRepo();
 
+  //Todo: Cashing the locale
   void changeLocale(Locale locale) {
     emit(const LocalizationState.loading());
     _localizationRepo.changeLocale(locale);
