@@ -31,6 +31,7 @@ const String yourNameTextKey                   = 'Your Name';
 const String signUpTextKey                     = 'Sign Up';
 const String termsAndConditionsTextKey         = 'Terms and Conditions';
 const String forgotPassword                    = 'Forgot Password?';
+const String signOutTextKey                    = 'Sign Out';
 
 // -------------------- Home Strings -------------------------
 const String welcomeOnboardTextKey             = 'Welcome Onboard,';
