@@ -1,4 +1,4 @@
-# 🚀 Flutter Space App
+# Flutter Space App 🚀
 ### 👋 Welcome to our Flutter Space App!
 ##### This app provides information about rockets, dragons, launches, and landpods related to space exploration.
 
