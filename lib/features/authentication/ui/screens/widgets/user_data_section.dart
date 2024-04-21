@@ -72,7 +72,7 @@ class _UserDataSectionState extends State<UserDataSection> {
           controller: widget.passwordController,
           hintText: passwordTextKey,
           keyboardType: TextInputType.visiblePassword,
-          obscureText: true,
+          obscureText: obscureText,
           suffixIcon: InkWell(
             child: obscureText
                 ? SvgPicture.asset(AppAssets.lockIcon)
