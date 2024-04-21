@@ -7,7 +7,7 @@ import 'package:space_app/features/localization/logic/localization_state.dart';
 import 'core/routing/app_router.dart';
 import 'core/routing/routes.dart';
 import 'features/localization/logic/localization_cubit.dart';
-import 'features/localization/logic/translation_generated_logic/l10n.dart';
+import 'features/localization/logic/translation_generated/l10n.dart';
 
 class SpaceApp extends StatelessWidget {
   final AppRouter appRouter;
