@@ -1,10 +1,12 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/helpers/constants_strings.dart';
 import 'package:space_app/core/helpers/functions/show_snack_bar.dart';
 import 'package:space_app/core/helpers/functions/success_register_show_dialog.dart';
+import 'package:space_app/core/routing/routes.dart';
 import 'package:space_app/core/theming/text_styles.dart';
 import 'package:space_app/core/widgets/custom_loading_widget.dart';
 import 'package:space_app/core/widgets/custom_material_button.dart';
@@ -67,6 +69,23 @@ class RegisterBody extends StatelessWidget {
                       label: signUpTextKey,
                     ),
                     fallback: (context) => const CustomLoadingWidget(),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Row(
+                    children: [
+                       Expanded(child: Text('Already have an account?',style: AppTextStyles.fontWhite15W500,)),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, Routes.loginScreen);
+                          },
+                          child:  Text(
+                            'Login',
+                            style: AppTextStyles.fontWhite17W500,
+                          )
+                      )
+                    ],
                   ),
                   SizedBox(
                     height: 10.h,

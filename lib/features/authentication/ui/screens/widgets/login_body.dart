@@ -70,6 +70,23 @@ class LoginBody extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                 ),
+                Row(
+                  children: [
+                    Expanded(child: Text('Don\'t have an account?',style: AppTextStyles.fontWhite15W500,)),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, Routes.registerScreen);
+                        },
+                        child:  Text(
+                          signUpTextKey,
+                          style: AppTextStyles.fontWhite17W500,
+                        )
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 10.h,
+                ),
                 Center(
                   child: TextButton(
                     onPressed: () {},
