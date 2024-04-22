@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:hive/hive.dart';
+import 'package:space_app/core/helpers/constants.dart';
+import 'package:space_app/core/theming/app_theme_cubit/app_theme_cubit.dart';
 import 'package:space_app/features/dragons/data/repo/dragon_repo_impl.dart';
 import 'package:space_app/features/dragons/logic/dragon_cubit.dart';
 
@@ -14,11 +17,16 @@ Future<void> setupGetIt() async{
   /// Dio
   Dio dio = DioFactory.getDio();
 
-  /// dragons repo
+  //Box of theme in hive local data
+  final appThemeBox = await Hive.openBox(themeKey);
+
+  //Dragons repo
   getIt.registerLazySingleton(() => DragonRepo(dio));
   getIt.registerLazySingleton(() => DragonRepoImpl(dragonRepo: getIt()));;
 
-  /// dragon cubit
+  //Dragon app_theme_cubit
   getIt.registerFactory(() => DragonCubit(dragonRepo: getIt()));
 
+  //App theme app_theme_cubit
+  getIt.registerFactory(() => AppThemeCubit(themeBox: appThemeBox));
 }

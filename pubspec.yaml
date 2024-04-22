@@ -33,10 +33,16 @@ dependencies:
   dio: ^5.4.2+1
   pretty_dio_logger: ^1.3.1
   retrofit: ^4.1.0
+  retrofit_generator: ^8.0.6
+
+  #To make Code generation for immutable classes
   freezed: ^2.4.6
   freezed_annotation: ^2.4.1
-  retrofit_generator: ^8.0.6
+
+  #provides a concrete way of generating files using Dart code.
   build_runner: ^2.4.7
+
+  #To generate to/from JSON code for a class,
   json_serializable: ^6.7.1
   json_annotation: ^4.8.1
 
@@ -47,6 +53,11 @@ dependencies:
 
   # service locator
   get_it: ^7.6.4
+
+  # local data
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  hive_generator: ^2.0.1
 
   #Other
   conditional_builder_null_safety: ^0.0.6
