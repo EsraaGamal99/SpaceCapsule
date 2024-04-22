@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(AppAssets.homeBackgroundImage,),
                 fit: BoxFit.fill,
@@ -29,13 +29,13 @@ class HomeScreen extends StatelessWidget {
          padding: EdgeInsets.symmetric(horizontal: 30.w,vertical: 70.h),
           child: Column(
             children: [
-              AppBarWidget(),
-              SizedBox(height: 30,),
+              const AppBarWidget(),
+              const SizedBox(height: 30,),
               SearchTextFieldWidget(),
-              SizedBox(height: 30,),
-              PicksTitleWidget(),
+              const SizedBox(height: 30,),
+              const PicksTitleWidget(),
               //SizedBox(height: 30,),
-              ListPicksWidget(),
+              const ListPicksWidget(),
             ],
           ),
         ),

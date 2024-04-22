@@ -8,8 +8,7 @@ import 'package:space_app/features/dragons/data/repo/dragon_repo_impl.dart';
 import 'dragon_state.dart';
 
 class DragonCubit extends Cubit<DragonState> {
-  DragonCubit({required this.dragonRepo, })
-      : super(const DragonState.initial());
+  DragonCubit({required this.dragonRepo, }) : super(const DragonState.initial());
 
   DragonRepoImpl dragonRepo;
 

@@ -16,7 +16,7 @@ Future<void> setupGetIt() async{
 
   /// dragons repo
   getIt.registerLazySingleton(() => DragonRepo(dio));
-  getIt.registerLazySingleton(() => DragonRepoImpl(dragonRepo: getIt()));;
+  getIt.registerLazySingleton(() => DragonRepoImpl(dragonRepo: getIt()));
 
   /// dragon cubit
   getIt.registerFactory(() => DragonCubit(dragonRepo: getIt()));

@@ -25,6 +25,17 @@ class ProfileImageWidget extends StatelessWidget {
         ),
         child: ClipOval(
           child: CachedNetworkImage(
+            imageBuilder: (context, imageProvider) => Container(
+              width: 100,
+              height: 100,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
             imageUrl: userImage,
             placeholder: (context, url) => const SmallLoadingWidget(),
             errorWidget: (context, url, error) => Image.asset(
