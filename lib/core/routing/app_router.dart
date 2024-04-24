@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:space_app/core/routing/routes.dart';
-import 'package:space_app/features/intro/ui/screens/onboarding_screen.dart';
+import 'package:space_app/features/intro/ui/screens/first_onboarding_screen.dart';
 import 'package:space_app/features/intro/ui/screens/second_onboarding_screen.dart';
 import 'package:space_app/features/profile/ui/screens/app_preferences_screen.dart';
 import 'package:space_app/features/profile/ui/screens/edit_profile_screen.dart';
