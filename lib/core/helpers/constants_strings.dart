@@ -1,6 +1,9 @@
 // -------------------- OnBoarding Strings -------------------------
 const String virtualTextKey                   = 'Virtual';
 const String galaxyTextKey                    = 'Galaxy';
+const String galaxiesTextKey                  = 'Galaxies';
+const String planetsTextKey                   = 'Planets';
+const String satellitesTextKey                = 'Satellites';
 const String explorerTextKey                  = 'Explorer';
 const String weWillLearnTextKey               = 'We will learn all of the scientific disciplines that involve.';
 const String skipTextKey                      = 'Skip';
