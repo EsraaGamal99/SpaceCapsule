@@ -36,4 +36,10 @@ class AppAssets {
   static const String adventurerImage  = 'assets/images/adventurer.png';
   static const String insightfulImage  = 'assets/images/insightful.png';
   static const String cheeringImage    = 'assets/images/cheering.png';
+
+// -------------------------- Lottie Files ---------------------------------
+  static const String welcomeStar  = 'assets/lottie/welcomeStar.json';
+  static const String splashAnimationLottie  = 'assets/lottie/splash_animation_lottie.json';
+  static const String meditationForLoading  = 'assets/lottie/meditationForLoading.json';
+
 }
