@@ -38,7 +38,6 @@ dependencies:
   #FireBase
   firebase_core: ^2.29.0
   firebase_auth: ^4.19.1
-  cloud_firestore: ^4.16.1
 
   #Other
   conditional_builder_null_safety: ^0.0.6
