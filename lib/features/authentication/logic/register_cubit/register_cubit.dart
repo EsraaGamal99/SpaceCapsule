@@ -1,7 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:space_app/core/networking/general_error_handler.dart';
 import 'package:space_app/features/authentication/data/auth_repo.dart';
 import 'package:space_app/features/authentication/data/models/register_model.dart';
 import 'package:space_app/features/authentication/logic/register_cubit/register_state.dart';
