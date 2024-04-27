@@ -48,6 +48,14 @@ dev_dependencies:
 
   flutter_lints: ^3.0.0
 
+  #A package which simplifies the task of updating your Flutter app's launcher icon
+  flutter_launcher_icons: "^0.13.1"
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/app_icon.jpg"
+
 flutter:
 
   uses-material-design: true
