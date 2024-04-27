@@ -48,11 +48,15 @@ dependencies:
   firebase_core: ^2.29.0
   firebase_auth: ^4.19.1
 
-  # Other
+  # Automatically generate code for converting to and from JSON
   json_serializable:
   json_annotation:
+
+  # Code generation for immutable classes that has a simple syntax/API without compromising on the features.
   freezed:
   freezed_annotation:
+
+  # A build system for Dart code generation and modular compilation.
   build_runner:
 
 
@@ -70,7 +74,6 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/lotties/
-    - assets/lottie/
 
   fonts:
     - family: Poppins
