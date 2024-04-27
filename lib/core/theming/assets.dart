@@ -41,10 +41,9 @@ class AppAssets {
   static const String userPlaceHolder     = 'assets/images/user_placeholder.png';
 
 // -------------------------- Lottie Files ---------------------------------
-  static const String smallLoading     = 'assets/lotties/small_loading.json';
-  static const String screensLoading   = 'assets/lotties/screens_loading.json';
-  static const String welcomeStar  = 'assets/lottie/welcomeStar.json';
-  static const String splashAnimationLottie  = 'assets/lottie/splash_animation_lottie.json';
-  static const String meditationForLoading  = 'assets/lottie/meditationForLoading.json';
-
+  static const String smallLoading           = 'assets/lotties/small_loading.json';
+  static const String screensLoading         = 'assets/lotties/screens_loading.json';
+  static const String welcomeStar            = 'assets/lotties/welcomeStar.json';
+  static const String meditationForLoading   = 'assets/lotties/meditationForLoading.json';
+  static const String splashAnimationLottie  = 'assets/lotties/splash_animation_lottie.json';
 }
