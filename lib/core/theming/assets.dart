@@ -38,6 +38,8 @@ class AppAssets {
   static const String ellipseImage     = 'assets/images/ellipse.png';
   static const String adventurerImage  = 'assets/images/adventurer.png';
   static const String insightfulImage  = 'assets/images/insightful.png';
+  static const String galaxy  = 'assets/images/galaxy.png';
+  static const String rockets  = 'assets/images/rockets.png';
   static const String cheeringImage    = 'assets/images/cheering.png';
 
   // -------------------------- Profile Icons --------------------------------

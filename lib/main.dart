@@ -8,7 +8,7 @@ import 'package:space_app/space_app.dart';
 import 'features/localization/logic/localization_cubit.dart';
 
 void main() async {
-  await initGetIt();
+ // await initGetIt();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   Bloc.observer = MyBlocObserver();
