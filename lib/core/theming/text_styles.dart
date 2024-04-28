@@ -7,6 +7,7 @@ import 'colors.dart';
 class AppTextStyles {
   /// White Fonts
   static TextStyle fontWhite13W400   = TextStyle(color: AppColors.primaryWhiteColor, fontSize: 13.sp, fontWeight: FontWeight.w400, fontFamily: poppinsFontFamily);
+  static TextStyle fontWhite14W500WithUnderLine   = TextStyle(color: AppColors.primaryWhiteColor, fontSize: 13.sp, fontWeight: FontWeight.w400, fontFamily: poppinsFontFamily,decoration: TextDecoration.underline,decorationColor: Colors.white,);
   static TextStyle fontWhite15W500   = TextStyle(color: AppColors.primaryWhiteColor, fontSize: 15.sp, fontWeight: FontWeight.w500, fontFamily: poppinsFontFamily);
   static TextStyle fontWhite16W600   = TextStyle(color: AppColors.primaryWhiteColor, fontSize: 16.sp, fontWeight: FontWeight.w600, fontFamily: poppinsFontFamily);
   static TextStyle fontWhite17W500   = TextStyle(color: AppColors.primaryWhiteColor, fontSize: 17.sp, fontWeight: FontWeight.w500, fontFamily: poppinsFontFamily);

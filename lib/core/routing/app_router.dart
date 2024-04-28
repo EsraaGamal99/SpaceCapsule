@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:space_app/core/routing/routes.dart';
+import 'package:space_app/features/authentication/ui/screens/login_screen.dart';
+import 'package:space_app/features/authentication/ui/screens/register_screen.dart';
 import 'package:space_app/features/intro/ui/screens/first_onboarding_screen.dart';
 import 'package:space_app/features/intro/ui/screens/second_onboarding_screen.dart';
 import 'package:space_app/features/profile/ui/screens/app_preferences_screen.dart';
@@ -18,6 +20,10 @@ class AppRouter {
         return MaterialPageRoute(builder: (context) => const SplashScreen());
       case Routes.homeScreen:
         return MaterialPageRoute(builder: (context) => const HomeScreen());
+       case Routes.registerScreen:
+        return MaterialPageRoute(builder: (context) => const RegisterScreen());
+       case Routes.loginScreen:
+        return MaterialPageRoute(builder: (context) => const LoginScreen());
       case Routes.firstOnboardingScreen:
         return MaterialPageRoute(builder: (context) => const FirstOnBoardingScreen());
       case Routes.secondOnboardingScreen:

@@ -52,6 +52,16 @@ dependencies:
   dio: ^5.4.2+1
   retrofit: ^4.1.0
 
+  #FireBase
+  firebase_core: ^2.29.0
+  firebase_auth: ^4.19.1
+  cloud_firestore: ^4.16.1
+
+  #Other
+  conditional_builder_null_safety: ^0.0.6
+  dartz: ^0.10.1
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
