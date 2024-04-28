@@ -8,8 +8,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:space_app/core/routing/app_router.dart';
-
-import 'package:space_app/main.dart';
 import 'package:space_app/space_app.dart';
 
 void main() {

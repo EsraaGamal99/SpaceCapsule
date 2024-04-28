@@ -51,18 +51,19 @@ dependencies:
   # Networking
   dio: ^5.4.2+1
   retrofit: ^4.1.0
+  retrofit_generator:
 
+  # FireBase
   # The flutter package which changes app name for all platforms with sound null safety!
   rename_app: ^1.3.2
 
   #FireBase
   firebase_core: ^2.29.0
   firebase_auth: ^4.19.1
-  cloud_firestore: ^4.16.1
 
-  #Other
-  conditional_builder_null_safety: ^0.0.6
-  dartz: ^0.10.1
+  # Automatically generate code for converting to and from JSON
+  json_serializable:
+  json_annotation:
 
 
 dev_dependencies:

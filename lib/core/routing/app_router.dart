@@ -7,7 +7,6 @@ import 'package:space_app/features/intro/ui/screens/second_onboarding_screen.dar
 import 'package:space_app/features/profile/ui/screens/app_preferences_screen.dart';
 import 'package:space_app/features/profile/ui/screens/edit_profile_screen.dart';
 import 'package:space_app/features/profile/ui/screens/profile_screen.dart';
-
 import '../../features/home/ui/screens/home_screen.dart';
 import '../../features/intro/ui/screens/splash_screen.dart';
 import '../../features/intro/ui/screens/welcome_screen.dart';
@@ -30,6 +29,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (context) => const SecondOnBoardingScreen());
       case Routes.welcomeScreen:
         return MaterialPageRoute(builder: (context) => const WelcomeScreen());
+
       case Routes.profileScreen:
         return MaterialPageRoute(builder: (context) => ProfileScreen());
       case Routes.editProfileScreen:

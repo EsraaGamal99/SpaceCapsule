@@ -47,6 +47,8 @@ class AppAssets {
   // -------------------------- General Icons --------------------------------
   static const String smallLoading     = 'assets/lotties/small_loading.json';
   static const String screensLoading   = 'assets/lotties/screens_loading.json';
+  static const String welcomeStar            = 'assets/lotties/welcomeStar.json';
+  static const String meditationForLoading   = 'assets/lotties/meditationForLoading.json';
 
   // -------------------------- splash -----------------------------------
   static const String splashLottie     = 'assets/lotties/splash.json';

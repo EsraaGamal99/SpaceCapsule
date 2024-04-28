@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/helpers/constants_sizes.dart';
-import 'package:space_app/features/profile/ui/widgets/change_profile_image_widget.dart';
-
 import '../../../../core/theming/colors.dart';
 
 class EditProfileTextFieldWidget extends StatefulWidget {

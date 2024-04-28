@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-
 import '../../theming/assets.dart';
 import '../../theming/colors.dart';
 import '../loading_widgets/small_loading_widget.dart';

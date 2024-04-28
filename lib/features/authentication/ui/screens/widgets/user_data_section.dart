@@ -5,7 +5,7 @@ import 'package:space_app/core/helpers/constants_strings.dart';
 import 'package:space_app/core/widgets/custom_text_form_field.dart';
 import '../../../../../core/theming/assets.dart';
 
-class UserDataSection extends StatelessWidget {
+class UserDataSection extends StatefulWidget {
   const UserDataSection({
     super.key,
     required this.isLogin,
@@ -20,38 +20,79 @@ class UserDataSection extends StatelessWidget {
   final TextEditingController passwordController;
 
   @override
+  State<UserDataSection> createState() => _UserDataSectionState();
+}
+
+class _UserDataSectionState extends State<UserDataSection> {
+  bool obscureText = true;
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         SizedBox(
           height: 100.h,
         ),
-        isLogin
+        widget.isLogin
             ? const SizedBox()
             : CustomTextFormField(
-                controller: nameController,
+                controller: widget.nameController,
+                keyboardType: TextInputType.name,
                 hintText: yourNameTextKey,
                 suffixIcon: SvgPicture.asset(
                   AppAssets.personIcon,
                   height: 5,
                 ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Your name is required!';
+                  }
+                  return null;
+                },
               ),
         SizedBox(
           height: 20.h,
         ),
         CustomTextFormField(
-          controller: emailController,
-          hintText: isLogin ? emailAddressTextKey : emailTextKey,
+          controller: widget.emailController,
+          hintText: widget.isLogin ? emailAddressTextKey : emailTextKey,
+          keyboardType: TextInputType.emailAddress,
           suffixIcon: SvgPicture.asset(AppAssets.emailIcon),
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'Your email is required!';
+            }
+            return null;
+          },
         ),
         SizedBox(
           height: 20.h,
         ),
         CustomTextFormField(
-          controller: passwordController,
+          controller: widget.passwordController,
           hintText: passwordTextKey,
-          obscureText: true,
-          suffixIcon: SvgPicture.asset(AppAssets.lockIcon),
+          keyboardType: TextInputType.visiblePassword,
+          obscureText: obscureText,
+          suffixIcon: InkWell(
+            child: obscureText
+                ? SvgPicture.asset(AppAssets.lockIcon)
+                : const Icon(
+                    Icons.lock_open_outlined,
+                    color: Colors.white,
+                    size: 26,
+                  ),
+            onTap: () {
+              setState(() {
+                obscureText = !obscureText;
+              });
+            },
+          ),
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'Your password is required!';
+            }
+            return null;
+          },
         ),
         SizedBox(
           height: 64.h,

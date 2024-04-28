@@ -5,7 +5,6 @@ import 'core/helpers/bloc_observer.dart';
 import 'package:space_app/core/di/dependency_injection.dart';
 import 'package:space_app/core/routing/app_router.dart';
 import 'package:space_app/space_app.dart';
-
 import 'features/localization/logic/localization_cubit.dart';
 
 void main() async {
@@ -13,6 +12,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   Bloc.observer = MyBlocObserver();
+  await initGetIt();
+
   runApp(
     BlocProvider(
       create: (context) => getIt<LocalizationCubit>(),
