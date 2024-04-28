@@ -17,6 +17,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
 
+  flutter_localizations:
+    sdk: flutter
   # Splash Screen
   flutter_native_splash: ^2.4.0
 
@@ -26,6 +28,9 @@ dependencies:
   # An SVG library for rendering painting
   flutter_svg: ^2.0.10+1
 
+  # Dependency Injection
+  get_it: ^7.7.0
+  
   # Image Picker
   image_picker: ^1.0.8
 
@@ -37,6 +42,11 @@ dependencies:
 
   # State management
   flutter_bloc: ^8.1.5
+  freezed: ^2.4.5
+  freezed_annotation: ^2.4.1
+
+  # A build system for Dart code generation and modular compilation
+  build_runner: ^2.4.9
 
   # Networking
   dio: ^5.4.2+1
@@ -79,3 +89,6 @@ flutter:
     - family: Poppins
       fonts:
         - asset: fonts/Poppins-Regular.ttf
+          
+flutter_intl:
+  enabled: true
