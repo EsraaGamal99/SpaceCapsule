@@ -1,6 +1,9 @@
 // -------------------- OnBoarding Strings -------------------------
 const String virtualTextKey                   = 'Virtual';
 const String galaxyTextKey                    = 'Galaxy';
+const String galaxiesTextKey                  = 'Galaxies';
+const String planetsTextKey                   = 'Planets';
+const String satellitesTextKey                = 'Satellites';
 const String explorerTextKey                  = 'Explorer';
 const String weWillLearnTextKey               = 'We will learn all of the scientific disciplines that involve.';
 const String skipTextKey                      = 'Skip';
@@ -31,14 +34,16 @@ const String yourNameTextKey                   = 'Your Name';
 const String signUpTextKey                     = 'Sign Up';
 const String termsAndConditionsTextKey         = 'Terms and Conditions';
 const String forgotPassword                    = 'Forgot Password?';
-const String welcomeOnboardTextKey             = 'Welcome Onboard,';
-const String spaceVoyagerTextKey               = 'Space Voyager!';
 
 // -------------------- Home Strings -------------------------
+const String welcomeOnboardTextKey             = 'Welcome Onboard,';
+const String spaceVoyagerTextKey               = 'Space Voyager!';
 const String searchYourFavoritePlaceTextKey    = 'Search your favorite place...';
 const String topPicksTextKey                   = 'Top picks';
 const String letsExploreOurProgramsTextKey     = 'Let’s explore our programs';
 const String adventurerTextKey                 = 'Adventurer';
+const String vrTextKey                         = 'VR';
+const String showsTextKey                      = 'Shows';
 const String insightfulTextKey                 = 'Insightful';
 const String cheeringTextKey                   = 'Cheering';
 
