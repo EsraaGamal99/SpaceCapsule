@@ -17,9 +17,10 @@ class AppTextStyles {
   static TextStyle fontWhite30W500   = TextStyle(color: AppColors.primaryWhiteColor, fontSize: 30.sp, fontWeight: FontWeight.w500, fontFamily: poppinsFontFamily);
   static TextStyle fontWhite33W600   = TextStyle(color: AppColors.primaryWhiteColor, fontSize: 33.sp, fontWeight: FontWeight.w600, fontFamily: poppinsFontFamily);
   static TextStyle fontWhite40W500   = TextStyle(color: AppColors.primaryWhiteColor, fontSize: 40.sp, fontWeight: FontWeight.w500, fontFamily: poppinsFontFamily);
+  static TextStyle fontWhite40W700   = TextStyle(color: AppColors.primaryWhiteColor, fontSize: 40.sp, fontWeight: FontWeight.w700, fontFamily: poppinsFontFamily);
   static TextStyle fontWhite50W500   = TextStyle(color: AppColors.primaryWhiteColor, fontSize: 50.sp, fontWeight: FontWeight.w500, fontFamily: poppinsFontFamily);
   static TextStyle fontWhite63W600   = TextStyle(color: AppColors.primaryWhiteColor, fontSize: 63.sp, fontWeight: FontWeight.w600, fontFamily: poppinsFontFamily);
-  static TextStyle fontWhite77W600   = TextStyle(color: AppColors.primaryWhiteColor, fontSize: 77.sp, fontWeight: FontWeight.w600, fontFamily: poppinsFontFamily);
+  static TextStyle fontWhite70W600   = TextStyle(color: AppColors.primaryWhiteColor, fontSize: 70.sp, fontWeight: FontWeight.w600, fontFamily: poppinsFontFamily);
 
   /// Grey Fonts
   static TextStyle fontLighterGray23W600 = TextStyle(color: AppColors.primaryLighterGreyColor, fontSize: 23.sp, fontWeight: FontWeight.w600, fontFamily: poppinsFontFamily);

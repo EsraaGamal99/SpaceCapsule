@@ -33,7 +33,7 @@ class SpaceApp extends StatelessWidget {
               supportedLocales: S.delegate.supportedLocales,
               debugShowCheckedModeBanner: false,
               onGenerateRoute: appRouter.generateRoute,
-              initialRoute: Routes.homeScreen,
+              initialRoute: Routes.splashScreen,
             );
           }
           return MaterialApp(
@@ -47,7 +47,7 @@ class SpaceApp extends StatelessWidget {
             supportedLocales: S.delegate.supportedLocales,
             debugShowCheckedModeBanner: false,
             onGenerateRoute: appRouter.generateRoute,
-            initialRoute: Routes.homeScreen,
+            initialRoute: Routes.splashScreen,
           );
         }
       ),
