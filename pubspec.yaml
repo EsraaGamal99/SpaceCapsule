@@ -30,6 +30,15 @@ dependencies:
 
   # Dependency Injection
   get_it: ^7.7.0
+  
+  # Image Picker
+  image_picker: ^1.0.8
+
+  # To load and cache network images
+  cached_network_image: ^3.3.1
+
+  # To display animations
+  lottie: ^3.1.0
 
   # State management
   flutter_bloc: ^8.1.5
@@ -56,6 +65,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/lotties/
 
   fonts:
     - family: Poppins
