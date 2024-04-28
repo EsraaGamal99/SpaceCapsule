@@ -76,7 +76,7 @@ class PickCardWidget extends StatelessWidget {
                               text: ' ',
                             ),
                             TextSpan(
-                                text: showsTextKey,
+                                text: '',
                                 style: AppTextStyles.fontLightGrey30W400),
                           ],
                         ),

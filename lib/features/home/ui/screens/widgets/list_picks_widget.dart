@@ -17,7 +17,7 @@ class ListPicksWidget extends StatelessWidget {
         separatorBuilder: (context, index) => const SizedBox(
               height: 15,
             ),
-        itemCount: 4);
+        itemCount: 3);
   }
 }
 
