@@ -30,7 +30,7 @@ dependencies:
 
   # Dependency Injection
   get_it: ^7.7.0
-  
+
   # Image Picker
   image_picker: ^1.0.8
 
@@ -50,20 +50,30 @@ dependencies:
 
   # Networking
   dio: ^5.4.2+1
+  pretty_dio_logger: ^1.3.1
   retrofit: ^4.1.0
   retrofit_generator:
 
-  # FireBase
   # The flutter package which changes app name for all platforms with sound null safety!
   rename_app: ^1.3.2
 
   #FireBase
   firebase_core: ^2.29.0
   firebase_auth: ^4.19.1
+  cloud_firestore: ^4.16.1
 
   # Automatically generate code for converting to and from JSON
   json_serializable:
   json_annotation:
+
+  # local data
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  hive_generator: ^2.0.1
+
+  #Other
+  conditional_builder_null_safety: ^0.0.6
+  dartz: ^0.10.1
 
 
 dev_dependencies:
@@ -93,6 +103,3 @@ flutter:
     - family: Poppins
       fonts:
         - asset: fonts/Poppins-Regular.ttf
-          
-flutter_intl:
-  enabled: true
