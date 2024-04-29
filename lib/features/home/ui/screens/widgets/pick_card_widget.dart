@@ -11,7 +11,9 @@ import '../../../../../core/helpers/constants_strings.dart';
 import '../../../../../core/theming/text_styles.dart';
 
 class PickCardWidget extends StatelessWidget {
-  const PickCardWidget({Key? key}) : super(key: key);
+  final String cardName;
+  final String imageName;
+  const PickCardWidget({Key? key, required this.cardName,required this.imageName}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class PickCardWidget extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(
-                    AppAssets.insightfulImage,
+                    imageName,
                   ),
                   fit: BoxFit.cover),
               borderRadius: BorderRadius.circular(20.h),
@@ -67,14 +69,14 @@ class PickCardWidget extends StatelessWidget {
                       ),
                       RichText(
                         text: TextSpan(
-                          text: vrTextKey,
+                          text: cardName,
                           style: AppTextStyles.fontWhite33W600,
                           children: <TextSpan>[
                             TextSpan(
                               text: ' ',
                             ),
                             TextSpan(
-                                text: showsTextKey,
+                                text: '',
                                 style: AppTextStyles.fontLightGrey30W400),
                           ],
                         ),

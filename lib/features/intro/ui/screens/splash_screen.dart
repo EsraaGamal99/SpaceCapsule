@@ -22,7 +22,7 @@ class SplashScreen extends StatelessWidget {
           width: 200,
           height: 200,
           onLoaded: (composition) {
-            Timer(const Duration(seconds: 4),
+            Timer(const Duration(seconds: 5),
               () {
                 context.pushReplacementNamed(Routes.firstOnboardingScreen);
               },

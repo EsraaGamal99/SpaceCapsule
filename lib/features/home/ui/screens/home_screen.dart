@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:space_app/core/widgets/loading_widgets/screens_loading_widget.dart';
+import 'package:space_app/core/widgets/loading_widgets/small_loading_widget.dart';
 import 'package:space_app/features/home/ui/screens/widgets/app_bar_widget.dart';
 import 'package:space_app/features/home/ui/screens/widgets/list_picks_widget.dart';
 import 'package:space_app/features/home/ui/screens/widgets/pick_card_widget.dart';
@@ -20,21 +22,18 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(AppAssets.homeBackgroundImage,),
                 fit: BoxFit.fill,
               )
           ),
          padding: EdgeInsets.symmetric(horizontal: 30.w,vertical: 70.h),
-          child: Column(
+          child: const Column(
             children: [
               AppBarWidget(),
               SizedBox(height: 30,),
-              SearchTextFieldWidget(),
-              SizedBox(height: 30,),
               PicksTitleWidget(),
-              //SizedBox(height: 30,),
               ListPicksWidget(),
             ],
           ),

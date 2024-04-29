@@ -79,7 +79,7 @@ class WelcomeScreen extends StatelessWidget {
                 SizedBox(height: 30.h),
                 CustomMaterialButton(
                   onPressed: () {
-                    context.pushNamed(Routes.homeScreen);
+                    context.pushNamed(Routes.loginScreen);
                   },
                   label: logInTextKey,
                   isFullWidth: false,
@@ -89,7 +89,7 @@ class WelcomeScreen extends StatelessWidget {
                 SizedBox(height: 16.h),
                 GestureDetector(
                     onTap: () {
-                      context.pushNamed(Routes.editProfileScreen);
+                      context.pushNamed(Routes.registerScreen);
                     },
                     child: Center(child: Text(createNewAccountTextKey, style: AppTextStyles.fontWhite18W500.copyWith(decoration: TextDecoration.underline, decorationColor: AppColors.primaryWhiteColor)))
                 ),
