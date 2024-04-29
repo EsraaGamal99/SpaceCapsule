@@ -31,6 +31,7 @@ class AppAssets {
   static const String onBoarding4      = 'assets/images/onboarding4.png';
   static const String onBoarding5      = 'assets/images/onboarding5.png';
   static const String authBackground   = 'assets/images/background.png';
+  static const String welcomeImage     = 'assets/images/welcome_image.png';
 
   // -------------------------- Home Images ---------------------------------
   static const String homeBackgroundImage     = 'assets/images/homeBackground.png';
@@ -43,8 +44,13 @@ class AppAssets {
   static const String userPlaceHolder     = 'assets/images/user_placeholder.png';
 
   /// Lottie
- // -------------------------- General Icons --------------------------------
+  // -------------------------- General Icons --------------------------------
   static const String smallLoading     = 'assets/lotties/small_loading.json';
   static const String screensLoading   = 'assets/lotties/screens_loading.json';
+  static const String welcomeStar            = 'assets/lotties/welcomeStar.json';
+  static const String meditationForLoading   = 'assets/lotties/meditationForLoading.json';
+
+  // -------------------------- splash -----------------------------------
+  static const String splashLottie     = 'assets/lotties/splash.json';
 
 }

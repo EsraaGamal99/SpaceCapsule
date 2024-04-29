@@ -1,17 +1,12 @@
-part of 'register_cubit.dart';
 
-@immutable
-sealed class RegisterState {}
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'register_state.freezed.dart';
 
-final class RegistrationInitial extends RegisterState {}
+@freezed
+class RegisterState<T> with _$RegisterState<T>{
+  const factory RegisterState.initial() = _Initial;
 
-final class RegisterLoadingState extends RegisterState {}
-
-final class RegistersSuccessState  extends RegisterState {}
-
-final class RegisterErrorState extends RegisterState {
-  final String errMessage;
-  RegisterErrorState({required this.errMessage});
+  const factory RegisterState.loading() = Loading;
+  const factory RegisterState.success(T data) = Success<T>;
+  const factory RegisterState.error({required String error}) = Error;
 }
-
-

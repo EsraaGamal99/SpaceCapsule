@@ -9,6 +9,8 @@ import 'package:space_app/features/dragons/logic/dragon_cubit.dart';
 import '../../features/dragons/data/repo/dragon_repo.dart';
 import '../networking/api_service/dio_factory.dart';
 
+import '../../features/localization/data/repos/localization_repo.dart';
+import '../../features/localization/logic/localization_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -17,16 +19,20 @@ Future<void> setupGetIt() async{
   /// Dio
   Dio dio = DioFactory.getDio();
 
-  //Box of theme in hive local data
+  // Box of theme in hive local data
   final appThemeBox = await Hive.openBox(themeKey);
 
-  //Dragons repo
+  // Dragons repo
   getIt.registerLazySingleton(() => DragonRepo(dio));
   getIt.registerLazySingleton(() => DragonRepoImpl(dragonRepo: getIt()));;
 
-  //Dragon app_theme_cubit
+  // Dragon app_theme_cubit
   getIt.registerFactory(() => DragonCubit(dragonRepo: getIt()));
 
-  //App theme app_theme_cubit
+  // App theme app_theme_cubit
   getIt.registerFactory(() => AppThemeCubit(themeBox: appThemeBox));
+
+  // Localization
+  getIt.registerSingleton<LocalizationRepo>(LocalizationRepo());
+  getIt.registerSingleton<LocalizationCubit>(LocalizationCubit());
 }
