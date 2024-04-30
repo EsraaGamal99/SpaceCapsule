@@ -66,7 +66,7 @@ class SpaceApp extends StatelessWidget {
                           supportedLocales: S.delegate.supportedLocales,
                           debugShowCheckedModeBanner: false,
                           onGenerateRoute: appRouter.generateRoute,
-                          initialRoute: Routes.registerScreen,
+                          initialRoute: Routes.splashScreen,
                         );
                       }
                   ),

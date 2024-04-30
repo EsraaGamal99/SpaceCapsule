@@ -1,12 +1,9 @@
-  import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-import '../../theming/assets.dart';
+import 'package:flutter/material.dart';
+import 'package:space_app/core/widgets/loading_widgets/screens_loading_widget.dart';
 
 Future<dynamic> authLoadingDialog(BuildContext context) {
-    return showDialog(
-            context: context,
-            builder: (context) => Center(
-              child: Lottie.asset(AppAssets.meditationForLoading,width: 250,height: 250),
-            ),
-          );
-  }
+  return showDialog(
+    context: context,
+    builder: (context) => const ScreensLoadingWidget(),
+  );
+}

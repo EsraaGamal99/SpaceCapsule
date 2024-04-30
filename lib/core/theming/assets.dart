@@ -38,6 +38,8 @@ class AppAssets {
   static const String ellipseImage     = 'assets/images/ellipse.png';
   static const String adventurerImage  = 'assets/images/adventurer.png';
   static const String insightfulImage  = 'assets/images/insightful.png';
+  static const String galaxy           = 'assets/images/galaxy.png';
+  static const String rockets          = 'assets/images/rockets.png';
   static const String cheeringImage    = 'assets/images/cheering.png';
 
   // -------------------------- Profile Icons --------------------------------
@@ -47,8 +49,7 @@ class AppAssets {
   // -------------------------- General Icons --------------------------------
   static const String smallLoading     = 'assets/lotties/small_loading.json';
   static const String screensLoading   = 'assets/lotties/screens_loading.json';
-  static const String welcomeStar            = 'assets/lotties/welcomeStar.json';
-  static const String meditationForLoading   = 'assets/lotties/meditationForLoading.json';
+  static const String welcomeStar      = 'assets/lotties/welcomeStar.json';
 
   // -------------------------- splash -----------------------------------
   static const String splashLottie     = 'assets/lotties/splash.json';

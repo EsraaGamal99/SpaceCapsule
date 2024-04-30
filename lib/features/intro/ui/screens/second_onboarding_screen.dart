@@ -68,7 +68,7 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                     right: 20,
                     child: InkWell(
                       onTap: () {
-                        context.pushNamed(Routes.homeScreen);
+                        context.pushNamed(Routes.welcomeScreen);
                       },
                       child: Container(
                         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 4),
