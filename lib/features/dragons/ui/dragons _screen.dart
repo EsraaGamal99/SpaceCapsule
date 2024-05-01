@@ -45,11 +45,11 @@ class _DragonsScreenState extends State<DragonsScreen> {
                 return CupertinoSwitch(
                   activeColor: AppColors.primaryBlackColor,
                   trackColor: AppColors.primaryLightGreyColor,
-                  value: AppThemeCubit.get(context).isDarkMode,
+                  value: AppThemeCubit.isDarkMode,
                   onChanged: (value) {
                     // setState(() {
-                      debugPrint(AppThemeCubit.get(context).isDarkMode.toString());
-                      AppThemeCubit.get(context).toggleTheme(value);
+                      debugPrint(AppThemeCubit.isDarkMode.toString());
+                      AppThemeCubit.get(context).toggleTheme(darkMode: true);
                     // });
 
                   }

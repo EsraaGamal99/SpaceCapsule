@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/constants_strings.dart';
+import '../../../../core/theming/app_theme_cubit/app_theme_cubit.dart';
 import '../../../../core/theming/colors.dart';
 
 void showChangeThemeBottomSheet({required BuildContext context}) {
@@ -28,6 +29,8 @@ class ChangeThemeWidget extends StatelessWidget {
             leading: const Icon(Icons.light_mode_rounded, color: AppColors.primaryWhiteColor),
             title: const Text(lightTextKey, style: TextStyle(color: AppColors.primaryWhiteColor)),
             onTap: () {
+              AppThemeCubit.get(context).toggleTheme(darkMode: false);
+              debugPrint(AppThemeCubit.isDarkMode.toString());
               Navigator.pop(context);
             },
           ),
@@ -35,6 +38,8 @@ class ChangeThemeWidget extends StatelessWidget {
             leading: const Icon(Icons.dark_mode_rounded, color: AppColors.primaryWhiteColor),
             title: const Text(darkTextKey, style: TextStyle(color: AppColors.primaryWhiteColor)),
             onTap: () {
+              AppThemeCubit.get(context).toggleTheme(darkMode: true);
+              debugPrint(AppThemeCubit.isDarkMode.toString());
               Navigator.pop(context);
             },
           ),

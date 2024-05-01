@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:space_app/core/theming/app_theme_cubit/app_theme_cubit.dart';
 import 'package:space_app/features/home/ui/screens/widgets/pick_card_widget.dart';
-import 'package:space_app/core/theming/assets.dart';
 
+import '../../../../../core/helpers/constants.dart';
 
 class ListPicksWidget extends StatelessWidget {
   const ListPicksWidget({Key? key}) : super(key: key);
@@ -12,7 +13,12 @@ class ListPicksWidget extends StatelessWidget {
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
-          return PickCardWidget(cardName: cardName[index],imageName: imageName[index],);
+          return PickCardWidget(
+            cardName: cardName[index],
+            imageName: AppThemeCubit.isDarkMode
+                ? imageName[index]
+                : imageNameLightMode[index],
+          );
         },
         separatorBuilder: (context, index) => const SizedBox(
               height: 15,
@@ -20,6 +26,3 @@ class ListPicksWidget extends StatelessWidget {
         itemCount: 3);
   }
 }
-
-List<String> cardName = ['Rockets', 'Dragons', 'Landpods'];
-List<String> imageName = [AppAssets.rockets, AppAssets.galaxy, AppAssets.insightfulImage];

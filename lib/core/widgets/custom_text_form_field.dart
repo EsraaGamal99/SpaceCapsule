@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:space_app/core/theming/colors.dart';
 import '../theming/text_styles.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -45,7 +44,7 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       readOnly: readOnly ?? false,
       obscureText: obscureText,
-      style: AppTextStyles.fontWhite17W500,
+      style: AppTextStyles.fontWhite17W500.copyWith(color: Theme.of(context).colorScheme.primary),
       textInputAction: TextInputAction.next,
       validator: validator,
       controller: controller,
@@ -54,7 +53,7 @@ class CustomTextFormField extends StatelessWidget {
       keyboardType: keyboardType,
       inputFormatters: inputFormatters,
       cursorHeight: 20,
-      cursorColor: AppColors.primaryWhiteColor,
+      cursorColor: Theme.of(context).colorScheme.primary,//AppColors.primaryWhiteColor,
       decoration: InputDecoration(
         errorText: errorText,
         suffixIcon: suffixIcon,
@@ -65,23 +64,23 @@ class CustomTextFormField extends StatelessWidget {
         isDense: true,
         hintText: hintText,
         labelText: labelText,
-        labelStyle: AppTextStyles.fontWhite17W500,
-        hintStyle: AppTextStyles.fontWhite17W500,
+        labelStyle: AppTextStyles.fontWhite17W500.copyWith(color: Theme.of(context).colorScheme.primary),
+        hintStyle: AppTextStyles.fontWhite17W500.copyWith(color: Theme.of(context).colorScheme.primary),
         contentPadding:
              EdgeInsets.symmetric(vertical: 16.h),
         filled: true,
         fillColor: Colors.transparent,
-        border: const UnderlineInputBorder(
-          borderSide: BorderSide(color: AppColors.primaryWhiteColor, width: 1.0),
+        border: UnderlineInputBorder(
+          borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 1.0),
         ),
-        enabledBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(color: AppColors.primaryWhiteColor, width: 1.0),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 1.0),
         ),
-        focusedBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(color: AppColors.primaryWhiteColor, width: 3.0),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 3.0),
         ),
-        focusedErrorBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(color: AppColors.primaryWhiteColor, width: 2.0),
+        focusedErrorBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 2.0),
         ),
       ),
     );

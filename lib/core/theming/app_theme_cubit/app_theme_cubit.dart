@@ -7,23 +7,32 @@ import 'package:space_app/core/helpers/constants.dart';
 import 'app_theme_state.dart';
 
 class AppThemeCubit extends Cubit<AppThemeState> {
-  final Box themeBox;
+  Box themeBox;
   AppThemeCubit({ required this.themeBox}) : super(AppThemeState.initial());
 
   static AppThemeCubit get(context) => BlocProvider.of<AppThemeCubit>(context);
 
 
-  ThemeMode themeMode = ThemeMode.system;
-
+  static ThemeMode themeMode = ThemeMode.system;
+  //Open theme box in local data
+   openBox() async{
+      if(!(Hive.isBoxOpen(themeKey))){
+        themeBox = await Hive.openBox(themeKey);
+      }
+      themeBox = Hive.box(themeKey);
+    }
   Future<void> setAppTheme() async {
+    openBox();
     await themeBox.add(isDarkMode);
   }
 
   Future<void> fetchAppTheme() async {
+    openBox();
     final bool? isDarkModeFetched = await themeBox.get(themeKey);
     isDarkModeFetched == null
         ? setInitialThemeMode()
         : themeMode = isDarkModeFetched ? ThemeMode.dark : ThemeMode.light;
+    changeTheme(themeMode);
     emit(AppThemeState.themeFetched());
   }
 
@@ -31,7 +40,7 @@ class AppThemeCubit extends Cubit<AppThemeState> {
 
   bool get isInitialDarkMode => brightness == Brightness.dark;
 
-  bool isDarkMode = false;
+  static bool isDarkMode = false;
 
   void setInitialThemeMode() {
     isInitialDarkMode
@@ -51,8 +60,8 @@ class AppThemeCubit extends Cubit<AppThemeState> {
     }
     setAppTheme();
   }
-  void toggleTheme(bool isOn) {
-    themeMode = isOn ? ThemeMode.dark : ThemeMode.light;
+  void toggleTheme({ required bool darkMode}) {
+    themeMode = darkMode ? ThemeMode.dark : ThemeMode.light;
     changeTheme(themeMode);
   }
 }

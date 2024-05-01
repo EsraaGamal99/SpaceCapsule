@@ -16,7 +16,7 @@ class DoNotHaveAnAccount extends StatelessWidget {
         Expanded(
             child: Text(
               'Don\'t have an account?',
-              style: AppTextStyles.fontWhite15W500,
+              style: AppTextStyles.fontWhite15W500.copyWith(color: Theme.of(context).colorScheme.primary),
             )),
         TextButton(
             onPressed: () {
@@ -24,7 +24,7 @@ class DoNotHaveAnAccount extends StatelessWidget {
             },
             child: Text(
               signUpTextKey,
-              style: AppTextStyles.fontWhite17W500,
+              style: AppTextStyles.fontWhite17W500.copyWith(color: Theme.of(context).colorScheme.primary),
             ))
       ],
     );

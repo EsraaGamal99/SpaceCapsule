@@ -4,8 +4,8 @@ import 'package:space_app/core/helpers/extenstions.dart';
 
 import '../../../../core/helpers/constants_strings.dart';
 import '../../../../core/routing/routes.dart';
+import '../../../../core/theming/app_theme_cubit/app_theme_cubit.dart';
 import '../../../../core/theming/assets.dart';
-import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/text_styles.dart';
 import '../../../../core/widgets/buttons/custom_material_button.dart';
 
@@ -21,7 +21,7 @@ class WelcomeScreen extends StatelessWidget {
             height: MediaQueryHelper(context).height,
             width: MediaQueryHelper(context).width,
             child: Image.asset(
-              AppAssets.welcomeImage,
+              AppThemeCubit.isDarkMode ? AppAssets.welcomeImage :  AppAssets.welcomeImageLightMode,
               fit: BoxFit.cover,
             ),
           ),
@@ -52,11 +52,11 @@ class WelcomeScreen extends StatelessWidget {
               children: [
                 Text(
                   letsFloatInTextKey,
-                  style: AppTextStyles.fontWhite40W500.copyWith(height: 1.h),
+                  style: AppTextStyles.fontWhite40W500.copyWith(height: 1.h,color: Theme.of(context).colorScheme.primary),
                 ),
                 Text(
                   universeTextKey,
-                  style: AppTextStyles.fontWhite70W600.copyWith(height: 1.h),
+                  style: AppTextStyles.fontWhite70W600.copyWith(height: 1.h,color: Theme.of(context).colorScheme.primary),
                 ),
               ],
             ),
@@ -70,11 +70,11 @@ class WelcomeScreen extends StatelessWidget {
               children: [
                 Text(
                   welcomeTextKey,
-                  style: AppTextStyles.fontWhite40W700,
+                  style: AppTextStyles.fontWhite40W700.copyWith(color: Theme.of(context).colorScheme.primary),
                 ),
                 Text(
                   unlockAUniverseTextKey,
-                  style: AppTextStyles.fontWhite19W500.copyWith(height: 1.h),
+                  style: AppTextStyles.fontWhite19W500.copyWith(height: 1.h,color: Theme.of(context).colorScheme.primary),
                 ),
                 SizedBox(height: 30.h),
                 CustomMaterialButton(
@@ -83,15 +83,15 @@ class WelcomeScreen extends StatelessWidget {
                   },
                   label: logInTextKey,
                   isFullWidth: false,
-                  backgroundColor: AppColors.primaryWhiteColor,
-                  labelColor: AppColors.primaryBlackColor,
+                  // backgroundColor: AppColors.primaryWhiteColor,
+                  // labelColor: AppColors.primaryBlackColor,
                 ),
                 SizedBox(height: 16.h),
                 GestureDetector(
                     onTap: () {
                       context.pushNamed(Routes.registerScreen);
                     },
-                    child: Center(child: Text(createNewAccountTextKey, style: AppTextStyles.fontWhite18W500.copyWith(decoration: TextDecoration.underline, decorationColor: AppColors.primaryWhiteColor)))
+                    child: Center(child: Text(createNewAccountTextKey, style: AppTextStyles.fontWhite18W500.copyWith(color: Theme.of(context).colorScheme.primary,decoration: TextDecoration.underline, decorationColor: Theme.of(context).colorScheme.primary)))
                 ),
               ],
             ),

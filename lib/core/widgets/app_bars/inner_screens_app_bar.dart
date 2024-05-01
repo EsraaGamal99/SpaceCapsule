@@ -27,7 +27,7 @@ class InnerAppBar extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              color: AppColors.primaryBlackColor,
+              //color: AppColors.primaryBlackColor,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

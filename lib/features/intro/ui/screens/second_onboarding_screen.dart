@@ -73,17 +73,17 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                       child: Container(
                         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 4),
                         decoration: BoxDecoration(
-                          color: AppColors.primaryLightGreyColor.withOpacity(0.5),
+                          color: AppColors.primaryLightGreyColor.withOpacity(0.5,),
                           borderRadius: BorderRadius.circular(16),
                         ),
                         child: Row(
                           children: [
                             Text(
                               skipTextKey,
-                              style: AppTextStyles.fontWhite22W600,
+                              style: AppTextStyles.fontWhite22W600.copyWith(color: Theme.of(context).colorScheme.primary),
                             ),
                             SizedBox(width: 10.w),
-                            SvgPicture.asset(AppAssets.forwardArrowIcon, colorFilter: const ColorFilter.mode(AppColors.primaryWhiteColor, BlendMode.srcIn),),
+                            SvgPicture.asset(AppAssets.forwardArrowIcon, colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),),
                           ],
                         ),
                       ),
@@ -99,7 +99,7 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                     children: [
                       Text(
                         onBoardingData[index].title,
-                        style: AppTextStyles.fontWhite63W600.copyWith(height: 1.h),
+                        style: AppTextStyles.fontWhite63W600.copyWith(height: 1.h, color: Theme.of(context).colorScheme.primary),
                       ),
                     ],
                   ),
@@ -111,7 +111,7 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                       Expanded(child: Container()),
                       SizedBox(height: 20.h),
                       Text(onBoardingData[index].description,
-                          style: AppTextStyles.fontWhite17W500),
+                          style: AppTextStyles.fontWhite17W500.copyWith(color: Theme.of(context).colorScheme.primary)),
                       SizedBox(height: 30.h),
                       onBoardingScreenIndex != onBoardingData.length - 1
                           ? OnBoardingDotsButton(
@@ -127,8 +127,8 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                                 },
                                 label: startTextKey,
                                 isFullWidth: false,
-                                backgroundColor: AppColors.primaryWhiteColor,
-                                labelColor: AppColors.primaryBlackColor,
+                                // backgroundColor: AppColors.primaryWhiteColor,
+                                // labelColor: AppColors.primaryBlackColor,
                               ),
                             ),
                       SizedBox(height: 40.h),

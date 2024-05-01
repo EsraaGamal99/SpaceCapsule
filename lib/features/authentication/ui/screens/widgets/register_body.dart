@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/helpers/constants_strings.dart';
 import 'package:space_app/core/theming/text_styles.dart';
-import 'package:space_app/core/widgets/custom_material_button.dart';
+import 'package:space_app/core/widgets/buttons/custom_material_button.dart';
 import 'package:space_app/features/authentication/logic/register_cubit/register_cubit.dart';
 import 'package:space_app/features/authentication/ui/screens/widgets/register_bloc_listener.dart';
 import 'package:space_app/features/authentication/ui/screens/widgets/user_data_section.dart';
@@ -30,11 +30,11 @@ class RegisterBody extends StatelessWidget {
             ),
             Text(
               letsTextKey,
-              style: AppTextStyles.fontWhite40W500,
+              style: AppTextStyles.fontWhite40W500.copyWith(color: Theme.of(context).colorScheme.primary,),
             ),
             Text(
               startTextKey,
-              style: AppTextStyles.fontWhite63W600,
+              style: AppTextStyles.fontWhite63W600.copyWith(color: Theme.of(context).colorScheme.primary,),
             ),
             UserDataSection(
               isLogin: false,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../theming/assets.dart';
-import '../../theming/colors.dart';
 import '../../theming/text_styles.dart';
 
 
@@ -30,7 +29,7 @@ class CustomMaterialButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
           padding: const EdgeInsets.all(20),
-          backgroundColor: backgroundColor ?? AppColors.primaryWhiteColor,
+          backgroundColor: backgroundColor ?? Theme.of(context).colorScheme.secondary,
         ),
         onPressed: onPressed,
         child: Row(
@@ -38,10 +37,10 @@ class CustomMaterialButton extends StatelessWidget {
           children: [
             Text(
               label,
-              style: AppTextStyles.fontBlack21W500,
+              style: AppTextStyles.fontBlack21W500.copyWith(color: Theme.of(context).primaryColor),
             ),
              SizedBox(width: 10.w),
-            SvgPicture.asset(AppAssets.forwardArrowIcon),
+            SvgPicture.asset(AppAssets.forwardArrowIcon,color: Theme.of(context).primaryColor),
           ],
         ),
       ),

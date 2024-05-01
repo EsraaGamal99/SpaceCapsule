@@ -4,13 +4,14 @@ import 'package:space_app/core/theming/colors.dart';
 
 class AppThemes {
   static final lightTheme = ThemeData(
-    pageTransitionsTheme: const PageTransitionsTheme(
-      builders: <TargetPlatform, PageTransitionsBuilder>{
-        TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-      },
+    scaffoldBackgroundColor: AppColors.primarySoftGreyColor,
+    primaryColor: AppColors.primaryWhiteColor,
+    brightness: Brightness.light,
+    colorScheme: const ColorScheme.light(
+      background: AppColors.primarySoftGreyColor,
+      primary: AppColors.primaryBlackColor,
+      secondary: AppColors.primaryBlueColor,
     ),
-    scaffoldBackgroundColor: AppColors.primaryWhiteColor,
-    colorScheme: const ColorScheme.light(),
     appBarTheme: const AppBarTheme(
       foregroundColor: Colors.black,
       systemOverlayStyle: SystemUiOverlayStyle(
@@ -19,13 +20,14 @@ class AppThemes {
     ),
   );
   static final darkTheme = ThemeData(
-    pageTransitionsTheme: const PageTransitionsTheme(
-      builders: <TargetPlatform, PageTransitionsBuilder>{
-        TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-      },
-    ),
     scaffoldBackgroundColor: AppColors.primaryBlackColor,
-    colorScheme: const ColorScheme.dark(),
+    primaryColor: AppColors.primaryBlackColor,
+    brightness: Brightness.dark,
+    colorScheme: const ColorScheme.dark(
+      background: AppColors.primaryBlackColor,
+      secondary: AppColors.primaryWhiteColor,
+      primary: AppColors.primaryWhiteColor,
+    ),
     appBarTheme: const AppBarTheme(
       foregroundColor: Colors.white,
       systemOverlayStyle: SystemUiOverlayStyle(
