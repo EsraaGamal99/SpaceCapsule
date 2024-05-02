@@ -6,6 +6,7 @@ import 'package:space_app/core/helpers/constants_strings.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
 import 'package:space_app/core/theming/colors.dart';
 import 'package:space_app/core/theming/text_styles.dart';
+import 'package:space_app/core/widgets/buttons/animation_button.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/assets.dart';
@@ -77,14 +78,16 @@ class FirstOnBoardingScreen extends StatelessWidget {
             bottom: 60.h,
             left: 30.w,
             right: 30.w,
-            child: CustomMaterialButton(
-              onPressed: () {
-                context.pushNamed(Routes.secondOnboardingScreen);
+            child: AnimationButton(
+              onPress: () {
+                context.pushReplacementNamed(Routes.secondOnboardingScreen);
               },
-              label: startTextKey,
-              isFullWidth: false,
-              backgroundColor: AppColors.primaryWhiteColor,
-              labelColor: AppColors.primaryBlackColor,
+              child: CustomMaterialButton(
+                label: startTextKey,
+                isFullWidth: false,
+                backgroundColor: AppColors.primaryWhiteColor,
+                labelColor: AppColors.primaryBlackColor,
+              ),
             ),
           ),
         ],

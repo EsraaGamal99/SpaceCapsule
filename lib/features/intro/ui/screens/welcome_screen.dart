@@ -7,6 +7,7 @@ import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/assets.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/text_styles.dart';
+import '../../../../core/widgets/buttons/animation_button.dart';
 import '../../../../core/widgets/buttons/custom_material_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -77,14 +78,16 @@ class WelcomeScreen extends StatelessWidget {
                   style: AppTextStyles.fontWhite19W500.copyWith(height: 1.h),
                 ),
                 SizedBox(height: 30.h),
-                CustomMaterialButton(
-                  onPressed: () {
+                AnimationButton(
+                  onPress: () {
                     context.pushNamed(Routes.loginScreen);
                   },
-                  label: logInTextKey,
-                  isFullWidth: false,
-                  backgroundColor: AppColors.primaryWhiteColor,
-                  labelColor: AppColors.primaryBlackColor,
+                  child: CustomMaterialButton(
+                    label: logInTextKey,
+                    isFullWidth: false,
+                    backgroundColor: AppColors.primaryWhiteColor,
+                    labelColor: AppColors.primaryBlackColor,
+                  ),
                 ),
                 SizedBox(height: 16.h),
                 GestureDetector(
