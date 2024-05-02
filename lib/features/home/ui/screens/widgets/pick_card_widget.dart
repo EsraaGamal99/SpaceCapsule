@@ -1,19 +1,19 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:space_app/core/routing/routes.dart';
 import 'package:space_app/core/theming/assets.dart';
 import 'package:space_app/core/theming/colors.dart';
-
 import '../../../../../core/helpers/constants_strings.dart';
 import '../../../../../core/theming/text_styles.dart';
 
 class PickCardWidget extends StatelessWidget {
   final String cardName;
   final String imageName;
-  const PickCardWidget({Key? key, required this.cardName,required this.imageName}) : super(key: key);
+  final bool isHomeScreen;
+  const PickCardWidget({super.key, required this.cardName,required this.imageName, required this.isHomeScreen});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class PickCardWidget extends StatelessWidget {
                       AppColors.primaryWhiteColor.withOpacity(0.1),
                       AppColors.primaryBlackColor.withOpacity(0.8),
                     ],
-                    stops: [
+                    stops: const [
                       0.0,
                       1.9
                     ]),
@@ -67,24 +67,16 @@ class PickCardWidget extends StatelessWidget {
                         adventurerTextKey,
                         style: AppTextStyles.fontWhite15W500,
                       ),
-                      RichText(
-                        text: TextSpan(
-                          text: cardName,
-                          style: AppTextStyles.fontWhite33W600,
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: ' ',
-                            ),
-                            TextSpan(
-                                text: '',
-                                style: AppTextStyles.fontLightGrey30W400),
-                          ],
-                        ),
+                      Text(
+                        cardName,
+                        style: AppTextStyles.fontWhite33W600,
                       ),
                     ],
                   ),
                   MaterialButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      isHomeScreen?Navigator.pushNamed(context, Routes.homeOfItemsScreen,arguments: cardName):null;
+                    },
                     color: AppColors.primaryMediumGrayColor.withOpacity(0.4),
                     padding: EdgeInsets.all(6.h),
                     height: 54.h,
