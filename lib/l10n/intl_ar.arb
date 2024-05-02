@@ -74,7 +74,9 @@
   "enterYourUsernameTextKey"          : "أدخل اسم المستخدم الخاص بك",
   "enterYourPasswordTextKey"          : "أدخل كلمة المرور الخاصة بك",
   "signOutTextKey"                    : "تسجيل الخروج",
-
+  "yourNameIsRequiredTextKey"         : "يرجى إدخال الاسم",
+  "yourEmailIsRequiredTextKey"        : "يرجى إدخال البريد الإلكتروني",
+  "yourPasswordIsRequiredTextKey"     : "يرجى إدخال كلمة المرور",
 
   "badRequestErrorTextKey"            : "خطأ في الطلب",
   "noContentErrorTextKey"             : "خطأ في الاستجابة: لا توجد محتويات",

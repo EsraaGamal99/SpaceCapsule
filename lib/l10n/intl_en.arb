@@ -74,6 +74,9 @@
   "enterYourUsernameTextKey"          : "Enter your username",
   "enterYourPasswordTextKey"          : "Enter your password",
   "signOutTextKey"                    : "Sign out",
+  "yourNameIsRequiredTextKey"         : "Your name is required!",
+  "yourEmailIsRequiredTextKey"        : "Your Email is required!",
+  "yourPasswordIsRequiredTextKey"     : "Your Password is required!",
 
   "badRequestErrorTextKey"            : "Bad Request",
   "noContentErrorTextKey"             : "No Content",
