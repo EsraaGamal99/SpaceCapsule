@@ -9,4 +9,5 @@ class RegisterState<T> with _$RegisterState<T>{
   const factory RegisterState.loading() = Loading;
   const factory RegisterState.success(T data) = Success<T>;
   const factory RegisterState.error({required String error}) = Error;
+  const factory RegisterState.loggedUp() = LoggedUp;
 }

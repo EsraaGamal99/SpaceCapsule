@@ -2,9 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:space_app/core/helpers/extenstions.dart';
+import 'package:space_app/core/helpers/functions/navigate_after_splash.dart';
 
-import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/assets.dart';
 import '../../../../core/theming/colors.dart';
 
@@ -24,7 +23,7 @@ class SplashScreen extends StatelessWidget {
           onLoaded: (composition) {
             Timer(const Duration(seconds: 5),
               () {
-                context.pushReplacementNamed(Routes.firstOnboardingScreen);
+                navigateAfterSplash(context);
               },
             );
           },

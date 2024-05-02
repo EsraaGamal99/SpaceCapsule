@@ -4,6 +4,8 @@ import 'package:space_app/core/routing/routes.dart';
 import 'package:space_app/features/authentication/ui/screens/login_screen.dart';
 import 'package:space_app/features/authentication/ui/screens/register_screen.dart';
 import 'package:space_app/features/home_of_items/ui/screens/home_of_items_screen.dart';
+import 'package:space_app/features/profile/logic/edit_profile_data/edit_profile_cubit.dart';
+import 'package:space_app/features/profile/logic/profile_cubit.dart';
 import 'package:space_app/features/profile/ui/screens/app_preferences_screen.dart';
 import 'package:space_app/features/intro/ui/screens/first_onboarding_screen.dart';
 import 'package:space_app/features/intro/ui/screens/second_onboarding_screen.dart';
@@ -46,9 +48,23 @@ class AppRouter {
         return MaterialPageRoute(builder: (context) => const WelcomeScreen());
 
       case Routes.profileScreen:
-        return MaterialPageRoute(builder: (context) => ProfileScreen());
+        return MaterialPageRoute(builder: (context) => MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (context) => getIt<ProfileCubit>()),
+              BlocProvider(create: (context) => getIt<EditProfileCubit>()),
+            ],
+            child: ProfileScreen()),
+        );
       case Routes.editProfileScreen:
-        return MaterialPageRoute(builder: (context) => EditProfileScreen());
+        return MaterialPageRoute(
+          builder: (context) => MultiBlocProvider(
+              providers: [
+                BlocProvider(create: (context) => getIt<ProfileCubit>()),
+                BlocProvider(create: (context) => getIt<EditProfileCubit>()),
+              ],
+          child: const EditProfileScreen(),
+          ),
+        );
       case Routes.appPreferencesScreen:
         return MaterialPageRoute(builder: (context) => const AppPreferencesScreen());
       default:

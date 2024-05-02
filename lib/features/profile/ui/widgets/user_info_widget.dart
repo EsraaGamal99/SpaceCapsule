@@ -13,7 +13,8 @@ import 'change_profile_image_widget.dart';
 class UserInfoWidget extends StatelessWidget {
   final String name;
   final String email;
-  const UserInfoWidget({super.key, required this.name, required this.email});
+  final String profileImage;
+  const UserInfoWidget({super.key, required this.name, required this.email, required this.profileImage});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class UserInfoWidget extends StatelessWidget {
             child: Text(editProfileTextKey, style: AppTextStyles.fontWhite18W500)
           ),
           SizedBox(height: 10.h),
-          const ChangeProfileImageWidget(),
+          ChangeProfileImageWidget(),
           SizedBox(height: 20.h),
           Text(name, style: AppTextStyles.fontLightGrey18W600),
           SizedBox(height: 5.h),
