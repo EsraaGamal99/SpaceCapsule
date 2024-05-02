@@ -10,5 +10,5 @@ class Routes {
   static const String firstOnboardingScreen  = '/onboardingScreen';
   static const String secondOnboardingScreen = '/secondOnboardingScreen';
   static const String welcomeScreen          = '/welcomeScreen';
-
+  static const String homeOfItemsScreen = '/homeOfItemsScreen';
 }
