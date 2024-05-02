@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
 import 'package:space_app/core/theming/colors.dart';
+import 'package:space_app/generated/l10n.dart';
 
-import '../../../../core/helpers/constants_strings.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/widgets/app_bars/inner_screens_app_bar.dart';
 import '../widgets/setting_item_Widget.dart';
@@ -28,20 +28,20 @@ class ProfileScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const InnerAppBar(
-                  topText: appTextKey,
-                  bottomText: settingsTextKey,
+                InnerAppBar(
+                  topText: S.of(context).appTextKey,
+                  bottomText: S.of(context).settingsTextKey,
                 ),
                 SizedBox(height: 20.h),
                 const UserInfoWidget(name: 'Bryan Wolf', email: 'bryanwolf@gmail.com'),
                 SizedBox(height: 20.h),
-                SettingItemWidget(icon: Icons.settings, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: appPreferencesTextKey, onTap: () => openAppPreferencesScreen(context)),
+                SettingItemWidget(icon: Icons.settings, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: S.of(context).appPreferencesTextKey, onTap: () => openAppPreferencesScreen(context)),
                 SizedBox(height: 20.h),
-                SettingItemWidget(icon: Icons.question_mark_rounded, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: helpAndSupportTextKey, onTap: () {},),
+                SettingItemWidget(icon: Icons.question_mark_rounded, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: S.of(context).helpAndSupportTextKey, onTap: () {},),
                 SizedBox(height: 20.h),
-                SettingItemWidget(icon: Icons.star_rate_rounded, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: giveFeedbackTextKey, onTap: () => showGiveFeedbackBottomSheet(context: context, feedbackTextController: feedbackController, onFeedbackChanged: (String feedback) {}),),
+                SettingItemWidget(icon: Icons.star_rate_rounded, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: S.of(context).giveFeedbackTextKey, onTap: () => showGiveFeedbackBottomSheet(context: context, feedbackTextController: feedbackController, onFeedbackChanged: (String feedback) {}),),
                 SizedBox(height: 20.h),
-                SettingItemWidget(icon: Icons.logout_rounded, backgroundColor: AppColors.primaryWhiteColor, foregroundColor: AppColors.primaryBlackColor, title: signUpTextKey, onTap: () {},),
+                SettingItemWidget(icon: Icons.logout_rounded, backgroundColor: AppColors.primaryWhiteColor, foregroundColor: AppColors.primaryBlackColor, title: S.of(context).signOutTextKey, onTap: () {},),
                 SizedBox(height: 50.h),
               ],
             ),

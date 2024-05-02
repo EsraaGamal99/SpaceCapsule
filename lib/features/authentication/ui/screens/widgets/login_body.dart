@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/widgets/auth_back_button.dart';
+import 'package:space_app/core/widgets/buttons/custom_material_button.dart';
 import 'package:space_app/features/authentication/logic/login_cubit/login_cubit.dart';
 import 'package:space_app/features/authentication/ui/screens/widgets/login_bloc_listener.dart';
 import 'package:space_app/features/authentication/ui/screens/widgets/user_data_section.dart';
-import '../../../../../core/helpers/constants_strings.dart';
+import 'package:space_app/generated/l10n.dart';
 import '../../../../../core/theming/text_styles.dart';
-import '../../../../../core/widgets/custom_material_button.dart';
 import 'do_not_have_an_account.dart';
 
 class LoginBody extends StatelessWidget {
@@ -25,12 +25,12 @@ class LoginBody extends StatelessWidget {
             children: [
               const AuthBackButton(),
               Text(
-                welcomeTextKey,
+                S.of(context).welcomeTextKey,
                 style: AppTextStyles.fontWhite40W500,
               ),
               Text(
-                backTextKey,
-                style: AppTextStyles.fontWhite63W600,
+                S.of(context).backWelcomeTextKey,
+                style: AppTextStyles.fontWhite63W600.copyWith(height: 1.0),
               ),
               UserDataSection(
                 isLogin: true,
@@ -44,7 +44,7 @@ class LoginBody extends StatelessWidget {
                       password: cubit.passwordController.text,
                     );
                   },
-                  label: logInTextKey),
+                  label: S.of(context).logInTextKey),
               SizedBox(height: 10.h),
               const DoNotHaveAnAccount(),
               const LogInBlocListener(),

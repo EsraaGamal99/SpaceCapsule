@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:space_app/core/helpers/constants_strings.dart';
 import 'package:space_app/core/widgets/custom_text_form_field.dart';
+import 'package:space_app/generated/l10n.dart';
 import '../../../../../core/theming/assets.dart';
 
 class UserDataSection extends StatefulWidget {
@@ -38,14 +38,14 @@ class _UserDataSectionState extends State<UserDataSection> {
             : CustomTextFormField(
                 controller: widget.nameController,
                 keyboardType: TextInputType.name,
-                hintText: yourNameTextKey,
+                hintText: S.of(context).yourNameTextKey,
                 suffixIcon: SvgPicture.asset(
                   AppAssets.personIcon,
                   height: 5,
                 ),
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'Your name is required!';
+                    return S.of(context).yourNameIsRequiredTextKey;
                   }
                   return null;
                 },
@@ -55,12 +55,12 @@ class _UserDataSectionState extends State<UserDataSection> {
         ),
         CustomTextFormField(
           controller: widget.emailController,
-          hintText: widget.isLogin ? emailAddressTextKey : emailTextKey,
+          hintText: widget.isLogin ? S.of(context).emailAddressTextKey : S.of(context).emailTextKey,
           keyboardType: TextInputType.emailAddress,
           suffixIcon: SvgPicture.asset(AppAssets.emailIcon),
           validator: (value) {
             if (value!.isEmpty) {
-              return 'Your email is required!';
+              return S.of(context).yourEmailIsRequiredTextKey;
             }
             return null;
           },
@@ -70,7 +70,7 @@ class _UserDataSectionState extends State<UserDataSection> {
         ),
         CustomTextFormField(
           controller: widget.passwordController,
-          hintText: passwordTextKey,
+          hintText: S.of(context).passwordTextKey,
           keyboardType: TextInputType.visiblePassword,
           obscureText: obscureText,
           suffixIcon: InkWell(
@@ -89,7 +89,7 @@ class _UserDataSectionState extends State<UserDataSection> {
           ),
           validator: (value) {
             if (value!.isEmpty) {
-              return 'Your password is required!';
+              return S.of(context).yourPasswordIsRequiredTextKey;
             }
             return null;
           },

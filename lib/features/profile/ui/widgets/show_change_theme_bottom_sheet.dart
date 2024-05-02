@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:space_app/generated/l10n.dart';
 
-import '../../../../core/helpers/constants_strings.dart';
 import '../../../../core/theming/colors.dart';
 
 void showChangeThemeBottomSheet({required BuildContext context}) {
@@ -26,14 +26,14 @@ class ChangeThemeWidget extends StatelessWidget {
         children: <Widget>[
           ListTile(
             leading: const Icon(Icons.light_mode_rounded, color: AppColors.primaryWhiteColor),
-            title: const Text(lightTextKey, style: TextStyle(color: AppColors.primaryWhiteColor)),
+            title: Text(S.of(context).lightTextKey, style: const TextStyle(color: AppColors.primaryWhiteColor)),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
             leading: const Icon(Icons.dark_mode_rounded, color: AppColors.primaryWhiteColor),
-            title: const Text(darkTextKey, style: TextStyle(color: AppColors.primaryWhiteColor)),
+            title: Text(S.of(context).darkTextKey, style: const TextStyle(color: AppColors.primaryWhiteColor)),
             onTap: () {
               Navigator.pop(context);
             },

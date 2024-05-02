@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:space_app/core/helpers/constants_strings.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
 import 'package:space_app/core/theming/colors.dart';
 import 'package:space_app/core/theming/text_styles.dart';
+import 'package:space_app/generated/l10n.dart';
 
 import '../../../../core/helpers/constants_sizes.dart';
 import '../../../../core/routing/routes.dart';
@@ -30,7 +30,7 @@ class UserInfoWidget extends StatelessWidget {
             onTap: () {
               context.pushNamed(Routes.editProfileScreen);
             },
-            child: Text(editProfileTextKey, style: AppTextStyles.fontWhite18W500)
+            child: Text(S.of(context).editProfileTextKey, style: AppTextStyles.fontWhite18W500)
           ),
           SizedBox(height: 10.h),
           const ChangeProfileImageWidget(),

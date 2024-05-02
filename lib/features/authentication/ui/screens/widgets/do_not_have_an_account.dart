@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:space_app/generated/l10n.dart';
 
-import '../../../../../core/helpers/constants_strings.dart';
 import '../../../../../core/routing/routes.dart';
 import '../../../../../core/theming/text_styles.dart';
 
@@ -12,10 +12,11 @@ class DoNotHaveAnAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Expanded(
+        Flexible(
             child: Text(
-              'Don\'t have an account?',
+              S.of(context).doNotHaveAnAccountTextKey,
               style: AppTextStyles.fontWhite15W500,
             )),
         TextButton(
@@ -23,7 +24,7 @@ class DoNotHaveAnAccount extends StatelessWidget {
               Navigator.pushNamed(context, Routes.registerScreen);
             },
             child: Text(
-              signUpTextKey,
+              S.of(context).signUpTextKey,
               style: AppTextStyles.fontWhite17W500,
             ))
       ],

@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:space_app/core/helpers/constants_strings.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
 import 'package:space_app/core/theming/colors.dart';
 import 'package:space_app/core/theming/text_styles.dart';
+import 'package:space_app/generated/l10n.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/assets.dart';
@@ -54,20 +52,20 @@ class FirstOnBoardingScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  virtualTextKey,
+                  S.of(context).virtualTextKey,
                   style: AppTextStyles.fontWhite40W500.copyWith(height: 1.h),
                 ),
                 Text(
-                  galaxyTextKey,
+                  S.of(context).galaxyTextKey,
                   style: AppTextStyles.fontWhite70W600.copyWith(height: 1.h),
                 ),
                 Text(
-                  explorerTextKey,
+                  S.of(context).explorerTextKey,
                   style: AppTextStyles.fontWhite70W600.copyWith(height: 1.h),
                 ),
                 SizedBox(height: 20.h),
                 Text(
-                  weWillLearnTextKey,
+                  S.of(context).weWillLearnTextKey,
                   style: AppTextStyles.fontWhite16W600,
                 ),
               ],
@@ -81,7 +79,7 @@ class FirstOnBoardingScreen extends StatelessWidget {
               onPressed: () {
                 context.pushNamed(Routes.secondOnboardingScreen);
               },
-              label: startTextKey,
+              label: S.of(context).startTextKey,
               isFullWidth: false,
               backgroundColor: AppColors.primaryWhiteColor,
               labelColor: AppColors.primaryBlackColor,

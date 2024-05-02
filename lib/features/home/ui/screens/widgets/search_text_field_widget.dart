@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:space_app/generated/l10n.dart';
 
-import '../../../../../core/helpers/constants_strings.dart';
 import '../../../../../core/theming/assets.dart';
 import 'app_text_form_field.dart';
 
@@ -15,7 +14,7 @@ class SearchTextFieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppTextFormField(
       controller: searchController,
-      hintText: searchYourFavoritePlaceTextKey,
+      hintText: S.of(context).searchYourFavoritePlaceTextKey,
       suffixIcon: IconButton(onPressed: (){},
           iconSize: 40.w,
           icon: SvgPicture.asset(AppAssets.searchIcon,)),

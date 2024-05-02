@@ -1,13 +1,10 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:space_app/core/theming/assets.dart';
 import 'package:space_app/core/theming/colors.dart';
+import 'package:space_app/generated/l10n.dart';
 
-import '../../../../../core/helpers/constants_strings.dart';
 import '../../../../../core/theming/text_styles.dart';
 
 class PickCardWidget extends StatelessWidget {
@@ -44,7 +41,7 @@ class PickCardWidget extends StatelessWidget {
                       AppColors.primaryWhiteColor.withOpacity(0.1),
                       AppColors.primaryBlackColor.withOpacity(0.8),
                     ],
-                    stops: [
+                    stops: const [
                       0.0,
                       1.9
                     ]),
@@ -64,7 +61,7 @@ class PickCardWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        adventurerTextKey,
+                        S.of(context).adventurerTextKey,
                         style: AppTextStyles.fontWhite15W500,
                       ),
                       RichText(
@@ -72,7 +69,7 @@ class PickCardWidget extends StatelessWidget {
                           text: cardName,
                           style: AppTextStyles.fontWhite33W600,
                           children: <TextSpan>[
-                            TextSpan(
+                            const TextSpan(
                               text: ' ',
                             ),
                             TextSpan(
@@ -89,8 +86,7 @@ class PickCardWidget extends StatelessWidget {
                     padding: EdgeInsets.all(6.h),
                     height: 54.h,
                     minWidth: 59.w,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.h)),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.h)),
                     child: SvgPicture.asset(
                       AppAssets.forwardArrowIcon,
                       color: Colors.white,

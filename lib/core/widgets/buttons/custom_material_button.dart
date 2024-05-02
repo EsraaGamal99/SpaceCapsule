@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:space_app/features/localization/logic/localization_cubit.dart';
 import '../../theming/assets.dart';
 import '../../theming/colors.dart';
 import '../../theming/text_styles.dart';
@@ -40,8 +43,11 @@ class CustomMaterialButton extends StatelessWidget {
               label,
               style: AppTextStyles.fontBlack21W500,
             ),
-             SizedBox(width: 10.w),
-            SvgPicture.asset(AppAssets.forwardArrowIcon),
+            SizedBox(width: 10.w),
+            RotatedBox(
+              quarterTurns: BlocProvider.of<LocalizationCubit>(context).isArabic() ? 2 : 0,
+              child: SvgPicture.asset(AppAssets.forwardArrowIcon),
+            ),
           ],
         ),
       ),

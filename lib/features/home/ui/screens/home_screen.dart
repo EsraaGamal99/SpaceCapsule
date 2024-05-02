@@ -1,13 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:space_app/core/widgets/loading_widgets/screens_loading_widget.dart';
-import 'package:space_app/core/widgets/loading_widgets/small_loading_widget.dart';
 import 'package:space_app/features/home/ui/screens/widgets/app_bar_widget.dart';
 import 'package:space_app/features/home/ui/screens/widgets/list_picks_widget.dart';
-import 'package:space_app/features/home/ui/screens/widgets/pick_card_widget.dart';
 import 'package:space_app/features/home/ui/screens/widgets/picks_title_widget.dart';
-import 'package:space_app/features/home/ui/screens/widgets/search_text_field_widget.dart';
 
 import '../../../../core/theming/assets.dart';
 

@@ -13,7 +13,7 @@ class RegisterScreen extends StatelessWidget {
     return ScaffoldForAuthentication(
       body: BlocProvider(
         create: (context) => RegisterCubit(AuthRepo()),
-        child: RegisterBody(),
+        child: const RegisterBody(),
       ),
     );
   }

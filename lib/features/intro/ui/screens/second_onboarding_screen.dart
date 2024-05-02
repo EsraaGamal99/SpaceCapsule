@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
+import 'package:space_app/features/localization/logic/localization_cubit.dart';
+import 'package:space_app/generated/l10n.dart';
 
-import '../../../../core/helpers/constants_strings.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/assets.dart';
 import '../../../../core/theming/colors.dart';
@@ -28,12 +30,11 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
     return Scaffold(
       body: PageView.builder(
           onPageChanged: (index) {
-            print('onBoardingScreenIndex $onBoardingScreenIndex  index $index  onBoardingData.length  ${onBoardingData.length}');
             setState(() {
               onBoardingScreenIndex = index;
             });
           },
-          itemCount: onBoardingData.length,
+          itemCount: getOnBoardingData(context).length,
           itemBuilder: (context, index) {
             return Stack(
               children: [
@@ -41,7 +42,7 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                   height: MediaQueryHelper(context).height,
                   width: MediaQueryHelper(context).width,
                   child: Image.asset(
-                    onBoardingData[index].image,
+                    getOnBoardingData(context)[index].image,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -63,32 +64,75 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                   ),
                 ),
                 // if(onBoardingScreenIndex != onBoardingData.length - 2 || onBoardingScreenIndex != onBoardingData.length - 1)
-                  Positioned(
-                    top: 60,
-                    right: 20,
-                    child: InkWell(
-                      onTap: () {
-                        context.pushNamed(Routes.welcomeScreen);
-                      },
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 4),
-                        decoration: BoxDecoration(
-                          color: AppColors.primaryLightGreyColor.withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: Row(
-                          children: [
-                            Text(
-                              skipTextKey,
-                              style: AppTextStyles.fontWhite22W600,
+                BlocProvider.of<LocalizationCubit>(context).isArabic()
+                    ? Positioned(
+                        top: 60,
+                        left: 20,
+                        child: InkWell(
+                          onTap: () {
+                            context.pushNamed(Routes.welcomeScreen);
+                          },
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20.w, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: AppColors.primaryLightGreyColor.withOpacity(0.5),
+                              borderRadius: BorderRadius.circular(16),
                             ),
-                            SizedBox(width: 10.w),
-                            SvgPicture.asset(AppAssets.forwardArrowIcon, colorFilter: const ColorFilter.mode(AppColors.primaryWhiteColor, BlendMode.srcIn),),
-                          ],
+                            child: Row(
+                              children: [
+                                Text(
+                                  S.of(context).skipTextKey,
+                                  style: AppTextStyles.fontWhite22W600,
+                                ),
+                                SizedBox(width: 10.w),
+                                RotatedBox(
+                                    quarterTurns: BlocProvider.of<LocalizationCubit>(context).isArabic() ? 2 : 0,
+                                    child: SvgPicture.asset(
+                                      AppAssets.forwardArrowIcon,
+                                      colorFilter: const ColorFilter.mode(
+                                          AppColors.primaryWhiteColor,
+                                          BlendMode.srcIn),
+                                    ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      )
+                    : Positioned(
+                        top: 60,
+                        right: 20,
+                        child: InkWell(
+                          onTap: () {
+                            context.pushNamed(Routes.welcomeScreen);
+                          },
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20.w, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: AppColors.primaryLightGreyColor
+                                  .withOpacity(0.5),
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Row(
+                              children: [
+                                Text(
+                                  S.of(context).skipTextKey,
+                                  style: AppTextStyles.fontWhite22W600,
+                                ),
+                                SizedBox(width: 10.w),
+                                SvgPicture.asset(
+                                  AppAssets.forwardArrowIcon,
+                                  colorFilter: const ColorFilter.mode(
+                                      AppColors.primaryWhiteColor,
+                                      BlendMode.srcIn),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
                 Positioned(
                   top: 120,
                   left: 20,
@@ -98,7 +142,7 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        onBoardingData[index].title,
+                        getOnBoardingData(context)[index].title,
                         style: AppTextStyles.fontWhite63W600.copyWith(height: 1.h),
                       ),
                     ],
@@ -110,12 +154,12 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                     children: [
                       Expanded(child: Container()),
                       SizedBox(height: 20.h),
-                      Text(onBoardingData[index].description,
+                      Text(getOnBoardingData(context)[index].description,
                           style: AppTextStyles.fontWhite17W500),
                       SizedBox(height: 30.h),
-                      onBoardingScreenIndex != onBoardingData.length - 1
+                      onBoardingScreenIndex != getOnBoardingData(context).length - 1
                           ? OnBoardingDotsButton(
-                              onBoardingScreensNumber: onBoardingData.length,
+                              onBoardingScreensNumber: getOnBoardingData(context).length,
                               isActive: onBoardingScreenIndex == index,
                               onBoardingScreenIndex: onBoardingScreenIndex,
                             )
@@ -125,7 +169,7 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                                 onPressed: () {
                                   context.pushReplacementNamed(Routes.welcomeScreen);
                                 },
-                                label: startTextKey,
+                                label: S.of(context).startTextKey,
                                 isFullWidth: false,
                                 backgroundColor: AppColors.primaryWhiteColor,
                                 labelColor: AppColors.primaryBlackColor,

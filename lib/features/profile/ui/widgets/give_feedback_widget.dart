@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/helpers/constants_sizes.dart';
+import 'package:space_app/generated/l10n.dart';
 
-import '../../../../core/helpers/constants_strings.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/text_styles.dart';
 
@@ -46,7 +46,7 @@ class GiveFeedBackWidget extends StatelessWidget {
               SizedBox(height: 30.h),
               Align(
                 alignment: Alignment.centerLeft,
-                child: Text(feedbackTextKey, style: AppTextStyles.fontWhite17W500,),
+                child: Text(S.of(context).feedbackTextKey, style: AppTextStyles.fontWhite17W500,),
               ),
               SizedBox(height: 12.h),
               TextFormField(
@@ -56,7 +56,7 @@ class GiveFeedBackWidget extends StatelessWidget {
                 style: const TextStyle(color: AppColors.primaryWhiteColor),
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 12.h),
-                  hintText: giveYourFeedbackTextKey,
+                  hintText: S.of(context).giveYourFeedbackTextKey,
                   hintStyle: const TextStyle(color: AppColors.primarySmokeyGreyColor),
                   border: const OutlineInputBorder(
                     borderSide: BorderSide(color: AppColors.primarySmokeyGreyColor),
@@ -76,7 +76,7 @@ class GiveFeedBackWidget extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    saveTextKey,
+                    S.of(context).saveTextKey,
                     style: TextStyle(
                       color: AppColors.primaryBlackColor,
                       fontSize: 16.sp,

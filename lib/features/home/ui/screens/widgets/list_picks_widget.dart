@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:space_app/features/home/ui/screens/widgets/pick_card_widget.dart';
 import 'package:space_app/core/theming/assets.dart';
+import 'package:space_app/generated/l10n.dart';
 
 
 class ListPicksWidget extends StatelessWidget {
@@ -10,16 +11,20 @@ class ListPicksWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
         shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
-          return PickCardWidget(cardName: cardName[index],imageName: imageName[index],);
+          return PickCardWidget(cardName: getCardTitle(context)[index],imageName: imageName[index],);
         },
-        separatorBuilder: (context, index) => const SizedBox(
-              height: 15,
-            ),
+        separatorBuilder: (context, index) => const SizedBox(height: 15),
         itemCount: 3);
   }
 }
 
-List<String> cardName = ['Rockets', 'Dragons', 'Landpods'];
+getCardTitle(BuildContext context) {
+  return [
+    S.of(context).rocketsTextKey,
+    S.of(context).dragonsTextKey,
+    S.of(context).landpadsTextKey,
+  ];
+}
 List<String> imageName = [AppAssets.rockets, AppAssets.galaxy, AppAssets.insightfulImage];
