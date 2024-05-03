@@ -20,7 +20,7 @@ class InnerAppBar extends StatelessWidget {
           onTap: () {
             context.pop();
           },
-          child: const Icon(Icons.arrow_back_ios_sharp, color: AppColors.primaryLightGreyColor)
+          child: Icon(Icons.arrow_back_ios_sharp, color: Theme.of(context).colorScheme.primary)
         ),
         SizedBox(width: 17.0.w),
         Column(
@@ -33,11 +33,11 @@ class InnerAppBar extends StatelessWidget {
                 children: [
                   Text(
                     topText,
-                    style: AppTextStyles.fontLightGrey17W500,
+                    style: AppTextStyles.fontLightGrey17W500.copyWith(color: Theme.of(context).colorScheme.primary),
                   ),
                   Text(
                     bottomText,
-                    style: AppTextStyles.fontLightGrey30W700,
+                    style: AppTextStyles.fontLightGrey30W700.copyWith(color: Theme.of(context).colorScheme.primary),
                   ),
                 ],
               ),

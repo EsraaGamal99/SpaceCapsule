@@ -23,7 +23,7 @@ class AppPreferencesItemWidget extends StatelessWidget {
               children: [
                 Icon(
                   iconData,
-                  color: AppColors.primaryWhiteColor,
+                  color: Theme.of(context).colorScheme.primary,
                   size: 35,
                 ),
                 Padding(
@@ -33,11 +33,15 @@ class AppPreferencesItemWidget extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: AppTextStyles.fontWhite22W600,
+                        style: AppTextStyles.fontWhite22W600.copyWith(
+                            color: Theme.of(context).colorScheme.primary,
+                        ),
                       ),
                       Text(
                         subTitle,
-                        style: AppTextStyles.fontLightGrey17W500,
+                        style: AppTextStyles.fontLightGrey17W500.copyWith(
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
                       ),
 
                     ],

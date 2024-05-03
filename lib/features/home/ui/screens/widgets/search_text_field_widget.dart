@@ -18,12 +18,7 @@ class SearchTextFieldWidget extends StatelessWidget {
       hintText: searchYourFavoritePlaceTextKey,
       suffixIcon: IconButton(onPressed: (){},
           iconSize: 40.w,
-          icon: SvgPicture.asset(AppAssets.searchIcon,)),
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Please enter a valid password';
-        }
-      },
+          icon: SvgPicture.asset(AppAssets.searchIcon,color: Theme.of(context).colorScheme.primary,)),
     );
   }
 }

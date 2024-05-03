@@ -22,7 +22,7 @@ class WelcomeScreen extends StatelessWidget {
             height: MediaQueryHelper(context).height,
             width: MediaQueryHelper(context).width,
             child: Image.asset(
-              AppAssets.welcomeImage,
+              AppThemeCubit.isDarkMode ?  AppAssets.welcomeImage :AppAssets.welcomeImageLightMode,
               fit: BoxFit.cover,
             ),
           ),
