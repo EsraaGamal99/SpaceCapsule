@@ -25,22 +25,24 @@ class AppAssets {
 
   /// Images
   // -------------------------- OnBoarding Images ----------------------------
-  static const String onBoarding1      = 'assets/images/onboarding1.png';
-  static const String onBoarding2      = 'assets/images/onboarding2.png';
-  static const String onBoarding3      = 'assets/images/onboarding3.png';
-  static const String onBoarding4      = 'assets/images/onboarding4.png';
-  static const String onBoarding5      = 'assets/images/onboarding5.png';
-  static const String authBackground   = 'assets/images/background.png';
-  static const String welcomeImage     = 'assets/images/welcome_image.png';
+  static const String onBoarding1           = 'assets/images/onboarding1.png';
+  static const String onBoarding2           = 'assets/images/onboarding2.png';
+  static const String onBoarding3           = 'assets/images/onboarding3.png';
+  static const String onBoarding4           = 'assets/images/onboarding4.png';
+  static const String onBoarding5           = 'assets/images/onboarding5.png';
+  static const String authBackground        = 'assets/images/background.png';
+  static const String welcomeImage          = 'assets/images/welcome_image.png';
+  static const String rocketsBackground     = 'assets/images/rockets_bachground.jpg';
+
 
   // -------------------------- Home Images ---------------------------------
   static const String homeBackgroundImage     = 'assets/images/homeBackground.png';
-  static const String ellipseImage     = 'assets/images/ellipse.png';
-  static const String adventurerImage  = 'assets/images/adventurer.png';
-  static const String insightfulImage  = 'assets/images/insightful.png';
-  static const String galaxy           = 'assets/images/galaxy.png';
-  static const String rockets          = 'assets/images/rockets.png';
-  static const String cheeringImage    = 'assets/images/cheering.png';
+  static const String ellipseImage            = 'assets/images/ellipse.png';
+  static const String adventurerImage         = 'assets/images/adventurer.png';
+  static const String insightfulImage         = 'assets/images/insightful.png';
+  static const String galaxy                  = 'assets/images/galaxy.png';
+  static const String rockets                 = 'assets/images/rockets.png';
+  static const String cheeringImage            = 'assets/images/cheering.png';
 
   // -------------------------- Profile Icons --------------------------------
   static const String userPlaceHolder     = 'assets/images/user_placeholder.png';
