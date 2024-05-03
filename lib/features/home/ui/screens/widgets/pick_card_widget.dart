@@ -1,16 +1,26 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:space_app/core/routing/routes.dart';
 import 'package:space_app/core/theming/assets.dart';
 import 'package:space_app/core/theming/colors.dart';
 import 'package:space_app/generated/l10n.dart';
-
 import '../../../../../core/theming/text_styles.dart';
 
 class PickCardWidget extends StatelessWidget {
   final String cardName;
   final String imageName;
-  const PickCardWidget({Key? key, required this.cardName,required this.imageName}) : super(key: key);
+  final bool? isToDetailsScreen;
+  final void Function()? onPressed;
+
+  const PickCardWidget({
+    super.key,
+    required this.cardName,
+    required this.imageName,
+    this.isToDetailsScreen,
+    this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -77,11 +87,23 @@ class PickCardWidget extends StatelessWidget {
                                 style: AppTextStyles.fontLightGrey30W400),
                           ],
                         ),
+
                       ),
                     ],
                   ),
                   MaterialButton(
-                    onPressed: () {},
+                    onPressed: isToDetailsScreen == true
+                        ? onPressed
+                        : () {
+                            cardName == 'Rockets'
+                                ? Navigator.pushNamed(
+                                    context, Routes.rocketsScreen)
+                                : (cardName == 'Dragons')
+                                    ? Navigator.pushNamed(
+                                        context, Routes.dragonScreen)
+                                    : Navigator.pushNamed(
+                                        context, Routes.landPodsScreen);
+                          },
                     color: AppColors.primaryMediumGrayColor.withOpacity(0.4),
                     padding: EdgeInsets.all(6.h),
                     height: 54.h,

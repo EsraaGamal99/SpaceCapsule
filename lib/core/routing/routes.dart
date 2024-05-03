@@ -10,5 +10,11 @@ class Routes {
   static const String firstOnboardingScreen  = '/onboardingScreen';
   static const String secondOnboardingScreen = '/secondOnboardingScreen';
   static const String welcomeScreen          = '/welcomeScreen';
-
+  static const String homeOfItemsScreen      = '/homeOfItemsScreen';
+  static const String rocketsScreen          = '/rocketsScreen';
+  static const String rocketDetailsScreen    = '/rocketDetailsScreen';
+  static const String landPodsDetailsScreen  = '/landPodsDetailsScreen';
+  static const String landPodsScreen         = '/landPodsScreen';
+  static const String dragonDetailsScreen    = '/dragonDetailsScreen';
+  static const String dragonScreen           = '/dragonScreen';
 }

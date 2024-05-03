@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/theming/text_styles.dart';
-import 'package:space_app/core/widgets/buttons/custom_material_button.dart';
 import 'package:space_app/features/authentication/logic/register_cubit/register_cubit.dart';
 import 'package:space_app/features/authentication/ui/screens/widgets/register_bloc_listener.dart';
 import 'package:space_app/features/authentication/ui/screens/widgets/user_data_section.dart';
 import 'package:space_app/generated/l10n.dart';
 
+import '../../../../../core/widgets/buttons/animation_button.dart';
+import '../../../../../core/widgets/buttons/custom_material_button.dart';
 import 'already_have_account.dart';
 
 class RegisterBody extends StatelessWidget {
@@ -42,8 +43,8 @@ class RegisterBody extends StatelessWidget {
               emailController: read.emailController,
               passwordController: read.passwordController,
             ),
-            CustomMaterialButton(
-              onPressed: () async {
+            AnimationButton(
+              onPress:  () async {
                 await BlocProvider.of<RegisterCubit>(context).userRegistration(
                   name: read.nameController.text,
                   email: read.emailController.text,
@@ -51,6 +52,7 @@ class RegisterBody extends StatelessWidget {
                 );
               },
               label: S.of(context).signUpTextKey,
+
             ),
             SizedBox(
               height: 10.h,

@@ -3,9 +3,8 @@ import 'package:space_app/features/home/ui/screens/widgets/pick_card_widget.dart
 import 'package:space_app/core/theming/assets.dart';
 import 'package:space_app/generated/l10n.dart';
 
-
 class ListPicksWidget extends StatelessWidget {
-  const ListPicksWidget({Key? key}) : super(key: key);
+  const ListPicksWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
