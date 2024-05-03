@@ -33,6 +33,8 @@ class AppAssets {
   static const String authBackground        = 'assets/images/background.png';
   static const String welcomeImage          = 'assets/images/welcome_image.png';
   static const String rocketsBackground     = 'assets/images/rockets_bachground.jpg';
+  static const String landPodsBackground    = 'assets/images/landpods_bachground.jpg';
+  static const String dragonsBackground     = 'assets/images/dragons_background.jpg';
 
 
   // -------------------------- Home Images ---------------------------------
