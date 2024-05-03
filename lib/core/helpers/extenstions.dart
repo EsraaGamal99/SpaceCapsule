@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:space_app/generated/l10n.dart';
 
 extension NavigationHelper on BuildContext {
   void push(Widget screen) {
@@ -21,4 +22,9 @@ extension NavigationHelper on BuildContext {
 extension MediaQueryHelper on BuildContext {
   double get width => MediaQuery.of(this).size.width;
   double get height => MediaQuery.of(this).size.height;
+}
+
+
+extension TranslationHelper on BuildContext {
+  get translate => S.of(this);
 }

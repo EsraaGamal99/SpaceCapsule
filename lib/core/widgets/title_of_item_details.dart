@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 import 'package:space_app/core/theming/text_styles.dart';
-
-import '../helpers/constants_strings.dart';
 
 class TitleOfItemDetails extends StatelessWidget {
   final String title;
@@ -29,7 +28,7 @@ class TitleOfItemDetails extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              adventurerTextKey,
+              context.translate.translate.adventurerTextKey,
               style: AppTextStyles.fontWhite15W500,
             ),
             Text(

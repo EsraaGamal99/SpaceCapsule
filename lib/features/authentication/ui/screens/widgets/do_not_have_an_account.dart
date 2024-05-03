@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:space_app/generated/l10n.dart';
-
+import 'package:space_app/core/helpers/extenstions.dart';
 import '../../../../../core/routing/routes.dart';
 import '../../../../../core/theming/text_styles.dart';
 
@@ -16,7 +15,7 @@ class DoNotHaveAnAccount extends StatelessWidget {
       children: [
         Flexible(
             child: Text(
-              S.of(context).doNotHaveAnAccountTextKey,
+              context.translate.translate.doNotHaveAnAccountTextKey,
               style: AppTextStyles.fontWhite15W500,
             ),
         ),
@@ -25,7 +24,7 @@ class DoNotHaveAnAccount extends StatelessWidget {
               Navigator.pushNamed(context, Routes.registerScreen);
             },
             child: Text(
-              S.of(context).signUpTextKey,
+              context.translate.translate.signUpTextKey,
               style: AppTextStyles.fontWhite17W500,
             ),
         )

@@ -1,5 +1,5 @@
-import 'package:space_app/generated/l10n.dart';
-import '../../../core/theming/app_theme_cubit/app_theme_cubit.dart';
+import 'package:flutter/material.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 import '../../../core/theming/assets.dart';
 
 class OnBoardingData {
@@ -12,11 +12,11 @@ class OnBoardingData {
 
 getOnBoardingData(BuildContext context) {
   return [
-    OnBoardingData(title: S.of(context).insightsTextKey,   description: S.of(context).embarkOnAnInterstellarTextKey, image: AppAssets.onBoarding1),
-    OnBoardingData(title: S.of(context).galaxiesTextKey,   description: S.of(context).exploreTheMarvelsTextKey,      image: AppAssets.onBoarding2),
-    OnBoardingData(title: S.of(context).rocketsTextKey,    description: S.of(context).stellarDiscoveriesTextKey,     image: AppAssets.onBoarding3),
-    OnBoardingData(title: S.of(context).planetsTextKey,    description: S.of(context).embarkOnAnInterstellarTextKey, image: AppAssets.onBoarding4),
-    OnBoardingData(title: S.of(context).satellitesTextKey, description: S.of(context).ventureIntoTextKey,            image: AppAssets.onBoarding5),
+    OnBoardingData(title: context.translate.translate.insightsTextKey,   description: context.translate.translate.embarkOnAnInterstellarTextKey, image: AppAssets.onBoarding1),
+    OnBoardingData(title: context.translate.translate.galaxiesTextKey,   description: context.translate.translate.exploreTheMarvelsTextKey,      image: AppAssets.onBoarding2),
+    OnBoardingData(title: context.translate.translate.rocketsTextKey,    description: context.translate.translate.stellarDiscoveriesTextKey,     image: AppAssets.onBoarding3),
+    OnBoardingData(title: context.translate.translate.planetsTextKey,    description: context.translate.translate.embarkOnAnInterstellarTextKey, image: AppAssets.onBoarding4),
+    OnBoardingData(title: context.translate.translate.satellitesTextKey, description: context.translate.translate.ventureIntoTextKey,            image: AppAssets.onBoarding5),
   ];
 }
 

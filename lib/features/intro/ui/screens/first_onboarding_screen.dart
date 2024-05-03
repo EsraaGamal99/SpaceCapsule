@@ -53,20 +53,20 @@ class FirstOnBoardingScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  S.of(context).virtualTextKey,
+                  context.translate.translate.virtualTextKey,
                   style: AppTextStyles.fontWhite40W500.copyWith(height: 1.h,color: Theme.of(context).colorScheme.primary),
                 ),
                 Text(
-                  S.of(context).galaxyTextKey,
+                  context.translate.translate.galaxyTextKey,
                   style: AppTextStyles.fontWhite70W600.copyWith(height: 1.h,color: Theme.of(context).colorScheme.primary),
                 ),
                 Text(
-                  S.of(context).explorerTextKey,
+                  context.translate.translate.explorerTextKey,
                   style: AppTextStyles.fontWhite70W600.copyWith(height: 1.h,color: Theme.of(context).colorScheme.primary),
                 ),
                 SizedBox(height: 20.h),
                 Text(
-                  S.of(context).weWillLearnTextKey,
+                  context.translate.translate.weWillLearnTextKey,
                   style: AppTextStyles.fontWhite16W600.copyWith(color: Theme.of(context).colorScheme.primary),
                 ),
               ],
@@ -81,7 +81,7 @@ class FirstOnBoardingScreen extends StatelessWidget {
                 context.pushReplacementNamed(Routes.secondOnboardingScreen);
               },
               child: CustomMaterialButton(
-              label: S.of(context).startTextKey,
+              label: context.translate.translate.startTextKey,
                 isFullWidth: false,
                 // backgroundColor: AppColors.primaryWhiteColor,
                 // labelColor: AppColors.primaryBlackColor,

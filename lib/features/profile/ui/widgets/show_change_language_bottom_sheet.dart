@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/helpers/constants.dart';
 import 'package:space_app/features/localization/logic/localization_cubit.dart';
-import 'package:space_app/generated/l10n.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 
 import '../../../../core/theming/colors.dart';
 
@@ -29,14 +29,14 @@ class ChangeLanguageWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           ListTile(
-            title: Text(S.of(context).englishTextKey, style: const TextStyle(color: AppColors.primaryWhiteColor)),
+            title: Text(context.translate.translate.englishTextKey, style: const TextStyle(color: AppColors.primaryWhiteColor)),
             onTap: () {
               BlocProvider.of<LocalizationCubit>(context).changeLocale(englishLocale);
               Navigator.pop(context);
             },
           ),
           ListTile(
-            title: Text(S.of(context).arabicTextKey, style: const TextStyle(color: AppColors.primaryWhiteColor)),
+            title: Text(context.translate.translate.arabicTextKey, style: const TextStyle(color: AppColors.primaryWhiteColor)),
             onTap: () {
               BlocProvider.of<LocalizationCubit>(context).changeLocale(arabicLocale);
               Navigator.pop(context);

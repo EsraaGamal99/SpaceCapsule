@@ -7,10 +7,9 @@ import 'package:space_app/core/widgets/buttons/custom_material_button.dart';
 import 'package:space_app/features/authentication/logic/register_cubit/register_cubit.dart';
 import 'package:space_app/features/authentication/ui/screens/widgets/register_bloc_listener.dart';
 import 'package:space_app/features/authentication/ui/screens/widgets/user_data_section.dart';
-import 'package:space_app/generated/l10n.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 
 import '../../../../../core/widgets/buttons/animation_button.dart';
-import '../../../../../core/widgets/buttons/custom_material_button.dart';
 import 'already_have_account.dart';
 
 class RegisterBody extends StatelessWidget {
@@ -31,11 +30,11 @@ class RegisterBody extends StatelessWidget {
               height: 35.h,
             ),
             Text(
-              S.of(context).letsTextKey,
+              context.translate.translate.letsTextKey,
               style: AppTextStyles.fontWhite40W500,
             ),
             Text(
-              S.of(context).startWeTextKey,
+              context.translate.translate.startWeTextKey,
               style: AppTextStyles.fontWhite63W600.copyWith(height: 1.0),
             ),
             UserDataSection(
@@ -52,8 +51,9 @@ class RegisterBody extends StatelessWidget {
                   password: read.passwordController.text,
                 );
               },
-              label: S.of(context).signUpTextKey,
-
+              child: CustomMaterialButton(
+                label: context.translate.translate.signUpTextKey,
+              ),
             ),
             SizedBox(
               height: 10.h,

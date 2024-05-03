@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
 import 'package:space_app/features/localization/logic/localization_cubit.dart';
-import 'package:space_app/generated/l10n.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/assets.dart';
@@ -83,7 +82,7 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                             child: Row(
                               children: [
                                 Text(
-                                  S.of(context).skipTextKey,
+                                  context.translate.translate.skipTextKey,
                                   style: AppTextStyles.fontWhite22W600,
                                 ),
                                 SizedBox(width: 10.w),
@@ -119,7 +118,7 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                             child: Row(
                               children: [
                                 Text(
-                                  S.of(context).skipTextKey,
+                                  context.translate.translate.skipTextKey,
                                   style: AppTextStyles.fontWhite22W600.copyWith(color: Theme.of(context).colorScheme.primary),
                                 ),
                                 SizedBox(width: 10.w),
@@ -150,7 +149,7 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                     children: [
                       Expanded(child: Container()),
                       SizedBox(height: 20.h),
-                      Text(onBoardingData[index].description,
+                      Text(getOnBoardingData(context)[index].description,
                           style: AppTextStyles.fontWhite17W500.copyWith(color: Theme.of(context).colorScheme.primary)),
                       SizedBox(height: 30.h),
                       onBoardingScreenIndex != getOnBoardingData(context).length - 1
@@ -167,7 +166,7 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                                 },
                                 child: CustomMaterialButton(
 
-                                  label: S.of(context).startTextKey,
+                                  label: context.translate.translate.startTextKey,
                                   isFullWidth: false,
                                   // backgroundColor: AppColors.primaryWhiteColor,
                                   // labelColor: AppColors.primaryBlackColor,

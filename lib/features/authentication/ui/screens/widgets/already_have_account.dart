@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:space_app/core/theming/text_styles.dart';
-import 'package:space_app/generated/l10n.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 
 import '../../../../../core/routing/routes.dart';
 
@@ -15,7 +14,7 @@ class AlreadyHaveAnAccount extends StatelessWidget {
       children: [
         Flexible(
           child: Text(
-            S.of(context).alreadyHaveAnAccountTextKey,
+            context.translate.alreadyHaveAnAccountTextKey,
             style: AppTextStyles.fontWhite15W500,
           ),
         ),
@@ -24,7 +23,7 @@ class AlreadyHaveAnAccount extends StatelessWidget {
             Navigator.pushNamed(context, Routes.loginScreen);
           },
           child: Text(
-            S.of(context).logInTextKey,
+            context.translate.translate.logInTextKey,
             style: AppTextStyles.fontWhite17W500,
           ),
         ),

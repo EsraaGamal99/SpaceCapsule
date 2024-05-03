@@ -4,16 +4,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/theming/app_theme_cubit/app_theme_cubit.dart';
 import 'package:space_app/features/home/ui/screens/widgets/pick_card_widget.dart';
 import 'package:space_app/core/theming/assets.dart';
-import 'package:space_app/generated/l10n.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 
 import '../../../../../core/helpers/constants.dart';
 import '../../../../../core/theming/app_theme_cubit/app_theme_state.dart';
 
 getCardTitle(BuildContext context) {
   return [
-    S.of(context).rocketsTextKey,
-    S.of(context).dragonsTextKey,
-    S.of(context).landpadsTextKey,
+    context.translate.translate.rocketsTextKey,
+    context.translate.translate.dragonsTextKey,
+    context.translate.translate.landpadsTextKey,
   ];
 }
 List<String> imageName = [AppAssets.rockets, AppAssets.galaxy, AppAssets.insightfulImage];

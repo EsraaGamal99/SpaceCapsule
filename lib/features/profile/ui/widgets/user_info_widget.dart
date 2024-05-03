@@ -30,7 +30,7 @@ class UserInfoWidget extends StatelessWidget {
             onTap: () {
               context.pushNamed(Routes.editProfileScreen);
             },
-            child: Text(S.of(context).editProfileTextKey, style: AppTextStyles.fontWhite18W500)
+            child: Text(context.translate.translate.editProfileTextKey, style: AppTextStyles.fontWhite18W500)
           ),
           SizedBox(height: 10.h),
           const ChangeProfileImageWidget(),

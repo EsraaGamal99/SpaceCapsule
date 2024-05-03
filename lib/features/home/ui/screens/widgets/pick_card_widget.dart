@@ -1,26 +1,17 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:space_app/core/routing/routes.dart';
 import 'package:space_app/core/theming/assets.dart';
 import 'package:space_app/core/theming/colors.dart';
-import 'package:space_app/generated/l10n.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 import '../../../../../core/theming/text_styles.dart';
 
 class PickCardWidget extends StatelessWidget {
   final String cardName;
   final String imageName;
-  final bool? isToDetailsScreen;
-  final void Function()? onPressed;
-
-  const PickCardWidget({
-    super.key,
-    required this.cardName,
-    required this.imageName,
-    this.isToDetailsScreen,
-    this.onPressed,
-  });
+  final bool isHomeScreen;
+  const PickCardWidget({super.key, required this.cardName,required this.imageName, required this.isHomeScreen});
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +62,7 @@ class PickCardWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        S.of(context).adventurerTextKey,
+                        context.translate.translate.adventurerTextKey,
                         style: AppTextStyles.fontWhite15W500,
                       ),
                       RichText(
@@ -92,23 +83,15 @@ class PickCardWidget extends StatelessWidget {
                     ],
                   ),
                   MaterialButton(
-                    onPressed: isToDetailsScreen == true
-                        ? onPressed
-                        : () {
-                            cardName == 'Rockets'
-                                ? Navigator.pushNamed(
-                                    context, Routes.rocketsScreen)
-                                : (cardName == 'Dragons')
-                                    ? Navigator.pushNamed(
-                                        context, Routes.dragonScreen)
-                                    : Navigator.pushNamed(
-                                        context, Routes.landPodsScreen);
-                          },
+                    onPressed: () {
+                      isHomeScreen?Navigator.pushNamed(context, Routes.homeOfItemsScreen,arguments: cardName):null;
+                    },
                     color: AppColors.primaryMediumGrayColor.withOpacity(0.4),
                     padding: EdgeInsets.all(6.h),
                     height: 54.h,
                     minWidth: 59.w,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.h)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.h)),
                     child: SvgPicture.asset(
                       AppAssets.forwardArrowIcon,
                       color: Colors.white,

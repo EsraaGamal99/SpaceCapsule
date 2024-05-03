@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/helpers/constants_sizes.dart';
-import 'package:space_app/generated/l10n.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/text_styles.dart';
@@ -48,7 +48,7 @@ class GiveFeedBackWidget extends StatelessWidget {
                 SizedBox(height: 30.h),
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(S.of(context).feedbackTextKey, style: AppTextStyles.fontWhite17W500.copyWith(color: Theme.of(context).colorScheme.primary),),
+                  child: Text(context.translate.translate.feedbackTextKey, style: AppTextStyles.fontWhite17W500.copyWith(color: Theme.of(context).colorScheme.primary),),
                 ),
                 SizedBox(height: 12.h),
                 TextFormField(
@@ -58,7 +58,7 @@ class GiveFeedBackWidget extends StatelessWidget {
                   style: TextStyle(color: Theme.of(context).colorScheme.primary),
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 12.h),
-                    hintText: S.of(context).giveYourFeedbackTextKey,
+                    hintText: context.translate.translate.giveYourFeedbackTextKey,
                     hintStyle: const TextStyle(color: AppColors.primarySmokeyGreyColor),
                     border: const OutlineInputBorder(
                       borderSide: BorderSide(color: AppColors.primarySmokeyGreyColor),
@@ -78,7 +78,7 @@ class GiveFeedBackWidget extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      S.of(context).saveTextKey,
+                      context.translate.translate.saveTextKey,
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontSize: 16.sp,

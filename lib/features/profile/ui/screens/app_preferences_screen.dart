@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/helpers/functions/get_current_language.dart';
-import 'package:space_app/core/theming/colors.dart';
 import 'package:space_app/core/widgets/loading_widgets/small_loading_widget.dart';
-import 'package:space_app/generated/l10n.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 
 import '../../../../core/widgets/app_bars/inner_screens_app_bar.dart';
 import '../widgets/app_prefrences_item_widget.dart';
@@ -26,12 +25,12 @@ class AppPreferencesScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(top: 30.0.h, right: 17.0.w, left: 17.0.w),
                   child: InnerAppBar(
-                    topText: S.of(context).appTextKey,
-                    bottomText: S.of(context).preferencesTextKey,
+                    topText: context.translate.translate.appTextKey,
+                    bottomText: context.translate.translate.preferencesTextKey,
                   ),
                 ),
                 SizedBox(height: 20.h),
-                AppPreferencesItemWidget(iconData: Icons.light_mode_rounded, title: S.of(context).themeTextKey, subTitle: S.of(context).darkTextKey, onTap: () => showChangeThemeBottomSheet(context: context),),
+                AppPreferencesItemWidget(iconData: Icons.light_mode_rounded, title: context.translate.translate.themeTextKey, subTitle: context.translate.translate.darkTextKey, onTap: () => showChangeThemeBottomSheet(context: context),),
                 Divider(indent: 50.w, endIndent: 50.w, color: Theme.of(context).colorScheme.primary,),
                 FutureBuilder<String>(
                   future: getCurrentLanguageName(context),
@@ -43,7 +42,7 @@ class AppPreferencesScreen extends StatelessWidget {
                     } else {
                       return AppPreferencesItemWidget(
                         iconData: Icons.language,
-                        title: S.of(context).languageTextKey,
+                        title: context.translate.translate.languageTextKey,
                         subTitle: snapshot.data ?? '',
                         onTap: () => showChangeLanguageBottomSheet(context: context),
                       );

@@ -6,10 +6,10 @@ import 'package:space_app/core/routing/routes.dart';
 import 'package:space_app/core/widgets/auth_back_button.dart';
 
 import 'package:space_app/core/widgets/buttons/animation_button.dart';
+import 'package:space_app/core/widgets/buttons/custom_material_button.dart';
 import 'package:space_app/features/authentication/logic/login_cubit/login_cubit.dart';
 import 'package:space_app/features/authentication/ui/screens/widgets/login_bloc_listener.dart';
 import 'package:space_app/features/authentication/ui/screens/widgets/user_data_section.dart';
-import 'package:space_app/generated/l10n.dart';
 import '../../../../../core/theming/text_styles.dart';
 import 'do_not_have_an_account.dart';
 
@@ -28,11 +28,11 @@ class LoginBody extends StatelessWidget {
             children: [
               const AuthBackButton(),
               Text(
-                S.of(context).welcomeTextKey,
+                context.translate.translate.welcomeTextKey,
                 style: AppTextStyles.fontWhite40W500,
               ),
               Text(
-                S.of(context).backWelcomeTextKey,
+                context.translate.translate.backWelcomeTextKey,
                 style: AppTextStyles.fontWhite63W600.copyWith(height: 1.0),
               ),
               UserDataSection(
@@ -42,13 +42,14 @@ class LoginBody extends StatelessWidget {
               ),
               AnimationButton(
                 onPress: () async {
-                  context.pushNamed(Routes.homeScreen);
-                  // await BlocProvider.of<LoginCubit>(context).userLogin(
-                  //   email: cubit.emailController.text,
-                  //   password: cubit.passwordController.text,
-                  // );
+                  await BlocProvider.of<LoginCubit>(context).userLogin(
+                    email: cubit.emailController.text,
+                    password: cubit.passwordController.text,
+                  );
                   },
-                  label: S.of(context).logInTextKey,
+                child: CustomMaterialButton(
+
+                    label: context.translate.translate.logInTextKey),
               ),
               SizedBox(height: 10.h),
               const DoNotHaveAnAccount(),
