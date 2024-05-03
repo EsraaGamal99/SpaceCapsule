@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:space_app/features/localization/logic/localization_cubit.dart';
 import '../../theming/assets.dart';
 import '../../theming/text_styles.dart';
 
@@ -32,7 +34,10 @@ class CustomMaterialButton extends StatelessWidget {
             style: AppTextStyles.fontBlack21W500.copyWith(color: Theme.of(context).primaryColor),
           ),
            SizedBox(width: 10.w),
-          SvgPicture.asset(AppAssets.forwardArrowIcon, color: Theme.of(context).primaryColor,),
+          RotatedBox(
+            quarterTurns: BlocProvider.of<LocalizationCubit>(context).isArabic() ? 2 : 0,
+              child: SvgPicture.asset(AppAssets.forwardArrowIcon, color: Theme.of(context).primaryColor,)
+          ),
         ],
       ),
     );

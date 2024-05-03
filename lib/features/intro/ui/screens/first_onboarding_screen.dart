@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:space_app/core/helpers/constants_strings.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
 import 'package:space_app/core/theming/app_theme_cubit/app_theme_cubit.dart';
 import 'package:space_app/core/theming/text_styles.dart';
+import 'package:space_app/generated/l10n.dart';
 import 'package:space_app/core/widgets/buttons/animation_button.dart';
 
 import '../../../../core/routing/routes.dart';
@@ -55,20 +53,20 @@ class FirstOnBoardingScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  virtualTextKey,
+                  context.translate.virtualTextKey,
                   style: AppTextStyles.fontWhite40W500.copyWith(height: 1.h,color: Theme.of(context).colorScheme.primary),
                 ),
                 Text(
-                  galaxyTextKey,
+                  context.translate.galaxyTextKey,
                   style: AppTextStyles.fontWhite70W600.copyWith(height: 1.h,color: Theme.of(context).colorScheme.primary),
                 ),
                 Text(
-                  explorerTextKey,
+                  context.translate.explorerTextKey,
                   style: AppTextStyles.fontWhite70W600.copyWith(height: 1.h,color: Theme.of(context).colorScheme.primary),
                 ),
                 SizedBox(height: 20.h),
                 Text(
-                  weWillLearnTextKey,
+                  context.translate.weWillLearnTextKey,
                   style: AppTextStyles.fontWhite16W600.copyWith(color: Theme.of(context).colorScheme.primary),
                 ),
               ],
@@ -83,7 +81,7 @@ class FirstOnBoardingScreen extends StatelessWidget {
                 context.pushReplacementNamed(Routes.secondOnboardingScreen);
               },
               child: CustomMaterialButton(
-                label: startTextKey,
+              label: context.translate.startTextKey,
                 isFullWidth: false,
                 // backgroundColor: AppColors.primaryWhiteColor,
                 // labelColor: AppColors.primaryBlackColor,

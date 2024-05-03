@@ -3,9 +3,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/theming/app_theme_cubit/app_theme_cubit.dart';
 import 'package:space_app/features/home/ui/screens/widgets/pick_card_widget.dart';
+import 'package:space_app/core/theming/assets.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 
 import '../../../../../core/helpers/constants.dart';
 import '../../../../../core/theming/app_theme_cubit/app_theme_state.dart';
+
+getCardTitle(BuildContext context) {
+  return [
+    context.translate.rocketsTextKey,
+    context.translate.dragonsTextKey,
+    context.translate.landpadsTextKey,
+  ];
+}
+List<String> imageName = [AppAssets.rockets, AppAssets.galaxy, AppAssets.insightfulImage];
 
 class ListPicksWidget extends StatelessWidget {
   const ListPicksWidget({super.key});
@@ -21,7 +32,7 @@ class ListPicksWidget extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 return PickCardWidget(
-                  cardName: cardName[index],
+                  cardName: getCardTitle(context)[index],
                   imageName: AppThemeCubit.isDarkMode
                       ? imageName[index]
                       : imageNameLightMode[index],

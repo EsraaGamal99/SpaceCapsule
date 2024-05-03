@@ -21,8 +21,7 @@ class ListOfSpaceItems extends StatelessWidget {
               return PickCardWidget(
                 cardName: itemsTitle[index],
                 imageName: itemsImage[index],
-                isToDetailsScreen: true,
-                onPressed: navigateTo,
+                isHomeScreen: false,
               );
             },
             separatorBuilder: (context, index) => SizedBox(height: 30.h),

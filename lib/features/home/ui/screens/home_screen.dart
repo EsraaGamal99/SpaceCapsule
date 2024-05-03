@@ -1,16 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/theming/app_theme_cubit/app_theme_cubit.dart';
 import 'package:space_app/core/theming/app_theme_cubit/app_theme_state.dart';
-import 'package:space_app/features/home/ui/screens/widgets/app_bar_widget.dart';
+
 import 'package:space_app/features/home/ui/screens/widgets/list_picks_widget.dart';
-import 'package:space_app/features/home/ui/screens/widgets/picks_title_widget.dart';
-import 'package:space_app/features/home/ui/screens/widgets/widgets_with_background.dart';
 
-import '../../../../core/theming/assets.dart';
-
+import 'widgets/widgets_with_background.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -30,7 +25,6 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   BackgroundWidgets(),
                   ListPicksWidget(),
-
                 ],
               ),
             ),

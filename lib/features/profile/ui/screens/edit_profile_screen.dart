@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/helpers/constants_sizes.dart';
-import 'package:space_app/core/helpers/constants_strings.dart';
 import 'package:space_app/features/profile/ui/widgets/change_profile_image_widget.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/app_bars/inner_screens_app_bar.dart';
@@ -32,25 +32,25 @@ class EditProfileScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const InnerAppBar(
-                  topText: editTextKey,
-                  bottomText: profileTextKey,
+                InnerAppBar(
+                  topText: context.translate.editTextKey,
+                  bottomText: context.translate.profileTextKey,
                 ),
                 SizedBox(height: 40.h),
                 const Center(child: ChangeProfileImageWidget()),
                 SizedBox(height: 40.h),
                 EditProfileTextFieldWidget(
                   controller: userNameController,
-                  title: userNameTextKey,
-                  hintText: enterYourUsernameTextKey,
+                  title: context.translate.userNameTextKey,
+                  hintText: context.translate.enterYourUsernameTextKey,
                   initialValue: userName,
                   onChanged: (String value) {},
                 ),
                 SizedBox(height: 20.h),
                 EditProfileTextFieldWidget(
                   controller: userPasswordController,
-                  title: passwordTextKey,
-                  hintText: enterYourPasswordTextKey,
+                  title: context.translate.passwordTextKey,
+                  hintText: context.translate.enterYourPasswordTextKey,
                   initialValue: userName,
                   onChanged: (String value) {},
                   obscureText: true,
@@ -58,8 +58,8 @@ class EditProfileScreen extends StatelessWidget {
                 SizedBox(height: 20.h),
                 EditProfileTextFieldWidget(
                   controller: userEmailController,
-                  title: emailTextKey,
-                  hintText: enterYourEmailTextKey,
+                  title: context.translate.emailTextKey,
+                  hintText: context.translate.enterYourEmailTextKey,
                   initialValue: userEmail,
                   onChanged: (String value) {},
                   keyboardType: TextInputType.emailAddress,
@@ -76,7 +76,7 @@ class EditProfileScreen extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      saveTextKey,
+                      context.translate.saveTextKey,
                       style: TextStyle(
                         color: AppColors.primaryBlackColor,
                         fontSize: 16.sp,

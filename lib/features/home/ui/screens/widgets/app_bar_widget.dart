@@ -1,11 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:space_app/core/helpers/constants_strings.dart';
 import 'package:space_app/core/routing/routes.dart';
 import 'package:space_app/core/theming/assets.dart';
-import 'package:space_app/core/theming/colors.dart';
 import 'package:space_app/core/theming/text_styles.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 
 class AppBarWidget extends StatelessWidget {
   const AppBarWidget({Key? key}) : super(key: key);
@@ -23,11 +21,11 @@ class AppBarWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                welcomeOnboardTextKey, style: AppTextStyles.fontWhite13W400.copyWith(color: Theme.of(context).colorScheme.primary),
+                context.translate.welcomeOnboardTextKey, style: AppTextStyles.fontWhite13W400,
               ),
 
               Text(
-                spaceVoyagerTextKey, style: AppTextStyles.fontWhite30W500.copyWith(color: Theme.of(context).colorScheme.primary),
+                context.translate.spaceVoyagerTextKey, style: AppTextStyles.fontWhite30W500,
               ),
             ],
           ),

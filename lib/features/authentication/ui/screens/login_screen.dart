@@ -13,7 +13,7 @@ class LoginScreen extends StatelessWidget {
     return ScaffoldForAuthentication(
       body: BlocProvider(
         create: (context) => LoginCubit(AuthRepo()),
-        child: LoginBody(),
+        child: const LoginBody(),
       ),
     );
   }
