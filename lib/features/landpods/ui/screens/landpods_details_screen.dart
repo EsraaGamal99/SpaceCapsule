@@ -20,8 +20,10 @@ class _LandPodsDetailsScreen extends State<LandPodsDetailsScreen> {
       body: Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(AppAssets.landPodsBackground),
-            )),
+              image: AssetImage(AppAssets.landPodsBackground,),
+              fit: BoxFit.cover,
+              ),
+            ),
         child: SafeArea(
           child: Column(
             children: [
