@@ -23,7 +23,7 @@ class AlreadyHaveAnAccount extends StatelessWidget {
             Navigator.pushNamed(context, Routes.loginScreen);
           },
           child: Text(
-            context.translate.translate.logInTextKey,
+            context.translate.logInTextKey,
             style: AppTextStyles.fontWhite17W500,
           ),
         ),

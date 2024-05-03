@@ -28,7 +28,7 @@ class TitleOfItemDetails extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              context.translate.translate.adventurerTextKey,
+              context.translate.adventurerTextKey,
               style: AppTextStyles.fontWhite15W500,
             ),
             Text(

@@ -52,11 +52,11 @@ class WelcomeScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  context.translate.translate.letsFloatInTextKey,
+                  context.translate.letsFloatInTextKey,
                   style: AppTextStyles.fontWhite40W500.copyWith(height: 1.h,color: Theme.of(context).colorScheme.primary),
                 ),
                 Text(
-                  context.translate.translate.universeTextKey,
+                  context.translate.universeTextKey,
                   style: AppTextStyles.fontWhite70W600.copyWith(height: 1.h,color: Theme.of(context).colorScheme.primary),
                 ),
               ],
@@ -70,11 +70,11 @@ class WelcomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  context.translate.translate.welcomeTextKey,
+                  context.translate.welcomeTextKey,
                   style: AppTextStyles.fontWhite40W700.copyWith(color: Theme.of(context).colorScheme.primary),
                 ),
                 Text(
-                  context.translate.translate.unlockAUniverseTextKey,
+                  context.translate.unlockAUniverseTextKey,
                   style: AppTextStyles.fontWhite19W500.copyWith(height: 1.h, color: Theme.of(context).colorScheme.primary),
                 ),
                 SizedBox(height: 30.h),
@@ -83,7 +83,7 @@ class WelcomeScreen extends StatelessWidget {
                     context.pushNamed(Routes.loginScreen);
                   },
                   child: CustomMaterialButton(
-                    label: context.translate.translate.logInTextKey,
+                    label: context.translate.logInTextKey,
                     isFullWidth: false,
                     labelColor: AppColors.primaryBlackColor,
                   ),
@@ -93,7 +93,7 @@ class WelcomeScreen extends StatelessWidget {
                     onTap: () {
                       context.pushNamed(Routes.registerScreen);
                     },
-                    child: Center(child: Text(context.translate.translate.createNewAccountTextKey, style: AppTextStyles.fontWhite18W500.copyWith(color: Theme.of(context).colorScheme.primary, decoration: TextDecoration.underline, decorationColor: Theme.of(context).colorScheme.primary)))
+                    child: Center(child: Text(context.translate.createNewAccountTextKey, style: AppTextStyles.fontWhite18W500.copyWith(color: Theme.of(context).colorScheme.primary, decoration: TextDecoration.underline, decorationColor: Theme.of(context).colorScheme.primary)))
                 ),
               ],
             ),

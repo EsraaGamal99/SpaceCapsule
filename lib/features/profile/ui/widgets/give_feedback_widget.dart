@@ -48,7 +48,7 @@ class GiveFeedBackWidget extends StatelessWidget {
                 SizedBox(height: 30.h),
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(context.translate.translate.feedbackTextKey, style: AppTextStyles.fontWhite17W500.copyWith(color: Theme.of(context).colorScheme.primary),),
+                  child: Text(context.translate.feedbackTextKey, style: AppTextStyles.fontWhite17W500.copyWith(color: Theme.of(context).colorScheme.primary),),
                 ),
                 SizedBox(height: 12.h),
                 TextFormField(
@@ -58,7 +58,7 @@ class GiveFeedBackWidget extends StatelessWidget {
                   style: TextStyle(color: Theme.of(context).colorScheme.primary),
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 12.h),
-                    hintText: context.translate.translate.giveYourFeedbackTextKey,
+                    hintText: context.translate.giveYourFeedbackTextKey,
                     hintStyle: const TextStyle(color: AppColors.primarySmokeyGreyColor),
                     border: const OutlineInputBorder(
                       borderSide: BorderSide(color: AppColors.primarySmokeyGreyColor),
@@ -78,7 +78,7 @@ class GiveFeedBackWidget extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      context.translate.translate.saveTextKey,
+                      context.translate.saveTextKey,
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontSize: 16.sp,

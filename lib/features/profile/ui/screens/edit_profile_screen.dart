@@ -33,24 +33,24 @@ class EditProfileScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 InnerAppBar(
-                  topText: context.translate.translate.editTextKey,
-                  bottomText: context.translate.translate.profileTextKey,
+                  topText: context.translate.editTextKey,
+                  bottomText: context.translate.profileTextKey,
                 ),
                 SizedBox(height: 40.h),
                 const Center(child: ChangeProfileImageWidget()),
                 SizedBox(height: 40.h),
                 EditProfileTextFieldWidget(
                   controller: userNameController,
-                  title: context.translate.translate.userNameTextKey,
-                  hintText: context.translate.translate.enterYourUsernameTextKey,
+                  title: context.translate.userNameTextKey,
+                  hintText: context.translate.enterYourUsernameTextKey,
                   initialValue: userName,
                   onChanged: (String value) {},
                 ),
                 SizedBox(height: 20.h),
                 EditProfileTextFieldWidget(
                   controller: userPasswordController,
-                  title: context.translate.translate.passwordTextKey,
-                  hintText: context.translate.translate.enterYourPasswordTextKey,
+                  title: context.translate.passwordTextKey,
+                  hintText: context.translate.enterYourPasswordTextKey,
                   initialValue: userName,
                   onChanged: (String value) {},
                   obscureText: true,
@@ -58,8 +58,8 @@ class EditProfileScreen extends StatelessWidget {
                 SizedBox(height: 20.h),
                 EditProfileTextFieldWidget(
                   controller: userEmailController,
-                  title: context.translate.translate.emailTextKey,
-                  hintText: context.translate.translate.enterYourEmailTextKey,
+                  title: context.translate.emailTextKey,
+                  hintText: context.translate.enterYourEmailTextKey,
                   initialValue: userEmail,
                   onChanged: (String value) {},
                   keyboardType: TextInputType.emailAddress,
@@ -76,7 +76,7 @@ class EditProfileScreen extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      context.translate.translate.saveTextKey,
+                      context.translate.saveTextKey,
                       style: TextStyle(
                         color: AppColors.primaryBlackColor,
                         fontSize: 16.sp,

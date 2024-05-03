@@ -36,7 +36,7 @@ class ChangeThemeWidget extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.dark_mode_rounded, color: AppColors.primaryWhiteColor),
-            title: Text(context.translate.translate.darkTextKey, style: const TextStyle(color: AppColors.primaryWhiteColor)),
+            title: Text(context.translate.darkTextKey, style: const TextStyle(color: AppColors.primaryWhiteColor)),
             onTap: () {
               AppThemeCubit.get(context).toggleTheme(darkMode: true);
               debugPrint(AppThemeCubit.isDarkMode.toString());

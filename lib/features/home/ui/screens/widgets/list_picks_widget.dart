@@ -11,9 +11,9 @@ import '../../../../../core/theming/app_theme_cubit/app_theme_state.dart';
 
 getCardTitle(BuildContext context) {
   return [
-    context.translate.translate.rocketsTextKey,
-    context.translate.translate.dragonsTextKey,
-    context.translate.translate.landpadsTextKey,
+    context.translate.rocketsTextKey,
+    context.translate.dragonsTextKey,
+    context.translate.landpadsTextKey,
   ];
 }
 List<String> imageName = [AppAssets.rockets, AppAssets.galaxy, AppAssets.insightfulImage];

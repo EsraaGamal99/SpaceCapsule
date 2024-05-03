@@ -29,14 +29,14 @@ class ChangeLanguageWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           ListTile(
-            title: Text(context.translate.translate.englishTextKey, style: const TextStyle(color: AppColors.primaryWhiteColor)),
+            title: Text(context.translate.englishTextKey, style: const TextStyle(color: AppColors.primaryWhiteColor)),
             onTap: () {
               BlocProvider.of<LocalizationCubit>(context).changeLocale(englishLocale);
               Navigator.pop(context);
             },
           ),
           ListTile(
-            title: Text(context.translate.translate.arabicTextKey, style: const TextStyle(color: AppColors.primaryWhiteColor)),
+            title: Text(context.translate.arabicTextKey, style: const TextStyle(color: AppColors.primaryWhiteColor)),
             onTap: () {
               BlocProvider.of<LocalizationCubit>(context).changeLocale(arabicLocale);
               Navigator.pop(context);

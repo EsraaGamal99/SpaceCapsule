@@ -30,11 +30,11 @@ class RegisterBody extends StatelessWidget {
               height: 35.h,
             ),
             Text(
-              context.translate.translate.letsTextKey,
+              context.translate.letsTextKey,
               style: AppTextStyles.fontWhite40W500,
             ),
             Text(
-              context.translate.translate.startWeTextKey,
+              context.translate.startWeTextKey,
               style: AppTextStyles.fontWhite63W600.copyWith(height: 1.0),
             ),
             UserDataSection(
@@ -52,7 +52,7 @@ class RegisterBody extends StatelessWidget {
                 );
               },
               child: CustomMaterialButton(
-                label: context.translate.translate.signUpTextKey,
+                label: context.translate.signUpTextKey,
               ),
             ),
             SizedBox(

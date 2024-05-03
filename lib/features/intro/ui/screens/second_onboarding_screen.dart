@@ -82,7 +82,7 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                             child: Row(
                               children: [
                                 Text(
-                                  context.translate.translate.skipTextKey,
+                                  context.translate.skipTextKey,
                                   style: AppTextStyles.fontWhite22W600,
                                 ),
                                 SizedBox(width: 10.w),
@@ -118,7 +118,7 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                             child: Row(
                               children: [
                                 Text(
-                                  context.translate.translate.skipTextKey,
+                                  context.translate.skipTextKey,
                                   style: AppTextStyles.fontWhite22W600.copyWith(color: Theme.of(context).colorScheme.primary),
                                 ),
                                 SizedBox(width: 10.w),
@@ -166,7 +166,7 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                                 },
                                 child: CustomMaterialButton(
 
-                                  label: context.translate.translate.startTextKey,
+                                  label: context.translate.startTextKey,
                                   isFullWidth: false,
                                   // backgroundColor: AppColors.primaryWhiteColor,
                                   // labelColor: AppColors.primaryBlackColor,

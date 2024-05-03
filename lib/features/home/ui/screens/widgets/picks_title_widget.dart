@@ -18,14 +18,14 @@ class PicksTitleWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              context.translate.translate.topPicksTextKey,
+              context.translate.topPicksTextKey,
               style: AppTextStyles.fontWhite17W600.copyWith(color: Theme.of(context).colorScheme.primary),
             ),
             SizedBox(
               height: 5.h,
             ),
             Text(
-              context.translate.translate.letsExploreOurProgramsTextKey,
+              context.translate.letsExploreOurProgramsTextKey,
               style: AppTextStyles.fontWhite13W400.copyWith(color: Theme.of(context).colorScheme.primary),
             ),
           ],

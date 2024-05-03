@@ -25,12 +25,12 @@ class AppPreferencesScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(top: 30.0.h, right: 17.0.w, left: 17.0.w),
                   child: InnerAppBar(
-                    topText: context.translate.translate.appTextKey,
-                    bottomText: context.translate.translate.preferencesTextKey,
+                    topText: context.translate.appTextKey,
+                    bottomText: context.translate.preferencesTextKey,
                   ),
                 ),
                 SizedBox(height: 20.h),
-                AppPreferencesItemWidget(iconData: Icons.light_mode_rounded, title: context.translate.translate.themeTextKey, subTitle: context.translate.translate.darkTextKey, onTap: () => showChangeThemeBottomSheet(context: context),),
+                AppPreferencesItemWidget(iconData: Icons.light_mode_rounded, title: context.translate.themeTextKey, subTitle: context.translate.darkTextKey, onTap: () => showChangeThemeBottomSheet(context: context),),
                 Divider(indent: 50.w, endIndent: 50.w, color: Theme.of(context).colorScheme.primary,),
                 FutureBuilder<String>(
                   future: getCurrentLanguageName(context),
@@ -42,7 +42,7 @@ class AppPreferencesScreen extends StatelessWidget {
                     } else {
                       return AppPreferencesItemWidget(
                         iconData: Icons.language,
-                        title: context.translate.translate.languageTextKey,
+                        title: context.translate.languageTextKey,
                         subTitle: snapshot.data ?? '',
                         onTap: () => showChangeLanguageBottomSheet(context: context),
                       );

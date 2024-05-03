@@ -14,7 +14,7 @@ class SearchTextFieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppTextFormField(
       controller: searchController,
-      hintText: context.translate.translate.searchYourFavoritePlaceTextKey,
+      hintText: context.translate.searchYourFavoritePlaceTextKey,
       suffixIcon: IconButton(onPressed: (){},
           iconSize: 40.w,
           icon: SvgPicture.asset(AppAssets.searchIcon,color: Theme.of(context).colorScheme.primary,)),

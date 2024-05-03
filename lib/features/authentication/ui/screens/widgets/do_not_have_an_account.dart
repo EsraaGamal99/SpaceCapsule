@@ -15,7 +15,7 @@ class DoNotHaveAnAccount extends StatelessWidget {
       children: [
         Flexible(
             child: Text(
-              context.translate.translate.doNotHaveAnAccountTextKey,
+              context.translate.doNotHaveAnAccountTextKey,
               style: AppTextStyles.fontWhite15W500,
             ),
         ),
@@ -24,7 +24,7 @@ class DoNotHaveAnAccount extends StatelessWidget {
               Navigator.pushNamed(context, Routes.registerScreen);
             },
             child: Text(
-              context.translate.translate.signUpTextKey,
+              context.translate.signUpTextKey,
               style: AppTextStyles.fontWhite17W500,
             ),
         )

@@ -38,14 +38,14 @@ class _UserDataSectionState extends State<UserDataSection> {
             : CustomTextFormField(
                 controller: widget.nameController,
                 keyboardType: TextInputType.name,
-                hintText: context.translate.translate.yourNameTextKey,
+                hintText: context.translate.yourNameTextKey,
                 suffixIcon: SvgPicture.asset(
                   AppAssets.personIcon,color: Theme.of(context).colorScheme.primary,
                   height: 5,
                 ),
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return context.translate.translate.yourNameIsRequiredTextKey;
+                    return context.translate.yourNameIsRequiredTextKey;
                   }
                   return null;
                 },
@@ -55,12 +55,12 @@ class _UserDataSectionState extends State<UserDataSection> {
         ),
         CustomTextFormField(
           controller: widget.emailController,
-          hintText: widget.isLogin ? context.translate.translate.emailAddressTextKey : context.translate.translate.emailTextKey,
+          hintText: widget.isLogin ? context.translate.emailAddressTextKey : context.translate.emailTextKey,
           keyboardType: TextInputType.emailAddress,
           suffixIcon: SvgPicture.asset(AppAssets.emailIcon,color: Theme.of(context).colorScheme.primary),
           validator: (value) {
             if (value!.isEmpty) {
-              return context.translate.translate.yourEmailIsRequiredTextKey;
+              return context.translate.yourEmailIsRequiredTextKey;
             }
             return null;
           },
@@ -70,7 +70,7 @@ class _UserDataSectionState extends State<UserDataSection> {
         ),
         CustomTextFormField(
           controller: widget.passwordController,
-          hintText: context.translate.translate.passwordTextKey,
+          hintText: context.translate.passwordTextKey,
           keyboardType: TextInputType.visiblePassword,
           obscureText: obscureText,
           suffixIcon: InkWell(
@@ -89,7 +89,7 @@ class _UserDataSectionState extends State<UserDataSection> {
           ),
           validator: (value) {
             if (value!.isEmpty) {
-              return context.translate.translate.yourPasswordIsRequiredTextKey;
+              return context.translate.yourPasswordIsRequiredTextKey;
             }
             return null;
           },

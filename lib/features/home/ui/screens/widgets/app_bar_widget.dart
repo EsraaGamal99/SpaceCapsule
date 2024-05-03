@@ -21,11 +21,11 @@ class AppBarWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                context.translate.translate.welcomeOnboardTextKey, style: AppTextStyles.fontWhite13W400,
+                context.translate.welcomeOnboardTextKey, style: AppTextStyles.fontWhite13W400,
               ),
 
               Text(
-                context.translate.translate.spaceVoyagerTextKey, style: AppTextStyles.fontWhite30W500,
+                context.translate.spaceVoyagerTextKey, style: AppTextStyles.fontWhite30W500,
               ),
             ],
           ),

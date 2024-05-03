@@ -28,11 +28,11 @@ class LoginBody extends StatelessWidget {
             children: [
               const AuthBackButton(),
               Text(
-                context.translate.translate.welcomeTextKey,
+                context.translate.welcomeTextKey,
                 style: AppTextStyles.fontWhite40W500,
               ),
               Text(
-                context.translate.translate.backWelcomeTextKey,
+                context.translate.backWelcomeTextKey,
                 style: AppTextStyles.fontWhite63W600.copyWith(height: 1.0),
               ),
               UserDataSection(
@@ -49,7 +49,7 @@ class LoginBody extends StatelessWidget {
                   },
                 child: CustomMaterialButton(
 
-                    label: context.translate.translate.logInTextKey),
+                    label: context.translate.logInTextKey),
               ),
               SizedBox(height: 10.h),
               const DoNotHaveAnAccount(),
