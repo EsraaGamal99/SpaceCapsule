@@ -3,7 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_app/core/routing/routes.dart';
 import 'package:space_app/features/authentication/ui/screens/login_screen.dart';
 import 'package:space_app/features/authentication/ui/screens/register_screen.dart';
+import 'package:space_app/features/dragons/ui/screens/dragon_screen.dart';
+import 'package:space_app/features/dragons/ui/screens/dragons_deatials_screen.dart';
 import 'package:space_app/features/home_of_items/ui/screens/home_of_items_screen.dart';
+import 'package:space_app/features/landpods/ui/screens/landpods_details_screen.dart';
+import 'package:space_app/features/landpods/ui/screens/landposd_screen.dart';
 import 'package:space_app/features/profile/ui/screens/app_preferences_screen.dart';
 import 'package:space_app/features/intro/ui/screens/first_onboarding_screen.dart';
 import 'package:space_app/features/intro/ui/screens/second_onboarding_screen.dart';
@@ -35,15 +39,20 @@ class AppRouter {
         return MaterialPageRoute(builder: (context) => const HomeScreen());
       case Routes.homeOfItemsScreen:
         final argument = routeSettings.arguments as String;
-        return MaterialPageRoute(builder: (context) => HomeOfItemsScreen(screenTitle: argument,));
+        return MaterialPageRoute(
+            builder: (context) => HomeOfItemsScreen(
+                  screenTitle: argument,
+                ));
       case Routes.registerScreen:
         return MaterialPageRoute(builder: (context) => const RegisterScreen());
-       case Routes.loginScreen:
+      case Routes.loginScreen:
         return MaterialPageRoute(builder: (context) => const LoginScreen());
       case Routes.firstOnboardingScreen:
-        return MaterialPageRoute(builder: (context) => const FirstOnBoardingScreen());
+        return MaterialPageRoute(
+            builder: (context) => const FirstOnBoardingScreen());
       case Routes.secondOnboardingScreen:
-        return MaterialPageRoute(builder: (context) => const SecondOnBoardingScreen());
+        return MaterialPageRoute(
+            builder: (context) => const SecondOnBoardingScreen());
       case Routes.welcomeScreen:
         return MaterialPageRoute(builder: (context) => const WelcomeScreen());
       case Routes.profileScreen:
@@ -51,14 +60,27 @@ class AppRouter {
       case Routes.editProfileScreen:
         return MaterialPageRoute(builder: (context) => EditProfileScreen());
       case Routes.appPreferencesScreen:
-        return MaterialPageRoute(builder: (context) => const AppPreferencesScreen());
+        return MaterialPageRoute(
+            builder: (context) => const AppPreferencesScreen());
       case Routes.rocketsScreen:
         return MaterialPageRoute(builder: (context) => const RocketsScreen());
-        case Routes.rocketDetailsScreen:
-        return MaterialPageRoute(builder: (context) => const RocketDetailsScreen());
+      case Routes.rocketDetailsScreen:
+        return MaterialPageRoute(
+            builder: (context) => const RocketDetailsScreen());
+      case Routes.landPodsScreen:
+        return MaterialPageRoute(builder: (context) => const LandPodsScreen());
+      case Routes.landPodsDetailsScreen:
+        return MaterialPageRoute(
+            builder: (context) => const LandPodsDetailsScreen());
+      case Routes.dragonScreen:
+        return MaterialPageRoute(builder: (context) => const DragonScreen());
+      case Routes.dragonDetailsScreen:
+        return MaterialPageRoute(
+            builder: (context) => const DragonsDetailsScreen());
       default:
         return MaterialPageRoute(
-            builder: (context) => NotFoundScreen(routeSettingsName: routeSettings.name));
+            builder: (context) =>
+                NotFoundScreen(routeSettingsName: routeSettings.name));
     }
   }
 }
