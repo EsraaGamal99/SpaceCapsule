@@ -39,8 +39,8 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
             return Stack(
               children: [
                 SizedBox(
-                  height: MediaQueryHelper(context).height,
-                  width: MediaQueryHelper(context).width,
+                  height: context.height,
+                  width: context.width,
                   child: Image.asset(
                     getOnBoardingData(context)[index].image,
                     fit: BoxFit.cover,
@@ -49,8 +49,8 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                 Positioned(
                   bottom: 0,
                   child: Container(
-                    height: MediaQueryHelper(context).height * 0.4,
-                    width: MediaQueryHelper(context).width,
+                    height: context.height * 0.4,
+                    width: context.width,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.bottomCenter,
