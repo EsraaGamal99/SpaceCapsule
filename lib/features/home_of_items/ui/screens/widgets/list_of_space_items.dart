@@ -4,7 +4,12 @@ import 'package:space_app/core/theming/assets.dart';
 import 'package:space_app/features/home/ui/screens/widgets/pick_card_widget.dart';
 
 class ListOfSpaceItems extends StatelessWidget {
-  const ListOfSpaceItems({super.key});
+  final List<String> itemsTitle;
+  final List<String> itemsImage;
+  final void Function()? navigateTo;
+
+
+  const ListOfSpaceItems({super.key, required this.itemsTitle, required this.itemsImage, required this.navigateTo, });
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +20,10 @@ class ListOfSpaceItems extends StatelessWidget {
         child: ListView.separated(
             itemBuilder: (context, index) {
               return PickCardWidget(
-                isHomeScreen: false,
-                cardName: cardName[index],
-                imageName: imageName[index],
+                cardName: itemsTitle[index],
+                imageName: itemsImage[index],
+                isToDetailsScreen: true,
+                onPressed: navigateTo,
               );
             },
             separatorBuilder: (context, index) => SizedBox(height: 30.h),
@@ -27,10 +33,3 @@ class ListOfSpaceItems extends StatelessWidget {
   }
 }
 
-//TODO: replace it with real data when connected to api "the name and images of rockets, dragons and landpods"
-List<String> cardName = ['Rockets', 'Dragons', 'Landpods',];
-List<String> imageName = [
-  AppAssets.rockets,
-  AppAssets.galaxy,
-  AppAssets.insightfulImage,
-];

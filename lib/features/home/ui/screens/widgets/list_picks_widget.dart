@@ -12,10 +12,9 @@ class ListPicksWidget extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return PickCardWidget(
-            isHomeScreen: true,
             cardName: cardName[index],
             imageName: imageName[index],
-          );
+            );
         },
         separatorBuilder: (context, index) => const SizedBox(
               height: 15,
