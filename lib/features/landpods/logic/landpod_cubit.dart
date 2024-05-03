@@ -10,9 +10,9 @@ class LandpodCubit extends Cubit<LandpodState> {
   void fetchLandpods() async {
     emit(const LandpodState.loading());
     final landpods = await landpodRepo.getAllLandpods();
+
     landpods.when(success: (landpods) {
-      print(landpods.toList().toString());
-      emit(LandpodState.loaded(landpods));
+      emit(LandpodState.loaded(landpods ?? []));
     }, failure: (error) {
       emit(LandpodState.error(error.errorModel.message ?? ''));
     });

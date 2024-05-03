@@ -3,28 +3,28 @@ part 'landpod_model.g.dart';
 
 @JsonSerializable()
 class LandpodModel {
-  final String name;
-  final String fullName;
+  String? name;
+  String? fullName;
   @JsonKey(name: 'details')
-  final String description;
+  String? description;
   @JsonKey(name: 'images')
-  final ImageModel image;
-  final String type;
-  final String region;
-  final String locality;
-  final String status;
-  final String wikipedia;
+  ImageModel? image;
+  String? type;
+  String? region;
+  String? locality;
+  String? status;
+  String? wikipedia;
 
   LandpodModel({
-    required this.name,
-    required this.fullName,
-    required this.description,
-    required this.image,
-    required this.type,
-    required this.region,
-    required this.locality,
-    required this.status,
-    required this.wikipedia,
+    this.name,
+    this.fullName,
+    this.description,
+    this.image,
+    this.type,
+    this.region,
+    this.locality,
+    this.status,
+    this.wikipedia,
   });
 
   factory LandpodModel.fromJson(Map<String, dynamic> json) => _$LandpodModelFromJson(json);
@@ -34,14 +34,14 @@ class LandpodModel {
 
 @JsonSerializable()
 class ImageModel {
-  final List<String> large;
-  final List<String> medium;
-  final List<String> small;
+  List<String>? large;
+  List<String>? medium;
+  List<String>? small;
 
   ImageModel({
-    required this.large,
-    required this.medium,
-    required this.small,
+    this.large,
+    this.medium,
+    this.small,
   });
 
   static fromJson(Map<String, dynamic> json) => _$ImageModelFromJson(json);
