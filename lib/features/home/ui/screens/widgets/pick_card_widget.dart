@@ -90,8 +90,9 @@ class PickCardWidget extends StatelessWidget {
                                     context, Routes.rocketsScreen)
                                 : (cardName == 'Dragons')
                                     ? Navigator.pushNamed(
-                                        context, Routes.dragonsScreen)
-                                    : null;
+                                        context, Routes.dragonScreen)
+                                    : Navigator.pushNamed(
+                                        context, Routes.landPodsScreen);
                           },
                     color: AppColors.primaryMediumGrayColor.withOpacity(0.4),
                     padding: EdgeInsets.all(6.h),
