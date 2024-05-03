@@ -25,6 +25,7 @@ class AppAssets {
 
   /// Images
   // -------------------------- OnBoarding Images ----------------------------
+
   // Images in Dark Mode
   static const String onBoarding1      = 'assets/images/onboarding1.png';
   static const String onBoarding2      = 'assets/images/onboarding2.png';
@@ -41,15 +42,20 @@ class AppAssets {
   static const String onBoarding5LightMode      = 'assets/images/onboarding5LightMode.png';
   static const String authBackgroundLightMode   = 'assets/images/authBackgroundLightMode.png';
   static const String welcomeImageLightMode     = 'assets/images/welcome_imageLightMode.png';
+  
+ 
+  static const String rocketsBackground     = 'assets/images/rockets_bachground.jpg';
+  static const String landPodsBackground    = 'assets/images/landpods_bachground.jpg';
+  static const String dragonsBackground     = 'assets/images/dragons_background.jpg';
 
   // -------------------------- Home Images ---------------------------------
   static const String homeBackgroundImage     = 'assets/images/homeBackground.png';
-  static const String ellipseImage     = 'assets/images/ellipse.png';
-  static const String adventurerImage  = 'assets/images/adventurer.png';
-  static const String insightfulImage  = 'assets/images/insightful.png';
-  static const String galaxy           = 'assets/images/galaxy.png';
-  static const String rockets          = 'assets/images/rockets.png';
-  static const String cheeringImage    = 'assets/images/cheering.png';
+  static const String ellipseImage            = 'assets/images/ellipse.png';
+  static const String adventurerImage         = 'assets/images/adventurer.png';
+  static const String insightfulImage         = 'assets/images/insightful.png';
+  static const String galaxy                  = 'assets/images/galaxy.png';
+  static const String rockets                 = 'assets/images/rockets.png';
+  static const String cheeringImage            = 'assets/images/cheering.png';
 
   // Images in Dark Light Mode
   static const String homeBackgroundLightModeImage     = 'assets/images/homeBackgroundLightMode.png';

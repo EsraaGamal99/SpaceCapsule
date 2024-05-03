@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:space_app/features/home_of_items/ui/screens/widgets/list_of_space_items.dart';
+import 'package:space_app/core/theming/assets.dart';
 import 'widgets/space_item_app_bar.dart';
 
 class HomeOfItemsScreen extends StatelessWidget {
@@ -13,7 +13,6 @@ class HomeOfItemsScreen extends StatelessWidget {
       body: Column(
         children: [
           SpaceItemsAppBar(screenTitle: screenTitle,),
-          const ListOfSpaceItems(),
         ],
       ),
     );
@@ -22,3 +21,10 @@ class HomeOfItemsScreen extends StatelessWidget {
 
 
 
+//TODO: replace it with real data when connected to api "the name and images of rockets, dragons and landpods"
+List<String> cardName = ['Rockets', 'Dragons', 'Landpods',];
+List<String> imageName = [
+  AppAssets.rockets,
+  AppAssets.galaxy,
+  AppAssets.insightfulImage,
+];
