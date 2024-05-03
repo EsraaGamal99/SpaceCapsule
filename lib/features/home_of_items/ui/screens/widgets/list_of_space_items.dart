@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:space_app/core/theming/assets.dart';
 import 'package:space_app/features/home/ui/screens/widgets/pick_card_widget.dart';
 
 class ListOfSpaceItems extends StatelessWidget {
