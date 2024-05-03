@@ -4,13 +4,18 @@ import 'package:space_app/core/theming/colors.dart';
 
 class AppThemes {
   static final lightTheme = ThemeData(
-    pageTransitionsTheme: const PageTransitionsTheme(
-      builders: <TargetPlatform, PageTransitionsBuilder>{
-        TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-      },
+    scaffoldBackgroundColor: AppColors.primaryMoreLightGreyColor,
+    primaryColor: AppColors.primaryWhiteColor,
+    cardColor: AppColors.primaryMoreLightGreyColor,
+    focusColor: AppColors.primaryMediumGrayColor,
+    brightness: Brightness.light,
+    colorScheme: const ColorScheme.light(
+      background: AppColors.primarySoftGreyColor,
+      primary: AppColors.primaryBlackColor,
+      secondary: AppColors.primaryBlueColor,
+      surface: AppColors.primaryWhiteColor,
+
     ),
-    scaffoldBackgroundColor: AppColors.primaryWhiteColor,
-    colorScheme: const ColorScheme.light(),
     appBarTheme: const AppBarTheme(
       foregroundColor: Colors.black,
       systemOverlayStyle: SystemUiOverlayStyle(
@@ -19,13 +24,17 @@ class AppThemes {
     ),
   );
   static final darkTheme = ThemeData(
-    pageTransitionsTheme: const PageTransitionsTheme(
-      builders: <TargetPlatform, PageTransitionsBuilder>{
-        TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-      },
-    ),
     scaffoldBackgroundColor: AppColors.primaryBlackColor,
-    colorScheme: const ColorScheme.dark(),
+    primaryColor: AppColors.primaryBlackColor,
+    cardColor: AppColors.primaryMidnightGreyColor,
+
+    brightness: Brightness.dark,
+    colorScheme: const ColorScheme.dark(
+      background: AppColors.primaryBlackColor,
+      secondary: AppColors.primaryWhiteColor,
+      primary: AppColors.primaryWhiteColor,
+      surface: AppColors.primarySoftGreyColor,
+    ),
     appBarTheme: const AppBarTheme(
       foregroundColor: Colors.white,
       systemOverlayStyle: SystemUiOverlayStyle(

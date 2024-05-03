@@ -120,15 +120,10 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                               children: [
                                 Text(
                                   S.of(context).skipTextKey,
-                                  style: AppTextStyles.fontWhite22W600,
+                                  style: AppTextStyles.fontWhite22W600.copyWith(color: Theme.of(context).colorScheme.primary),
                                 ),
                                 SizedBox(width: 10.w),
-                                SvgPicture.asset(
-                                  AppAssets.forwardArrowIcon,
-                                  colorFilter: const ColorFilter.mode(
-                                      AppColors.primaryWhiteColor,
-                                      BlendMode.srcIn),
-                                ),
+                                SvgPicture.asset(AppAssets.forwardArrowIcon, colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),),
                               ],
                             ),
                           ),
@@ -144,7 +139,7 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                     children: [
                       Text(
                         getOnBoardingData(context)[index].title,
-                        style: AppTextStyles.fontWhite63W600.copyWith(height: 1.h),
+                        style: AppTextStyles.fontWhite63W600.copyWith(height: 1.h, color: Theme.of(context).colorScheme.primary),
                       ),
                     ],
                   ),
@@ -155,8 +150,8 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                     children: [
                       Expanded(child: Container()),
                       SizedBox(height: 20.h),
-                      Text(getOnBoardingData(context)[index].description,
-                          style: AppTextStyles.fontWhite17W500),
+                      Text(onBoardingData[index].description,
+                          style: AppTextStyles.fontWhite17W500.copyWith(color: Theme.of(context).colorScheme.primary)),
                       SizedBox(height: 30.h),
                       onBoardingScreenIndex != getOnBoardingData(context).length - 1
                           ? OnBoardingDotsButton(
@@ -170,10 +165,14 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                                 onPress: () {
                                   context.pushReplacementNamed(Routes.welcomeScreen);
                                 },
-                                label: S.of(context).startTextKey,
-                                isFullWidth: false,
-                                backgroundColor: AppColors.primaryWhiteColor,
-                                labelColor: AppColors.primaryBlackColor,
+                                child: CustomMaterialButton(
+
+                                  label: S.of(context).startTextKey,
+                                  isFullWidth: false,
+                                  // backgroundColor: AppColors.primaryWhiteColor,
+                                  // labelColor: AppColors.primaryBlackColor,
+                                ),
+
                               ),
                             ),
                       SizedBox(height: 40.h),

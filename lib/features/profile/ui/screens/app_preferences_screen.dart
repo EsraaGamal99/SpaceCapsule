@@ -17,7 +17,7 @@ class AppPreferencesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.primaryBlackColor,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
@@ -32,7 +32,7 @@ class AppPreferencesScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20.h),
                 AppPreferencesItemWidget(iconData: Icons.light_mode_rounded, title: S.of(context).themeTextKey, subTitle: S.of(context).darkTextKey, onTap: () => showChangeThemeBottomSheet(context: context),),
-                Divider(indent: 50.w, endIndent: 50.w, color: AppColors.primarySmokeyGreyColor,),
+                Divider(indent: 50.w, endIndent: 50.w, color: Theme.of(context).colorScheme.primary,),
                 FutureBuilder<String>(
                   future: getCurrentLanguageName(context),
                   builder: (context, snapshot) {

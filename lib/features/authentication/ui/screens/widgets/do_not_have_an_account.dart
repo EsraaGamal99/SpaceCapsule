@@ -18,7 +18,8 @@ class DoNotHaveAnAccount extends StatelessWidget {
             child: Text(
               S.of(context).doNotHaveAnAccountTextKey,
               style: AppTextStyles.fontWhite15W500,
-            )),
+            ),
+        ),
         TextButton(
             onPressed: () {
               Navigator.pushNamed(context, Routes.registerScreen);
@@ -26,7 +27,8 @@ class DoNotHaveAnAccount extends StatelessWidget {
             child: Text(
               S.of(context).signUpTextKey,
               style: AppTextStyles.fontWhite17W500,
-            ))
+            ),
+        )
       ],
     );
   }

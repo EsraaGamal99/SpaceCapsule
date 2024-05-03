@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
+import 'package:space_app/core/routing/routes.dart';
 import 'package:space_app/core/widgets/auth_back_button.dart';
 
 import 'package:space_app/core/widgets/buttons/animation_button.dart';
@@ -40,10 +42,11 @@ class LoginBody extends StatelessWidget {
               ),
               AnimationButton(
                 onPress: () async {
-                  await BlocProvider.of<LoginCubit>(context).userLogin(
-                    email: cubit.emailController.text,
-                    password: cubit.passwordController.text,
-                  );
+                  context.pushNamed(Routes.homeScreen);
+                  // await BlocProvider.of<LoginCubit>(context).userLogin(
+                  //   email: cubit.emailController.text,
+                  //   password: cubit.passwordController.text,
+                  // );
                   },
                   label: S.of(context).logInTextKey,
               ),

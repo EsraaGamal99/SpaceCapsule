@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:space_app/features/localization/logic/localization_cubit.dart';
 import '../../theming/assets.dart';
-import '../../theming/colors.dart';
 import '../../theming/text_styles.dart';
 
 
@@ -13,12 +12,11 @@ class CustomMaterialButton extends StatelessWidget {
   const CustomMaterialButton({
     super.key,
     required this.label,
-    this.isFullWidth = true, this.backgroundColor, this.labelColor,
+    this.isFullWidth = true, this.labelColor,
   });
 
   final String label;
   final bool isFullWidth;
-  final Color? backgroundColor;
   final Color? labelColor;
 
   @override
@@ -28,14 +26,13 @@ class CustomMaterialButton extends StatelessWidget {
       //padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: backgroundColor ?? AppColors.primaryWhiteColor,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             label,
-            style: AppTextStyles.fontBlack21W500,
+            style: AppTextStyles.fontBlack21W500.copyWith(color: Theme.of(context).primaryColor),
           ),
           padding: const EdgeInsets.all(20),
           backgroundColor: backgroundColor ?? AppColors.primaryWhiteColor,

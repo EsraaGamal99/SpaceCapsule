@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:space_app/generated/l10n.dart';
-
+import '../../../core/theming/app_theme_cubit/app_theme_cubit.dart';
 import '../../../core/theming/assets.dart';
 
 class OnBoardingData {
@@ -20,3 +19,4 @@ getOnBoardingData(BuildContext context) {
     OnBoardingData(title: S.of(context).satellitesTextKey, description: S.of(context).ventureIntoTextKey,            image: AppAssets.onBoarding5),
   ];
 }
+
