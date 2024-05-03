@@ -6,8 +6,7 @@ import 'package:space_app/features/localization/logic/localization_cubit.dart';
 
 
 gerCurrentLanguageLocale(BuildContext context) {
-  Locale language = BlocProvider.of<LocalizationCubit>(context).getLocale();
-  return language;
+  return BlocProvider.of<LocalizationCubit>(context).getLocale();
 }
 
 
