@@ -5,13 +5,13 @@ import 'package:space_app/features/home/ui/screens/widgets/pick_card_widget.dart
 import '../../../../../core/helpers/constants.dart';
 
 class ListPicksWidget extends StatelessWidget {
-  const ListPicksWidget({Key? key}) : super(key: key);
+  const ListPicksWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
         shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return PickCardWidget(
             cardName: cardName[index],

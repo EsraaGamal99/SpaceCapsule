@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
 import 'package:space_app/core/routing/routes.dart';
 import 'package:space_app/core/widgets/auth_back_button.dart';
+import 'package:space_app/core/widgets/buttons/animation_button.dart';
 import 'package:space_app/features/authentication/logic/login_cubit/login_cubit.dart';
 import 'package:space_app/features/authentication/ui/screens/widgets/login_bloc_listener.dart';
 import 'package:space_app/features/authentication/ui/screens/widgets/user_data_section.dart';
@@ -39,15 +40,17 @@ class LoginBody extends StatelessWidget {
                 emailController: cubit.emailController,
                 passwordController: cubit.passwordController,
               ),
-              CustomMaterialButton(
-                  onPressed: () async {
-                    context.pushNamed(Routes.homeScreen);
-                    // await BlocProvider.of<LoginCubit>(context).userLogin(
-                    //   email: cubit.emailController.text,
-                    //   password: cubit.passwordController.text,
-                    // );
+              AnimationButton(
+                onPress: () async {
+                  await BlocProvider.of<LoginCubit>(context).userLogin(
+                    email: cubit.emailController.text,
+                    password: cubit.passwordController.text,
+                  );
                   },
-                  label: logInTextKey),
+                child: CustomMaterialButton(
+
+                    label: logInTextKey),
+              ),
               SizedBox(height: 10.h),
               const DoNotHaveAnAccount(),
               const LogInBlocListener(),

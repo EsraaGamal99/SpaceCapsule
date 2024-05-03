@@ -7,6 +7,7 @@ import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/app_theme_cubit/app_theme_cubit.dart';
 import '../../../../core/theming/assets.dart';
 import '../../../../core/theming/text_styles.dart';
+import '../../../../core/widgets/buttons/animation_button.dart';
 import '../../../../core/widgets/buttons/custom_material_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -21,7 +22,7 @@ class WelcomeScreen extends StatelessWidget {
             height: MediaQueryHelper(context).height,
             width: MediaQueryHelper(context).width,
             child: Image.asset(
-              AppThemeCubit.isDarkMode ? AppAssets.welcomeImage :  AppAssets.welcomeImageLightMode,
+              AppAssets.welcomeImage,
               fit: BoxFit.cover,
             ),
           ),
@@ -77,14 +78,16 @@ class WelcomeScreen extends StatelessWidget {
                   style: AppTextStyles.fontWhite19W500.copyWith(height: 1.h,color: Theme.of(context).colorScheme.primary),
                 ),
                 SizedBox(height: 30.h),
-                CustomMaterialButton(
-                  onPressed: () {
+                AnimationButton(
+                  onPress: () {
                     context.pushNamed(Routes.loginScreen);
                   },
-                  label: logInTextKey,
-                  isFullWidth: false,
-                  // backgroundColor: AppColors.primaryWhiteColor,
-                  // labelColor: AppColors.primaryBlackColor,
+                  child: CustomMaterialButton(
+                    label: logInTextKey,
+                    isFullWidth: false,
+                    // backgroundColor: AppColors.primaryWhiteColor,
+                    // labelColor: AppColors.primaryBlackColor,
+                  ),
                 ),
                 SizedBox(height: 16.h),
                 GestureDetector(

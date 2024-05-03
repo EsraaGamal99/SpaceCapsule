@@ -8,6 +8,7 @@ import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/assets.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/text_styles.dart';
+import '../../../../core/widgets/buttons/animation_button.dart';
 import '../../../../core/widgets/buttons/custom_material_button.dart';
 import '../../data/onboarding_data_model.dart';
 import '../widgets/dots_onboarding_button.dart';
@@ -121,14 +122,17 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                             )
                           : Padding(
                               padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                              child: CustomMaterialButton(
-                                onPressed: () {
+                              child: AnimationButton(
+                                onPress: () {
                                   context.pushReplacementNamed(Routes.welcomeScreen);
                                 },
-                                label: startTextKey,
-                                isFullWidth: false,
-                                // backgroundColor: AppColors.primaryWhiteColor,
-                                // labelColor: AppColors.primaryBlackColor,
+                                child: CustomMaterialButton(
+
+                                  label: startTextKey,
+                                  isFullWidth: false,
+                                  // backgroundColor: AppColors.primaryWhiteColor,
+                                  // labelColor: AppColors.primaryBlackColor,
+                                ),
                               ),
                             ),
                       SizedBox(height: 40.h),
