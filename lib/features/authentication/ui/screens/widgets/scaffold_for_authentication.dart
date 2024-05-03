@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:space_app/core/theming/assets.dart';
 
+import '../../../../../core/theming/app_theme_cubit/app_theme_cubit.dart';
+
 class ScaffoldForAuthentication extends StatelessWidget {
   const ScaffoldForAuthentication({
     super.key, required this.body,
@@ -12,7 +14,7 @@ class ScaffoldForAuthentication extends StatelessWidget {
       body: Stack(
         children: [
           Image.asset(
-            AppAssets.authBackground,
+            AppThemeCubit.isDarkMode ? AppAssets.authBackground : AppAssets.authBackgroundLightMode,
             fit: BoxFit.cover,
             width: double.infinity,
           ),

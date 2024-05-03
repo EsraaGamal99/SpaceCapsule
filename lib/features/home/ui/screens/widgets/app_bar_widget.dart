@@ -23,11 +23,11 @@ class AppBarWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                welcomeOnboardTextKey, style: AppTextStyles.fontWhite13W400,
+                welcomeOnboardTextKey, style: AppTextStyles.fontWhite13W400.copyWith(color: Theme.of(context).colorScheme.primary),
               ),
 
               Text(
-                spaceVoyagerTextKey, style: AppTextStyles.fontWhite30W500,
+                spaceVoyagerTextKey, style: AppTextStyles.fontWhite30W500.copyWith(color: Theme.of(context).colorScheme.primary),
               ),
             ],
           ),
@@ -41,7 +41,7 @@ class AppBarWidget extends StatelessWidget {
               padding: EdgeInsets.all(8.w),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30.h),
-                border: Border.all(color: AppColors.primaryLighterGreyColor.withOpacity(0.2), width: 7,style: BorderStyle.solid),
+                border: Border.all(color: Theme.of(context).colorScheme.surface.withOpacity(0.2), width: 7,style: BorderStyle.solid),
                 image: DecorationImage(fit: BoxFit.fill,
                   image: AssetImage(AppAssets.ellipseImage,),
                 )

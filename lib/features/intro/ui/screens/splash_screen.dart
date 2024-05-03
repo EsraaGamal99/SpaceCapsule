@@ -6,7 +6,6 @@ import 'package:space_app/core/helpers/extenstions.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/assets.dart';
-import '../../../../core/theming/colors.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -14,7 +13,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryBlackColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,//colorScheme.background,//AppColors.primaryBlackColor,
       body: Center(
         child: Lottie.asset(
           AppAssets.splashLottie,

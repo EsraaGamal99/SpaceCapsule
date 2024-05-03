@@ -20,14 +20,14 @@ class SettingItemWidget extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
         decoration: BoxDecoration(
-          color: backgroundColor,
+          color: Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(mediumBorderRadius),
         ),
         child: Row(
           children: [
-            Icon(icon, color: foregroundColor),
+            Icon(icon, color: Theme.of(context).colorScheme.primary),
             const SizedBox(width: 20),
-            Text(title, style: AppTextStyles.fontWhite17W500.copyWith(color: foregroundColor)),
+            Text(title, style: AppTextStyles.fontWhite17W500.copyWith(color:Theme.of(context).colorScheme.primary),),
           ],
         ),),
     );

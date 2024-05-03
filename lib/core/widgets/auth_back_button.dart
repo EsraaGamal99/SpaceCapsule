@@ -23,7 +23,7 @@ class AuthBackButton extends StatelessWidget {
         fixedSize: Size(90.w, 20.h),
       ),
       child: SvgPicture.asset(
-        AppAssets.backArrowIcon,
+        AppAssets.backArrowIcon,color: Theme.of(context).colorScheme.primary,
         width: 20.w,
       ),
     );

@@ -7,31 +7,35 @@ import 'package:space_app/core/helpers/constants.dart';
 import 'app_theme_state.dart';
 
 class AppThemeCubit extends Cubit<AppThemeState> {
-  final Box themeBox;
-  AppThemeCubit({ required this.themeBox}) : super(AppThemeState.initial());
+  final sharedPref;
+  AppThemeCubit({ required this.sharedPref}) : super(AppThemeState.initial());
 
   static AppThemeCubit get(context) => BlocProvider.of<AppThemeCubit>(context);
 
 
-  ThemeMode themeMode = ThemeMode.system;
+  static ThemeMode themeMode = ThemeMode.system;
+
 
   Future<void> setAppTheme() async {
-    await themeBox.add(isDarkMode);
+   await sharedPref.setBool(themeKey, isDarkMode);
   }
 
   Future<void> fetchAppTheme() async {
-    final bool? isDarkModeFetched = await themeBox.get(themeKey);
-    isDarkModeFetched == null
-        ? setInitialThemeMode()
-        : themeMode = isDarkModeFetched ? ThemeMode.dark : ThemeMode.light;
-    emit(AppThemeState.themeFetched());
+    try {
+      final bool? isDarkModeFetched = await sharedPref.getBool(themeKey);
+
+      isDarkModeFetched == null
+          ? setInitialThemeMode()
+          : themeMode = isDarkModeFetched ? ThemeMode.dark : ThemeMode.light;
+      emit(AppThemeState.themeFetched());
+    }catch(e){}
   }
 
   final brightness = SchedulerBinding.instance.window.platformBrightness;
 
   bool get isInitialDarkMode => brightness == Brightness.dark;
 
-  bool isDarkMode = false;
+  static bool isDarkMode = false;
 
   void setInitialThemeMode() {
     isInitialDarkMode
@@ -51,8 +55,8 @@ class AppThemeCubit extends Cubit<AppThemeState> {
     }
     setAppTheme();
   }
-  void toggleTheme(bool isOn) {
-    themeMode = isOn ? ThemeMode.dark : ThemeMode.light;
+  void toggleTheme({ required bool darkMode}) {
+    themeMode = darkMode ? ThemeMode.dark : ThemeMode.light;
     changeTheme(themeMode);
   }
 }

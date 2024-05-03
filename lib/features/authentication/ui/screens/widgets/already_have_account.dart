@@ -12,14 +12,14 @@ class AlreadyHaveAnAccount extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: Text('Already have an account?',style: AppTextStyles.fontWhite15W500,)),
+        Expanded(child: Text('Already have an account?',style: AppTextStyles.fontWhite15W500.copyWith(color: Theme.of(context).colorScheme.primary,),)),
         TextButton(
             onPressed: () {
               Navigator.pushNamed(context, Routes.loginScreen);
             },
             child:  Text(
               'Login',
-              style: AppTextStyles.fontWhite17W500,
+              style: AppTextStyles.fontWhite17W500.copyWith(color: Theme.of(context).colorScheme.primary,),
             )
         )
       ],

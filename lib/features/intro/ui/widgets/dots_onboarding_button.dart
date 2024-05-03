@@ -28,7 +28,7 @@ class OnBoardingDotsButton extends StatelessWidget {
               height: onBoardingScreenIndex == index ? 26.h : onBoardingScreenIndex == index + 1 || onBoardingScreenIndex == index - 1  ? 16.h : onBoardingScreenIndex == index + 2 || onBoardingScreenIndex == index - 2 ? 12.h : 6.h,
               width: onBoardingScreenIndex == index ? 26.w : onBoardingScreenIndex == index + 1 || onBoardingScreenIndex == index - 1 ? 16.w : onBoardingScreenIndex == index + 2 || onBoardingScreenIndex == index - 2 ? 12.w : 6.w,
               decoration: BoxDecoration(
-                color: onBoardingScreenIndex == index ? AppColors.primaryWhiteColor : Colors.transparent,
+                color: onBoardingScreenIndex == index ? Theme.of(context).colorScheme.primary : Colors.transparent,
                 border: Border.all(color: onBoardingScreenIndex != index ? AppColors.primaryWhiteColor : Colors.transparent),
                 shape: BoxShape.circle
               ),

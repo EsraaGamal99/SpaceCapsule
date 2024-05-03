@@ -21,7 +21,7 @@ class UserInfoWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20.0.w, vertical: 30.h),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: AppColors.primarySoftGreyColor,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(largeBorderRadius),
       ),
       child: Column(
@@ -30,16 +30,16 @@ class UserInfoWidget extends StatelessWidget {
             onTap: () {
               context.pushNamed(Routes.editProfileScreen);
             },
-            child: Text(editProfileTextKey, style: AppTextStyles.fontWhite18W500)
+            child: Text(editProfileTextKey, style: AppTextStyles.fontWhite18W500.copyWith(color: Theme.of(context).colorScheme.primary),),
           ),
           SizedBox(height: 10.h),
           const ChangeProfileImageWidget(),
           SizedBox(height: 20.h),
-          Text(name, style: AppTextStyles.fontLightGrey18W600),
+          Text(name, style: AppTextStyles.fontLightGrey18W600.copyWith(color: Theme.of(context).colorScheme.primary),),
           SizedBox(height: 5.h),
-          Container(color: AppColors.primaryLightGreyColor, width: 40.w, height: 1.h),
+          Container(color: Theme.of(context).colorScheme.primary, width: 40.w, height: 1.h),
           SizedBox(height: 5.h),
-          Text(email, style: AppTextStyles.fontLightGrey18W600),
+          Text(email, style: AppTextStyles.fontLightGrey18W600.copyWith(color: Theme.of(context).colorScheme.primary),),
         ],
       ),
     );

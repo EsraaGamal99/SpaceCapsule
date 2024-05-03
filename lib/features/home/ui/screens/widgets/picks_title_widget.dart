@@ -22,20 +22,20 @@ class PicksTitleWidget extends StatelessWidget {
             children: [
               Text(
                 topPicksTextKey,
-                style: AppTextStyles.fontWhite17W600,
+                style: AppTextStyles.fontWhite17W600.copyWith(color: Theme.of(context).colorScheme.primary),
               ),
               SizedBox(
                 height: 5.h,
               ),
               Text(
                 letsExploreOurProgramsTextKey,
-                style: AppTextStyles.fontWhite13W400,
+                style: AppTextStyles.fontWhite13W400.copyWith(color: Theme.of(context).colorScheme.primary),
               ),
             ],
           ),
           IconButton(
               onPressed: () {},
-              iconSize: 35.w,color: AppColors.primaryMediumGrayColor,
+              iconSize: 35.w,color: Theme.of(context).colorScheme.primary,
               icon: Icon(Icons.notifications_none_outlined,)),
         ],
       ),

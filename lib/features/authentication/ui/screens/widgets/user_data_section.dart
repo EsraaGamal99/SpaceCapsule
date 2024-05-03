@@ -40,7 +40,7 @@ class _UserDataSectionState extends State<UserDataSection> {
                 keyboardType: TextInputType.name,
                 hintText: yourNameTextKey,
                 suffixIcon: SvgPicture.asset(
-                  AppAssets.personIcon,
+                  AppAssets.personIcon,color: Theme.of(context).colorScheme.primary,
                   height: 5,
                 ),
                 validator: (value) {
@@ -57,7 +57,7 @@ class _UserDataSectionState extends State<UserDataSection> {
           controller: widget.emailController,
           hintText: widget.isLogin ? emailAddressTextKey : emailTextKey,
           keyboardType: TextInputType.emailAddress,
-          suffixIcon: SvgPicture.asset(AppAssets.emailIcon),
+          suffixIcon: SvgPicture.asset(AppAssets.emailIcon,color: Theme.of(context).colorScheme.primary),
           validator: (value) {
             if (value!.isEmpty) {
               return 'Your email is required!';
@@ -75,7 +75,7 @@ class _UserDataSectionState extends State<UserDataSection> {
           obscureText: obscureText,
           suffixIcon: InkWell(
             child: obscureText
-                ? SvgPicture.asset(AppAssets.lockIcon)
+                ? SvgPicture.asset(AppAssets.lockIcon, color: Theme.of(context).colorScheme.primary)
                 : const Icon(
                     Icons.lock_open_outlined,
                     color: Colors.white,
