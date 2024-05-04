@@ -10,7 +10,7 @@ class SmallLoadingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Lottie.asset(AppAssets.smallLoading, width: 100.w, height: 100.h),
+      child: Lottie.asset(AppAssets.smallLoading, width: 250.w, height: 250.h),
     );
   }
 }
