@@ -1,12 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'roModel.g.dart';
+part 'rockets_model.g.dart';
 
 @JsonSerializable()
 class RocketsModel {
 
   factory RocketsModel.fromJson(Map<String, dynamic> json) =>
-      _$RoModelFromJson(json);
+      _$RocketsModelFromJson(json);
   RocketsModel({
       this.height, 
       this.diameter, 
