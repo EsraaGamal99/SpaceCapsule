@@ -6,7 +6,7 @@ part of 'rockets_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-RocketsModel _$RoModelFromJson(Map<String, dynamic> json) => RocketsModel(
+RocketsModel _$RocketsModelFromJson(Map<String, dynamic> json) => RocketsModel(
       height: json['height'] == null
           ? null
           : Height.fromJson(json['height'] as Map<String, dynamic>),
@@ -49,7 +49,8 @@ RocketsModel _$RoModelFromJson(Map<String, dynamic> json) => RocketsModel(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$RoModelToJson(RocketsModel instance) => <String, dynamic>{
+Map<String, dynamic> _$RocketsModelToJson(RocketsModel instance) =>
+    <String, dynamic>{
       'height': instance.height,
       'diameter': instance.diameter,
       'mass': instance.mass,

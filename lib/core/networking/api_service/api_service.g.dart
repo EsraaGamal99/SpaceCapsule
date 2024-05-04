@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'dragon_repo.dart';
+part of 'api_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'dragon_repo.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _DragonRepo implements DragonRepo {
-  _DragonRepo(
+class _ApiService implements ApiService {
+  _ApiService(
     this._dio, {
     this.baseUrl,
   }) {
@@ -19,6 +19,35 @@ class _DragonRepo implements DragonRepo {
   final Dio _dio;
 
   String? baseUrl;
+
+  @override
+  Future<List<RocketsModel>> getAllRockets() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<RocketsModel>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'rockets',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    var value = _result.data!
+        .map((dynamic i) => RocketsModel.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
 
   @override
   Future<List<DragonModel>> getAllDragons() async {
@@ -45,6 +74,35 @@ class _DragonRepo implements DragonRepo {
             ))));
     var value = _result.data!
         .map((dynamic i) => DragonModel.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
+  Future<List<LandpodModel>> getAllLandpods() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<LandpodModel>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'landpads',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    var value = _result.data!
+        .map((dynamic i) => LandpodModel.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }
