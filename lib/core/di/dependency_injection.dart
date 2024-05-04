@@ -6,6 +6,9 @@ import 'package:space_app/core/helpers/constants.dart';
 import 'package:space_app/core/theming/app_theme_cubit/app_theme_cubit.dart';
 import 'package:space_app/features/dragons/data/repo/dragon_repo_impl.dart';
 import 'package:space_app/features/dragons/logic/dragon_cubit.dart';
+import 'package:space_app/features/landpods/data/landpod_repo.dart';
+import 'package:space_app/features/landpods/data/landpod_repo_impl.dart';
+import 'package:space_app/features/landpods/logic/landpod_cubit.dart';
 
 import '../../features/dragons/data/repo/dragon_repo.dart';
 import '../networking/api_service/dio_factory.dart';
@@ -24,7 +27,7 @@ Future<void> setupGetIt() async{
   final sharedPref = SharedPreferences.getInstance();
   // Dragons repo
   getIt.registerLazySingleton(() => DragonRepo(dio));
-  getIt.registerLazySingleton(() => DragonRepoImpl(dragonRepo: getIt()));;
+  getIt.registerLazySingleton(() => DragonRepoImpl(dragonRepo: getIt()));
 
   // Dragon app_theme_cubit
   getIt.registerFactory(() => DragonCubit(dragonRepo: getIt()));
@@ -35,4 +38,10 @@ Future<void> setupGetIt() async{
   // Localization
   getIt.registerSingleton<LocalizationRepo>(LocalizationRepo());
   getIt.registerSingleton<LocalizationCubit>(LocalizationCubit());
+
+  // Landpods
+  getIt.registerLazySingleton<LandpodRepo>(() => LandpodRepo(dio));
+  getIt.registerLazySingleton<LandpodRepoImpl>(() => LandpodRepoImpl(landpodRepo: getIt()));
+  getIt.registerFactory<LandpodCubit>(() => LandpodCubit(landpodRepo: getIt<LandpodRepoImpl>()));
+
 }
