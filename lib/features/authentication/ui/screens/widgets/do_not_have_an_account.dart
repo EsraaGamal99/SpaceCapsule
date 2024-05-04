@@ -16,7 +16,7 @@ class DoNotHaveAnAccount extends StatelessWidget {
         Flexible(
             child: Text(
               context.translate.doNotHaveAnAccountTextKey,
-              style: AppTextStyles.fontWhite15W500,
+              style: AppTextStyles.fontWhite15W500.copyWith(color: Theme.of(context).colorScheme.primary),
             ),
         ),
         TextButton(
@@ -25,7 +25,7 @@ class DoNotHaveAnAccount extends StatelessWidget {
             },
             child: Text(
               context.translate.signUpTextKey,
-              style: AppTextStyles.fontWhite17W500,
+              style: AppTextStyles.fontWhite17W500.copyWith(color: Theme.of(context).colorScheme.primary),
             ),
         )
       ],

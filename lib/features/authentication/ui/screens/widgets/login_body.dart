@@ -29,11 +29,11 @@ class LoginBody extends StatelessWidget {
               const AuthBackButton(),
               Text(
                 context.translate.welcomeTextKey,
-                style: AppTextStyles.fontWhite40W500,
+                style: AppTextStyles.fontWhite40W500.copyWith(color: Theme.of(context).colorScheme.primary),
               ),
               Text(
                 context.translate.backWelcomeTextKey,
-                style: AppTextStyles.fontWhite63W600.copyWith(height: 1.0),
+                style: AppTextStyles.fontWhite63W600.copyWith(height: 1.0,color: Theme.of(context).colorScheme.primary,),
               ),
               UserDataSection(
                 isLogin: true,
@@ -42,10 +42,11 @@ class LoginBody extends StatelessWidget {
               ),
               AnimationButton(
                 onPress: () async {
-                  await BlocProvider.of<LoginCubit>(context).userLogin(
-                    email: cubit.emailController.text,
-                    password: cubit.passwordController.text,
-                  );
+                  context.pushNamed(Routes.homeScreen);
+                  // await BlocProvider.of<LoginCubit>(context).userLogin(
+                  //   email: cubit.emailController.text,
+                  //   password: cubit.passwordController.text,
+                  // );
                   },
                 child: CustomMaterialButton(
 
