@@ -27,7 +27,7 @@ class _RocketsScreenState extends State<RocketsScreen> {
         decoration: const BoxDecoration(
             image: DecorationImage(
           image: AssetImage(AppAssets.rocketsBackground),
-          //fit: BoxFit.cover,
+          fit: BoxFit.cover,
         )),
         child: const Column(
           children: [
