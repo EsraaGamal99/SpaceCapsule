@@ -3,7 +3,6 @@ class ApiConstants {
 
   static const String dragons  = "dragons";
   static const String landpads = "landpads";
-  static const String dragons = "dragons";
   static const String rockets = "rockets";
 }
 
