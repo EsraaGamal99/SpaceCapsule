@@ -17,7 +17,6 @@ class RocketsBlocBuilder extends StatelessWidget {
     return BlocBuilder<RocketsCubit, RocketsState>(
       builder: (context, state) {
         if (state is Success) {
-          debugPrint('***************************${state.data.length}');
           return Expanded(
             child: Padding(
               padding: EdgeInsets.only(
@@ -45,8 +44,11 @@ class RocketsBlocBuilder extends StatelessWidget {
               const SmallLoadingWidget(),
             ],
           );
-        } else {
-          return Text('cubit.state.error.toString()');
+        } else if (state is Error) {
+          return Center(child: Text(state.error.toString()));
+        }
+        else {
+          return const SizedBox.shrink();
         }
       },
     );
