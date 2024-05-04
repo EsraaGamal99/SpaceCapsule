@@ -31,11 +31,11 @@ class RegisterBody extends StatelessWidget {
             ),
             Text(
               context.translate.letsTextKey,
-              style: AppTextStyles.fontWhite40W500,
+              style: AppTextStyles.fontWhite40W500.copyWith(color: Theme.of(context).colorScheme.primary),
             ),
             Text(
               context.translate.startWeTextKey,
-              style: AppTextStyles.fontWhite63W600.copyWith(height: 1.0),
+              style: AppTextStyles.fontWhite63W600.copyWith(height: 1.0,color: Theme.of(context).colorScheme.primary,),
             ),
             UserDataSection(
               isLogin: false,

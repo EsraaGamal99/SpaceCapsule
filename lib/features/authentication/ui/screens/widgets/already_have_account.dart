@@ -15,7 +15,7 @@ class AlreadyHaveAnAccount extends StatelessWidget {
         Flexible(
           child: Text(
             context.translate.alreadyHaveAnAccountTextKey,
-            style: AppTextStyles.fontWhite15W500,
+            style: AppTextStyles.fontWhite15W500.copyWith(color: Theme.of(context).colorScheme.primary),
           ),
         ),
         TextButton(
@@ -24,7 +24,7 @@ class AlreadyHaveAnAccount extends StatelessWidget {
           },
           child: Text(
             context.translate.logInTextKey,
-            style: AppTextStyles.fontWhite17W500,
+            style: AppTextStyles.fontWhite17W500.copyWith(color: Theme.of(context).colorScheme.primary),
           ),
         ),
       ],

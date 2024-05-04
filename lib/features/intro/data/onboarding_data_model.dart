@@ -20,3 +20,12 @@ getOnBoardingData(BuildContext context) {
   ];
 }
 
+getOnBoardingDataLightMode(BuildContext context) {
+  return [
+    OnBoardingData(title: context.translate.insightsTextKey,   description: context.translate.embarkOnAnInterstellarTextKey, image: AppAssets.onBoarding1LightMode),
+    OnBoardingData(title: context.translate.galaxiesTextKey,   description: context.translate.exploreTheMarvelsTextKey,      image: AppAssets.onBoarding2LightMode),
+    OnBoardingData(title: context.translate.rocketsTextKey,    description: context.translate.stellarDiscoveriesTextKey,     image: AppAssets.onBoarding3LightMode),
+    OnBoardingData(title: context.translate.planetsTextKey,    description: context.translate.embarkOnAnInterstellarTextKey, image: AppAssets.onBoarding4LightMode),
+    OnBoardingData(title: context.translate.satellitesTextKey, description: context.translate.ventureIntoTextKey,            image: AppAssets.onBoarding5LightMode),
+  ];
+}

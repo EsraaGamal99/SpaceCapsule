@@ -24,7 +24,7 @@ Future<void> setupGetIt() async{
   Dio dio = DioFactory.getDio();
 
   // Initial local data
-  final sharedPref = SharedPreferences.getInstance();
+  final sharedPref = await SharedPreferences.getInstance();
   // Dragons repo
   getIt.registerLazySingleton(() => DragonRepo(dio));
   getIt.registerLazySingleton(() => DragonRepoImpl(dragonRepo: getIt()));
