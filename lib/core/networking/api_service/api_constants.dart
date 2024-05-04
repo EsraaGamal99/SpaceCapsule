@@ -1,6 +1,8 @@
 class ApiConstants {
   static const String baseUrl = "https://api.spacexdata.com/v4/";
 
+  static const String dragons  = "dragons";
+  static const String landpads = "landpads";
   static const String dragons = "dragons";
   static const String rockets = "rockets";
 }

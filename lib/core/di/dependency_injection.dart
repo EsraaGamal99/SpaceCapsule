@@ -7,6 +7,10 @@ import 'package:space_app/features/dragons/logic/dragon_cubit.dart';
 import 'package:space_app/features/rockets/data/repo/rockets_repo.dart';
 import 'package:space_app/features/rockets/data/repo/rockets_repo_impl.dart';
 import 'package:space_app/features/rockets/logic/rockets_cubit/rockets_cubit.dart';
+import 'package:space_app/features/landpods/data/landpod_repo.dart';
+import 'package:space_app/features/landpods/data/landpod_repo_impl.dart';
+import 'package:space_app/features/landpods/logic/landpod_cubit.dart';
+
 import '../../features/dragons/data/repo/dragon_repo.dart';
 import '../networking/api_service/dio_factory.dart';
 import '../../features/localization/data/repos/localization_repo.dart';
@@ -34,6 +38,12 @@ Future<void> setupGetIt() async{
   // Localization
   getIt.registerSingleton<LocalizationRepo>(LocalizationRepo());
   getIt.registerSingleton<LocalizationCubit>(LocalizationCubit());
+
+  // Landpods
+  getIt.registerLazySingleton<LandpodRepo>(() => LandpodRepo(dio));
+  getIt.registerLazySingleton<LandpodRepoImpl>(() => LandpodRepoImpl(landpodRepo: getIt()));
+  getIt.registerFactory<LandpodCubit>(() => LandpodCubit(landpodRepo: getIt<LandpodRepoImpl>()));
+
 
   // Rockets
   getIt.registerLazySingleton(() => RocketsRepo(dio));
