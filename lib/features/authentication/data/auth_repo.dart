@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:space_app/core/helpers/functions/firebase_services.dart';
 import 'package:space_app/core/helpers/functions/navigate_after_splash.dart';
 import 'package:space_app/core/networking/firebase_service/firebase_auth_error_handler/firebase_auth_error-handler.dart';
 import 'package:space_app/core/networking/firebase_service/firebase_result.dart';
@@ -19,6 +21,8 @@ class AuthRepo {
       );
       if (response.user != null) {
         debugPrint('=========================${response.user}=========================');
+        storeToken(response);
+        debugPrint('==${response}');
         await saveLogInStatus(true);
         return const FirebaseResult.success(AuthResultStatus.successful);
       } else {
@@ -40,6 +44,7 @@ class AuthRepo {
       if (response.user != null) {
         debugPrint('=========================${response.user}=========================');
         await response.user!.updateDisplayName(registerModel.name);
+        storeToken(response);
         await saveSignUpStatus(true);
         return const FirebaseResult.success(AuthResultStatus.successful);
       } else {

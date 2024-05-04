@@ -39,6 +39,6 @@ Future<void> setupGetIt() async{
   getIt.registerSingleton<LocalizationCubit>(LocalizationCubit());
 
   // Profile
-  getIt.registerSingleton<ProfileCubit>(ProfileCubit());
-  getIt.registerSingleton<EditProfileCubit>(EditProfileCubit());
+  getIt.registerFactory<ProfileCubit>(() => ProfileCubit());
+  getIt.registerFactory<EditProfileCubit>(() => EditProfileCubit());
 }

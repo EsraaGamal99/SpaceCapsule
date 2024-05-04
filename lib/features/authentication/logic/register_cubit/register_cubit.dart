@@ -20,9 +20,9 @@ class RegisterCubit extends Cubit<RegisterState> {
   Future<void> checkAuthStatus() async {
     final prefs = await SharedPreferences.getInstance();
     final isLoggedIn = prefs.getBool(isSignedUp) ?? false;
-    if (isLoggedIn) {
-      emit(const RegisterState.loggedUp());
-    }
+    // if (isLoggedIn) {
+    //   emit(const RegisterState.loggedUp());
+    // }
   }
 
   Future<void> userRegistration({required String name,

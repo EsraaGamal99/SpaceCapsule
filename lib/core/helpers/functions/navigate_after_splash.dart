@@ -1,86 +1,33 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:space_app/core/helpers/constants.dart';
+import 'package:space_app/core/helpers/functions/firebase_services.dart';
 import 'package:space_app/core/routing/routes.dart';
-
-final FirebaseAuth _auth = FirebaseAuth.instance;
-
-// checkToken() async {
-//   print('checkToken   ${_auth.currentUser}');
-//   if(_auth.currentUser != null) {
-//     return true;
-//   } else {
-//     print('checkToken else  ${_auth.currentUser}');
-//
-//     await _auth.signOut();
-//     return false;
-//   }
-// }
-Future<bool> checkTokenAndSignOut() async {
-  try {
-    final currentUser = _auth.currentUser;
-    if (currentUser != null) {
-      return true;
-    } else {
-      await _auth.signOut();
-      return false;
-    }
-  } catch (e) {
-    print('Error during sign-out: $e');
-    return false;
-  }
-}
-Future<bool> checkToken() async {
-  try {
-    print('checkToken   ${_auth.currentUser}');
-    final currentUser = _auth.currentUser;
-    if (currentUser != null) {
-      return true;
-    } else {
-      await _auth.signOut();
-      print('checkToken else after  ${currentUser}');
-
-      return false;
-    }
-  } catch (e) {
-    print('Error during sign-out: $e');
-    return false;
-  }
-}
-
-
-Future<void> saveLogInStatus(bool isLoggedIn) async {
-  final prefs = await SharedPreferences.getInstance();
-  if(_auth.currentUser != null) {
-    await prefs.setBool(isSignedIn, isLoggedIn);
-  } else {
-    await prefs.setBool(isSignedIn, false);
-    _auth.signOut();
-  }
-}
-
-Future<void> saveSignUpStatus(bool isLoggedUp) async {
-  final prefs = await SharedPreferences.getInstance();
-  if(_auth.currentUser != null) {
-    await prefs.setBool(isSignedUp, isLoggedUp);
-  } else {
-    await prefs.setBool(isSignedUp, false);
-    _auth.signOut();
-  }
-}
-
+import 'package:space_app/features/profile/logic/edit_profile_data/edit_profile_cubit.dart';
+import 'package:space_app/features/profile/logic/profile_cubit.dart';
 
 void navigateAfterSplash(BuildContext context) async {
   final prefs = await SharedPreferences.getInstance();
   bool? isLoggedIn = prefs.getBool(isSignedIn);
   bool? isLoggedUp = prefs.getBool(isSignedUp);
-  if(isLoggedIn == true) {
+  String? currentToken = prefs.getString(token);
+  if(isLoggedIn == true && currentToken != null) {
     Navigator.pushReplacementNamed(context, Routes.homeScreen);
   } else if (isLoggedUp == true) {
     Navigator.pushReplacementNamed(context, Routes.loginScreen);
   } else {
-    _auth.signOut();
     Navigator.pushReplacementNamed(context, Routes.firstOnboardingScreen);
+  }
+}
+
+
+Future pickImage(ImageSource imageSource, BuildContext context) async {
+  final pickedFile = await ImagePicker().pickImage(source: imageSource);
+  if (pickedFile != null) {
+    BlocProvider.of<EditProfileCubit>(context).updateProfileData(context, photoURL: pickedFile.path);
+    BlocProvider.of<ProfileCubit>(context).getUserProfile(context);
   }
 }

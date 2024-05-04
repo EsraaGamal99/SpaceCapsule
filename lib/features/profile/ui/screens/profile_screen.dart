@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
+import 'package:space_app/core/theming/assets.dart';
 import 'package:space_app/core/theming/colors.dart';
 import 'package:space_app/core/widgets/loading_widgets/screens_loading_widget.dart';
 import 'package:space_app/features/profile/logic/profile_cubit.dart';
@@ -11,7 +12,6 @@ import '../../../../core/helpers/constants_strings.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/widgets/app_bars/inner_screens_app_bar.dart';
 import '../widgets/setting_item_Widget.dart';
-import '../widgets/show_give_feedback_bottom_sheet.dart';
 import '../widgets/user_info_widget.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -61,14 +61,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             bottomText: settingsTextKey,
                           ),
                           SizedBox(height: 20.h),
-                          UserInfoWidget(name: success.user.displayName ?? "", email: success.user.email ?? "", profileImage: success.user.photoURL ?? "",),
+                          UserInfoWidget(name: success.user.displayName ?? "", email: success.user.email ?? "", profileImage: success.user.photoURL ?? AppAssets.userPlaceHolder,),
                           SizedBox(height: 20.h),
                           SettingItemWidget(icon: Icons.settings, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: appPreferencesTextKey, onTap: () => openAppPreferencesScreen(context)),
                           SizedBox(height: 20.h),
-                          SettingItemWidget(icon: Icons.question_mark_rounded, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: helpAndSupportTextKey, onTap: () {},),
-                          SizedBox(height: 20.h),
-                          SettingItemWidget(icon: Icons.star_rate_rounded, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: giveFeedbackTextKey, onTap: () => showGiveFeedbackBottomSheet(context: context, feedbackTextController: feedbackController, onFeedbackChanged: (String feedback) {}),),
-                          SizedBox(height: 20.h),
+                          // SettingItemWidget(icon: Icons.question_mark_rounded, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: helpAndSupportTextKey, onTap: () {},),
+                          // SizedBox(height: 20.h),
+                          // SettingItemWidget(icon: Icons.star_rate_rounded, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: giveFeedbackTextKey, onTap: () => showGiveFeedbackBottomSheet(context: context, feedbackTextController: feedbackController, onFeedbackChanged: (String feedback) {}),),
+                          // SizedBox(height: 20.h),
                           SettingItemWidget(icon: Icons.logout_rounded, backgroundColor: AppColors.primaryWhiteColor, foregroundColor: AppColors.primaryBlackColor, title: signUpTextKey, onTap: () => BlocProvider.of<ProfileCubit>(context).logout()),
                           SizedBox(height: 50.h),
                         ],
@@ -76,7 +76,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     },
                     initial: (_) => const SizedBox.shrink(),
                     loggedOut: (_) => const SizedBox.shrink(),
-                    updateSuccess: (_) => const SizedBox.shrink(),
                   );
                 }
               ),

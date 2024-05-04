@@ -18,9 +18,10 @@ class LoginCubit extends Cubit<LogInState> {
   Future<void> checkAuthStatus() async {
     final prefs = await SharedPreferences.getInstance();
     final isLoggedIn = prefs.getBool(isSignedIn) ?? false;
-    if (isLoggedIn) {
-      emit(const LogInState.loggedIn());
-    }
+
+    // if (isLoggedIn) {
+    //   emit(const LogInState.loggedIn());
+    // }
   }
 
   Future<void> userLogin({required String email, required String password}) async {

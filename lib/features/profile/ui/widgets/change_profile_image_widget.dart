@@ -1,9 +1,11 @@
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:space_app/core/helpers/functions/navigate_after_splash.dart';
 import 'package:space_app/features/profile/logic/profile_cubit.dart';
 import 'package:space_app/features/profile/logic/profile_state.dart';
 
@@ -106,10 +108,11 @@ import 'show_choose_image_source_bottom_sheet.dart';
 // }
 
 class ChangeProfileImageWidget extends StatelessWidget {
+  final String? image;
+  const ChangeProfileImageWidget({super.key, required this.image});
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProfileCubit, ProfileState>(
-      builder: (context, state) {
         return Stack(
           children: [
             Container(
@@ -125,36 +128,12 @@ class ChangeProfileImageWidget extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: ClipOval(
-                  child: state.maybeWhen(
-                    success: (user) {
-                      debugPrint('ProfileState CachedNetworkImage: ${user.photoURL ?? ''}');
-                      return Image.file(
-                        File(user.photoURL ?? ''),
-                        width: 100,
-                        height: 100,
-                        fit: BoxFit.cover,
-                      );
-                      // return CachedNetworkImage(
-                      //   imageUrl: user.photoURL ?? AppAssets.userPlaceHolder,
-                      //   width: 100,
-                      //   height: 100,
-                      //   fit: BoxFit.cover,
-                      //   placeholder: (context, url) => const SmallLoadingWidget(),
-                      //   errorWidget: (context, url, error) => Image.asset(
-                      //     AppAssets.userPlaceHolder,
-                      //     width: 100,
-                      //     height: 100,
-                      //     fit: BoxFit.cover,
-                      //   ),
-                      // );
-                    },
-                    orElse: () => Image.asset(
-                      AppAssets.userPlaceHolder,
+                    child: Image.file(
+                      File(image ?? AppAssets.userPlaceHolder),
                       width: 100,
                       height: 100,
                       fit: BoxFit.cover,
-                    ),
-                  ),
+                    )
                 ),
               ),
             ),
@@ -179,16 +158,7 @@ class ChangeProfileImageWidget extends StatelessWidget {
               ),
             ),
           ],
-        );
-      },
     );
   }
 
-  Future pickImage(ImageSource imageSource, BuildContext context) async {
-    final pickedFile = await ImagePicker().pickImage(source: imageSource);
-    if (pickedFile != null) {
-      BlocProvider.of<ProfileCubit>(context).updatePhoto(photoURL: pickedFile.path);
-      BlocProvider.of<ProfileCubit>(context).getUserProfile(context);
-    }
-  }
 }

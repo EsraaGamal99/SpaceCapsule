@@ -58,11 +58,10 @@ class AppRouter {
       case Routes.editProfileScreen:
         return MaterialPageRoute(
           builder: (context) => MultiBlocProvider(
-              providers: [
-                BlocProvider(create: (context) => getIt<ProfileCubit>()),
-                BlocProvider(create: (context) => getIt<EditProfileCubit>()),
-              ],
-          child: const EditProfileScreen(),
+            providers: [
+              BlocProvider(create: (context) => getIt<ProfileCubit>()),
+              BlocProvider(create: (context) => getIt<EditProfileCubit>()),
+            ], child: const EditProfileScreen(),
           ),
         );
       case Routes.appPreferencesScreen:

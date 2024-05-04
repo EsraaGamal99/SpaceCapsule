@@ -23,6 +23,7 @@ class _EditProfileTextFieldWidgetState extends State<EditProfileTextFieldWidget>
   @override
   void initState() {
     super.initState();
+    debugPrint('widget.initialValue ${widget.initialValue}');
     widget.controller.text = widget.initialValue;
   }
 

@@ -1,21 +1,35 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/helpers/constants_strings.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
+import 'package:space_app/core/theming/assets.dart';
 import 'package:space_app/core/theming/colors.dart';
 import 'package:space_app/core/theming/text_styles.dart';
+import 'package:space_app/core/widgets/images/profile_image_widget.dart';
+import 'package:space_app/features/profile/logic/profile_cubit.dart';
 
 import '../../../../core/helpers/constants_sizes.dart';
 import '../../../../core/routing/routes.dart';
-import 'change_profile_image_widget.dart';
 
-class UserInfoWidget extends StatelessWidget {
+class UserInfoWidget extends StatefulWidget {
   final String name;
   final String email;
   final String profileImage;
   const UserInfoWidget({super.key, required this.name, required this.email, required this.profileImage});
 
+  @override
+  State<UserInfoWidget> createState() => _UserInfoWidgetState();
+}
+
+class _UserInfoWidgetState extends State<UserInfoWidget> {
+
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<ProfileCubit>(context).getUserProfile(context);
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,13 +48,13 @@ class UserInfoWidget extends StatelessWidget {
             child: Text(editProfileTextKey, style: AppTextStyles.fontWhite18W500)
           ),
           SizedBox(height: 10.h),
-          ChangeProfileImageWidget(),
+          ProfileImageWidget(userImage: BlocProvider.of<ProfileCubit>(context).currentUser?.photoURL ?? AppAssets.userPlaceHolder),
           SizedBox(height: 20.h),
-          Text(name, style: AppTextStyles.fontLightGrey18W600),
+          Text(widget.name, style: AppTextStyles.fontLightGrey18W600),
           SizedBox(height: 5.h),
           Container(color: AppColors.primaryLightGreyColor, width: 40.w, height: 1.h),
           SizedBox(height: 5.h),
-          Text(email, style: AppTextStyles.fontLightGrey18W600),
+          Text(widget.email, style: AppTextStyles.fontLightGrey18W600),
         ],
       ),
     );

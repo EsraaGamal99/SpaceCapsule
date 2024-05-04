@@ -48,11 +48,11 @@ DragonModel _$DragonModelFromJson(Map<String, dynamic> json) => DragonModel(
       name: json['name'] as String?,
       type: json['type'] as String?,
       active: json['active'] as bool?,
-      crewCapacity: json['crewCapacity'] as int?,
-      sidewallAngleDeg: json['sidewallAngleDeg'] as int?,
-      orbitDurationYr: json['orbitDurationYr'] as int?,
-      dryMassKg: json['dryMassKg'] as int?,
-      dryMassLb: json['dryMassLb'] as int?,
+      crewCapacity: (json['crewCapacity'] as num?)?.toInt(),
+      sidewallAngleDeg: (json['sidewallAngleDeg'] as num?)?.toInt(),
+      orbitDurationYr: (json['orbitDurationYr'] as num?)?.toInt(),
+      dryMassKg: (json['dryMassKg'] as num?)?.toInt(),
+      dryMassLb: (json['dryMassLb'] as num?)?.toInt(),
       thrusters: (json['thrusters'] as List<dynamic>?)
           ?.map((e) => ThrustersModel.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -92,7 +92,7 @@ HeatShieldModel _$HeatShieldModelFromJson(Map<String, dynamic> json) =>
     HeatShieldModel(
       material: json['material'] as String?,
       sizeMeters: (json['sizeMeters'] as num?)?.toDouble(),
-      tempDegrees: json['tempDegrees'] as int?,
+      tempDegrees: (json['tempDegrees'] as num?)?.toInt(),
       devPartner: json['devPartner'] as String?,
     );
 
@@ -107,8 +107,8 @@ Map<String, dynamic> _$HeatShieldModelToJson(HeatShieldModel instance) =>
 LaunchPayloadMassModel _$LaunchPayloadMassModelFromJson(
         Map<String, dynamic> json) =>
     LaunchPayloadMassModel(
-      kg: json['kg'] as int?,
-      lb: json['lb'] as int?,
+      kg: (json['kg'] as num?)?.toInt(),
+      lb: (json['lb'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$LaunchPayloadMassModelToJson(
@@ -121,8 +121,8 @@ Map<String, dynamic> _$LaunchPayloadMassModelToJson(
 LaunchPayloadVolModel _$LaunchPayloadVolModelFromJson(
         Map<String, dynamic> json) =>
     LaunchPayloadVolModel(
-      cubicMeters: json['cubicMeters'] as int?,
-      cubicFeet: json['cubicFeet'] as int?,
+      cubicMeters: (json['cubicMeters'] as num?)?.toInt(),
+      cubicFeet: (json['cubicFeet'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$LaunchPayloadVolModelToJson(
@@ -164,7 +164,7 @@ Map<String, dynamic> _$TrunkModelToJson(TrunkModel instance) =>
     };
 
 CargoModel _$CargoModelFromJson(Map<String, dynamic> json) => CargoModel(
-      solarArray: json['solarArray'] as int?,
+      solarArray: (json['solarArray'] as num?)?.toInt(),
       unpressurizedCargo: json['unpressurizedCargo'] as bool?,
     );
 
@@ -189,7 +189,7 @@ Map<String, dynamic> _$HeightWTrunkModelToJson(HeightWTrunkModel instance) =>
 DiameterModel _$DiameterModelFromJson(Map<String, dynamic> json) =>
     DiameterModel(
       meters: (json['meters'] as num?)?.toDouble(),
-      feet: json['feet'] as int?,
+      feet: (json['feet'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$DiameterModelToJson(DiameterModel instance) =>
@@ -201,11 +201,11 @@ Map<String, dynamic> _$DiameterModelToJson(DiameterModel instance) =>
 ThrustersModel _$ThrustersModelFromJson(Map<String, dynamic> json) =>
     ThrustersModel(
       type: json['type'] as String?,
-      amount: json['amount'] as int?,
-      pods: json['pods'] as int?,
+      amount: (json['amount'] as num?)?.toInt(),
+      pods: (json['pods'] as num?)?.toInt(),
       fuel1: json['fuel1'] as String?,
       fuel2: json['fuel2'] as String?,
-      isp: json['isp'] as int?,
+      isp: (json['isp'] as num?)?.toInt(),
       thrust: json['thrust'] == null
           ? null
           : ThrustModel.fromJson(json['thrust'] as Map<String, dynamic>),
@@ -224,7 +224,7 @@ Map<String, dynamic> _$ThrustersModelToJson(ThrustersModel instance) =>
 
 ThrustModel _$ThrustModelFromJson(Map<String, dynamic> json) => ThrustModel(
       kN: (json['kN'] as num?)?.toDouble(),
-      lbf: json['lbf'] as int?,
+      lbf: (json['lbf'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$ThrustModelToJson(ThrustModel instance) =>
