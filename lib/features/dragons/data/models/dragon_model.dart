@@ -55,6 +55,7 @@ class DragonModel {
 
   factory DragonModel.fromJson(Map<String, dynamic> json) =>
       _$DragonModelFromJson(json);
+  Map<String, dynamic> toJson() => _$DragonModelToJson(this);
 }
 
 @JsonSerializable()

@@ -32,8 +32,8 @@ class PicksTitleWidget extends StatelessWidget {
         ),
         IconButton(
             onPressed: () {},
-            iconSize: 35.w,color: AppColors.primaryMediumGrayColor,
-            // color: Theme.of(context).colorScheme.primary,
+            iconSize: 35.w,//color: AppColors.primaryMediumGrayColor,
+            color: Theme.of(context).colorScheme.primary,
             icon: const Icon(Icons.notifications_none_outlined,)),
       ],
     );

@@ -14,6 +14,9 @@ const arabicLocale  = Locale('ar', 'EG');
 // Shared Preferences
 const String localeKey = 'locale';
 
+// Key Of Dragons Data At Local Database
+const String dragonsKey = 'CACHED_DRAGONS';
+
 // Title Images In Home Screen
 List<String> cardName = ['Rockets', 'Dragons', 'Landpods'];
 
