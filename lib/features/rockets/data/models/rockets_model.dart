@@ -35,11 +35,16 @@ class RocketsModel {
   Height? height;
   Diameter? diameter;
   Mass? mass;
+  @JsonKey(name: 'first_stage')
   FirstStage? firstStage;
+  @JsonKey(name: 'second_stage')
   SecondStage? secondStage;
   Engines? engines;
+  @JsonKey(name: 'landing_legs')
   LandingLegs? landingLegs;
+  @JsonKey(name: 'payload_weights')
   List<PayloadWeights>? payloadWeights;
+  @JsonKey(name: 'flickr_images')
   List<String>? flickrImages;
   String? name;
   String? type;

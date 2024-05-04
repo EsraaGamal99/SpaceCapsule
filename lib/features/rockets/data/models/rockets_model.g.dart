@@ -16,22 +16,22 @@ RocketsModel _$RocketsModelFromJson(Map<String, dynamic> json) => RocketsModel(
       mass: json['mass'] == null
           ? null
           : Mass.fromJson(json['mass'] as Map<String, dynamic>),
-      firstStage: json['firstStage'] == null
+      firstStage: json['first_stage'] == null
           ? null
-          : FirstStage.fromJson(json['firstStage'] as Map<String, dynamic>),
-      secondStage: json['secondStage'] == null
+          : FirstStage.fromJson(json['first_stage'] as Map<String, dynamic>),
+      secondStage: json['second_stage'] == null
           ? null
-          : SecondStage.fromJson(json['secondStage'] as Map<String, dynamic>),
+          : SecondStage.fromJson(json['second_stage'] as Map<String, dynamic>),
       engines: json['engines'] == null
           ? null
           : Engines.fromJson(json['engines'] as Map<String, dynamic>),
-      landingLegs: json['landingLegs'] == null
+      landingLegs: json['landing_legs'] == null
           ? null
-          : LandingLegs.fromJson(json['landingLegs'] as Map<String, dynamic>),
-      payloadWeights: (json['payloadWeights'] as List<dynamic>?)
+          : LandingLegs.fromJson(json['landing_legs'] as Map<String, dynamic>),
+      payloadWeights: (json['payload_weights'] as List<dynamic>?)
           ?.map((e) => PayloadWeights.fromJson(e as Map<String, dynamic>))
           .toList(),
-      flickrImages: (json['flickrImages'] as List<dynamic>?)
+      flickrImages: (json['flickr_images'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
       name: json['name'] as String?,
@@ -54,12 +54,12 @@ Map<String, dynamic> _$RocketsModelToJson(RocketsModel instance) =>
       'height': instance.height,
       'diameter': instance.diameter,
       'mass': instance.mass,
-      'firstStage': instance.firstStage,
-      'secondStage': instance.secondStage,
+      'first_stage': instance.firstStage,
+      'second_stage': instance.secondStage,
       'engines': instance.engines,
-      'landingLegs': instance.landingLegs,
-      'payloadWeights': instance.payloadWeights,
-      'flickrImages': instance.flickrImages,
+      'landing_legs': instance.landingLegs,
+      'payload_weights': instance.payloadWeights,
+      'flickr_images': instance.flickrImages,
       'name': instance.name,
       'type': instance.type,
       'active': instance.active,

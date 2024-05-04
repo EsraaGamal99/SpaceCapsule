@@ -6,6 +6,8 @@ import 'package:space_app/core/theming/assets.dart';
 import 'package:space_app/core/theming/colors.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
 import '../../../../../core/theming/text_styles.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
 
 class PickCardWidget extends StatelessWidget {
   final String cardName;
@@ -33,7 +35,7 @@ class PickCardWidget extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(
+                  image: CachedNetworkImageProvider(
                     imageName,
                   ),
                   fit: BoxFit.cover),
@@ -72,20 +74,7 @@ class PickCardWidget extends StatelessWidget {
                         context.translate.adventurerTextKey,
                         style: AppTextStyles.fontWhite15W500,
                       ),
-                      RichText(
-                        text: TextSpan(
-                          text: cardName,
-                          style: AppTextStyles.fontWhite33W600,
-                          children: <TextSpan>[
-                            const TextSpan(
-                              text: ' ',
-                            ),
-                            TextSpan(
-                                text: '',
-                                style: AppTextStyles.fontLightGrey30W400),
-                          ],
-                        ),
-                      ),
+                      Text(cardName,style: AppTextStyles.fontWhite33W600,),
                     ],
                   ),
                   MaterialButton(
