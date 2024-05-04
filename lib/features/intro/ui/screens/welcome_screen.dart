@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
+import 'package:space_app/core/theming/colors.dart';
+import 'package:space_app/core/widgets/buttons/custom_material_button.dart';
 
-import '../../../../core/helpers/constants_strings.dart';
 import '../../../../core/routing/routes.dart';
+import '../../../../core/theming/app_theme_cubit/app_theme_cubit.dart';
 import '../../../../core/theming/assets.dart';
-import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/text_styles.dart';
 import '../../../../core/widgets/buttons/animation_button.dart';
-import '../../../../core/widgets/buttons/custom_material_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -22,7 +22,7 @@ class WelcomeScreen extends StatelessWidget {
             height: MediaQueryHelper(context).height,
             width: MediaQueryHelper(context).width,
             child: Image.asset(
-              AppAssets.welcomeImage,
+              AppThemeCubit.isDarkMode ?  AppAssets.welcomeImage :AppAssets.welcomeImageLightMode,
               fit: BoxFit.cover,
             ),
           ),
@@ -52,12 +52,12 @@ class WelcomeScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  letsFloatInTextKey,
-                  style: AppTextStyles.fontWhite40W500.copyWith(height: 1.h),
+                  context.translate.letsFloatInTextKey,
+                  style: AppTextStyles.fontWhite40W500.copyWith(height: 1.h,color: Theme.of(context).colorScheme.primary),
                 ),
                 Text(
-                  universeTextKey,
-                  style: AppTextStyles.fontWhite70W600.copyWith(height: 1.h),
+                  context.translate.universeTextKey,
+                  style: AppTextStyles.fontWhite70W600.copyWith(height: 1.h,color: Theme.of(context).colorScheme.primary),
                 ),
               ],
             ),
@@ -70,12 +70,12 @@ class WelcomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  welcomeTextKey,
-                  style: AppTextStyles.fontWhite40W700,
+                  context.translate.welcomeTextKey,
+                  style: AppTextStyles.fontWhite40W700.copyWith(color: Theme.of(context).colorScheme.primary),
                 ),
                 Text(
-                  unlockAUniverseTextKey,
-                  style: AppTextStyles.fontWhite19W500.copyWith(height: 1.h),
+                  context.translate.unlockAUniverseTextKey,
+                  style: AppTextStyles.fontWhite19W500.copyWith(height: 1.h, color: Theme.of(context).colorScheme.primary),
                 ),
                 SizedBox(height: 30.h),
                 AnimationButton(
@@ -83,9 +83,8 @@ class WelcomeScreen extends StatelessWidget {
                     context.pushNamed(Routes.loginScreen);
                   },
                   child: CustomMaterialButton(
-                    label: logInTextKey,
+                    label: context.translate.logInTextKey,
                     isFullWidth: false,
-                    backgroundColor: AppColors.primaryWhiteColor,
                     labelColor: AppColors.primaryBlackColor,
                   ),
                 ),
@@ -94,7 +93,7 @@ class WelcomeScreen extends StatelessWidget {
                     onTap: () {
                       context.pushNamed(Routes.registerScreen);
                     },
-                    child: Center(child: Text(createNewAccountTextKey, style: AppTextStyles.fontWhite18W500.copyWith(decoration: TextDecoration.underline, decorationColor: AppColors.primaryWhiteColor)))
+                    child: Center(child: Text(context.translate.createNewAccountTextKey, style: AppTextStyles.fontWhite18W500.copyWith(color: Theme.of(context).colorScheme.primary, decoration: TextDecoration.underline, decorationColor: Theme.of(context).colorScheme.primary)))
                 ),
               ],
             ),

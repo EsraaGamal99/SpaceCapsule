@@ -15,7 +15,6 @@ class AppTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final Color? backgroundColor;
   final TextEditingController? controller;
-  final Function(String?) validator;
   const AppTextFormField({
     super.key,
     this.contentPadding,
@@ -28,7 +27,6 @@ class AppTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.backgroundColor,
     this.controller,
-    required this.validator,
   });
 
   @override
@@ -69,17 +67,15 @@ class AppTextFormField extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(10.0.h),
         ),
-        hintStyle: hintStyle ?? AppTextStyles.fontWhite13W400,
+        hintStyle: hintStyle ?? AppTextStyles.fontWhite13W400.copyWith(color: Theme.of(context).colorScheme.primary),
         hintText: hintText,
         suffixIcon: suffixIcon,
-        fillColor: backgroundColor ?? AppColors.primaryDarkGrayColor,
+        fillColor: Theme.of(context).focusColor,
         filled: true,
       ),
 
-      style: AppTextStyles.fontWhite13W400,
-      validator: (value) {
-        return validator(value);
-      },
+      style: AppTextStyles.fontWhite13W400.copyWith(color: Theme.of(context).colorScheme.primary),
+
     );
   }
 }

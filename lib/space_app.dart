@@ -3,10 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:space_app/core/helpers/constants.dart';
 import 'package:space_app/core/theming/app_theme_cubit/app_theme_cubit.dart';
+import 'package:space_app/core/theming/app_themes.dart';
 import 'package:space_app/features/localization/logic/localization_cubit.dart';
 import 'package:space_app/features/localization/logic/localization_state.dart';
-import 'package:space_app/features/localization/logic/translation_generated/l10n.dart';
+import 'package:space_app/generated/l10n.dart';
 
 import 'core/di/dependency_injection.dart';
 import 'core/routing/app_router.dart';
@@ -27,10 +29,11 @@ class SpaceApp extends StatelessWidget {
         ],
           child: BlocBuilder<AppThemeCubit, AppThemeState>(
               builder: (context, state) {
+
                 SystemChrome.setSystemUIOverlayStyle(
                   SystemUiOverlayStyle(
                     statusBarColor: Colors.transparent,
-                    statusBarIconBrightness: AppThemeCubit.get(context).isDarkMode
+                    statusBarIconBrightness: AppThemeCubit.isDarkMode
                         ? Brightness.light
                         : Brightness.dark,
                   ),
@@ -40,29 +43,18 @@ class SpaceApp extends StatelessWidget {
                   minTextAdapt: true,
                   child: BlocBuilder<LocalizationCubit, LocalizationState>(
                       builder: (context, state) {
-                        if(state is LocalaizationSuccess) {
-                          return MaterialApp(
-                            locale: state.data,
-                            localizationsDelegates: const [
-                              S.delegate,
-                              GlobalMaterialLocalizations.delegate,
-                              GlobalWidgetsLocalizations.delegate,
-                              GlobalCupertinoLocalizations.delegate,
-                            ],
-                            supportedLocales: S.delegate.supportedLocales,
-                            debugShowCheckedModeBanner: false,
-                            onGenerateRoute: appRouter.generateRoute,
-                            initialRoute: Routes.splashScreen,
-                          );
-                        }
                         return MaterialApp(
-                          locale: const Locale('en'),
+                          locale: state is LocalaizationSuccess ? state.data : englishLocale,
                           localizationsDelegates: const [
                             S.delegate,
                             GlobalMaterialLocalizations.delegate,
                             GlobalWidgetsLocalizations.delegate,
                             GlobalCupertinoLocalizations.delegate,
                           ],
+                          themeMode: AppThemeCubit.themeMode,
+                          darkTheme: AppThemes.darkTheme,
+                          theme:  AppThemes.lightTheme,
+
                           supportedLocales: S.delegate.supportedLocales,
                           debugShowCheckedModeBanner: false,
                           onGenerateRoute: appRouter.generateRoute,

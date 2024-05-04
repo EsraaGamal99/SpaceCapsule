@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:space_app/core/helpers/constants.dart';
+import 'package:space_app/features/localization/logic/localization_cubit.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 
-import '../../../../core/helpers/constants_strings.dart';
 import '../../../../core/theming/colors.dart';
 
 void showChangeLanguageBottomSheet({required BuildContext context}) {
@@ -26,14 +29,16 @@ class ChangeLanguageWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           ListTile(
-            title: const Text(englishTextKey, style: TextStyle(color: AppColors.primaryWhiteColor)),
+            title: Text(context.translate.englishTextKey, style: const TextStyle(color: AppColors.primaryWhiteColor)),
             onTap: () {
+              BlocProvider.of<LocalizationCubit>(context).changeLocale(englishLocale);
               Navigator.pop(context);
             },
           ),
           ListTile(
-            title: const Text(arabicTextKey, style: TextStyle(color: AppColors.primaryWhiteColor)),
+            title: Text(context.translate.arabicTextKey, style: const TextStyle(color: AppColors.primaryWhiteColor)),
             onTap: () {
+              BlocProvider.of<LocalizationCubit>(context).changeLocale(arabicLocale);
               Navigator.pop(context);
             },
           ),

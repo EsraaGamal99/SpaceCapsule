@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 
-import '../../../../core/helpers/constants_strings.dart';
+import '../../../../core/theming/app_theme_cubit/app_theme_cubit.dart';
 import '../../../../core/theming/colors.dart';
 
 void showChangeThemeBottomSheet({required BuildContext context}) {
@@ -26,15 +27,19 @@ class ChangeThemeWidget extends StatelessWidget {
         children: <Widget>[
           ListTile(
             leading: const Icon(Icons.light_mode_rounded, color: AppColors.primaryWhiteColor),
-            title: const Text(lightTextKey, style: TextStyle(color: AppColors.primaryWhiteColor)),
+            title: Text(context.translate.lightTextKey, style: const TextStyle(color: AppColors.primaryWhiteColor)),
             onTap: () {
+              AppThemeCubit.get(context).toggleTheme(darkMode: false);
+              debugPrint(AppThemeCubit.isDarkMode.toString());
               Navigator.pop(context);
             },
           ),
           ListTile(
             leading: const Icon(Icons.dark_mode_rounded, color: AppColors.primaryWhiteColor),
-            title: const Text(darkTextKey, style: TextStyle(color: AppColors.primaryWhiteColor)),
+            title: Text(context.translate.darkTextKey, style: const TextStyle(color: AppColors.primaryWhiteColor)),
             onTap: () {
+              AppThemeCubit.get(context).toggleTheme(darkMode: true);
+              debugPrint(AppThemeCubit.isDarkMode.toString());
               Navigator.pop(context);
             },
           ),

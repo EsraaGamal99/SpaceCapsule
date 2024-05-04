@@ -1,12 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:space_app/core/routing/routes.dart';
 import 'package:space_app/core/theming/assets.dart';
 import 'package:space_app/core/theming/colors.dart';
-import '../../../../../core/helpers/constants_strings.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 import '../../../../../core/theming/text_styles.dart';
 
 class PickCardWidget extends StatelessWidget {
@@ -64,12 +62,23 @@ class PickCardWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        adventurerTextKey,
+                        context.translate.adventurerTextKey,
                         style: AppTextStyles.fontWhite15W500,
                       ),
-                      Text(
-                        cardName,
-                        style: AppTextStyles.fontWhite33W600,
+                      RichText(
+                        text: TextSpan(
+                          text: cardName,
+                          style: AppTextStyles.fontWhite33W600,
+                          children: <TextSpan>[
+                            const TextSpan(
+                              text: ' ',
+                            ),
+                            TextSpan(
+                                text: '',
+                                style: AppTextStyles.fontLightGrey30W400),
+                          ],
+                        ),
+
                       ),
                     ],
                   ),

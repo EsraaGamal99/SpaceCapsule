@@ -74,7 +74,7 @@ class _AnimationButtonState extends State<AnimationButton>
           width: widget.width ?? double.infinity,
           decoration: BoxDecoration(
             borderRadius:BorderRadius.circular(16.0),
-            color: widget.color ??  AppColors.primaryWhiteColor,
+            color: Theme.of(context).colorScheme.secondary,//widget.color ??  AppColors.primaryWhiteColor,
             boxShadow: widget.applyShadow
                 ? [
               BoxShadow(

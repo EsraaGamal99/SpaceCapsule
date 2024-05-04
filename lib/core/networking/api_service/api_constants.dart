@@ -5,6 +5,7 @@ class ApiConstants {
 }
 
 class ApiErrors {
+  // Todo: Translations
   static const String badRequestError = "badRequestError";
   static const String noContent = "noContent";
   static const String forbiddenError = "forbiddenError";

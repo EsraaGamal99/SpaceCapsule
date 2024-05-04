@@ -1,16 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:space_app/core/widgets/loading_widgets/screens_loading_widget.dart';
-import 'package:space_app/core/widgets/loading_widgets/small_loading_widget.dart';
-import 'package:space_app/features/home/ui/screens/widgets/app_bar_widget.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:space_app/core/theming/app_theme_cubit/app_theme_cubit.dart';
+import 'package:space_app/core/theming/app_theme_cubit/app_theme_state.dart';
+
 import 'package:space_app/features/home/ui/screens/widgets/list_picks_widget.dart';
-import 'package:space_app/features/home/ui/screens/widgets/pick_card_widget.dart';
-import 'package:space_app/features/home/ui/screens/widgets/picks_title_widget.dart';
-import 'package:space_app/features/home/ui/screens/widgets/search_text_field_widget.dart';
 
-import '../../../../core/theming/assets.dart';
-
+import 'widgets/widgets_with_background.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -19,25 +14,22 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      backgroundColor: Colors.black,
-      body: SingleChildScrollView(
-        child: Container(
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(AppAssets.homeBackgroundImage,),
-                fit: BoxFit.fill,
-              )
-          ),
-         padding: EdgeInsets.symmetric(horizontal: 30.w,vertical: 70.h),
-          child: const Column(
-            children: [
-              AppBarWidget(),
-              SizedBox(height: 30,),
-              PicksTitleWidget(),
-              ListPicksWidget(),
-            ],
-          ),
-        ),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      body: BlocBuilder<AppThemeCubit, AppThemeState>(
+        builder: (context, state) {
+          return SingleChildScrollView(
+            child: Container(
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  BackgroundWidgets(),
+                  ListPicksWidget(),
+                ],
+              ),
+            ),
+          );
+        }
       ),
     );
   }

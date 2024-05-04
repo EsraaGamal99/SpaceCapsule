@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:space_app/features/localization/logic/localization_cubit.dart';
 
 import '../theming/assets.dart';
 
@@ -22,9 +24,12 @@ class AuthBackButton extends StatelessWidget {
         ),
         fixedSize: Size(90.w, 20.h),
       ),
-      child: SvgPicture.asset(
-        AppAssets.backArrowIcon,
-        width: 20.w,
+      child: RotatedBox(
+        quarterTurns: BlocProvider.of<LocalizationCubit>(context).isArabic() ? 2 : 0,
+        child: SvgPicture.asset(
+          AppAssets.backArrowIcon,
+          width: 20.w,
+        ),
       ),
     );
   }

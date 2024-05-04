@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 import 'package:space_app/core/theming/text_styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:space_app/core/helpers/constants_strings.dart';
 import 'space_item_app_bar_image.dart';
 import 'space_item_app_bar_name.dart';
 
@@ -41,7 +41,7 @@ class SpaceItemsAppBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      adventurerTextKey,
+                      context.translate.adventurerTextKey,
                       style: AppTextStyles.fontWhite15W500,
                     ),
                     SpaceItemAppBarName(screenTitle: screenTitle,),
