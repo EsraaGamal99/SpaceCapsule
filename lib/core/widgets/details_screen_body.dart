@@ -42,16 +42,12 @@ class _DetailsScreenBodyState extends State<DetailsScreenBody> {
                 image: widget.images[widget.currentPage.toInt()],
                 imagesCount: widget.images.length,
               ),
+              SizedBox(height: 10.h),
               CustomSmoothIndicator(
                 currentPage: widget.currentPage,
                 boardLength: widget.images.length,
               ),
               SizedBox(height: 45.h),
-              Text(
-                'Description',
-                style: AppTextStyles.fontLighterGray23W600,
-              ),
-              SizedBox(height: 10.h),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Text(

@@ -4,6 +4,7 @@ part 'landpod_model.g.dart';
 @JsonSerializable()
 class LandpodModel {
   String? name;
+  @JsonKey(name: 'full_name')
   String? fullName;
   @JsonKey(name: 'details')
   String? description;

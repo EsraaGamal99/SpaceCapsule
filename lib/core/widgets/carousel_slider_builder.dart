@@ -1,5 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:space_app/core/theming/assets.dart';
+import 'package:space_app/core/widgets/loading_widgets/small_loading_widget.dart';
 
 class CarouselSliderBuilder extends StatefulWidget {
   final ValueChanged<double> onPageChanged;
@@ -19,12 +22,20 @@ class _CarouselSliderBuilderState extends State<CarouselSliderBuilder> {
   Widget build(BuildContext context) {
     return CarouselSlider.builder(
       itemCount: widget.imagesCount,
-      itemBuilder: (context, index, realIndex) => ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        //TODO: replace it with cachedNetworkImage when connected to api
-        child: Image.asset(
-          widget.image,
+      itemBuilder: (context, index, realIndex) => Container(
+        clipBehavior: Clip.antiAlias,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
         ),
+        //TODO: replace it with cachedNetworkImage when connected to api
+        child: CachedNetworkImage(
+          imageUrl: widget.image,
+          fit: BoxFit.cover,
+          progressIndicatorBuilder: (context, url, builder) => const SmallLoadingWidget(),
+          errorWidget: (context, url, error) =>
+              Image.asset(AppAssets.galaxy),
+        )
       ),
       options: CarouselOptions(
         aspectRatio: 16 / 9,
