@@ -1,4 +1,5 @@
 {
+  "noInternetConnectionKey"           : "No Internet Connection"
   "virtualTextKey"                    : "Virtual",
   "galaxyTextKey"                     : "Galaxy",
   "explorerTextKey"                   : "Explorer",

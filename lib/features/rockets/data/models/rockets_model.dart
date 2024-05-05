@@ -7,6 +7,7 @@ class RocketsModel {
 
   factory RocketsModel.fromJson(Map<String, dynamic> json) =>
       _$RocketsModelFromJson(json);
+  Map<String, dynamic> toJson() => _$RocketsModelToJson(this);
   RocketsModel({
       this.height, 
       this.diameter, 
