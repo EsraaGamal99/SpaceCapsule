@@ -4,6 +4,7 @@ import 'package:space_app/core/routing/routes.dart';
 import 'package:space_app/features/authentication/ui/screens/login_screen.dart';
 import 'package:space_app/features/authentication/ui/screens/register_screen.dart';
 import 'package:space_app/features/home_of_items/ui/screens/home_of_items_screen.dart';
+import 'package:space_app/features/profile/logic/all_profile_cubit.dart';
 import 'package:space_app/features/profile/logic/edit_profile_data/edit_profile_cubit.dart';
 import 'package:space_app/features/profile/logic/profile_cubit.dart';
 import 'package:space_app/features/profile/ui/screens/app_preferences_screen.dart';
@@ -52,6 +53,7 @@ class AppRouter {
             providers: [
               BlocProvider(create: (context) => getIt<ProfileCubit>()),
               BlocProvider(create: (context) => getIt<EditProfileCubit>()),
+              BlocProvider(create: (context) => getIt<AllProfileCubit>()),
             ],
             child: ProfileScreen()),
         );
@@ -61,6 +63,7 @@ class AppRouter {
             providers: [
               BlocProvider(create: (context) => getIt<ProfileCubit>()),
               BlocProvider(create: (context) => getIt<EditProfileCubit>()),
+              BlocProvider(create: (context) => getIt<AllProfileCubit>()),
             ], child: const EditProfileScreen(),
           ),
         );

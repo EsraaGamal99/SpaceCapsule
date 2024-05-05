@@ -48,7 +48,7 @@ class _UserInfoWidgetState extends State<UserInfoWidget> {
             child: Text(editProfileTextKey, style: AppTextStyles.fontWhite18W500)
           ),
           SizedBox(height: 10.h),
-          ProfileImageWidget(userImage: BlocProvider.of<ProfileCubit>(context).currentUser?.photoURL ?? AppAssets.userPlaceHolder),
+          ProfileImageWidget(userImage: widget.profileImage),
           SizedBox(height: 20.h),
           Text(widget.name, style: AppTextStyles.fontLightGrey18W600),
           SizedBox(height: 5.h),

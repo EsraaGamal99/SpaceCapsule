@@ -5,6 +5,7 @@ import 'package:space_app/core/helpers/constants.dart';
 import 'package:space_app/core/theming/app_theme_cubit/app_theme_cubit.dart';
 import 'package:space_app/features/dragons/data/repo/dragon_repo_impl.dart';
 import 'package:space_app/features/dragons/logic/dragon_cubit.dart';
+import 'package:space_app/features/profile/logic/all_profile_cubit.dart';
 import 'package:space_app/features/profile/logic/edit_profile_data/edit_profile_cubit.dart';
 import 'package:space_app/features/profile/logic/profile_cubit.dart';
 
@@ -41,4 +42,5 @@ Future<void> setupGetIt() async{
   // Profile
   getIt.registerFactory<ProfileCubit>(() => ProfileCubit());
   getIt.registerFactory<EditProfileCubit>(() => EditProfileCubit());
+  getIt.registerFactory<AllProfileCubit>(() => AllProfileCubit());
 }

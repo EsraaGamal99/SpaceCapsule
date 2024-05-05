@@ -20,7 +20,7 @@ class EditProfileCubit extends Cubit<EditProfileState> {
       if (userPasswordController.text.isNotEmpty) _profileRepo.updatePassword(password: userPasswordController.text);
       if (userNameController.text.isNotEmpty) _profileRepo.updateUsername(username: userNameController.text);
       if (photoURL.isNotEmpty) _profileRepo.updatePhoto(photoURL: photoURL);
-      emit(const EditProfileState.updateSuccess('Data updated successfully'));
+      emit(const EditProfileState.updateSuccess('Profile updated successfully'));
     } catch(error) {
       showSnackBar(context, error.toString());
     }
