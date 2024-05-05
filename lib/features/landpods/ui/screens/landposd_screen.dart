@@ -28,7 +28,7 @@ class _LandPodsScreenState extends State<LandPodsScreen> {
       body: Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(AppAssets.rocketsBackground),
+              image: AssetImage(AppAssets.landPodsBackground),
               fit: BoxFit.cover,
             )),
         child: const Column(
@@ -43,15 +43,3 @@ class _LandPodsScreenState extends State<LandPodsScreen> {
     );
   }
 }
-
-//TODO: replace it with real data when connected to api "the name and images of rockets"
-List<String> cardName = [
-  'LandPod_1',
-  'LandPod_2',
-  'LandPod_3',
-];
-List<String> imageName = [
-  AppAssets.rockets,
-  AppAssets.galaxy,
-  AppAssets.insightfulImage,
-];

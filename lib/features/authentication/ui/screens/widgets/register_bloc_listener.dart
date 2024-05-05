@@ -14,17 +14,17 @@ class RegisterBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<RegisterCubit, RegisterState>(
       listenWhen: (previous, current) =>
-      current is Loading || current is Success || current is Error,
+          current is Loading || current is Success || current is Error,
       listener: (context, state) {
         state.whenOrNull(
           loading: () {
             authLoadingDialog(context);
           },
-          success: (success)  async {
-           await waitThenPopAndNavigate(context,Routes.loginScreen);
+          success: (success) async {
+            await waitThenPopAndNavigate(context, Routes.loginScreen);
           },
-          error: (error)  async {
-            await waitThenPopAndNavigate(context,null);
+          error: (error) async {
+            await waitThenPopAndNavigate(context, null);
             if (!context.mounted) return;
             showSnackBar(context, error);
           },
@@ -33,5 +33,4 @@ class RegisterBlocListener extends StatelessWidget {
       child: const SizedBox.shrink(),
     );
   }
-
 }

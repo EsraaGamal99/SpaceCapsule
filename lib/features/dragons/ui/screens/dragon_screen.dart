@@ -32,9 +32,9 @@ class _DragonScreenState extends State<DragonScreen> {
                 image: AssetImage(AppAssets.dragonsBackground),
                 fit: BoxFit.cover
             )),
-        child: Column(
+        child:const Column(
           children: [
-            const SpaceItemsAppBar(
+             SpaceItemsAppBar(
               screenTitle: 'Dragons',
             ),
             DragonsBlocBuilder(),
@@ -44,15 +44,3 @@ class _DragonScreenState extends State<DragonScreen> {
     );
   }
 }
-
-//TODO: replace it with real data when connected to api "the name and images of rockets"
-List<String> cardName = [
-  'Dragon_1',
-  'Dragon_2',
-  'Dragon_3',
-];
-List<String> imageName = [
-  AppAssets.rockets,
-  AppAssets.galaxy,
-  AppAssets.insightfulImage,
-];

@@ -14,17 +14,17 @@ class LogInBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LogInState>(
       listenWhen: (previous, current) =>
-      current is Loading || current is Success || current is Error,
+          current is Loading || current is Success || current is Error,
       listener: (context, state) {
         state.whenOrNull(
           loading: () {
             authLoadingDialog(context);
           },
-          success: (success)  async {
-            await waitThenPopAndNavigate(context,Routes.homeScreen);
+          success: (success) async {
+            await waitThenPopAndNavigate(context, Routes.homeScreen);
           },
-          error: (error)  async {
-            await waitThenPopAndNavigate(context,null);
+          error: (error) async {
+            await waitThenPopAndNavigate(context, null);
             if (!context.mounted) return;
             showSnackBar(context, error);
           },
