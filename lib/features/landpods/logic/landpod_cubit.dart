@@ -24,9 +24,9 @@ class LandpodCubit extends Cubit<LandpodState> {
     });
   }
 
-  void emitCachedLandpodStates() async{
+  void emitCachedLandpodStates(BuildContext context) async{
     emit(const LandpodState.loading());
-    final response = await landpodLocalRepo.getCachedLandpods();
+    final response = await landpodLocalRepo.getCachedLandpods(context);
     response.when(
         success: (response) {
           emit(LandpodState.loaded(response));
@@ -35,11 +35,11 @@ class LandpodCubit extends Cubit<LandpodState> {
     });
   }
 
-  void getLandpods() async{
+  void getLandpods(BuildContext context) async{
     if(await internetChecker.isConnected){
-      fetchLandpods();
+      fetchLandpods(context);
     }else {
-      emitCachedLandpodStates();
+      emitCachedLandpodStates(context);
     }
   }
 }

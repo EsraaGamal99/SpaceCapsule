@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:space_app/core/helpers/constants.dart';
 import 'package:space_app/features/landpods/data/models/landpod_model.dart';
@@ -18,7 +19,7 @@ class LandpodLocalRepo  {
   }
 
 
-  Future<ResultHandler<List<LandpodModel>>> getCachedLandpods() async {
+  Future<ResultHandler<List<LandpodModel>>> getCachedLandpods(BuildContext context) async {
     try {
       final jsonString = sharedPreferences.getString(landpodsKey);
       if (jsonString != null) {
@@ -29,11 +30,11 @@ class LandpodLocalRepo  {
         return ResultHandler.success(jsonToLandpodsModels);
         //return Future.value(jsonToLandpodsModels);
       } else {
-        return ResultHandler.failure(ErrorHandler.handle(SharedPreferencesErrorHandler(Exception('Error Exception'))));
+        return ResultHandler.failure(ErrorHandler.handle(context, SharedPreferencesErrorHandler(Exception('Error Exception'))));
       }
     } catch (e) {
       print(e);
-      return ResultHandler.failure(ErrorHandler.handle(SharedPreferencesErrorHandler(e)));
+      return ResultHandler.failure(ErrorHandler.handle(context, SharedPreferencesErrorHandler(e)));
 
     }
   }

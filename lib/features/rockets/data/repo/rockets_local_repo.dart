@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:space_app/core/helpers/constants.dart';
 import '../../../../core/networking/error_handler_base.dart';
@@ -18,7 +19,7 @@ class RocketLocalRepo  {
   }
 
 
-  Future<ResultHandler<List<RocketsModel>>> getCachedRockets() async {
+  Future<ResultHandler<List<RocketsModel>>> getCachedRockets(BuildContext context) async {
     try {
       final jsonString = sharedPreferences.getString(rocketsKey);
       if (jsonString != null) {
@@ -29,11 +30,11 @@ class RocketLocalRepo  {
         return ResultHandler.success(jsonToRocketsModels);
         //return Future.value(jsonToRocketsModels);
       } else {
-        return ResultHandler.failure(ErrorHandler.handle(SharedPreferencesErrorHandler(Exception('Error Exception'))));
+        return ResultHandler.failure(ErrorHandler.handle(context, SharedPreferencesErrorHandler(Exception('Error Exception'))));
       }
     } catch (e) {
       print(e);
-      return ResultHandler.failure(ErrorHandler.handle(SharedPreferencesErrorHandler(e)));
+      return ResultHandler.failure(ErrorHandler.handle(context, SharedPreferencesErrorHandler(e)));
 
     }
   }

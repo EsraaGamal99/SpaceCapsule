@@ -74,7 +74,6 @@ Future<void> setupGetIt() async{
   // Rocket local repo
   getIt.registerLazySingleton(() => RocketLocalRepo(sharedPreferences: sharedPref));
   getIt.registerFactory<RocketsCubit>(() => RocketsCubit( rocketsRepo: getIt(),rocketLocalRepo: getIt(), internetChecker: getIt()));
-  getIt.registerFactory<RocketsCubit>(() => RocketsCubit( rocketsRepo: getIt(),));
   getIt.registerFactory<OneRocketCubit>(() => OneRocketCubit( rocketsRepo: getIt(),));
 
 
