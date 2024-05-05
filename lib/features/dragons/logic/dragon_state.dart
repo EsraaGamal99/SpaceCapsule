@@ -9,4 +9,5 @@ class DragonState<T> with _$DragonState<T>{
   const factory DragonState.loading() = Loading;
   const factory DragonState.success(T data) = Success<T>;
   const factory DragonState.error({required String error}) = Error;
+  const factory DragonState.isConnected() = IsConnected;
 }
