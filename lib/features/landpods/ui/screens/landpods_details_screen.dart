@@ -13,6 +13,10 @@ class LandPodsDetailsScreen extends StatefulWidget {
 class _LandPodsDetailsScreen extends State<LandPodsDetailsScreen> {
   double _currentPage = 0;
 
+  //TODO: replace it with this logic "List<int> indexes = List.generate(state.data.flickrImages.length, (index) => index);"
+  //at the build of success state "like at the rockets details screen"
+  List<int> indexes = List.generate(2, (index) => index);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,8 +38,8 @@ class _LandPodsDetailsScreen extends State<LandPodsDetailsScreen> {
                 currentPage: _currentPage,
                 description:
                 'Planet Earth is the third planet from the Sun in our solar system. It is a unique and diverse world, home to a wide variety of life, including humans. Earth has a rich atmosphere that sustains life, vast oceans covering much of its surface, and a diverse range of ecosystems, making it a remarkable and beautiful planet.',
-                index: _currentPage.toInt(),
-                images: [AppAssets.galaxy, AppAssets.rockets, AppAssets.insightfulImage],
+                index: indexes,
+                images: const [AppAssets.galaxy, AppAssets.rockets, AppAssets.insightfulImage],
               ),
             ],
           ),
