@@ -50,6 +50,33 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<RocketsModel> getRocket(String rocketId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<RocketsModel>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'rockets/${rocketId}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = RocketsModel.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<List<DragonModel>> getAllDragons() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
