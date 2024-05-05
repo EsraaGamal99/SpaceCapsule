@@ -10,7 +10,7 @@ class DetailsScreenBody extends StatefulWidget {
   double currentPage;
   final String description;
   final List<String> images;
-  final int index;
+  final List<int> index;
 
   DetailsScreenBody(
       {super.key,
@@ -39,9 +39,11 @@ class _DetailsScreenBodyState extends State<DetailsScreenBody> {
                     widget.currentPage = page;
                   });
                 },
-                image: widget.images[widget.currentPage.toInt()],
+                images: widget.images,
                 imagesCount: widget.images.length,
+                index: widget.index,
               ),
+              SizedBox(height: 20.h),
               CustomSmoothIndicator(
                 currentPage: widget.currentPage,
                 boardLength: widget.images.length,

@@ -1,12 +1,18 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class CarouselSliderBuilder extends StatefulWidget {
   final ValueChanged<double> onPageChanged;
-  final String image;
+  final List<String> images;
+  final List<int> index;
   final int imagesCount;
 
-  CarouselSliderBuilder({super.key, required this.onPageChanged, required this.image, required this.imagesCount});
+  CarouselSliderBuilder(
+      {super.key,
+      required this.onPageChanged,
+      required this.images,
+      required this.imagesCount, required this.index});
 
   @override
   State<CarouselSliderBuilder> createState() => _CarouselSliderBuilderState();
@@ -21,15 +27,16 @@ class _CarouselSliderBuilderState extends State<CarouselSliderBuilder> {
       itemCount: widget.imagesCount,
       itemBuilder: (context, index, realIndex) => ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        //TODO: replace it with cachedNetworkImage when connected to api
-        child: Image.asset(
-          widget.image,
+        child: CachedNetworkImage(
+          imageUrl: widget.images[widget.index[index]],
+          fit: BoxFit.cover,
+          width: MediaQuery.of(context).size.width * 0.85,
         ),
       ),
       options: CarouselOptions(
         aspectRatio: 16 / 9,
         autoPlay: true,
-        autoPlayAnimationDuration: const Duration(milliseconds: 1500),
+        autoPlayAnimationDuration: const Duration(milliseconds: 3000),
         autoPlayInterval: const Duration(seconds: 3),
         height: 200.0,
         initialPage: 0,
