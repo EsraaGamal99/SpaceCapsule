@@ -43,6 +43,7 @@ class LoginBody extends StatelessWidget {
               AnimationButton(
                 onPress: () async {
                   await BlocProvider.of<LoginCubit>(context).userLogin(
+                    context,
                     email: cubit.emailController.text,
                     password: cubit.passwordController.text,
                   );

@@ -20,7 +20,7 @@ class _DragonScreenState extends State<DragonScreen> {
   @override
   void initState() {
     super.initState();
-    context.read<DragonCubit>().emitGetAllDragonsStates();
+    context.read<DragonCubit>().emitGetAllDragonsStates(context);
   }
   @override
   Widget build(BuildContext context) {

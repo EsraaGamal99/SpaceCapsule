@@ -18,7 +18,7 @@ class _LandPodsScreenState extends State<LandPodsScreen> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<LandpodCubit>(context).fetchLandpods();
+    BlocProvider.of<LandpodCubit>(context).fetchLandpods(context);
   }
 
   @override

@@ -20,8 +20,7 @@ class _RocketDetailsScreenState extends State<RocketDetailsScreen> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<OneRocketCubit>(context)
-        .emitGetRocketByIDStates(rocketId: widget.rocketId);
+    BlocProvider.of<OneRocketCubit>(context).emitGetRocketByIDStates(context, rocketId: widget.rocketId);
   }
 
   double _currentPage = 0;

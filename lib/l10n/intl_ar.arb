@@ -80,18 +80,29 @@
 
   "badRequestErrorTextKey"            : "خطأ في الطلب",
   "noContentErrorTextKey"             : "خطأ في الاستجابة: لا توجد محتويات",
+  "forbiddenErrorTextKey"             : "خطأ، ممنوع",
   "unauthorizedErrorTextKey"          : "خطأ، غير مصرح به",
   "notFoundErrorTextKey"              : "خطأ، غير موجو",
   "conflictErrorTextKey"              : "خطأ، تضارب",
   "internalServerErrorTextKey"        : "خطأ في الخادم",
   "unknownErrorTextKey"               : "خطأ غير معروف",
   "timeoutErrorTextKey"               : "خطأ في الوقت",
-  "defaultErrorTextKey"               : "خطأ افتراضي",
   "cacheErrorTextKey"                 : "خطأ في الذاكرة المؤقتة",
   "noInternetErrorTextKey"            : "لا يوجد إنترنت",
   "loadingMessageTextKey"             : "جار التحميل...",
   "retryAgainMessageTextKey"          : "يرجى المحاولة مرة أخرى",
-  "okTextKey"                         : "حسنًا"
+  "okTextKey"                         : "حسنًا",
 
+  "emailAlreadyExistsTextKey"         : "البريد الإلكتروني موجود بالفعل",
+  "invalidCredentialsTextKey"         : "بيانات غير صالحة",
+  "wrongPasswordTextKey"              : "كلمة المرور خاطئة",
+  "weakPasswordTextKey"               : "كلمة مرور ضعيفة",
+  "invalidEmailTextKey"               : "بريد إلكتروني غير صالح",
+  "userNotFoundTextKey"               : "المستخدم غير موجود",
+  "userDisabledTextKey"               : "المستخدم معطل",
+  "operationNotAllowedTextKey"        : "العملية غير مسموحة",
+  "tooManyRequestsTextKey"            : "طلبات كثيرة",
+  "undefinedErrorTextKey"             : "خطأ غير معروف",
+  "defaultErrorMessageTextKey"        : "حدث خطأ ما، يرجى المحاولة مرة أخرى"
 
 }
