@@ -17,6 +17,8 @@ class _LandPodsDetailsScreen extends State<LandPodsDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    List<int> indexes = List.generate(
+        widget.landpodModel.image!.large!.length, (index) => index);
     return Scaffold(
       backgroundColor: Colors.black,
       body: Container(
@@ -36,8 +38,8 @@ class _LandPodsDetailsScreen extends State<LandPodsDetailsScreen> {
               DetailsScreenBody(
                 currentPage: _currentPage,
                 description: widget.landpodModel.description ?? '',
-                index: _currentPage.toInt(),
-                images: widget.landpodModel.image?.large ?? [],
+                index: indexes,
+                images: widget.landpodModel.image!.large! ,
               ),
             ],
           ),

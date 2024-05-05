@@ -21,6 +21,8 @@ class _DragonsDetailsScreen extends State<DragonsDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    List<int> indexes = List.generate(
+        widget.dragonModel.flickrImages!.length, (index) => index);
     return Scaffold(
       backgroundColor: Colors.black,
       body: Container(
@@ -38,7 +40,7 @@ class _DragonsDetailsScreen extends State<DragonsDetailsScreen> {
               DetailsScreenBody(
                 currentPage: _currentPage,
                 description:  widget.dragonModel.description!,
-                index: _currentPage.toInt(),
+                index: indexes,
                 images: widget.dragonModel.flickrImages!,
 
               ),

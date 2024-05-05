@@ -42,12 +42,11 @@ class LoginBody extends StatelessWidget {
               ),
               AnimationButton(
                 onPress: () async {
-                  context.pushNamed(Routes.homeScreen);
-                  // await BlocProvider.of<LoginCubit>(context).userLogin(
-                  //   email: cubit.emailController.text,
-                  //   password: cubit.passwordController.text,
-                  // );
-                  },
+                  await BlocProvider.of<LoginCubit>(context).userLogin(
+                    email: cubit.emailController.text,
+                    password: cubit.passwordController.text,
+                  );
+                },
                 child: CustomMaterialButton(
 
                     label: context.translate.logInTextKey),
