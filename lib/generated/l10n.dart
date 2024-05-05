@@ -751,6 +751,36 @@ class S {
     );
   }
 
+  /// `Your name is required!`
+  String get yourNameIsRequiredTextKey {
+    return Intl.message(
+      'Your name is required!',
+      name: 'yourNameIsRequiredTextKey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Email is required!`
+  String get yourEmailIsRequiredTextKey {
+    return Intl.message(
+      'Your Email is required!',
+      name: 'yourEmailIsRequiredTextKey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Password is required!`
+  String get yourPasswordIsRequiredTextKey {
+    return Intl.message(
+      'Your Password is required!',
+      name: 'yourPasswordIsRequiredTextKey',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Bad Request`
   String get badRequestErrorTextKey {
     return Intl.message(

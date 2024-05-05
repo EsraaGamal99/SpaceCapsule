@@ -36,7 +36,6 @@ class ListPicksWidget extends StatelessWidget {
                   imageName: AppThemeCubit.isDarkMode
                       ? imageName[index]
                       : imageNameLightMode[index],
-                  isHomeScreen: true,
                 );
               },
               separatorBuilder: (context, index) => const SizedBox(
