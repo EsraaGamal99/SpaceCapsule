@@ -14,13 +14,13 @@ import 'package:space_app/features/profile/ui/screens/app_preferences_screen.dar
 import 'package:space_app/features/intro/ui/screens/first_onboarding_screen.dart';
 import 'package:space_app/features/intro/ui/screens/second_onboarding_screen.dart';
 import 'package:space_app/features/dragons/logic/dragon_cubit.dart';
-import 'package:space_app/features/dragons/ui/dragons%20_screen.dart';
 import 'package:space_app/features/profile/ui/screens/edit_profile_screen.dart';
 import 'package:space_app/features/profile/ui/screens/profile_screen.dart';
 import 'package:space_app/features/rockets/logic/one_rocket_cubit/one_rocket_cubit.dart';
 import 'package:space_app/features/rockets/logic/rockets_cubit/rockets_cubit.dart';
 import 'package:space_app/features/rockets/ui/screens/rockets_details_screen.dart';
 import 'package:space_app/features/rockets/ui/screens/rockets_screen.dart';
+import '../../features/dragons/data/models/dragon_model.dart';
 import '../../features/home/ui/screens/home_screen.dart';
 import '../../features/intro/ui/screens/splash_screen.dart';
 import '../../features/intro/ui/screens/welcome_screen.dart';
@@ -91,7 +91,7 @@ class AppRouter {
         );
       case Routes.dragonDetailsScreen:
         return MaterialPageRoute(
-            builder: (context) => const DragonsDetailsScreen());
+            builder: (context) => DragonsDetailsScreen(dragonModel: routeSettings.arguments as DragonModel,));
       default:
         return MaterialPageRoute(
             builder: (context) =>

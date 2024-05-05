@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:space_app/core/helpers/url_checker.dart';
 import 'package:space_app/core/routing/routes.dart';
 import 'package:space_app/core/theming/assets.dart';
 import 'package:space_app/core/theming/colors.dart';
@@ -10,13 +11,13 @@ import 'package:space_app/features/localization/logic/localization_cubit.dart';
 import '../../../../../core/theming/text_styles.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-
 class PickCardWidget extends StatelessWidget {
   final String cardName;
   final String? locality;
   final String imageName;
   final bool isToDetailsScreen;
   final void Function()? onPressed;
+
 
   const PickCardWidget({super.key,
     required this.cardName,
@@ -37,6 +38,7 @@ class PickCardWidget extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
+
               image: isToDetailsScreen ? DecorationImage(
                 image:
                 CachedNetworkImageProvider(imageName),

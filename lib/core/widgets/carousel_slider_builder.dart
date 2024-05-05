@@ -1,6 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../helpers/url_checker.dart';
 
 class CarouselSliderBuilder extends StatefulWidget {
   final ValueChanged<double> onPageChanged;
@@ -27,6 +30,7 @@ class _CarouselSliderBuilderState extends State<CarouselSliderBuilder> {
       itemCount: widget.imagesCount,
       itemBuilder: (context, index, realIndex) => ClipRRect(
         borderRadius: BorderRadius.circular(20),
+
         child: CachedNetworkImage(
           imageUrl: widget.images[widget.index[index]],
           fit: BoxFit.cover,
@@ -38,7 +42,7 @@ class _CarouselSliderBuilderState extends State<CarouselSliderBuilder> {
         autoPlay: true,
         autoPlayAnimationDuration: const Duration(milliseconds: 3000),
         autoPlayInterval: const Duration(seconds: 3),
-        height: 200.0,
+        height: 200.0.h,
         initialPage: 0,
         enableInfiniteScroll: true,
         reverse: false,

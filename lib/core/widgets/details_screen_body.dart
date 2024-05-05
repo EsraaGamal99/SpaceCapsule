@@ -43,7 +43,8 @@ class _DetailsScreenBodyState extends State<DetailsScreenBody> {
                 imagesCount: widget.images.length,
                 index: widget.index,
               ),
-              SizedBox(height: 10.h),
+
+              SizedBox(height: 20.h,),
               CustomSmoothIndicator(
                 currentPage: widget.currentPage,
                 boardLength: widget.images.length,
