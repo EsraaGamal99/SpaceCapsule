@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:space_app/core/theming/assets.dart';
 import 'package:space_app/core/widgets/details_screen_body.dart';
 import 'package:space_app/core/widgets/title_of_item_details.dart';
+import 'package:space_app/features/landpods/data/models/landpod_model.dart';
 
 class LandPodsDetailsScreen extends StatefulWidget {
-  const LandPodsDetailsScreen({super.key});
+  final LandpodModel landpodModel;
+  const LandPodsDetailsScreen({super.key, required this.landpodModel});
 
   @override
   State<LandPodsDetailsScreen> createState() => _LandPodsDetailsScreen();
@@ -27,15 +29,15 @@ class _LandPodsDetailsScreen extends State<LandPodsDetailsScreen> {
         child: SafeArea(
           child: Column(
             children: [
-              const TitleOfItemDetails(
-                title: 'Land Pod_1',
+              TitleOfItemDetails(
+                title: widget.landpodModel.name ?? '',
+                region: widget.landpodModel.region,
               ),
               DetailsScreenBody(
                 currentPage: _currentPage,
-                description:
-                'Planet Earth is the third planet from the Sun in our solar system. It is a unique and diverse world, home to a wide variety of life, including humans. Earth has a rich atmosphere that sustains life, vast oceans covering much of its surface, and a diverse range of ecosystems, making it a remarkable and beautiful planet.',
+                description: widget.landpodModel.description ?? '',
                 index: _currentPage.toInt(),
-                images: [AppAssets.galaxy, AppAssets.rockets, AppAssets.insightfulImage],
+                images: widget.landpodModel.image?.large ?? [],
               ),
             ],
           ),
@@ -44,4 +46,3 @@ class _LandPodsDetailsScreen extends State<LandPodsDetailsScreen> {
     );
   }
 }
-
