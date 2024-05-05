@@ -17,6 +17,7 @@ import 'package:space_app/features/dragons/logic/dragon_cubit.dart';
 import 'package:space_app/features/dragons/ui/dragons%20_screen.dart';
 import 'package:space_app/features/profile/ui/screens/edit_profile_screen.dart';
 import 'package:space_app/features/profile/ui/screens/profile_screen.dart';
+import 'package:space_app/features/rockets/logic/one_rocket_cubit/one_rocket_cubit.dart';
 import 'package:space_app/features/rockets/logic/rockets_cubit/rockets_cubit.dart';
 import 'package:space_app/features/rockets/ui/screens/rockets_details_screen.dart';
 import 'package:space_app/features/rockets/ui/screens/rockets_screen.dart';
@@ -65,8 +66,13 @@ class AppRouter {
                   child: const RocketsScreen(),
                 ));
       case Routes.rocketDetailsScreen:
+        final argument = routeSettings.arguments as String;
         return MaterialPageRoute(
-            builder: (context) => const RocketDetailsScreen());
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<OneRocketCubit>(),
+            child: RocketDetailsScreen(rocketId: argument,),
+          ),
+        );
       case Routes.landPodsScreen:
         return MaterialPageRoute(builder: (context) => BlocProvider(
           create: (context) => getIt<LandpodCubit>(),

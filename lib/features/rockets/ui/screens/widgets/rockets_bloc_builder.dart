@@ -29,7 +29,10 @@ class RocketsBlocBuilder extends StatelessWidget {
                       isToDetailsScreen: true,
                       onPressed: () {
                         Navigator.pushNamed(
-                            context, Routes.rocketDetailsScreen);
+                          context,
+                          Routes.rocketDetailsScreen,
+                          arguments: state.data[index].id,
+                        );
                       },
                     );
                   },
@@ -46,8 +49,7 @@ class RocketsBlocBuilder extends StatelessWidget {
           );
         } else if (state is Error) {
           return Center(child: Text(state.error.toString()));
-        }
-        else {
+        } else {
           return const SizedBox.shrink();
         }
       },

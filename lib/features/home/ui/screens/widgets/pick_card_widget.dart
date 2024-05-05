@@ -6,7 +6,6 @@ import 'package:space_app/core/routing/routes.dart';
 import 'package:space_app/core/theming/assets.dart';
 import 'package:space_app/core/theming/colors.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
-import 'package:space_app/core/widgets/loading_widgets/small_loading_widget.dart';
 import 'package:space_app/features/localization/logic/localization_cubit.dart';
 import '../../../../../core/theming/text_styles.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -16,16 +15,15 @@ class PickCardWidget extends StatelessWidget {
   final String cardName;
   final String? locality;
   final String imageName;
-  final bool? isToDetailsScreen;
+  final bool isToDetailsScreen;
   final void Function()? onPressed;
 
-  const PickCardWidget(
-      {super.key,
-      required this.cardName,
-      this.locality,
-      required this.imageName,
-      this.isToDetailsScreen,
-      this.onPressed});
+  const PickCardWidget({super.key,
+    required this.cardName,
+    this.locality,
+    required this.imageName,
+    required this.isToDetailsScreen,
+    this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +36,20 @@ class PickCardWidget extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
+              image: isToDetailsScreen ? DecorationImage(
+                image:
+                CachedNetworkImageProvider(imageName),
+                fit: BoxFit.cover,
+              ):
+              DecorationImage(
+                image:
+                AssetImage(imageName),
+                fit: BoxFit.cover,
+              ),
               borderRadius: BorderRadius.circular(20.h),
             ),
             child: Container(
-              width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.h),
                 gradient: LinearGradient(
@@ -58,20 +64,16 @@ class PickCardWidget extends StatelessWidget {
                       1.9
                     ]),
               ),
-              child: CachedNetworkImage(
-                imageUrl: imageName,
-                fit: BoxFit.cover,
-                progressIndicatorBuilder: (context, url, builder) => const SmallLoadingWidget(),
-                errorWidget: (context, url, error) =>
-                    Image.asset(AppAssets.rockets),
-              ),
             ),
           ),
           Positioned(
             bottom: 10.h,
             child: Container(
-              padding: EdgeInsetsDirectional.only(start: 22.w, end: 12.w, bottom: 12.h),
-              width: MediaQuery.of(context).size.width - 60.w,
+              padding: EdgeInsets.symmetric(horizontal: 22.w),
+              width: MediaQuery
+                  .of(context)
+                  .size
+                  .width - 60.w,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -83,22 +85,25 @@ class PickCardWidget extends StatelessWidget {
                         locality ?? context.translate.adventurerTextKey,
                         style: AppTextStyles.fontWhite15W500,
                       ),
-                      Text(cardName,style: AppTextStyles.fontWhite33W600,),
+                      Text(
+                        cardName,
+                        style: AppTextStyles.fontWhite33W600,
+                      ),
                     ],
                   ),
                   MaterialButton(
                     onPressed: isToDetailsScreen == true
                         ? onPressed
                         : () {
-                            cardName == 'Rockets'
-                                ? Navigator.pushNamed(
-                                    context, Routes.rocketsScreen)
-                                : (cardName == 'Dragons')
-                                    ? Navigator.pushNamed(
-                                        context, Routes.dragonScreen)
-                                    : Navigator.pushNamed(
-                                        context, Routes.landPodsScreen);
-                          },
+                      cardName == 'Rockets'
+                          ? Navigator.pushNamed(
+                          context, Routes.rocketsScreen)
+                          : (cardName == 'Dragons')
+                          ? Navigator.pushNamed(
+                          context, Routes.dragonScreen)
+                          : Navigator.pushNamed(
+                          context, Routes.landPodsScreen);
+                    },
                     color: AppColors.primaryMediumGrayColor.withOpacity(0.4),
                     padding: EdgeInsets.all(6.h),
                     height: 54.h,

@@ -10,7 +10,7 @@ class DetailsScreenBody extends StatefulWidget {
   double currentPage;
   final String description;
   final List<String> images;
-  final int index;
+  final List<int> index;
 
   DetailsScreenBody(
       {super.key,
@@ -39,8 +39,9 @@ class _DetailsScreenBodyState extends State<DetailsScreenBody> {
                     widget.currentPage = page;
                   });
                 },
-                image: widget.images[widget.currentPage.toInt()],
+                images: widget.images,
                 imagesCount: widget.images.length,
+                index: widget.index,
               ),
               SizedBox(height: 10.h),
               CustomSmoothIndicator(
@@ -48,6 +49,11 @@ class _DetailsScreenBodyState extends State<DetailsScreenBody> {
                 boardLength: widget.images.length,
               ),
               SizedBox(height: 45.h),
+              // Text(
+              //   'Description',
+              //   style: AppTextStyles.fontLighterGray23W600,
+              // ),
+              // SizedBox(height: 10.h),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Text(
