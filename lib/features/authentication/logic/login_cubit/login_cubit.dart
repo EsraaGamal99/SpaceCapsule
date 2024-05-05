@@ -11,14 +11,14 @@ class LoginCubit extends Cubit<LogInState> {
 
   LoginCubit(this.authRepo) : super(const LogInState.initial());
 
-  Future<void> userLogin(
+  Future<void> userLogin(BuildContext context,
       {required String email, required String password}) async {
 
     emit(const LogInState.loading());
 
     final loginCredentials = LoginModel(email: email, password: password);
 
-    final response = await authRepo.logIn(loginCredentials);
+    final response = await authRepo.logIn(context, loginCredentials);
 
     response.when(success: (loginModel) {
       emit(LogInState.success(loginModel));

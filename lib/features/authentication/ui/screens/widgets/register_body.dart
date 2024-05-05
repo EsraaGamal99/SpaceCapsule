@@ -46,6 +46,7 @@ class RegisterBody extends StatelessWidget {
             AnimationButton(
               onPress:  () async {
                 await BlocProvider.of<RegisterCubit>(context).userRegistration(
+                  context,
                   name: read.nameController.text,
                   email: read.emailController.text,
                   password: read.passwordController.text,

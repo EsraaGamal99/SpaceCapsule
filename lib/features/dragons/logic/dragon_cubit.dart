@@ -1,6 +1,4 @@
-
-
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:space_app/features/dragons/data/models/dragon_model.dart';
 import 'package:space_app/features/dragons/data/repo/dragon_local_repo.dart';
@@ -20,9 +18,9 @@ class DragonCubit extends Cubit<DragonState> {
 
   static List<DragonModel> dragons = [];
 
-  emitGetAllDragonsStates() async {
+  emitGetAllDragonsStates(BuildContext context) async {
     emit(const DragonState.loading());
-    final response = await dragonRepo.getAllDragons();
+    final response = await dragonRepo.getAllDragons(context);
     response.when(
         success: (response) {
           print(response.toList().toString());
@@ -33,9 +31,9 @@ class DragonCubit extends Cubit<DragonState> {
     });
   }
 
-  void emitCachedDragonsStates() async{
+  void emitCachedDragonsStates(BuildContext context) async{
     emit(const DragonState.loading());
-    final response = await dragonLocalRepo.getCachedDragons();
+    final response = await dragonLocalRepo.getCachedDragons(context);
     response.when(
         success: (response) {
           emit(DragonState.success(response));
@@ -46,11 +44,11 @@ class DragonCubit extends Cubit<DragonState> {
     });
   }
 
-  void getDragons() async{
+  void getDragons(BuildContext context) async{
     if(await internetChecker.isConnected){
-      emitGetAllDragonsStates();
+      emitGetAllDragonsStates(context);
     }else {
-      emitCachedDragonsStates();
+      emitCachedDragonsStates(context);
     }
   }
 

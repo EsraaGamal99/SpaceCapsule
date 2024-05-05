@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../error_model.dart';
 import 'api_constants.dart';
@@ -66,74 +67,74 @@ class ResponseMessage {
 }
 
 extension DataSourceExtension on DataSource {
-  ErrorModel getFailure() {
+  ErrorModel getFailure(BuildContext context) {
     switch (this) {
       case DataSource.NO_CONTENT:
         return ErrorModel(
-            code: ResponseCode.NO_CONTENT, message: ResponseMessage.NO_CONTENT);
+            code: ResponseCode.NO_CONTENT, message: ApiErrors.getTranslatedError(context, ResponseMessage.NO_CONTENT));
       case DataSource.BAD_REQUEST:
         return ErrorModel(
             code: ResponseCode.BAD_REQUEST,
-            message: ResponseMessage.BAD_REQUEST);
+            message: ApiErrors.getTranslatedError(context, ResponseMessage.BAD_REQUEST));
       case DataSource.FORBIDDEN:
         return ErrorModel(
-            code: ResponseCode.FORBIDDEN, message: ResponseMessage.FORBIDDEN);
+            code: ResponseCode.FORBIDDEN, message: ApiErrors.getTranslatedError(context, ResponseMessage.FORBIDDEN));
       case DataSource.UNAUTORISED:
         return ErrorModel(
             code: ResponseCode.UNAUTORISED,
-            message: ResponseMessage.UNAUTORISED);
+            message: ApiErrors.getTranslatedError(context, ResponseMessage.UNAUTORISED));
       case DataSource.NOT_FOUND:
         return ErrorModel(
-            code: ResponseCode.NOT_FOUND, message: ResponseMessage.NOT_FOUND);
+            code: ResponseCode.NOT_FOUND, message: ApiErrors.getTranslatedError(context, ResponseMessage.NOT_FOUND));
       case DataSource.INTERNAL_SERVER_ERROR:
         return ErrorModel(
             code: ResponseCode.INTERNAL_SERVER_ERROR,
-            message: ResponseMessage.INTERNAL_SERVER_ERROR);
+            message: ApiErrors.getTranslatedError(context, ResponseMessage.INTERNAL_SERVER_ERROR));
       case DataSource.CONNECT_TIMEOUT:
         return ErrorModel(
             code: ResponseCode.CONNECT_TIMEOUT,
-            message: ResponseMessage.CONNECT_TIMEOUT);
+            message: ApiErrors.getTranslatedError(context, ResponseMessage.CONNECT_TIMEOUT));
       case DataSource.CANCEL:
         return ErrorModel(
-            code: ResponseCode.CANCEL, message: ResponseMessage.CANCEL);
+            code: ResponseCode.CANCEL, message: ApiErrors.getTranslatedError(context, ResponseMessage.CANCEL));
       case DataSource.RECIEVE_TIMEOUT:
         return ErrorModel(
             code: ResponseCode.RECIEVE_TIMEOUT,
-            message: ResponseMessage.RECIEVE_TIMEOUT);
+            message: ApiErrors.getTranslatedError(context, ResponseMessage.RECIEVE_TIMEOUT));
       case DataSource.SEND_TIMEOUT:
         return ErrorModel(
             code: ResponseCode.SEND_TIMEOUT,
-            message: ResponseMessage.SEND_TIMEOUT);
+            message: ApiErrors.getTranslatedError(context, ResponseMessage.SEND_TIMEOUT));
       case DataSource.CACHE_ERROR:
         return ErrorModel(
             code: ResponseCode.CACHE_ERROR,
-            message: ResponseMessage.CACHE_ERROR);
+            message: ApiErrors.getTranslatedError(context, ResponseMessage.CACHE_ERROR));
       case DataSource.NO_INTERNET_CONNECTION:
         return ErrorModel(
             code: ResponseCode.NO_INTERNET_CONNECTION,
-            message: ResponseMessage.NO_INTERNET_CONNECTION);
+            message: ApiErrors.getTranslatedError(context, ResponseMessage.NO_INTERNET_CONNECTION));
       case DataSource.DEFAULT:
         return ErrorModel(
-            code: ResponseCode.DEFAULT, message: ResponseMessage.DEFAULT);
+            code: ResponseCode.DEFAULT, message: ApiErrors.getTranslatedError(context, ResponseMessage.DEFAULT));
     }
   }
 }
 
-ErrorModel handleError(DioException error) {
+ErrorModel handleError(BuildContext context, DioException error) {
   switch (error.type) {
     case DioExceptionType.connectionTimeout:
-      return DataSource.CONNECT_TIMEOUT.getFailure();
+      return DataSource.CONNECT_TIMEOUT.getFailure(context);
     case DioExceptionType.sendTimeout:
-      return DataSource.SEND_TIMEOUT.getFailure();
+      return DataSource.SEND_TIMEOUT.getFailure(context);
     case DioExceptionType.receiveTimeout:
-      return DataSource.RECIEVE_TIMEOUT.getFailure();
+      return DataSource.RECIEVE_TIMEOUT.getFailure(context);
     case DioExceptionType.badResponse:
       if (error.response != null &&
           error.response?.statusCode != null &&
           error.response?.statusMessage != null) {
         return ErrorModel.fromJson(error.response!.data);
       } else {
-        return DataSource.DEFAULT.getFailure();
+        return DataSource.DEFAULT.getFailure(context);
       }
     case DioExceptionType.unknown:
       if (error.response != null &&
@@ -141,15 +142,15 @@ ErrorModel handleError(DioException error) {
           error.response?.statusMessage != null) {
         return ErrorModel.fromJson(error.response!.data);
       } else {
-        return DataSource.DEFAULT.getFailure();
+        return DataSource.DEFAULT.getFailure(context);
       }
     case DioExceptionType.cancel:
-      return DataSource.CANCEL.getFailure();
+      return DataSource.CANCEL.getFailure(context);
     case DioExceptionType.connectionError:
-      return DataSource.DEFAULT.getFailure();
+      return DataSource.DEFAULT.getFailure(context);
     case DioExceptionType.badCertificate:
-      return DataSource.DEFAULT.getFailure();
+      return DataSource.DEFAULT.getFailure(context);
     case DioExceptionType.badResponse:
-      return DataSource.DEFAULT.getFailure();
+      return DataSource.DEFAULT.getFailure(context);
   }
 }
