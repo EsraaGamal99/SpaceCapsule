@@ -18,43 +18,49 @@ class LoginBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var formKey = GlobalKey<FormState>();
     var cubit = context.read<LoginCubit>();
     return Padding(
       padding: const EdgeInsets.all(50.0),
       child: SingleChildScrollView(
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const AuthBackButton(),
-              Text(
-                context.translate.welcomeTextKey,
-                style: AppTextStyles.fontWhite40W500.copyWith(color: Theme.of(context).colorScheme.primary),
-              ),
-              Text(
-                context.translate.backWelcomeTextKey,
-                style: AppTextStyles.fontWhite63W600.copyWith(height: 1.0,color: Theme.of(context).colorScheme.primary,),
-              ),
-              UserDataSection(
-                isLogin: true,
-                emailController: cubit.emailController,
-                passwordController: cubit.passwordController,
-              ),
-              AnimationButton(
-                onPress: () async {
-                  await BlocProvider.of<LoginCubit>(context).userLogin(
-                    email: cubit.emailController.text,
-                    password: cubit.passwordController.text,
-                  );
-                },
-                child: CustomMaterialButton(
+        child: Form(
+          key: formKey,
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const AuthBackButton(),
+                Text(
+                  context.translate.welcomeTextKey,
+                  style: AppTextStyles.fontWhite40W500.copyWith(color: Theme.of(context).colorScheme.primary),
+                ),
+                Text(
+                  context.translate.backWelcomeTextKey,
+                  style: AppTextStyles.fontWhite63W600.copyWith(height: 1.0,color: Theme.of(context).colorScheme.primary,),
+                ),
+                UserDataSection(
+                  isLogin: true,
+                  emailController: cubit.emailController,
+                  passwordController: cubit.passwordController,
+                ),
+                AnimationButton(
+                  onPress: () async {
+                    if(formKey.currentState!.validate()) {
+                      await BlocProvider.of<LoginCubit>(context).userLogin(
+                        email: cubit.emailController.text,
+                        password: cubit.passwordController.text,
+                      );
+                    }
+                  },
+                  child: CustomMaterialButton(
 
-                    label: context.translate.logInTextKey),
-              ),
-              SizedBox(height: 10.h),
-              const DoNotHaveAnAccount(),
-              const LogInBlocListener(),
-            ]),
+                      label: context.translate.logInTextKey),
+                ),
+                SizedBox(height: 10.h),
+                const DoNotHaveAnAccount(),
+                const LogInBlocListener(),
+              ]),
+        ),
       ),
     );
   }
