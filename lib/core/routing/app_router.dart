@@ -28,13 +28,6 @@ import '../di/dependency_injection.dart';
 class AppRouter {
   Route generateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
-      case Routes.dragonsScreen:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<DragonCubit>(),
-            child: const DragonsScreen(),
-          ),
-        );
       case Routes.splashScreen:
         return MaterialPageRoute(builder: (context) => const SplashScreen());
       case Routes.homeScreen:
@@ -84,7 +77,12 @@ class AppRouter {
         return MaterialPageRoute(
             builder: (context) => const LandPodsDetailsScreen());
       case Routes.dragonScreen:
-        return MaterialPageRoute(builder: (context) => const DragonScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<DragonCubit>(),
+            child: const DragonScreen(),
+          ),
+        );
       case Routes.dragonDetailsScreen:
         return MaterialPageRoute(
             builder: (context) => const DragonsDetailsScreen());

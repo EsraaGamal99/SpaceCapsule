@@ -29,6 +29,7 @@ Future<void> setupGetIt() async{
   getIt.registerFactory<DragonCubit>(() => DragonCubit(dragonRepo: getIt(),));
 
 
+
   // App theme app_theme_cubit
   getIt.registerFactory(() => AppThemeCubit(sharedPref: sharedPref));
 

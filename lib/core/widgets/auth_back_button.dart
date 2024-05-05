@@ -28,7 +28,7 @@ class AuthBackButton extends StatelessWidget {
         quarterTurns: BlocProvider.of<LocalizationCubit>(context).isArabic() ? 2 : 0,
         child: SvgPicture.asset(
           AppAssets.backArrowIcon,
-          width: 20.w,
+          width: 20.w,color: Theme.of(context).colorScheme.primary,
         ),
       ),
     );
