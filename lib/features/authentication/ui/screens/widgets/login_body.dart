@@ -22,6 +22,7 @@ class LoginBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(50.0),
       child: SingleChildScrollView(
+
         child: Form(
           key: formKey,
           child: Column(
@@ -46,6 +47,7 @@ class LoginBody extends StatelessWidget {
                   onPress: () async {
                     if(formKey.currentState!.validate()) {
                       await BlocProvider.of<LoginCubit>(context).userLogin(
+                        context,
                         email: cubit.emailController.text,
                         password: cubit.passwordController.text,
                       );

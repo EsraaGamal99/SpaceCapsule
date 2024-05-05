@@ -29,6 +29,7 @@ class LandpodModel {
   });
 
   factory LandpodModel.fromJson(Map<String, dynamic> json) => _$LandpodModelFromJson(json);
+  Map<String, dynamic> toJson() => _$LandpodModelToJson(this);
 
 }
 

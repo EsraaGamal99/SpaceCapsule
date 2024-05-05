@@ -16,9 +16,9 @@ class OneRocketCubit extends Cubit<OneRocketState> {
     required this.rocketsRepo,
   }) : super(const OneRocketState.initial());
 
-  void emitGetRocketByIDStates({required String rocketId}) async {
+  void emitGetRocketByIDStates(BuildContext context, {required String rocketId}) async {
     emit(const OneRocketState.loading());
-    final response = await rocketsRepo.getRocket(rocketId);
+    final response = await rocketsRepo.getRocket(context, rocketId);
     response.when(success: (response) {
       rocket = response;
       debugPrint('--------------------------------- ${rocket!.name}');

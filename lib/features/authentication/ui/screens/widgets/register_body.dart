@@ -23,14 +23,15 @@ class RegisterBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(50.0),
       child: SingleChildScrollView(
+
         child: Form(
           key: formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SizedBox(
-                height: 35.h,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(
+              height: 35.h,
               ),
               Text(
                 context.translate.letsTextKey,
