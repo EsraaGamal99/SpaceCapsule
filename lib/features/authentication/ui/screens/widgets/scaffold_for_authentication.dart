@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:space_app/core/theming/app_theme_cubit/app_theme_state.dart';
 import 'package:space_app/core/theming/assets.dart';
 
 import '../../../../../core/theming/app_theme_cubit/app_theme_cubit.dart';
@@ -11,15 +13,19 @@ class ScaffoldForAuthentication extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Image.asset(
-            AppThemeCubit.isDarkMode ? AppAssets.authBackground : AppAssets.authBackgroundLightMode,
-            fit: BoxFit.cover,
-            width: double.infinity,
-          ),
-          body,
-        ],
+      body: BlocBuilder<AppThemeCubit, AppThemeState>(
+        builder: (context, state) {
+          return Stack(
+            children: [
+              Image.asset(
+                AppThemeCubit.isDarkMode ? AppAssets.authBackground : AppAssets.authBackgroundLightMode,
+                fit: BoxFit.cover,
+                width: double.infinity,
+              ),
+              body,
+            ],
+          );
+        }
       ),
     );
   }

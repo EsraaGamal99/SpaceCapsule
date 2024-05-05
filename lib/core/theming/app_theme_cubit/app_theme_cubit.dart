@@ -28,14 +28,18 @@ class AppThemeCubit extends Cubit<AppThemeState> {
           ? setInitialThemeMode()
           : themeMode = isDarkModeFetched ? ThemeMode.dark : ThemeMode.light;
       emit(AppThemeState.themeFetched());
-    }catch(e){}
+      // Change Theme based on device theme or themeFetched
+      changeTheme(themeMode);
+    }catch(e){
+      debugPrint(e.toString());
+    }
   }
 
   final brightness = SchedulerBinding.instance.window.platformBrightness;
 
   bool get isInitialDarkMode => brightness == Brightness.dark;
 
-  static bool isDarkMode = false;
+  static bool isDarkMode = true;
 
   void setInitialThemeMode() {
     isInitialDarkMode

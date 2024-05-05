@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
+import 'package:space_app/core/theming/app_theme_cubit/app_theme_cubit.dart';
 import 'package:space_app/features/localization/logic/localization_cubit.dart';
 
 import '../../../../core/routing/routes.dart';
@@ -24,9 +25,14 @@ class SecondOnBoardingScreen extends StatefulWidget {
 class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
 
   int onBoardingScreenIndex = 0;
+  @override
+  void initState() {
+    super.initState();
 
+  }
   @override
   Widget build(BuildContext context) {
+    List onboardingData = AppThemeCubit.isDarkMode ? getOnBoardingData(context) : getOnBoardingDataLightMode(context);
     return Scaffold(
       body: PageView.builder(
           onPageChanged: (index) {
@@ -34,7 +40,7 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
               onBoardingScreenIndex = index;
             });
           },
-          itemCount: getOnBoardingData(context).length,
+          itemCount: onboardingData.length,
           itemBuilder: (context, index) {
             return Stack(
               children: [
@@ -42,7 +48,7 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                   height: context.height,
                   width: context.width,
                   child: Image.asset(
-                    getOnBoardingData(context)[index].image,
+                    onboardingData[index].image,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -137,7 +143,7 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        getOnBoardingData(context)[index].title,
+                        onboardingData[index].title,
                         style: AppTextStyles.fontWhite63W600.copyWith(height: 1.h, color: Theme.of(context).colorScheme.primary),
                       ),
                     ],
@@ -149,12 +155,12 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                     children: [
                       Expanded(child: Container()),
                       SizedBox(height: 20.h),
-                      Text(getOnBoardingData(context)[index].description,
+                      Text(onboardingData[index].description,
                           style: AppTextStyles.fontWhite17W500.copyWith(color: Theme.of(context).colorScheme.primary)),
                       SizedBox(height: 30.h),
-                      onBoardingScreenIndex != getOnBoardingData(context).length - 1
+                      onBoardingScreenIndex != onboardingData.length - 1
                           ? OnBoardingDotsButton(
-                              onBoardingScreensNumber: getOnBoardingData(context).length,
+                              onBoardingScreensNumber: onboardingData.length,
                               isActive: onBoardingScreenIndex == index,
                               onBoardingScreenIndex: onBoardingScreenIndex,
                             )
