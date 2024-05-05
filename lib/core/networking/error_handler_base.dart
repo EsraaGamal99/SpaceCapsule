@@ -7,8 +7,8 @@ import 'error_model.dart';
 
 class ErrorHandler {
   late ErrorModel errorModel;
-  ErrorHandler.handle(ErrorHandlerBaise errorHandlerBaise){
-    errorModel = errorHandlerBaise.handle();
+  ErrorHandler.handle(BuildContext context, ErrorHandlerBaise errorHandlerBaise){
+    errorModel = errorHandlerBaise.handle(context);
   }
 }
 
@@ -16,7 +16,7 @@ abstract class ErrorHandlerBaise implements Exception {
   //ErrorModel? errorModel;
   dynamic error;
   ErrorHandlerBaise(this.error);
-  ErrorModel handle();
+  ErrorModel handle(BuildContext context);
 
 }
 
@@ -24,13 +24,13 @@ class ApiErrorHandler extends ErrorHandlerBaise {
   ApiErrorHandler(super.error);
 
   @override
-  ErrorModel handle() {
+  ErrorModel handle(BuildContext context) {
     if (error is DioException) {
       // dio error so its an error from response of the API or from dio itself
-      return handleError(this.error);
+      return handleError(context, this.error);
     } else {
       // default error
-      return DataSource.DEFAULT.getFailure();
+      return DataSource.DEFAULT.getFailure(context);
     }
   }
 
@@ -39,15 +39,16 @@ class ApiErrorHandler extends ErrorHandlerBaise {
 
 
 class ErrorHandlerAuth extends ErrorHandlerBaise {
-  ErrorHandlerAuth(super.error);
+  final BuildContext context;
+  ErrorHandlerAuth(super.error, {required this.context});
 
   @override
-  ErrorModel handle() {
+  ErrorModel handle(BuildContext context) {
     if (error is FirebaseException) {
-      return handleErrorAuth(error);
+      return handleErrorAuth(context, error);
     } else {
       // default error
-      return AuthResultStatus.unknown.getFailure();
+      return AuthResultStatus.unknown.getFailure(context);
     }
   }
 }
@@ -57,7 +58,7 @@ class SharedPreferencesErrorHandler extends ErrorHandlerBaise {
   SharedPreferencesErrorHandler(super.error);
 
   @override
-  ErrorModel handle() {
+  ErrorModel handle(BuildContext context) {
     if (error == null) {
       // Local data is empty
       return ErrorModel(message: "There is not Data in Shared Memory");

@@ -13,9 +13,9 @@ class LandpodCubit extends Cubit<LandpodState> {
   final LandpodLocalRepo landpodLocalRepo;
   final InternetCheckerImpl internetChecker;
 
-  void fetchLandpods() async {
+  void fetchLandpods(BuildContext context) async {
     emit(const LandpodState.loading());
-    final landpods = await landpodRepo.getAllLandpods();
+    final landpods = await landpodRepo.getAllLandpods(context);
 
     landpods.when(success: (landpods) {
       emit(LandpodState.loaded(landpods));

@@ -15,6 +15,9 @@ abstract class ApiService {
   @GET(ApiConstants.rockets)
   Future<List<RocketsModel>> getAllRockets();
 
+  @GET("${ApiConstants.rockets}/{rocketId}") // Specify the endpoint for getting a single rocket
+  Future<RocketsModel> getRocket(@Path("rocketId") String rocketId);
+
   @GET(ApiConstants.dragons)
   Future<List<DragonModel>> getAllDragons();
 

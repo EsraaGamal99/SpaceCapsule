@@ -17,7 +17,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit(this.authRepo, this.internetChecker) : super(const RegisterState.initial());
 
 
-  Future<void> userRegistration({required String name,
+  Future<void> userRegistration(BuildContext context,{required String name,
     required String email,
     required String password}) async {
     if (await internetChecker.isConnected) {
@@ -25,7 +25,8 @@ class RegisterCubit extends Cubit<RegisterState> {
       final registerCredentials =
       RegisterModel(name: name, email: email, password: password);
 
-      final response = await authRepo.register(registerCredentials);
+
+    final response = await authRepo.register(context, registerCredentials);
 
       response.when(success: (registerModel) {
         emit(RegisterState.success(registerModel));

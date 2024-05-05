@@ -11,6 +11,7 @@ import 'package:space_app/features/dragons/data/repo/dragon_repo_impl.dart';
 import 'package:space_app/features/dragons/logic/dragon_cubit.dart';
 import 'package:space_app/features/rockets/data/repo/rockets_local_repo.dart';
 import 'package:space_app/features/rockets/data/repo/rockets_repo_impl.dart';
+import 'package:space_app/features/rockets/logic/one_rocket_cubit/one_rocket_cubit.dart';
 import 'package:space_app/features/rockets/logic/rockets_cubit/rockets_cubit.dart';
 import 'package:space_app/features/landpods/data/landpod_repo_impl.dart';
 import 'package:space_app/features/landpods/logic/landpod_cubit.dart';
@@ -36,12 +37,14 @@ Future<void> setupGetIt() async{
   // Initial local data
   final sharedPref = await SharedPreferences.getInstance();
 
+
   // Authentication Repo
   getIt.registerLazySingleton(() => AuthRepo());
   // Login Cubit
   getIt.registerFactory(() => LoginCubit(getIt(), getIt()));
   // Register Cubit
   getIt.registerFactory(() => RegisterCubit(getIt(), getIt()));
+
 
   // Dragons
   getIt.registerLazySingleton<DragonRepoImpl>(() => DragonRepoImpl(apiService: getIt(),));
@@ -71,6 +74,9 @@ Future<void> setupGetIt() async{
   // Rocket local repo
   getIt.registerLazySingleton(() => RocketLocalRepo(sharedPreferences: sharedPref));
   getIt.registerFactory<RocketsCubit>(() => RocketsCubit( rocketsRepo: getIt(),rocketLocalRepo: getIt(), internetChecker: getIt()));
+  getIt.registerFactory<RocketsCubit>(() => RocketsCubit( rocketsRepo: getIt(),));
+  getIt.registerFactory<OneRocketCubit>(() => OneRocketCubit( rocketsRepo: getIt(),));
+
 
 
 }

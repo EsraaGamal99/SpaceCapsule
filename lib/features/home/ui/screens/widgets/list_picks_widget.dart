@@ -35,7 +35,7 @@ class ListPicksWidget extends StatelessWidget {
                   cardName: getCardTitle(context)[index],
                   imageName: AppThemeCubit.isDarkMode
                       ? imageName[index]
-                      : imageNameLightMode[index],
+                      : imageNameLightMode[index], isToDetailsScreen: false,
                 );
               },
               separatorBuilder: (context, index) => const SizedBox(

@@ -81,6 +81,7 @@
 
   "badRequestErrorTextKey"            : "Bad Request",
   "noContentErrorTextKey"             : "No Content",
+  "forbiddenErrorTextKey"             : "Forbidden",
   "unauthorizedErrorTextKey"          : "Unauthorized",
   "notFoundErrorTextKey"              : "Not Found",
   "conflictErrorTextKey"              : "Conflict",
@@ -92,7 +93,19 @@
   "noInternetErrorTextKey"            : "No Internet Connection",
   "loadingMessageTextKey"             : "Loading...",
   "retryAgainMessageTextKey"          : "Please try again later.",
-  "okTextKey"                         : "OK"
+  "okTextKey"                         : "OK",
+
+  "emailAlreadyExistsTextKey"         : "البريد الإلكتروني موجود بالفعل",
+  "invalidCredentialsTextKey"         : "بيانات غير صالحة",
+  "wrongPasswordTextKey"              : "كلمة المرور خاطئة",
+  "weakPasswordTextKey"               : "كلمة مرور ضعيفة",
+  "invalidEmailTextKey"               : "بريد إلكتروني غير صالح",
+  "userNotFoundTextKey"               : "المستخدم غير موجود",
+  "userDisabledTextKey"               : "المستخدم معطل",
+  "operationNotAllowedTextKey"        : "العملية غير مسموحة",
+  "tooManyRequestsTextKey"            : "طلبات كثيرة",
+  "undefinedErrorTextKey"             : "خطأ غير معروف",
+  "defaultErrorMessageTextKey"        : "حدث خطأ ما، يرجى المحاولة مرة أخرى"
 
 
 }

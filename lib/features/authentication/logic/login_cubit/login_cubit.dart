@@ -13,7 +13,7 @@ class LoginCubit extends Cubit<LogInState> {
 
   LoginCubit(this.authRepo, this.internetChecker) : super(const LogInState.initial());
 
-  Future<void> userLogin(
+  Future<void> userLogin(BuildContext context,
       {required String email, required String password}) async {
     if (await internetChecker.isConnected) {
       emit(const LogInState.loading());
@@ -33,5 +33,6 @@ class LoginCubit extends Cubit<LogInState> {
       print("==============================object");
       emit(LogInState.internetConnectionFaild());
     }
+
   }
 }

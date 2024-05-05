@@ -21,11 +21,11 @@ class LogInBlocListener extends StatelessWidget {
           loading: () {
             authLoadingDialog(context);
           },
-          success: (success)  async {
-            await waitThenPopAndNavigate(context,Routes.homeScreen);
+          success: (success) async {
+            await waitThenPopAndNavigate(context, Routes.homeScreen);
           },
-          error: (error)  async {
-            await waitThenPopAndNavigate(context,null);
+          error: (error) async {
+            await waitThenPopAndNavigate(context, null);
             if (!context.mounted) return;
             showSnackBar(context, error);
           },

@@ -33,39 +33,39 @@ class ResponseMessage {
 }
 
 extension AuthExceptionHandler on AuthResultStatus {
-  ErrorModel getFailure() {
+  ErrorModel getFailure(BuildContext context) {
     switch (this) {
       case AuthResultStatus.invalidEmail:
-        return ErrorModel(code: 0, message: ResponseMessage.INVALID_EMAIL);
+        return ErrorModel(code: 0, message: FirebaseErrors.getTranslatedError(context, ResponseMessage.INVALID_EMAIL));
 
       case AuthResultStatus.wrongPassword:
-        return ErrorModel(code: 0, message: ResponseMessage.WRONG_PASSWORD);
+        return ErrorModel(code: 0, message: FirebaseErrors.getTranslatedError(context, ResponseMessage.WRONG_PASSWORD));
 
       case AuthResultStatus.weakPassword:
-        return ErrorModel(code: 0, message: ResponseMessage.WEAK_PASSWORD);
+        return ErrorModel(code: 0, message: FirebaseErrors.getTranslatedError(context, ResponseMessage.WEAK_PASSWORD));
 
       case AuthResultStatus.invalidCredential:
-        return ErrorModel(code: 0, message: ResponseMessage.INVALID_CREDENTIA);
+        return ErrorModel(code: 0, message: FirebaseErrors.getTranslatedError(context, ResponseMessage.INVALID_CREDENTIA));
 
       case AuthResultStatus.emailAlreadyExists:
         return ErrorModel(
-            code: 0, message: ResponseMessage.EMAIL_ALREADY_EXISTS);
+            code: 0, message: FirebaseErrors.getTranslatedError(context, ResponseMessage.EMAIL_ALREADY_EXISTS));
 
       case AuthResultStatus.userNotFound:
-        return ErrorModel(code: 0, message: ResponseMessage.USER_NOT_FOUND);
+        return ErrorModel(code: 0, message: FirebaseErrors.getTranslatedError(context, ResponseMessage.USER_NOT_FOUND));
 
       case AuthResultStatus.userDisabled:
-        return ErrorModel(code: 0, message: ResponseMessage.USER_DISABLED);
+        return ErrorModel(code: 0, message: FirebaseErrors.getTranslatedError(context, ResponseMessage.USER_DISABLED));
 
       case AuthResultStatus.operationNotAllowed:
         return ErrorModel(
-            code: 0, message: ResponseMessage.OPERATION_NOT_ALLOWED);
+            code: 0, message: FirebaseErrors.getTranslatedError(context, ResponseMessage.OPERATION_NOT_ALLOWED));
 
       case AuthResultStatus.tooManyRequests:
-        return ErrorModel(code: 0, message: ResponseMessage.TOO_MANY_REGUSTES);
+        return ErrorModel(code: 0, message: FirebaseErrors.getTranslatedError(context, ResponseMessage.TOO_MANY_REGUSTES));
 
       default:
-        return ErrorModel(code: 0, message: ResponseMessage.UNDIFIEND);
+        return ErrorModel(code: 0, message: FirebaseErrors.getTranslatedError(context, ResponseMessage.UNDIFIEND));
     }
   }
 }
@@ -73,39 +73,39 @@ extension AuthExceptionHandler on AuthResultStatus {
 class FirebaseAuthErrorHandler implements Exception {
   late ErrorModel firebaseErrorModel;
 
-  FirebaseAuthErrorHandler.handle(dynamic error) {
+  FirebaseAuthErrorHandler.handle(BuildContext context, dynamic error) {
     if (error is FirebaseException) {
-      firebaseErrorModel = handleErrorAuth(error);
+      firebaseErrorModel = handleErrorAuth(context, error);
     } else {
       // default error
-      firebaseErrorModel = AuthResultStatus.unknown.getFailure();
+      firebaseErrorModel = AuthResultStatus.unknown.getFailure(context);
     }
   }
 }
 
-ErrorModel handleErrorAuth(FirebaseException error) {
+ErrorModel handleErrorAuth(BuildContext context, FirebaseException error) {
   debugPrint('${error.code}=============================');
   switch (error.code) {
     case "invalid-email":
-      return AuthResultStatus.invalidEmail.getFailure();
+      return AuthResultStatus.invalidEmail.getFailure(context);
     case "invalid-credential":
-      return AuthResultStatus.invalidCredential.getFailure();
+      return AuthResultStatus.invalidCredential.getFailure(context);
     case "wrong-password":
-      return AuthResultStatus.wrongPassword.getFailure();
+      return AuthResultStatus.wrongPassword.getFailure(context);
     case "weak-password":
-      return AuthResultStatus.weakPassword.getFailure();
+      return AuthResultStatus.weakPassword.getFailure(context);
     case "email-already-in-use":
-      return AuthResultStatus.emailAlreadyExists.getFailure();
+      return AuthResultStatus.emailAlreadyExists.getFailure(context);
     case "user-disabled":
-      return AuthResultStatus.userDisabled.getFailure();
+      return AuthResultStatus.userDisabled.getFailure(context);
     case "user-not-found":
-      return AuthResultStatus.userNotFound.getFailure();
+      return AuthResultStatus.userNotFound.getFailure(context);
     case "operation-not-allowed":
-      return AuthResultStatus.operationNotAllowed.getFailure();
+      return AuthResultStatus.operationNotAllowed.getFailure(context);
     case "too-many-requests":
-      return AuthResultStatus.tooManyRequests.getFailure();
+      return AuthResultStatus.tooManyRequests.getFailure(context);
 
     default:
-      return AuthResultStatus.unknown.getFailure();
+      return AuthResultStatus.unknown.getFailure(context);
   }
 }
