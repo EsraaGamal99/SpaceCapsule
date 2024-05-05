@@ -16,6 +16,10 @@ const String localeKey = 'locale';
 
 // Key Of Dragons Data At Local Database
 const String dragonsKey = 'CACHED_DRAGONS';
+// Key Of Rockets Data At Local Database
+const String rocketsKey = 'CACHED_ROCKETS';
+// Key Of Landpods Data At Local Database
+const String landpodsKey = 'CACHED_LandpodS';
 
 // Title Images In Home Screen
 List<String> cardName = ['Rockets', 'Dragons', 'Landpods'];

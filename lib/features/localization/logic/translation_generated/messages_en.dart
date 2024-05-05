@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "noInternetConnectionKey":  MessageLookupByLibrary.simpleMessage("No Internet ConnectionKey"),
         "changeLanguageTextKey":
             MessageLookupByLibrary.simpleMessage("Change Language"),
         "createNewAccountTextKey":

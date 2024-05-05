@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 import 'package:space_app/core/helpers/functions/auth_laoding_dialog.dart';
 import 'package:space_app/core/helpers/functions/wait_then_pop_and_navigate.dart';
 import '../../../../../core/helpers/functions/show_snack_bar.dart';
@@ -14,7 +15,7 @@ class LogInBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LogInState>(
       listenWhen: (previous, current) =>
-      current is Loading || current is Success || current is Error,
+      current is Loading || current is Success || current is Error|| current is InternetConnectionFaild,
       listener: (context, state) {
         state.whenOrNull(
           loading: () {
@@ -28,6 +29,9 @@ class LogInBlocListener extends StatelessWidget {
             if (!context.mounted) return;
             showSnackBar(context, error);
           },
+          internetConnectionFaild: () async {
+            showSnackBar(context, context.translate.noInternetConnectionKey);
+          }
         );
       },
       child: const SizedBox.shrink(),
