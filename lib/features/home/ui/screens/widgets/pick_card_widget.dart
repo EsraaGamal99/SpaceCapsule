@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:space_app/core/helpers/url_checker.dart';
@@ -6,22 +7,24 @@ import 'package:space_app/core/routing/routes.dart';
 import 'package:space_app/core/theming/assets.dart';
 import 'package:space_app/core/theming/colors.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
+import 'package:space_app/features/localization/logic/localization_cubit.dart';
 import '../../../../../core/theming/text_styles.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class PickCardWidget extends StatelessWidget {
   final String cardName;
+  final String? locality;
   final String imageName;
-  final bool? isToDetailsScreen;
+  final bool isToDetailsScreen;
   final void Function()? onPressed;
 
-  const PickCardWidget({
-    super.key,
+
+  const PickCardWidget({super.key,
     required this.cardName,
+    this.locality,
     required this.imageName,
-    this.isToDetailsScreen,
-    this.onPressed,
-  });
+    required this.isToDetailsScreen,
+    this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -35,14 +38,17 @@ class PickCardWidget extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-              image: UrlChecker.isImageUrl(imageName)
-                  ? DecorationImage(
-                      image: CachedNetworkImageProvider(
-                        imageName,
-                      ),
-                      fit: BoxFit.cover)
-                  : DecorationImage(
-                      image: AssetImage(imageName), fit: BoxFit.cover),
+
+              image: isToDetailsScreen ? DecorationImage(
+                image:
+                CachedNetworkImageProvider(imageName),
+                fit: BoxFit.cover,
+              ):
+              DecorationImage(
+                image:
+                AssetImage(imageName),
+                fit: BoxFit.cover,
+              ),
               borderRadius: BorderRadius.circular(20.h),
             ),
             child: Container(
@@ -66,7 +72,10 @@ class PickCardWidget extends StatelessWidget {
             bottom: 10.h,
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 22.w),
-              width: MediaQuery.of(context).size.width - 60.w,
+              width: MediaQuery
+                  .of(context)
+                  .size
+                  .width - 60.w,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -75,7 +84,7 @@ class PickCardWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        context.translate.adventurerTextKey,
+                        locality ?? context.translate.adventurerTextKey,
                         style: AppTextStyles.fontWhite15W500,
                       ),
                       Text(
@@ -88,24 +97,27 @@ class PickCardWidget extends StatelessWidget {
                     onPressed: isToDetailsScreen == true
                         ? onPressed
                         : () {
-                            cardName == 'Rockets'
-                                ? Navigator.pushNamed(
-                                    context, Routes.rocketsScreen)
-                                : (cardName == 'Dragons')
-                                    ? Navigator.pushNamed(
-                                        context, Routes.dragonScreen)
-                                    : Navigator.pushNamed(
-                                        context, Routes.landPodsScreen);
-                          },
+                      cardName == 'Rockets'
+                          ? Navigator.pushNamed(
+                          context, Routes.rocketsScreen)
+                          : (cardName == 'Dragons')
+                          ? Navigator.pushNamed(
+                          context, Routes.dragonScreen)
+                          : Navigator.pushNamed(
+                          context, Routes.landPodsScreen);
+                    },
                     color: AppColors.primaryMediumGrayColor.withOpacity(0.4),
                     padding: EdgeInsets.all(6.h),
                     height: 54.h,
                     minWidth: 59.w,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.h)),
-                    child: SvgPicture.asset(
-                      AppAssets.forwardArrowIcon,
-                      color: Colors.white,
+                    child: RotatedBox(
+                      quarterTurns: BlocProvider.of<LocalizationCubit>(context).isArabic() ? 2 : 0,
+                      child: SvgPicture.asset(
+                        AppAssets.forwardArrowIcon,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ],

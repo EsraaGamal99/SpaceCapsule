@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:space_app/core/theming/colors.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
 
 import '../../../../../core/theming/text_styles.dart';
@@ -30,11 +29,7 @@ class PicksTitleWidget extends StatelessWidget {
             ),
           ],
         ),
-        IconButton(
-            onPressed: () {},
-            iconSize: 35.w,//color: AppColors.primaryMediumGrayColor,
-            color: Theme.of(context).colorScheme.primary,
-            icon: const Icon(Icons.notifications_none_outlined,)),
+
       ],
     );
   }

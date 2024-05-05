@@ -6,6 +6,8 @@ import 'package:space_app/features/authentication/ui/screens/register_screen.dar
 import 'package:space_app/features/dragons/ui/screens/dragon_screen.dart';
 import 'package:space_app/features/dragons/ui/screens/dragons_deatials_screen.dart';
 import 'package:space_app/features/home_of_items/ui/screens/home_of_items_screen.dart';
+import 'package:space_app/features/landpods/data/models/landpod_model.dart';
+import 'package:space_app/features/landpods/logic/landpod_cubit.dart';
 import 'package:space_app/features/landpods/ui/screens/landpods_details_screen.dart';
 import 'package:space_app/features/landpods/ui/screens/landposd_screen.dart';
 import 'package:space_app/features/profile/ui/screens/app_preferences_screen.dart';
@@ -14,6 +16,7 @@ import 'package:space_app/features/intro/ui/screens/second_onboarding_screen.dar
 import 'package:space_app/features/dragons/logic/dragon_cubit.dart';
 import 'package:space_app/features/profile/ui/screens/edit_profile_screen.dart';
 import 'package:space_app/features/profile/ui/screens/profile_screen.dart';
+import 'package:space_app/features/rockets/logic/one_rocket_cubit/one_rocket_cubit.dart';
 import 'package:space_app/features/rockets/logic/rockets_cubit/rockets_cubit.dart';
 import 'package:space_app/features/rockets/ui/screens/rockets_details_screen.dart';
 import 'package:space_app/features/rockets/ui/screens/rockets_screen.dart';
@@ -63,13 +66,22 @@ class AppRouter {
                   child: const RocketsScreen(),
                 ));
       case Routes.rocketDetailsScreen:
+        final argument = routeSettings.arguments as String;
         return MaterialPageRoute(
-            builder: (context) => const RocketDetailsScreen());
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<OneRocketCubit>(),
+            child: RocketDetailsScreen(rocketId: argument,),
+          ),
+        );
       case Routes.landPodsScreen:
-        return MaterialPageRoute(builder: (context) => const LandPodsScreen());
+        return MaterialPageRoute(builder: (context) => BlocProvider(
+          create: (context) => getIt<LandpodCubit>(),
+            child: const LandPodsScreen()),
+        );
       case Routes.landPodsDetailsScreen:
+        final arguments = routeSettings.arguments as LandpodModel;
         return MaterialPageRoute(
-            builder: (context) => const LandPodsDetailsScreen());
+            builder: (context) => LandPodsDetailsScreen(landpodModel: arguments));
       case Routes.dragonScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(

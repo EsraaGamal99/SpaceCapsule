@@ -14,31 +14,34 @@ class BackgroundWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AppThemeCubit, AppThemeState>(
-        builder: (context, state) {
-        return Center(
-          child: Container(
-            height: 320.h,
-            padding: EdgeInsets.only(right: 30.w,left: 30.w,top: 70.h),
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(AppThemeCubit.isDarkMode ? AppAssets.homeBackgroundImage: AppAssets.homeBackgroundLightModeImage,),
-                  fit: BoxFit.cover,
-                )
-            ),
+    return BlocBuilder<AppThemeCubit, AppThemeState>(builder: (context, state) {
+      return Center(
+        child: Container(
+          //   height: 320.h,
+          padding: EdgeInsets.only(right: 30.w, left: 30.w, top: 70.h),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadiusDirectional.only(
+                  bottomEnd: Radius.circular(20.r),
+                  bottomStart: Radius.circular(20.r)),
+              image: DecorationImage(
+                image: AssetImage(
+                  AppThemeCubit.isDarkMode
+                      ? AppAssets.homeBackgroundImage
+                      : AppAssets.homeBackgroundLightModeImage,
+                ),
+                fit: BoxFit.cover,
+              )),
 
-            child: Column(
-              children: [
-                AppBarWidget(),
-                SizedBox(height: 30,),
-                SearchTextFieldWidget(),
-                SizedBox(height: 30,),
-                PicksTitleWidget(),
-              ],
-            ),
+          child: Column(
+            children: [
+              const AppBarWidget(),
+              SizedBox(height: 30.h),
+              const PicksTitleWidget(),
+              SizedBox(height: 20.h),
+            ],
           ),
-        );
-      }
-    );
+        ),
+      );
+    });
   }
 }

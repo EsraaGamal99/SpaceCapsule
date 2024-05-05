@@ -15,6 +15,9 @@ class DragonsDetailsScreen extends StatefulWidget {
 
 class _DragonsDetailsScreen extends State<DragonsDetailsScreen> {
   double _currentPage = 0;
+  //TODO: replace it with this logic "List<int> indexes = List.generate(state.data.flickrImages.length, (index) => index);"
+  //at the build of success state "like at the rockets details screen"
+  List<int> indexes = List.generate(2, (index) => index);
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +40,7 @@ class _DragonsDetailsScreen extends State<DragonsDetailsScreen> {
                 description:  widget.dragonModel.description!,
                 index: _currentPage.toInt(),
                 images: widget.dragonModel.flickrImages!,
+
               ),
             ],
           ),
