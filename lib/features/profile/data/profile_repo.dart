@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:space_app/core/networking/firebase_service/firebase_auth_error_handler/firebase_auth_error-handler.dart';
 
 class ProfileRepo {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth ;
+
+  ProfileRepo(this._auth);
 
   void logout() {
     if(_auth.currentUser != null) {
@@ -34,9 +36,11 @@ class ProfileRepo {
   }
 
   updatePhoto({required String photoURL}) async {
-    final user = _auth.currentUser;
+    final user = await _auth.currentUser;
     if(user != null) {
-      await user.updatePhotoURL(photoURL);
+      debugPrint("=============================================$user");
+      await user..updatePhotoURL(photoURL);
     }
+
   }
 }

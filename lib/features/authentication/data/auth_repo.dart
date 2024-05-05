@@ -11,7 +11,9 @@ import 'models/login_model.dart';
 import 'models/register_model.dart';
 
 class AuthRepo {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth ;
+
+  AuthRepo(this._auth);
 
   Future<FirebaseResult<AuthResultStatus>> logIn(LoginModel loginModel) async {
     try {

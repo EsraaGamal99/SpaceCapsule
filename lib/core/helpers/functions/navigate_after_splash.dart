@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:space_app/core/helpers/constants.dart';
 import 'package:space_app/core/helpers/functions/firebase_services.dart';
 import 'package:space_app/core/routing/routes.dart';
+import 'package:space_app/features/profile/logic/all_profile_cubit.dart';
 import 'package:space_app/features/profile/logic/edit_profile_data/edit_profile_cubit.dart';
 import 'package:space_app/features/profile/logic/profile_cubit.dart';
 
@@ -27,7 +28,8 @@ void navigateAfterSplash(BuildContext context) async {
 Future pickImage(ImageSource imageSource, BuildContext context) async {
   final pickedFile = await ImagePicker().pickImage(source: imageSource);
   if (pickedFile != null) {
-    BlocProvider.of<EditProfileCubit>(context).updateProfileData(context, photoURL: pickedFile.path);
-    BlocProvider.of<ProfileCubit>(context).getUserProfile(context);
+    context.read<AllProfileCubit>().updateProfileImage(photoURL: pickedFile.path);
+    // BlocProvider.of<EditProfileCubit>(context).updateProfileData(context, photoURL: pickedFile.path);
+    context.read<AllProfileCubit>().getUserProfile(context);
   }
 }

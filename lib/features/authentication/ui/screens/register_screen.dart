@@ -5,6 +5,9 @@ import 'package:space_app/features/authentication/logic/register_cubit/register_
 import 'package:space_app/features/authentication/ui/screens/widgets/register_body.dart';
 import 'package:space_app/features/authentication/ui/screens/widgets/scaffold_for_authentication.dart';
 
+import '../../../../core/di/dependency_injection.dart';
+import '../../logic/login_cubit/login_cubit.dart';
+
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
 
@@ -12,7 +15,7 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScaffoldForAuthentication(
       body: BlocProvider(
-        create: (context) => RegisterCubit(AuthRepo()),
+        create: (context) => getIt<RegisterCubit>(),
         child: RegisterBody(),
       ),
     );

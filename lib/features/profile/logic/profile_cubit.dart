@@ -7,8 +7,8 @@ import 'package:space_app/features/profile/data/profile_repo.dart';
 import 'package:space_app/features/profile/logic/profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
-  final ProfileRepo _profileRepo = ProfileRepo();
-  ProfileCubit() : super(const ProfileState.initial());
+  final ProfileRepo _profileRepo ;
+  ProfileCubit(this._profileRepo) : super(const ProfileState.initial());
 
   User? currentUser;
   Future<void> getUserProfile(BuildContext context) async {

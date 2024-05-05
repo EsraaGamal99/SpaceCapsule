@@ -6,11 +6,14 @@ import 'package:space_app/core/helpers/functions/show_snack_bar.dart';
 import 'package:space_app/features/profile/data/profile_repo.dart';
 import 'package:space_app/features/profile/logic/all_profile_state.dart';
 
+import 'edit_profile_data/edit_profile_state.dart';
+
 
 class AllProfileCubit extends Cubit<AllProfileState> {
-  AllProfileCubit() : super(const AllProfileState.initial());
+  AllProfileCubit(this._profileRepo) : super(const AllProfileState.initial());
 
-  final ProfileRepo _profileRepo = ProfileRepo();
+
+  final ProfileRepo _profileRepo ;
   TextEditingController userNameController = TextEditingController();
   TextEditingController userEmailController = TextEditingController();
   TextEditingController userPasswordController = TextEditingController();
@@ -20,7 +23,7 @@ class AllProfileCubit extends Cubit<AllProfileState> {
     try {
       emit(const AllProfileState.loading());
       final user = await getUser();
-      debugPrint('ProfileState user: $user');
+      debugPrint('=====================================ProfileState user: $user');
       currentUser = user;
       if (currentUser != null) {
         emit(AllProfileState.success(user!));
@@ -32,6 +35,10 @@ class AllProfileCubit extends Cubit<AllProfileState> {
       emit(AllProfileState.error(error: e.toString()));
     }
   }
+  updateProfileImage({required String photoURL}){
+    if (photoURL.isNotEmpty) _profileRepo.updatePhoto(photoURL: photoURL);
+    emit(const AllProfileState.updateSuccessfully('Profile updated successfully'));
+  }
 
   void updateProfileData(BuildContext context, {required String photoURL}) async {
     try {
@@ -41,7 +48,7 @@ class AllProfileCubit extends Cubit<AllProfileState> {
         if (userEmailController.text.isNotEmpty) _profileRepo.updateEmail(email: userEmailController.text, password: userPasswordController.text);
         if (userPasswordController.text.isNotEmpty) _profileRepo.updatePassword(password: userPasswordController.text);
         if (userNameController.text.isNotEmpty) _profileRepo.updateUsername(username: userNameController.text);
-        if (photoURL.isNotEmpty) _profileRepo.updatePhoto(photoURL: photoURL);
+       // if (photoURL.isNotEmpty) _profileRepo.updatePhoto(photoURL: photoURL);
         emit(const AllProfileState.updateSuccessfully('Profile updated successfully'));
       } else {
         emit(const AllProfileState.loggedOut());

@@ -218,10 +218,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     'userName: ${cubit.userNameController.text}'
                                     'password: ${cubit.userPasswordController.text}'
                                     'email: ${cubit.userEmailController.text}');
-                                BlocProvider.of<AllProfileCubit>(context).updateProfileData(
+                                context.read<EditProfileCubit>().updateProfileData(
                                   context,
                                   photoURL: BlocProvider.of<ProfileCubit>(context).currentUser?.photoURL ?? '',
                                 );
+                                print('================================================================');
                                 BlocProvider.of<AllProfileCubit>(context).getUserProfile(context);
                               },
                                 child: Text(
