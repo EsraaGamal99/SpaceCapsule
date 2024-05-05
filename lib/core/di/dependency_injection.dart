@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:space_app/core/networking/api_service/api_service.dart';
 import 'package:space_app/core/theming/app_theme_cubit/app_theme_cubit.dart';
@@ -28,7 +29,7 @@ Future<void> setupGetIt() async{
   getIt.registerLazySingleton(() => InternetCheckerImpl(getIt()));
 
   // Initial local data
-  final sharedPref = SharedPreferences.getInstance();
+  final sharedPref = await SharedPreferences.getInstance();
   // Dragons
   getIt.registerLazySingleton<DragonRepoImpl>(() => DragonRepoImpl(apiService: getIt(),));
 
