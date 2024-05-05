@@ -26,7 +26,7 @@ class ListPicksWidget extends StatelessWidget {
     return BlocBuilder<AppThemeCubit, AppThemeState>(
         builder: (context, state) {
         return Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30.w,),
+          padding: EdgeInsets.only(left: 30.w,right: 30.w,bottom: 30.h),
           child: ListView.separated(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),

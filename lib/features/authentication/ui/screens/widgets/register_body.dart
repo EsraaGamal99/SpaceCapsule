@@ -19,52 +19,58 @@ class RegisterBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var read = context.read<RegisterCubit>();
+    var formKey = GlobalKey<FormState>();
     return Padding(
       padding: const EdgeInsets.all(50.0),
       child: SingleChildScrollView(
+
+        child: Form(
+          key: formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
               height: 35.h,
-            ),
-            Text(
-              context.translate.letsTextKey,
-              style: AppTextStyles.fontWhite40W500.copyWith(color: Theme.of(context).colorScheme.primary),
-            ),
-            Text(
-              context.translate.startWeTextKey,
-              style: AppTextStyles.fontWhite63W600.copyWith(height: 1.0,color: Theme.of(context).colorScheme.primary,),
-            ),
-            UserDataSection(
-              isLogin: false,
-              nameController: read.nameController,
-              emailController: read.emailController,
-              passwordController: read.passwordController,
-            ),
-            AnimationButton(
-              onPress:  () async {
-                await BlocProvider.of<RegisterCubit>(context).userRegistration(
-                  context,
-                  name: read.nameController.text,
-                  email: read.emailController.text,
-                  password: read.passwordController.text,
-                );
-              },
-              child: CustomMaterialButton(
-                label: context.translate.signUpTextKey,
               ),
-            ),
-            SizedBox(
-              height: 10.h,
-            ),
-            const AlreadyHaveAnAccount(),
-            SizedBox(
-              height: 10.h,
-            ),
-            const RegisterBlocListener(),
-          ],
+              Text(
+                context.translate.letsTextKey,
+                style: AppTextStyles.fontWhite40W500.copyWith(color: Theme.of(context).colorScheme.primary),
+              ),
+              Text(
+                context.translate.startWeTextKey,
+                style: AppTextStyles.fontWhite63W600.copyWith(height: 1.0,color: Theme.of(context).colorScheme.primary,),
+              ),
+              UserDataSection(
+                isLogin: false,
+                nameController: read.nameController,
+                emailController: read.emailController,
+                passwordController: read.passwordController,
+              ),
+              AnimationButton(
+                onPress:  () async {
+                  if(formKey.currentState!.validate()) {
+                    await BlocProvider.of<RegisterCubit>(context).userRegistration(
+                      name: read.nameController.text,
+                      email: read.emailController.text,
+                      password: read.passwordController.text,
+                    );
+                  }
+                },
+                child: CustomMaterialButton(
+                  label: context.translate.signUpTextKey,
+                ),
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              const AlreadyHaveAnAccount(),
+              SizedBox(
+                height: 10.h,
+              ),
+              const RegisterBlocListener(),
+            ],
+          ),
         ),
       ),
     );
