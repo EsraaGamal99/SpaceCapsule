@@ -25,7 +25,7 @@ class AlreadyHaveAnAccount extends StatelessWidget {
           },
           child: Text(
             context.translate.logInTextKey,
-            style: AppTextStyles.fontWhite17W500.copyWith(color: Theme.of(context).colorScheme.primary),
+            style: AppTextStyles.fontWhite17W500.copyWith(decoration: TextDecoration.underline, color: Theme.of(context).colorScheme.primary),
           ),
         ),
       ],
