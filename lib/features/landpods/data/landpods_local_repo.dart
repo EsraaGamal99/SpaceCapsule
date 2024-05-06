@@ -13,7 +13,7 @@ class LandpodLocalRepo  {
 
 
   Future<void> cacheLandpods(List<LandpodModel> landpodModels) async{
-    List landpodsModelToJson = await landpodModels.map<Map<String, dynamic>>
+    List landpodsModelToJson = await landpodModels.map<Map<dynamic, dynamic>>
       ((landpodModel) =>  landpodModel.toJson()).toList();
     sharedPreferences.setString(landpodsKey, json.encode(landpodsModelToJson));
   }

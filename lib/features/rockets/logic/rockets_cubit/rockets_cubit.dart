@@ -27,6 +27,7 @@ class RocketsCubit extends Cubit<RocketsState> {
     final response = await rocketsRepo.getAllRockets(context);
     response.when(success: (response) {
       rockets = response;
+      rocketLocalRepo.cacheRockets(response);
       debugPrint('--------------------------------- ${rockets[0].name}');
       emit(RocketsState.success(response));
     }, failure: (error) {
@@ -41,7 +42,6 @@ class RocketsCubit extends Cubit<RocketsState> {
         success: (response) {
           emit(RocketsState.success(response));
           rockets = response;
-          //rocketLocalRepo.cacheRockets(response);
         }, failure: (error) {
       emit(RocketsState.error(error: error.errorModel.message ?? ''));
     });

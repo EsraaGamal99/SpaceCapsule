@@ -26,6 +26,7 @@ class DragonCubit extends Cubit<DragonState> {
           print(response.toList().toString());
           emit(DragonState.success(response));
           dragons = response;
+          dragonLocalRepo.cacheDragons(response);
         }, failure: (error) {
       emit(DragonState.error(error: error.errorModel.message ?? ''));
     });
@@ -48,6 +49,7 @@ class DragonCubit extends Cubit<DragonState> {
     if(await internetChecker.isConnected){
       emitGetAllDragonsStates(context);
     }else {
+      emit(DragonState.internetConnectionFaild());
       emitCachedDragonsStates(context);
     }
   }

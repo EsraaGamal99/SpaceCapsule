@@ -22,7 +22,7 @@ mixin _$DragonState<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
-    required TResult Function() isConnected,
+    required TResult Function() internetConnectionFaild,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +31,7 @@ mixin _$DragonState<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
-    TResult? Function()? isConnected,
+    TResult? Function()? internetConnectionFaild,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$DragonState<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
-    TResult Function()? isConnected,
+    TResult Function()? internetConnectionFaild,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,7 +50,8 @@ mixin _$DragonState<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
-    required TResult Function(IsConnected<T> value) isConnected,
+    required TResult Function(InternetConnectionFaild<T> value)
+        internetConnectionFaild,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,7 +60,8 @@ mixin _$DragonState<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
-    TResult? Function(IsConnected<T> value)? isConnected,
+    TResult? Function(InternetConnectionFaild<T> value)?
+        internetConnectionFaild,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,7 +70,7 @@ mixin _$DragonState<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
-    TResult Function(IsConnected<T> value)? isConnected,
+    TResult Function(InternetConnectionFaild<T> value)? internetConnectionFaild,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,7 +136,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
-    required TResult Function() isConnected,
+    required TResult Function() internetConnectionFaild,
   }) {
     return initial();
   }
@@ -146,7 +148,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
-    TResult? Function()? isConnected,
+    TResult? Function()? internetConnectionFaild,
   }) {
     return initial?.call();
   }
@@ -158,7 +160,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
-    TResult Function()? isConnected,
+    TResult Function()? internetConnectionFaild,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -174,7 +176,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
-    required TResult Function(IsConnected<T> value) isConnected,
+    required TResult Function(InternetConnectionFaild<T> value)
+        internetConnectionFaild,
   }) {
     return initial(this);
   }
@@ -186,7 +189,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
-    TResult? Function(IsConnected<T> value)? isConnected,
+    TResult? Function(InternetConnectionFaild<T> value)?
+        internetConnectionFaild,
   }) {
     return initial?.call(this);
   }
@@ -198,7 +202,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
-    TResult Function(IsConnected<T> value)? isConnected,
+    TResult Function(InternetConnectionFaild<T> value)? internetConnectionFaild,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -254,7 +258,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
-    required TResult Function() isConnected,
+    required TResult Function() internetConnectionFaild,
   }) {
     return loading();
   }
@@ -266,7 +270,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
-    TResult? Function()? isConnected,
+    TResult? Function()? internetConnectionFaild,
   }) {
     return loading?.call();
   }
@@ -278,7 +282,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
-    TResult Function()? isConnected,
+    TResult Function()? internetConnectionFaild,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -294,7 +298,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
-    required TResult Function(IsConnected<T> value) isConnected,
+    required TResult Function(InternetConnectionFaild<T> value)
+        internetConnectionFaild,
   }) {
     return loading(this);
   }
@@ -306,7 +311,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
-    TResult? Function(IsConnected<T> value)? isConnected,
+    TResult? Function(InternetConnectionFaild<T> value)?
+        internetConnectionFaild,
   }) {
     return loading?.call(this);
   }
@@ -318,7 +324,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
-    TResult Function(IsConnected<T> value)? isConnected,
+    TResult Function(InternetConnectionFaild<T> value)? internetConnectionFaild,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -401,7 +407,7 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
-    required TResult Function() isConnected,
+    required TResult Function() internetConnectionFaild,
   }) {
     return success(data);
   }
@@ -413,7 +419,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
-    TResult? Function()? isConnected,
+    TResult? Function()? internetConnectionFaild,
   }) {
     return success?.call(data);
   }
@@ -425,7 +431,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
-    TResult Function()? isConnected,
+    TResult Function()? internetConnectionFaild,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -441,7 +447,8 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
-    required TResult Function(IsConnected<T> value) isConnected,
+    required TResult Function(InternetConnectionFaild<T> value)
+        internetConnectionFaild,
   }) {
     return success(this);
   }
@@ -453,7 +460,8 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
-    TResult? Function(IsConnected<T> value)? isConnected,
+    TResult? Function(InternetConnectionFaild<T> value)?
+        internetConnectionFaild,
   }) {
     return success?.call(this);
   }
@@ -465,7 +473,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
-    TResult Function(IsConnected<T> value)? isConnected,
+    TResult Function(InternetConnectionFaild<T> value)? internetConnectionFaild,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -552,7 +560,7 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
-    required TResult Function() isConnected,
+    required TResult Function() internetConnectionFaild,
   }) {
     return error(this.error);
   }
@@ -564,7 +572,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
-    TResult? Function()? isConnected,
+    TResult? Function()? internetConnectionFaild,
   }) {
     return error?.call(this.error);
   }
@@ -576,7 +584,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
-    TResult Function()? isConnected,
+    TResult Function()? internetConnectionFaild,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -592,7 +600,8 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
-    required TResult Function(IsConnected<T> value) isConnected,
+    required TResult Function(InternetConnectionFaild<T> value)
+        internetConnectionFaild,
   }) {
     return error(this);
   }
@@ -604,7 +613,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
-    TResult? Function(IsConnected<T> value)? isConnected,
+    TResult? Function(InternetConnectionFaild<T> value)?
+        internetConnectionFaild,
   }) {
     return error?.call(this);
   }
@@ -616,7 +626,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
-    TResult Function(IsConnected<T> value)? isConnected,
+    TResult Function(InternetConnectionFaild<T> value)? internetConnectionFaild,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -636,35 +646,38 @@ abstract class Error<T> implements DragonState<T> {
 }
 
 /// @nodoc
-abstract class _$$IsConnectedImplCopyWith<T, $Res> {
-  factory _$$IsConnectedImplCopyWith(_$IsConnectedImpl<T> value,
-          $Res Function(_$IsConnectedImpl<T>) then) =
-      __$$IsConnectedImplCopyWithImpl<T, $Res>;
+abstract class _$$InternetConnectionFaildImplCopyWith<T, $Res> {
+  factory _$$InternetConnectionFaildImplCopyWith(
+          _$InternetConnectionFaildImpl<T> value,
+          $Res Function(_$InternetConnectionFaildImpl<T>) then) =
+      __$$InternetConnectionFaildImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$IsConnectedImplCopyWithImpl<T, $Res>
-    extends _$DragonStateCopyWithImpl<T, $Res, _$IsConnectedImpl<T>>
-    implements _$$IsConnectedImplCopyWith<T, $Res> {
-  __$$IsConnectedImplCopyWithImpl(
-      _$IsConnectedImpl<T> _value, $Res Function(_$IsConnectedImpl<T>) _then)
+class __$$InternetConnectionFaildImplCopyWithImpl<T, $Res>
+    extends _$DragonStateCopyWithImpl<T, $Res, _$InternetConnectionFaildImpl<T>>
+    implements _$$InternetConnectionFaildImplCopyWith<T, $Res> {
+  __$$InternetConnectionFaildImplCopyWithImpl(
+      _$InternetConnectionFaildImpl<T> _value,
+      $Res Function(_$InternetConnectionFaildImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$IsConnectedImpl<T> implements IsConnected<T> {
-  const _$IsConnectedImpl();
+class _$InternetConnectionFaildImpl<T> implements InternetConnectionFaild<T> {
+  const _$InternetConnectionFaildImpl();
 
   @override
   String toString() {
-    return 'DragonState<$T>.isConnected()';
+    return 'DragonState<$T>.internetConnectionFaild()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$IsConnectedImpl<T>);
+        (other.runtimeType == runtimeType &&
+            other is _$InternetConnectionFaildImpl<T>);
   }
 
   @override
@@ -677,9 +690,9 @@ class _$IsConnectedImpl<T> implements IsConnected<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
-    required TResult Function() isConnected,
+    required TResult Function() internetConnectionFaild,
   }) {
-    return isConnected();
+    return internetConnectionFaild();
   }
 
   @override
@@ -689,9 +702,9 @@ class _$IsConnectedImpl<T> implements IsConnected<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
-    TResult? Function()? isConnected,
+    TResult? Function()? internetConnectionFaild,
   }) {
-    return isConnected?.call();
+    return internetConnectionFaild?.call();
   }
 
   @override
@@ -701,11 +714,11 @@ class _$IsConnectedImpl<T> implements IsConnected<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
-    TResult Function()? isConnected,
+    TResult Function()? internetConnectionFaild,
     required TResult orElse(),
   }) {
-    if (isConnected != null) {
-      return isConnected();
+    if (internetConnectionFaild != null) {
+      return internetConnectionFaild();
     }
     return orElse();
   }
@@ -717,9 +730,10 @@ class _$IsConnectedImpl<T> implements IsConnected<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
-    required TResult Function(IsConnected<T> value) isConnected,
+    required TResult Function(InternetConnectionFaild<T> value)
+        internetConnectionFaild,
   }) {
-    return isConnected(this);
+    return internetConnectionFaild(this);
   }
 
   @override
@@ -729,9 +743,10 @@ class _$IsConnectedImpl<T> implements IsConnected<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
-    TResult? Function(IsConnected<T> value)? isConnected,
+    TResult? Function(InternetConnectionFaild<T> value)?
+        internetConnectionFaild,
   }) {
-    return isConnected?.call(this);
+    return internetConnectionFaild?.call(this);
   }
 
   @override
@@ -741,16 +756,16 @@ class _$IsConnectedImpl<T> implements IsConnected<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
-    TResult Function(IsConnected<T> value)? isConnected,
+    TResult Function(InternetConnectionFaild<T> value)? internetConnectionFaild,
     required TResult orElse(),
   }) {
-    if (isConnected != null) {
-      return isConnected(this);
+    if (internetConnectionFaild != null) {
+      return internetConnectionFaild(this);
     }
     return orElse();
   }
 }
 
-abstract class IsConnected<T> implements DragonState<T> {
-  const factory IsConnected() = _$IsConnectedImpl<T>;
+abstract class InternetConnectionFaild<T> implements DragonState<T> {
+  const factory InternetConnectionFaild() = _$InternetConnectionFaildImpl<T>;
 }
