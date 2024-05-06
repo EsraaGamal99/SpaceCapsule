@@ -41,7 +41,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: BlocListener<AllProfileCubit, AllProfileState>(
               listener: (context, state) {
                 state.maybeMap(
-                  loggedOut: (value) => context.pushNamed(Routes.loginScreen),
+                  loggedOut: (value) => Navigator.pushReplacementNamed(context, Routes.loginScreen, arguments: true),
                   orElse: () {},
                 );
               },

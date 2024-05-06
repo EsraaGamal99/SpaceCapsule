@@ -44,7 +44,8 @@ class AppRouter {
       case Routes.registerScreen:
         return MaterialPageRoute(builder: (context) => const RegisterScreen());
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (context) => const LoginScreen());
+        final argument = routeSettings.arguments as bool;
+        return MaterialPageRoute(builder: (context) => LoginScreen(isLoggedUp: argument));
       case Routes.firstOnboardingScreen:
         return MaterialPageRoute(
             builder: (context) => const FirstOnBoardingScreen());

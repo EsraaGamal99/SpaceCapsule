@@ -7,14 +7,15 @@ import 'package:space_app/features/authentication/ui/screens/widgets/scaffold_fo
 import '../../../../core/di/dependency_injection.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  final bool? isLoggedUp;
+  const LoginScreen({super.key, this.isLoggedUp = false});
 
   @override
   Widget build(BuildContext context) {
     return ScaffoldForAuthentication(
       body: BlocProvider(
         create: (context) => getIt<LoginCubit>(),
-        child: const LoginBody(),
+        child: LoginBody(isLoggedUp: isLoggedUp),
       ),
     );
   }

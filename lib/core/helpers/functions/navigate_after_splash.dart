@@ -12,7 +12,7 @@ void navigateAfterSplash(BuildContext context) async {
   if(isLoggedIn == true && currentToken != null ) {
     Navigator.pushReplacementNamed(context, Routes.homeScreen);
   } else if (isLoggedUp == true && currentToken != null) {
-    Navigator.pushReplacementNamed(context, Routes.loginScreen);
+    Navigator.pushReplacementNamed(context, Routes.loginScreen, arguments: isLoggedUp);
   } else if(isLoggedIn == true && isLoggedUp == true && currentToken == null) {
     Navigator.pushReplacementNamed(context, Routes.registerScreen);
   } else {
