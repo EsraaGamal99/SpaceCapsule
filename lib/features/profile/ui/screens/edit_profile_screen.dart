@@ -218,12 +218,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     'userName: ${cubit.userNameController.text}'
                                     'password: ${cubit.userPasswordController.text}'
                                     'email: ${cubit.userEmailController.text}');
-                                context.read<EditProfileCubit>().updateProfileData(
+                                await cubit.updateProfileData(
                                   context,
-                                  photoURL: BlocProvider.of<ProfileCubit>(context).currentUser?.photoURL ?? '',
-                                );
+                                  );
                                 print('================================================================');
-                                BlocProvider.of<AllProfileCubit>(context).getUserProfile(context);
+                               //cubit.getUserProfile(context);
                               },
                                 child: Text(
                                   saveTextKey,
@@ -282,11 +281,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     'userName: ${cubit.userNameController.text}'
                                     'password: ${cubit.userPasswordController.text}'
                                     'email: ${cubit.userEmailController.text}');
-                                BlocProvider.of<EditProfileCubit>(context).updateProfileData(
+                                BlocProvider.of<AllProfileCubit>(context).updateProfileData(
                                   context,
-                                  photoURL: BlocProvider.of<ProfileCubit>(context).currentUser?.photoURL ?? '',
-                                );
-                                BlocProvider.of<ProfileCubit>(context).getUserProfile(context);
+                                  );
+                                BlocProvider.of<AllProfileCubit>(context).getUserProfile(context);
                               },
                                 child: Text(
                                   saveTextKey,

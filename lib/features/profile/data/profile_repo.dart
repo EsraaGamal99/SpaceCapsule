@@ -39,7 +39,7 @@ class ProfileRepo {
     final user = await _auth.currentUser;
     if(user != null) {
       debugPrint("=============================================$user");
-      await user..updatePhotoURL(photoURL);
+      await user.updatePhotoURL(photoURL);
     }
 
   }

@@ -92,11 +92,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<AllProfileCubit>(context).getUserProfile(context);
+    context.read<AllProfileCubit>().getUserProfile(context);
+    // BlocProvider.of<AllProfileCubit>(context).getUserProfile(context);
   }
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<AllProfileCubit>(context).getUserProfile(context);
     return Scaffold(
       backgroundColor: AppColors.primaryBlackColor,
       body: SafeArea(
@@ -144,7 +146,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 bottomText: settingsTextKey,
                               ),
                               SizedBox(height: 20.h),
-                              UserInfoWidget(name: BlocProvider.of<AllProfileCubit>(context).currentUser?.displayName ?? "", email: BlocProvider.of<AllProfileCubit>(context).currentUser?.email ?? "", profileImage: BlocProvider.of<AllProfileCubit>(context).currentUser?.photoURL ?? '',),
+                              UserInfoWidget(name: context.read<AllProfileCubit>().currentUser?.displayName ?? "", email: context.read<AllProfileCubit>().currentUser?.email ?? "", profileImage: context.read<AllProfileCubit>().currentUser?.photoURL ?? '',),
                               SizedBox(height: 20.h),
                               SettingItemWidget(icon: Icons.settings, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: appPreferencesTextKey, onTap: () => openAppPreferencesScreen(context)),
                               SizedBox(height: 20.h),

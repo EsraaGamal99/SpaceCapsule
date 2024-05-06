@@ -28,8 +28,8 @@ void navigateAfterSplash(BuildContext context) async {
 Future pickImage(ImageSource imageSource, BuildContext context) async {
   final pickedFile = await ImagePicker().pickImage(source: imageSource);
   if (pickedFile != null) {
-    context.read<AllProfileCubit>().updateProfileImage(photoURL: pickedFile.path);
+    await context.read<AllProfileCubit>().updateProfileImage(photoURL: pickedFile.path);
     // BlocProvider.of<EditProfileCubit>(context).updateProfileData(context, photoURL: pickedFile.path);
-    context.read<AllProfileCubit>().getUserProfile(context);
+    await context.read<AllProfileCubit>().getUserProfile(context);
   }
 }

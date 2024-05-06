@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:space_app/core/helpers/constants.dart';
 import 'package:space_app/core/helpers/functions/firebase_services.dart';
 import 'package:space_app/core/helpers/functions/show_snack_bar.dart';
 import 'package:space_app/features/profile/data/profile_repo.dart';
@@ -23,7 +24,7 @@ class AllProfileCubit extends Cubit<AllProfileState> {
     try {
       emit(const AllProfileState.loading());
       final user = await getUser();
-      debugPrint('=====================================ProfileState user: $user');
+      debugPrint('AllProfileState user: $user');
       currentUser = user;
       if (currentUser != null) {
         emit(AllProfileState.success(user!));
@@ -35,19 +36,29 @@ class AllProfileCubit extends Cubit<AllProfileState> {
       emit(AllProfileState.error(error: e.toString()));
     }
   }
-  updateProfileImage({required String photoURL}){
-    if (photoURL.isNotEmpty) _profileRepo.updatePhoto(photoURL: photoURL);
+  updateProfileImage({required String photoURL}) async{
+    if (photoURL.isNotEmpty)
+      await _profileRepo.updatePhoto(photoURL: photoURL);
     emit(const AllProfileState.updateSuccessfully('Profile updated successfully'));
   }
 
-  void updateProfileData(BuildContext context, {required String photoURL}) async {
+  updateProfileData(BuildContext context) async {
     try {
+
       final token = await getToken();
+      debugPrint("============================================"+token.toString());
       if(token != null && token.isNotEmpty) {
         emit(const AllProfileState.loading());
-        if (userEmailController.text.isNotEmpty) _profileRepo.updateEmail(email: userEmailController.text, password: userPasswordController.text);
-        if (userPasswordController.text.isNotEmpty) _profileRepo.updatePassword(password: userPasswordController.text);
-        if (userNameController.text.isNotEmpty) _profileRepo.updateUsername(username: userNameController.text);
+        // if (userEmailController.text.isNotEmpty){
+        //   await _profileRepo.updateEmail(email: userEmailController.text, password: userPasswordController.text);
+        // }
+          if (userPasswordController.text.isNotEmpty){
+            await _profileRepo.updatePassword(password: userPasswordController.text);
+          }
+          if (userNameController.text.isNotEmpty){
+            await _profileRepo.updateUsername(username: userNameController.text);
+          }
+
        // if (photoURL.isNotEmpty) _profileRepo.updatePhoto(photoURL: photoURL);
         emit(const AllProfileState.updateSuccessfully('Profile updated successfully'));
       } else {
