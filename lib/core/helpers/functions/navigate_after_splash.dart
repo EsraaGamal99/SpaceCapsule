@@ -12,10 +12,12 @@ void navigateAfterSplash(BuildContext context) async {
   debugPrint('isLoggedIn: $isLoggedIn');
   debugPrint('isLoggedUp: $isLoggedUp');
   debugPrint('currentToken: $currentToken');
-  if(isLoggedIn == true && currentToken != null && currentToken.isNotEmpty) {
+  if(isLoggedIn == true && currentToken != null ) {
     Navigator.pushReplacementNamed(context, Routes.homeScreen);
-  } else if (isLoggedUp == true && currentToken != null && currentToken.isNotEmpty) {
+  } else if (isLoggedUp == true && currentToken != null) {
     Navigator.pushReplacementNamed(context, Routes.loginScreen);
+  } else if(isLoggedIn == true && isLoggedUp == true && currentToken == null) {
+    Navigator.pushReplacementNamed(context, Routes.registerScreen);
   } else {
     Navigator.pushReplacementNamed(context, Routes.firstOnboardingScreen);
   }
