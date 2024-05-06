@@ -17,6 +17,7 @@ import 'package:space_app/features/intro/ui/screens/second_onboarding_screen.dar
 import 'package:space_app/features/dragons/logic/dragon_cubit.dart';
 import 'package:space_app/features/profile/ui/screens/edit_profile_screen.dart';
 import 'package:space_app/features/profile/ui/screens/profile_screen.dart';
+import 'package:space_app/features/rockets/data/models/rockets_model.dart';
 import 'package:space_app/features/rockets/logic/one_rocket_cubit/one_rocket_cubit.dart';
 import 'package:space_app/features/rockets/logic/rockets_cubit/rockets_cubit.dart';
 import 'package:space_app/features/rockets/ui/screens/rockets_details_screen.dart';
@@ -71,11 +72,11 @@ class AppRouter {
                   child: const RocketsScreen(),
                 ));
       case Routes.rocketDetailsScreen:
-        final argument = routeSettings.arguments as String;
+        final argument = routeSettings.arguments as RocketsModel;
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) => getIt<OneRocketCubit>(),
-            child: RocketDetailsScreen(rocketId: argument,),
+            child: RocketDetailsScreen(rockeModel: argument,),
           ),
         );
       case Routes.landPodsScreen:
