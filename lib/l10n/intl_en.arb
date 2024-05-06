@@ -105,7 +105,7 @@
   "operationNotAllowedTextKey"        : "Operation not allowed",
   "tooManyRequestsTextKey"            : "Too many requests",
   "undefinedErrorTextKey"             : "Undefined error",
-  "defaultErrorMessageTextKey"        : "Something went wrong. Please try again later.",
+  "defaultErrorMessageTextKey"        : "Something went wrong. Please try again later."
 
 
 }
