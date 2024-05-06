@@ -35,8 +35,8 @@ class AppBarWidget extends StatelessWidget {
                 Navigator.pushNamed(context, Routes.profileScreen);
               },
               child: Container(
-                height: 65.h,
-                width: 65.w,
+                height: 60.h,
+                width: 60.w,
                 padding: EdgeInsets.all(8.w),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30.h),
