@@ -20,7 +20,7 @@ class LoginCubit extends Cubit<LogInState> {
 
       final loginCredentials = LoginModel(email: email, password: password);
 
-      final response = await authRepo.logIn(loginCredentials);
+      final response = await authRepo.logIn(context, loginCredentials);
 
       response.when(success: (loginModel) {
         emit(LogInState.success(loginModel));

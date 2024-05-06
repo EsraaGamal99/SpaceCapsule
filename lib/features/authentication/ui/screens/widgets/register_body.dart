@@ -51,6 +51,7 @@ class RegisterBody extends StatelessWidget {
                 onPress:  () async {
                   if(formKey.currentState!.validate()) {
                     await BlocProvider.of<RegisterCubit>(context).userRegistration(
+                      context,
                       name: read.nameController.text,
                       email: read.emailController.text,
                       password: read.passwordController.text,

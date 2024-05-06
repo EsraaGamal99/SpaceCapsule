@@ -34,9 +34,9 @@ class RocketsCubit extends Cubit<RocketsState> {
     });
   }
 
-  void emitCachedRocketsStates() async{
+  void emitCachedRocketsStates(BuildContext context) async{
     emit(const RocketsState.loading());
-    final response = await rocketLocalRepo.getCachedRockets();
+    final response = await rocketLocalRepo.getCachedRockets(context);
     response.when(
         success: (response) {
           emit(RocketsState.success(response));
@@ -47,11 +47,11 @@ class RocketsCubit extends Cubit<RocketsState> {
     });
   }
 
-  void getRockets() async{
+  void getRockets(BuildContext context) async{
     if(await internetChecker.isConnected){
-      emitGetAllRocketsStates();
+      emitGetAllRocketsStates(context);
     }else {
-      emitCachedRocketsStates();
+      emitCachedRocketsStates(context);
     }
   }
 }
