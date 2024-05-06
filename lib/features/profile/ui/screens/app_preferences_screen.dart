@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/helpers/functions/get_current_language.dart';
+import 'package:space_app/core/theming/app_theme_cubit/app_theme_cubit.dart';
 import 'package:space_app/core/widgets/loading_widgets/small_loading_widget.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
 
@@ -30,7 +31,7 @@ class AppPreferencesScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20.h),
-                AppPreferencesItemWidget(iconData: Icons.light_mode_rounded, title: context.translate.themeTextKey, subTitle: context.translate.darkTextKey, onTap: () => showChangeThemeBottomSheet(context: context),),
+                AppPreferencesItemWidget(iconData: AppThemeCubit.isDarkMode? Icons.dark_mode_rounded :Icons.light_mode_rounded, title:   context.translate.themeTextKey , subTitle: AppThemeCubit.isDarkMode? context.translate.darkTextKey : context.translate.lightTextKey, onTap: () => showChangeThemeBottomSheet(context: context),),
                 Divider(indent: 50.w, endIndent: 50.w, color: Theme.of(context).colorScheme.primary,),
                 FutureBuilder<String>(
                   future: getCurrentLanguageName(context),

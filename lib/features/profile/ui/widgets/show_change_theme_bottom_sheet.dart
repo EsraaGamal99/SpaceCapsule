@@ -8,7 +8,7 @@ import '../../../../core/theming/colors.dart';
 void showChangeThemeBottomSheet({required BuildContext context}) {
   showModalBottomSheet(
     context: context,
-    backgroundColor: AppColors.primaryMidnightGreyColor,
+    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
     builder: (BuildContext context) {
       return const ChangeThemeWidget();
     },
@@ -26,8 +26,8 @@ class ChangeThemeWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           ListTile(
-            leading: const Icon(Icons.light_mode_rounded, color: AppColors.primaryWhiteColor),
-            title: Text(context.translate.lightTextKey, style: const TextStyle(color: AppColors.primaryWhiteColor)),
+            leading: Icon(Icons.light_mode_rounded, color: Theme.of(context).colorScheme.primary),
+            title: Text(context.translate.lightTextKey, style: TextStyle(color: Theme.of(context).colorScheme.primary)),
             onTap: () {
               AppThemeCubit.get(context).toggleTheme(darkMode: false);
               debugPrint(AppThemeCubit.isDarkMode.toString());
@@ -35,8 +35,8 @@ class ChangeThemeWidget extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.dark_mode_rounded, color: AppColors.primaryWhiteColor),
-            title: Text(context.translate.darkTextKey, style: const TextStyle(color: AppColors.primaryWhiteColor)),
+            leading: Icon(Icons.dark_mode_rounded, color: Theme.of(context).colorScheme.primary),
+            title: Text(context.translate.darkTextKey, style: TextStyle(color: Theme.of(context).colorScheme.primary)),
             onTap: () {
               AppThemeCubit.get(context).toggleTheme(darkMode: true);
               debugPrint(AppThemeCubit.isDarkMode.toString());
