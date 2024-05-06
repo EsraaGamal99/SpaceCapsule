@@ -14,7 +14,7 @@ class LoginCubit extends Cubit<LogInState> {
   final TextEditingController passwordController = TextEditingController();
 
   LoginCubit(this.authRepo, this.internetChecker) : super(const LogInState.initial()){
-    checkAuthStatus();
+    // checkAuthStatus();
   }
 
   Future<void> checkAuthStatus() async {

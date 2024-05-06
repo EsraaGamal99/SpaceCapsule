@@ -17,16 +17,13 @@ class RegisterCubit extends Cubit<RegisterState> {
   final TextEditingController passwordController = TextEditingController();
 
   RegisterCubit(this.authRepo, this.internetChecker) : super(const RegisterState.initial()){
-    checkAuthStatus();
+    // checkAuthStatus();
   }
 
-  Future<void> checkAuthStatus() async {
-    final prefs = await SharedPreferences.getInstance();
-    final isLoggedIn = prefs.getBool(isSignedUp) ?? false;
-    // if (isLoggedIn) {
-    //   emit(const RegisterState.loggedUp());
-    // }
-  }
+  // Future<void> checkAuthStatus() async {
+  //   final prefs = await SharedPreferences.getInstance();
+  //   final isLoggedIn = prefs.getBool(isSignedUp) ?? false;
+  // }
 
   Future<void> userRegistration(BuildContext context,{required String name,
     required String email,

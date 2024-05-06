@@ -13,11 +13,9 @@ void storeToken(UserCredential userCredential) async {
       final currentToken = await currentUser.getIdToken();
       if (currentToken != null) {
         await prefs.setString(tokenKey, currentToken);
-        debugPrint('Token retrieval successful, proceed with storing the token $currentToken');
       } else {
           await _auth.signOut();
           await prefs.remove(tokenKey);
-        debugPrint('ID token is null $currentToken');
       }
     } else {
       await _auth.signOut();
@@ -35,10 +33,8 @@ Future<String?> getToken() async {
 
 Future<User?> getUser() async {
   try {
-    debugPrint('getUser user ${_auth.currentUser}');
     return _auth.currentUser;
   } catch (e) {
-    debugPrint('Error getting current user: $e');
     return null;
   }
 }
@@ -51,7 +47,6 @@ logOut() async {
     await _auth.signOut();
     await prefs.remove(tokenKey);
     final tokenNew = await getToken();
-    debugPrint('Token after sign out: $tokenNew');
   }
 }
 

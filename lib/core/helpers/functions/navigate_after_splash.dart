@@ -9,9 +9,6 @@ void navigateAfterSplash(BuildContext context) async {
   bool? isLoggedIn = prefs.getBool(isSignedIn);
   bool? isLoggedUp = prefs.getBool(isSignedUp);
   String? currentToken = await getToken();
-  debugPrint('isLoggedIn: $isLoggedIn');
-  debugPrint('isLoggedUp: $isLoggedUp');
-  debugPrint('currentToken: $currentToken');
   if(isLoggedIn == true && currentToken != null ) {
     Navigator.pushReplacementNamed(context, Routes.homeScreen);
   } else if (isLoggedUp == true && currentToken != null) {
