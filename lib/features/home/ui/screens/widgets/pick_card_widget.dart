@@ -83,55 +83,61 @@ class PickCardWidget extends StatelessWidget {
             Positioned(
               bottom: 10.h,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                padding: EdgeInsetsDirectional.only(end: 20.w),
                 width: MediaQuery.of(context).size.width - 40.w,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            locality ?? context.translate.adventurerTextKey,
-                            style: AppTextStyles.fontWhite15W500,
-                          ),
-                          Text(
-                            cardName,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: AppTextStyles.fontWhite33W600,
-                          ),
-                        ],
+                    Padding(
+                      padding: const EdgeInsetsDirectional.only(start: 20.0),
+                      child: Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              locality ?? context.translate.adventurerTextKey,
+                              style: AppTextStyles.fontWhite15W500,
+                            ),
+                            Text(
+                              cardName,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: AppTextStyles.fontWhite33W600,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(width: 10.w),
-                    MaterialButton(
-                      onPressed: isToDetailsScreen == true
-                          ? onPressed
-                          : () {
-                        cardType == CardType.rockets
-                            ? Navigator.pushNamed(context, Routes.rocketsScreen)
-                            : (cardType == CardType.dragons)
-                            ? Navigator.pushNamed(context, Routes.dragonScreen)
-                            : Navigator.pushNamed(context, Routes.landPodsScreen);
-                      },
-                      color: AppColors.primaryMediumGrayColor.withOpacity(0.4),
-                      padding: EdgeInsets.all(6.h),
-                      height: 54.h,
-                      minWidth: 59.w,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.h)),
-                      child: RotatedBox(
-                        quarterTurns:
-                            BlocProvider.of<LocalizationCubit>(context)
-                                    .isArabic()
-                                ? 2
-                                : 0,
-                        child: SvgPicture.asset(
-                          AppAssets.forwardArrowIcon,
-                          color: Colors.white,
+                    Padding(
+                      padding: EdgeInsetsDirectional.only(end: isToDetailsScreen ? 0.w : 20.0.w),
+                      child: MaterialButton(
+                        onPressed: isToDetailsScreen == true
+                            ? onPressed
+                            : () {
+                          cardType == CardType.rockets
+                              ? Navigator.pushNamed(context, Routes.rocketsScreen)
+                              : (cardType == CardType.dragons)
+                              ? Navigator.pushNamed(context, Routes.dragonScreen)
+                              : Navigator.pushNamed(context, Routes.landPodsScreen);
+                        },
+                        color: AppColors.primaryMediumGrayColor.withOpacity(0.4),
+                        padding: EdgeInsets.all(6.h),
+                        height: 54.h,
+                        minWidth: 59.w,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.h)),
+                        child: RotatedBox(
+                          quarterTurns:
+                              BlocProvider.of<LocalizationCubit>(context)
+                                      .isArabic()
+                                  ? 2
+                                  : 0,
+                          child: SvgPicture.asset(
+                            AppAssets.forwardArrowIcon,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
