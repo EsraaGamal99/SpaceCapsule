@@ -16,7 +16,7 @@ class _RocketsScreenState extends State<RocketsScreen> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<RocketsCubit>(context).emitGetAllRocketsStates(context);
+    BlocProvider.of<RocketsCubit>(context).getRockets(context);
   }
 
   @override

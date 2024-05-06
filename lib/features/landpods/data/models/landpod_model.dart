@@ -47,4 +47,5 @@ class ImageModel {
   });
 
   static fromJson(Map<String, dynamic> json) => _$ImageModelFromJson(json);
+  Map<String, dynamic> toJson() => _$ImageModelToJson(this);
 }

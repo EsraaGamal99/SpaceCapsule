@@ -19,6 +19,7 @@ class LandpodCubit extends Cubit<LandpodState> {
 
     landpods.when(success: (landpods) {
       emit(LandpodState.loaded(landpods));
+      landpodLocalRepo.cacheLandpods(landpods);
     }, failure: (error) {
       emit(LandpodState.error(error.errorModel.message ?? ''));
     });

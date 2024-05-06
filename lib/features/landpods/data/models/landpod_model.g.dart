@@ -8,7 +8,7 @@ part of 'landpod_model.dart';
 
 LandpodModel _$LandpodModelFromJson(Map<String, dynamic> json) => LandpodModel(
       name: json['name'] as String?,
-      fullName: json['fullName'] as String?,
+      fullName: json['full_name'] as String?,
       description: json['details'] as String?,
       image: json['images'] == null
           ? null
@@ -23,7 +23,7 @@ LandpodModel _$LandpodModelFromJson(Map<String, dynamic> json) => LandpodModel(
 Map<String, dynamic> _$LandpodModelToJson(LandpodModel instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'fullName': instance.fullName,
+      'full_name': instance.fullName,
       'details': instance.description,
       'images': instance.image,
       'type': instance.type,
