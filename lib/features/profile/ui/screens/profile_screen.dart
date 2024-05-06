@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
 import 'package:space_app/core/theming/colors.dart';
+import 'package:space_app/core/widgets/loading_widgets/screens_loading_widget.dart';
 import 'package:space_app/features/profile/logic/all_profile_cubit.dart';
 import 'package:space_app/features/profile/logic/all_profile_state.dart';
-import 'package:space_app/generated/l10n.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../../../../core/widgets/app_bars/inner_screens_app_bar.dart';
@@ -45,21 +45,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   orElse: () {},
                 );
               },
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  InnerAppBar(
-                    topText: context.translate.appTextKey,
-                    bottomText: context.translate.settingsTextKey,
-                  ),
-                  SizedBox(height: 20.h),
-                  UserInfoWidget(name: BlocProvider.of<AllProfileCubit>(context).currentUser?.displayName ?? 'Bryan Wolf', email: BlocProvider.of<AllProfileCubit>(context).currentUser?.email ?? 'bryanwolf@gmail.com'),
-                  SizedBox(height: 20.h),
-                  SettingItemWidget(icon: Icons.settings, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: context.translate.appPreferencesTextKey, onTap: () => openAppPreferencesScreen(context)),
-                  SizedBox(height: 20.h),
-                  SettingItemWidget(icon: Icons.logout_rounded, backgroundColor: AppColors.primaryWhiteColor, foregroundColor: AppColors.primaryBlackColor, title: context.translate.signOutTextKey, onTap: () => BlocProvider.of<AllProfileCubit>(context).logout()),
-                  SizedBox(height: 50.h),
-                ],
+              child: BlocBuilder<AllProfileCubit, AllProfileState>(
+                  builder: (context, state) {
+                    return state.map(
+                        loading: (_) => const Center(child: ScreensLoadingWidget()),
+                        error: (error) => Center(child: Text(error.error)),
+                        success: (success) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              InnerAppBar(
+                                topText: context.translate.appTextKey,
+                                bottomText: context.translate.settingsTextKey,
+                              ),
+                              SizedBox(height: 20.h),
+                              UserInfoWidget(name: success.user.displayName ?? 'Bryan Wolf', email: success.user?.email ?? 'bryanwolf@gmail.com'),
+                              SizedBox(height: 20.h),
+                              SettingItemWidget(icon: Icons.settings, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: context.translate.appPreferencesTextKey, onTap: () => openAppPreferencesScreen(context)),
+                              SizedBox(height: 20.h),
+                              SettingItemWidget(icon: Icons.logout_rounded, backgroundColor: AppColors.primaryWhiteColor, foregroundColor: AppColors.primaryBlackColor, title: context.translate.signOutTextKey, onTap: () => BlocProvider.of<AllProfileCubit>(context).logout()),
+                              SizedBox(height: 50.h),
+                            ],
+                          );
+                        },
+                        initial: (_) => const SizedBox.shrink(),
+                        loggedOut: (_) => const SizedBox.shrink(),
+                        updateSuccessfully: (success) => const SizedBox.shrink()
+                    );
+                  }
               ),
             ),
           ),
