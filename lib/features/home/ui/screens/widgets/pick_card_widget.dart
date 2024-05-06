@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:space_app/core/helpers/enums.dart';
 import 'package:space_app/core/routing/routes.dart';
 import 'package:space_app/core/theming/assets.dart';
 import 'package:space_app/core/theming/colors.dart';
@@ -11,6 +14,7 @@ import '../../../../../core/theming/text_styles.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class PickCardWidget extends StatelessWidget {
+  final CardType? cardType;
   final String cardName;
   final String? locality;
   final String imageName;
@@ -19,6 +23,7 @@ class PickCardWidget extends StatelessWidget {
 
   const PickCardWidget(
       {super.key,
+        this.cardType,
       required this.cardName,
       this.locality,
       required this.imageName,
@@ -28,12 +33,12 @@ class PickCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: isToDetailsScreen == true
+      onTap: isToDetailsScreen == true && cardType == null
           ? onPressed
           : () {
-              cardName == 'Rockets'
+             cardType == CardType.rockets
                   ? Navigator.pushNamed(context, Routes.rocketsScreen)
-                  : (cardName == 'Dragons')
+                  : (cardType == CardType.dragons)
                       ? Navigator.pushNamed(context, Routes.dragonScreen)
                       : Navigator.pushNamed(context, Routes.landPodsScreen);
             },
@@ -78,38 +83,40 @@ class PickCardWidget extends StatelessWidget {
             Positioned(
               bottom: 10.h,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 22.w),
-                width: MediaQuery.of(context).size.width - 60.w,
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                width: MediaQuery.of(context).size.width - 40.w,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          locality ?? context.translate.adventurerTextKey,
-                          style: AppTextStyles.fontWhite15W500,
-                        ),
-                        Text(
-                          cardName,
-                          style: AppTextStyles.fontWhite33W600,
-                        ),
-                      ],
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            locality ?? context.translate.adventurerTextKey,
+                            style: AppTextStyles.fontWhite15W500,
+                          ),
+                          Text(
+                            cardName,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: AppTextStyles.fontWhite33W600,
+                          ),
+                        ],
+                      ),
                     ),
+                    SizedBox(width: 10.w),
                     MaterialButton(
                       onPressed: isToDetailsScreen == true
                           ? onPressed
                           : () {
-                              cardName == 'Rockets'
-                                  ? Navigator.pushNamed(
-                                      context, Routes.rocketsScreen)
-                                  : (cardName == 'Dragons')
-                                      ? Navigator.pushNamed(
-                                          context, Routes.dragonScreen)
-                                      : Navigator.pushNamed(
-                                          context, Routes.landPodsScreen);
-                            },
+                        cardType == CardType.rockets
+                            ? Navigator.pushNamed(context, Routes.rocketsScreen)
+                            : (cardType == CardType.dragons)
+                            ? Navigator.pushNamed(context, Routes.dragonScreen)
+                            : Navigator.pushNamed(context, Routes.landPodsScreen);
+                      },
                       color: AppColors.primaryMediumGrayColor.withOpacity(0.4),
                       padding: EdgeInsets.all(6.h),
                       height: 54.h,

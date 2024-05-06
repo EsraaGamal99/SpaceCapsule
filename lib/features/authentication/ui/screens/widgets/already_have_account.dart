@@ -20,7 +20,7 @@ class AlreadyHaveAnAccount extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
-            Navigator.pushNamed(context, Routes.loginScreen);
+            Navigator.pushNamed(context, Routes.loginScreen, arguments: false);
           },
           child: Text(
             context.translate.logInTextKey,

@@ -26,13 +26,6 @@ class UserInfoWidget extends StatelessWidget {
       ),
       child: Column(
         children: [
-          GestureDetector(
-            onTap: () {
-              context.pushNamed(Routes.editProfileScreen);
-            },
-            child: Text(context.translate.editProfileTextKey, style: AppTextStyles.fontWhite18W500)
-          ),
-          SizedBox(height: 10.h),
           const ChangeProfileImageWidget(),
           SizedBox(height: 20.h),
           Text(name, style: AppTextStyles.fontLightGrey18W600.copyWith(color: Theme.of(context).colorScheme.primary),),

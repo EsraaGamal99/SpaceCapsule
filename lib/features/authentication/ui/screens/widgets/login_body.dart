@@ -13,7 +13,8 @@ import '../../../../../core/theming/text_styles.dart';
 import 'do_not_have_an_account.dart';
 
 class LoginBody extends StatelessWidget {
-  const LoginBody({super.key});
+  final bool? isLoggedUp;
+  const LoginBody({super.key, this.isLoggedUp = false});
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +23,13 @@ class LoginBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(50.0),
       child: SingleChildScrollView(
-
         child: Form(
           key: formKey,
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                const AuthBackButton(),
+                isLoggedUp != null && isLoggedUp! ? const Offstage() : const AuthBackButton(),
                 Text(
                   context.translate.welcomeTextKey,
                   style: AppTextStyles.fontWhite40W500.copyWith(color: Theme.of(context).colorScheme.primary),
@@ -54,7 +54,6 @@ class LoginBody extends StatelessWidget {
                     }
                   },
                   child: CustomMaterialButton(
-
                       label: context.translate.logInTextKey),
                 ),
                 SizedBox(height: 10.h),

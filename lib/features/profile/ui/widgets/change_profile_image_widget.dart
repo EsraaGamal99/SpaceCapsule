@@ -60,26 +60,6 @@ class _ChangeProfileImageWidgetState extends State<ChangeProfileImageWidget> {
             ),
           ),
         ),
-        Positioned(
-          bottom: 0,
-          right: -2,
-          child: InkWell(
-            onTap: () => showChooseImageSourceBottomSheet(
-              context: context,
-              onCameraTapped: (source) => pickImage(source),
-              onGalleryTapped: (source) => pickImage(source),
-            ),
-            child: Container(
-              width: 40.w,
-              height: 40.h,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: AppColors.primaryWhiteColor,
-              ),
-              child: Icon(Icons.edit_outlined, size: 30.sp, color: AppColors.primaryBlackColor),
-            ),
-          ),
-        ),
       ],
     );
   }

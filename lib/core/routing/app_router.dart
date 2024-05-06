@@ -10,6 +10,7 @@ import 'package:space_app/features/landpods/data/models/landpod_model.dart';
 import 'package:space_app/features/landpods/logic/landpod_cubit.dart';
 import 'package:space_app/features/landpods/ui/screens/landpods_details_screen.dart';
 import 'package:space_app/features/landpods/ui/screens/landposd_screen.dart';
+import 'package:space_app/features/profile/logic/all_profile_cubit.dart';
 import 'package:space_app/features/profile/ui/screens/app_preferences_screen.dart';
 import 'package:space_app/features/intro/ui/screens/first_onboarding_screen.dart';
 import 'package:space_app/features/intro/ui/screens/second_onboarding_screen.dart';
@@ -43,7 +44,8 @@ class AppRouter {
       case Routes.registerScreen:
         return MaterialPageRoute(builder: (context) => const RegisterScreen());
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (context) => const LoginScreen());
+        final argument = routeSettings.arguments as bool;
+        return MaterialPageRoute(builder: (context) => LoginScreen(isLoggedUp: argument));
       case Routes.firstOnboardingScreen:
         return MaterialPageRoute(
             builder: (context) => const FirstOnBoardingScreen());
@@ -53,7 +55,10 @@ class AppRouter {
       case Routes.welcomeScreen:
         return MaterialPageRoute(builder: (context) => const WelcomeScreen());
       case Routes.profileScreen:
-        return MaterialPageRoute(builder: (context) => ProfileScreen());
+        return MaterialPageRoute(builder: (context) => BlocProvider(
+          create: (context) => AllProfileCubit(),
+            child: ProfileScreen()),
+        );
       case Routes.editProfileScreen:
         return MaterialPageRoute(builder: (context) => EditProfileScreen());
       case Routes.appPreferencesScreen:

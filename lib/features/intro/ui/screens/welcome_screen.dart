@@ -80,7 +80,7 @@ class WelcomeScreen extends StatelessWidget {
                 SizedBox(height: 30.h),
                 AnimationButton(
                   onPress: () {
-                    context.pushNamed(Routes.loginScreen);
+                    Navigator.pushReplacementNamed(context, Routes.loginScreen, arguments: false);
                   },
                   child: CustomMaterialButton(
                     label: context.translate.logInTextKey,

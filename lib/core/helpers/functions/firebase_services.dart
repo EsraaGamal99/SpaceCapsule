@@ -12,27 +12,15 @@ void storeToken(UserCredential userCredential) async {
     if (currentUser != null) {
       final currentToken = await currentUser.getIdToken();
       if (currentToken != null) {
-        await prefs.setString(token, currentToken);
-        debugPrint('Token retrieval successful, proceed with storing the token $currentToken');
+        await prefs.setString(tokenKey, currentToken);
       } else {
           await _auth.signOut();
-          await prefs.remove(token);
-        debugPrint('ID token is null $currentToken');
+          await prefs.remove(tokenKey);
       }
     } else {
+      await _auth.signOut();
+      await prefs.remove(tokenKey);
     }
-
-    // if (currentToken != null) {
-    //   await prefs.setString(token, currentToken);
-    //   debugPrint('checkToken if after  $currentToken');
-    //   debugPrint('checkToken if after maCurrentToken $maCurrentToken');
-    // } else {
-    //   await _auth.signOut();
-    //   await prefs.remove(token);
-    //   debugPrint('checkToken else after  $currentToken');
-    //   debugPrint('checkToken else after maCurrentToken ${maCurrentToken}');
-    //   debugPrint('checkToken else after loginCurrentToken ${loginCurrentToken}');
-    // }
   } catch (e) {
     debugPrint('Error during sign-out: $e');
   }
@@ -40,17 +28,26 @@ void storeToken(UserCredential userCredential) async {
 
 Future<String?> getToken() async {
   final prefs = await SharedPreferences.getInstance();
-  return prefs.getString(token);
+  return prefs.getString(tokenKey);
 }
 
-
 Future<User?> getUser() async {
-  return _auth.currentUser;
+  try {
+    return _auth.currentUser;
+  } catch (e) {
+    return null;
+  }
 }
 
 
 logOut() async {
-  await _auth.signOut();
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  final token = await getToken();
+  if(token != null && token.isNotEmpty) {
+    await _auth.signOut();
+    await prefs.remove(tokenKey);
+    final tokenNew = await getToken();
+  }
 }
 
 Future<void> saveLogInStatus(bool isLoggedIn) async {

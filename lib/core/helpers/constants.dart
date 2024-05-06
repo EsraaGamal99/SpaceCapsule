@@ -12,10 +12,10 @@ const englishLocale = Locale('en', 'US');
 const arabicLocale  = Locale('ar', 'EG');
 
 // Shared Preferences
-const String localeKey = 'locale';
+const String localeKey  = 'locale';
 const String isSignedIn = 'is_logged_in';
 const String isSignedUp = 'is_logged_up';
-const String token      = 'token';
+const String tokenKey   = 'token';
 
 // Key Of Dragons Data At Local Database
 const String dragonsKey = 'CACHED_DRAGONS';
