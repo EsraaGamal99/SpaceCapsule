@@ -68,14 +68,11 @@ Future<void> setupGetIt() async{
   getIt.registerLazySingleton(() => LandpodLocalRepo(sharedPreferences: sharedPref));
   getIt.registerFactory<LandpodCubit>(() => LandpodCubit(landpodRepo: getIt(),landpodLocalRepo: getIt(), internetChecker: getIt()));
 
-
   // Rockets
   getIt.registerLazySingleton<RocketsRepoImpl>(() => RocketsRepoImpl(apiService: getIt(),));
   // Rocket local repo
   getIt.registerLazySingleton(() => RocketLocalRepo(sharedPreferences: sharedPref));
   getIt.registerFactory<RocketsCubit>(() => RocketsCubit( rocketsRepo: getIt(),rocketLocalRepo: getIt(), internetChecker: getIt()));
   getIt.registerFactory<OneRocketCubit>(() => OneRocketCubit( rocketsRepo: getIt(),));
-
-
 
 }

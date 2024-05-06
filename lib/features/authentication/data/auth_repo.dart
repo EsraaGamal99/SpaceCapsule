@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:space_app/core/helpers/functions/firebase_services.dart';
 import 'package:space_app/core/networking/firebase_service/firebase_auth_error_handler/firebase_auth_error-handler.dart';
 
 import '../../../core/networking/error_handler_base.dart';
@@ -19,6 +20,8 @@ class AuthRepo {
       if (response.user != null) {
         debugPrint(
             '=========================${response.user}=========================');
+        storeToken(response);
+        await saveLogInStatus(true);
         return const ResultHandler.success(AuthResultStatus.successful);
       } else {
         return ResultHandler.failure(
@@ -40,6 +43,8 @@ class AuthRepo {
       if (response.user != null) {
         debugPrint(
             '=========================${response.user}=========================');
+        storeToken(response);
+        await saveSignUpStatus(true);
         return const ResultHandler.success(AuthResultStatus.successful);
       } else {
         return ResultHandler.failure(

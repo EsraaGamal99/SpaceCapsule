@@ -43,14 +43,25 @@ Future<String?> getToken() async {
   return prefs.getString(token);
 }
 
-
 Future<User?> getUser() async {
-  return _auth.currentUser;
+  try {
+    return await _auth.currentUser;
+  } catch (e) {
+    debugPrint('Error getting current user: $e');
+    return null;
+  }
 }
 
 
 logOut() async {
-  await _auth.signOut();
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  final token = await getToken();
+  if(token != null && token.isNotEmpty) {
+    await _auth.signOut();
+    await prefs.remove(token);
+    final tokenNew = await getToken();
+    debugPrint('Token after sign out: $tokenNew');
+  }
 }
 
 Future<void> saveLogInStatus(bool isLoggedIn) async {

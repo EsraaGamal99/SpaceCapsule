@@ -54,7 +54,6 @@ class LoginBody extends StatelessWidget {
                     }
                   },
                   child: CustomMaterialButton(
-
                       label: context.translate.logInTextKey),
                 ),
                 SizedBox(height: 10.h),
