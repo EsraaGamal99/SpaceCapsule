@@ -18,8 +18,8 @@ class AuthRepo {
         password: loginModel.password,
       );
       if (response.user != null) {
-        debugPrint(
-            '=========================${response.user}=========================');
+        debugPrint('=========================${response.user}=========================');
+        debugPrint('=====================response.user?.displayName====${response.user?.displayName}=========================');
         storeToken(response);
         await saveLogInStatus(true);
         return const ResultHandler.success(AuthResultStatus.successful);
@@ -41,8 +41,10 @@ class AuthRepo {
         password: registerModel.password,
       );
       if (response.user != null) {
-        debugPrint(
-            '=========================${response.user}=========================');
+        debugPrint('=========================${response.user}=========================');
+        await response.user!.updateDisplayName(registerModel.name);
+        await response.user!.reload();
+        debugPrint('=====================response.user?.displayName====${response.user?.displayName}=========================');
         storeToken(response);
         await saveSignUpStatus(true);
         return const ResultHandler.success(AuthResultStatus.successful);
