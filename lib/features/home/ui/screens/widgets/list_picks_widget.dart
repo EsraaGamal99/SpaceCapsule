@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:space_app/core/helpers/enums.dart';
 import 'package:space_app/core/theming/app_theme_cubit/app_theme_cubit.dart';
 import 'package:space_app/features/home/ui/screens/widgets/pick_card_widget.dart';
 import 'package:space_app/core/theming/assets.dart';
@@ -32,10 +33,12 @@ class ListPicksWidget extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 return PickCardWidget(
+                  cardType: CardType.values[index],
                   cardName: getCardTitle(context)[index],
                   imageName: AppThemeCubit.isDarkMode
                       ? imageName[index]
-                      : imageNameLightMode[index], isToDetailsScreen: false,
+                      : imageNameLightMode[index],
+                  isToDetailsScreen: false,
                 );
               },
               separatorBuilder: (context, index) => const SizedBox(
