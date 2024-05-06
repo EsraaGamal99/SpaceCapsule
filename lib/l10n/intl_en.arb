@@ -95,17 +95,17 @@
   "retryAgainMessageTextKey"          : "Please try again later.",
   "okTextKey"                         : "OK",
 
-  "emailAlreadyExistsTextKey"         : "البريد الإلكتروني موجود بالفعل",
-  "invalidCredentialsTextKey"         : "بيانات غير صالحة",
-  "wrongPasswordTextKey"              : "كلمة المرور خاطئة",
-  "weakPasswordTextKey"               : "كلمة مرور ضعيفة",
-  "invalidEmailTextKey"               : "بريد إلكتروني غير صالح",
-  "userNotFoundTextKey"               : "المستخدم غير موجود",
-  "userDisabledTextKey"               : "المستخدم معطل",
-  "operationNotAllowedTextKey"        : "العملية غير مسموحة",
-  "tooManyRequestsTextKey"            : "طلبات كثيرة",
-  "undefinedErrorTextKey"             : "خطأ غير معروف",
-  "defaultErrorMessageTextKey"        : "حدث خطأ ما، يرجى المحاولة مرة أخرى"
+  "emailAlreadyExistsTextKey"         : "Email already exists",
+  "invalidCredentialsTextKey"         : "Invalid credentials",
+  "wrongPasswordTextKey"              : "Wrong password",
+  "weakPasswordTextKey"               : "Weak password",
+  "invalidEmailTextKey"               : "Invalid email",
+  "userNotFoundTextKey"               : "User not found",
+  "userDisabledTextKey"               : "User disabled",
+  "operationNotAllowedTextKey"        : "Operation not allowed",
+  "tooManyRequestsTextKey"            : "Too many requests",
+  "undefinedErrorTextKey"             : "Undefined error",
+  "defaultErrorMessageTextKey"        : "Something went wrong. Please try again later.",
 
 
 }
