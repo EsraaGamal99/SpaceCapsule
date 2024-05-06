@@ -19,12 +19,15 @@ class AllProfileCubit extends Cubit<AllProfileState> {
   Future<void> getUserProfile(BuildContext context) async {
     try {
       emit(const AllProfileState.loading());
+      debugPrint('ProfileState user');
       final user = await getUser();
       debugPrint('ProfileState user: $user');
       currentUser = user;
       debugPrint('ProfileState currentUser: $currentUser');
       if (currentUser != null) {
         emit(AllProfileState.success(user));
+      } else {
+        emit(const AllProfileState.loggedOut());
       }
     } catch (e) {
       emit(AllProfileState.error(error: e.toString()));
