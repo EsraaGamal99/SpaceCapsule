@@ -10,11 +10,11 @@ import 'package:space_app/core/helpers/extenstions.dart';
 import '../../../../../core/helpers/constants.dart';
 import '../../../../../core/theming/app_theme_cubit/app_theme_state.dart';
 
-getCardTitle(BuildContext context) {
+getCardTitle() {
   return [
-    context.translate.rocketsTextKey,
-    context.translate.dragonsTextKey,
-    context.translate.landpadsTextKey,
+    'Rockets',
+    'Dragons',
+    'Landpods',
   ];
 }
 List<String> imageName = [AppAssets.rockets, AppAssets.galaxy, AppAssets.insightfulImage];
@@ -34,7 +34,7 @@ class ListPicksWidget extends StatelessWidget {
               itemBuilder: (context, index) {
                 return PickCardWidget(
                   cardType: CardType.values[index],
-                  cardName: getCardTitle(context)[index],
+                  cardName: getCardTitle()[index],
                   imageName: AppThemeCubit.isDarkMode
                       ? imageName[index]
                       : imageNameLightMode[index],
