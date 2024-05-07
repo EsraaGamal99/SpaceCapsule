@@ -52,8 +52,8 @@ class AllProfileCubit extends Cubit<AllProfileState> {
     }
   }
 
-  void logout() {
-    _profileRepo.logout();
+  void logout({required BuildContext context,}) {
+    _profileRepo.logout(context: context);
     emit(const AllProfileState.loggedOut());
   }
 }

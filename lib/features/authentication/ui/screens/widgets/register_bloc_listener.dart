@@ -21,10 +21,10 @@ class RegisterBlocListener extends StatelessWidget {
             authLoadingDialog(context);
           },
           success: (success) async {
-            await waitThenPopAndNavigate(context, Routes.loginScreen);
+            await waitThenPopAndNavigate(context, Routes.loginScreen, showBackButton: true);
           },
           error: (error) async {
-            await waitThenPopAndNavigate(context, null);
+            await waitThenPopAndNavigate(context, null,);
             if (!context.mounted) return;
             showSnackBar(context, error);
           },

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:space_app/core/helpers/constants.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
 import 'package:space_app/core/theming/colors.dart';
 import 'package:space_app/core/widgets/buttons/custom_material_button.dart';
@@ -80,7 +81,9 @@ class WelcomeScreen extends StatelessWidget {
                 SizedBox(height: 30.h),
                 AnimationButton(
                   onPress: () {
-                    Navigator.pushReplacementNamed(context, Routes.loginScreen, arguments: false);
+                    context.pushAndRemoveUntil(Routes.loginScreen, context,false);
+                    setBoolToPrefs(welcomeSkipped, true);
+
                   },
                   child: CustomMaterialButton(
                     label: context.translate.logInTextKey,
@@ -91,7 +94,9 @@ class WelcomeScreen extends StatelessWidget {
                 SizedBox(height: 16.h),
                 GestureDetector(
                     onTap: () {
-                      context.pushNamed(Routes.registerScreen);
+                      context.pushAndRemoveUntil(Routes.registerScreen, context,false);
+                      setBoolToPrefs(welcomeSkipped, true);
+
                     },
                     child: Center(child: Text(context.translate.createNewAccountTextKey, style: AppTextStyles.fontWhite18W500.copyWith(color: Theme.of(context).colorScheme.primary, decoration: TextDecoration.underline, decorationColor: Theme.of(context).colorScheme.primary)))
                 ),

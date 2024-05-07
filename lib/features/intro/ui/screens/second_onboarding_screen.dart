@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:space_app/core/helpers/constants.dart';
 import 'package:space_app/core/helpers/extenstions.dart';
 import 'package:space_app/core/theming/app_theme_cubit/app_theme_cubit.dart';
 import 'package:space_app/features/localization/logic/localization_cubit.dart';
@@ -75,8 +76,11 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                         top: 60,
                         left: 20,
                         child: InkWell(
-                          onTap: () {
-                            context.pushNamed(Routes.welcomeScreen);
+                          onTap: ()  {
+                            Navigator.pushNamedAndRemoveUntil(context, Routes.welcomeScreen, (route) => false);
+                            setBoolToPrefs(onBoardingKey, true);
+
+                            //context.pushNamed(Routes.welcomeScreen);
                           },
                           child: Container(
                             padding: EdgeInsets.symmetric(
@@ -111,7 +115,9 @@ class _MiddleOnBoardingScreenState extends State<SecondOnBoardingScreen> {
                         right: 20,
                         child: InkWell(
                           onTap: () {
-                            context.pushNamed(Routes.welcomeScreen);
+                            Navigator.pushNamedAndRemoveUntil(context, Routes.welcomeScreen, (route) => false,);
+                            setBoolToPrefs(onBoardingKey, true);
+
                           },
                           child: Container(
                             padding: EdgeInsets.symmetric(

@@ -29,20 +29,22 @@ class AppBarWidget extends StatelessWidget {
               ),
             ],
           ),
-          InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, Routes.profileScreen);
-            },
-            child: Container(
-              height: 65.h,
-              width: 65.w,
-              padding: EdgeInsets.all(8.w),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30.h),
-                border: Border.all(color: Theme.of(context).colorScheme.surface.withOpacity(0.2), width: 7,style: BorderStyle.solid),
-                image: DecorationImage(fit: BoxFit.fill,
-                  image: AssetImage(AppAssets.ellipseImage,),
-                )
+          Flexible(
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, Routes.profileScreen);
+              },
+              child: Container(
+                height: 60.h,
+                width: 60.w,
+                padding: EdgeInsets.all(8.w),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30.h),
+                  border: Border.all(color: Theme.of(context).colorScheme.surface.withOpacity(0.2), width: 7,style: BorderStyle.solid),
+                  image: const DecorationImage(fit: BoxFit.fill,
+                    image: AssetImage(AppAssets.ellipseImage,),
+                  )
+                ),
               ),
             ),
           )

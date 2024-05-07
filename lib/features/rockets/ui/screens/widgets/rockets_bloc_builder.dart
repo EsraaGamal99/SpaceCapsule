@@ -31,7 +31,7 @@ class RocketsBlocBuilder extends StatelessWidget {
                         Navigator.pushNamed(
                           context,
                           Routes.rocketDetailsScreen,
-                          arguments: state.data[index].id,
+                          arguments: state.data[index],
                         );
                       },
                     );
