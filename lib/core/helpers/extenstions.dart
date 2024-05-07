@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:space_app/generated/l10n.dart';
 
 extension NavigationHelper on BuildContext {
@@ -17,6 +18,9 @@ extension NavigationHelper on BuildContext {
   void pop() {
     Navigator.of(this).pop();
   }
+  void pushAndRemoveUntil(String screenName, BuildContext context,var arguments) {
+    Navigator.pushNamedAndRemoveUntil(context, screenName, (route) => false, arguments: arguments);
+  }
 }
 
 extension MediaQueryHelper on BuildContext {
@@ -27,4 +31,9 @@ extension MediaQueryHelper on BuildContext {
 
 extension TranslationHelper on BuildContext {
   get translate => S.of(this);
+}
+
+Future<void> setBoolToPrefs( String key,bool value) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  await prefs.setBool(key, value);
 }

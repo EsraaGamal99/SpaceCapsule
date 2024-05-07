@@ -78,7 +78,7 @@ class FirstOnBoardingScreen extends StatelessWidget {
             right: 30.w,
             child: AnimationButton(
               onPress: () {
-                context.pushReplacementNamed(Routes.secondOnboardingScreen);
+                Navigator.pushNamedAndRemoveUntil(context, Routes.secondOnboardingScreen, (route) => false);
               },
               child: CustomMaterialButton(
               label: context.translate.startTextKey,

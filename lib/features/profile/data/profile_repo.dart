@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:space_app/core/helpers/functions/firebase_services.dart';
 import 'package:space_app/core/networking/firebase_service/firebase_auth_error_handler/firebase_auth_error-handler.dart';
+import 'package:space_app/core/routing/routes.dart';
 
 class ProfileRepo {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  void logout() async {
+  void logout({required BuildContext context,}) async {
+    Navigator.pushNamedAndRemoveUntil(context, Routes.loginScreen, (route) => false);
     await logOut();
+    Navigator.pushNamedAndRemoveUntil(context, Routes.loginScreen, (route) => false,arguments: true);
   }
 
   updateEmail({required String email, required String password}) async {

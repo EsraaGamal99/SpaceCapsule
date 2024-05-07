@@ -63,7 +63,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               SizedBox(height: 20.h),
                               SettingItemWidget(icon: Icons.settings, backgroundColor: AppColors.primarySoftGreyColor, foregroundColor: AppColors.primaryWhiteColor, title: context.translate.appPreferencesTextKey, onTap: () => openAppPreferencesScreen(context)),
                               SizedBox(height: 20.h),
-                              SettingItemWidget(icon: Icons.logout_rounded, backgroundColor: AppColors.primaryWhiteColor, foregroundColor: AppColors.primaryBlackColor, title: context.translate.signOutTextKey, onTap: () => BlocProvider.of<AllProfileCubit>(context).logout()),
+                              SettingItemWidget(icon: Icons.logout_rounded, backgroundColor: AppColors.primaryWhiteColor, foregroundColor: AppColors.primaryBlackColor, title: context.translate.signOutTextKey, onTap: () => BlocProvider.of<AllProfileCubit>(context).logout(context: context)),
                               SizedBox(height: 50.h),
                             ],
                           );
