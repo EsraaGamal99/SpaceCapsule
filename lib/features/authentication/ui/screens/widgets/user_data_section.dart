@@ -76,9 +76,9 @@ class _UserDataSectionState extends State<UserDataSection> {
           suffixIcon: InkWell(
             child: obscureText
                 ? SvgPicture.asset(AppAssets.lockIcon, color: Theme.of(context).colorScheme.primary)
-                : const Icon(
+                : Icon(
                     Icons.lock_open_outlined,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.primary,
                     size: 26,
                   ),
             onTap: () {

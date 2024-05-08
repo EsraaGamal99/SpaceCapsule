@@ -96,7 +96,7 @@ class PickCardWidget extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              locality ?? context.translate.adventurerTextKey,
+                              locality ?? '',
                               style: AppTextStyles.fontWhite15W500,
                             ),
                             Text(

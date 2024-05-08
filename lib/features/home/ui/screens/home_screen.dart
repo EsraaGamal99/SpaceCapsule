@@ -12,25 +12,26 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body:
           BlocBuilder<AppThemeCubit, AppThemeState>(builder: (context, state) {
-        return SingleChildScrollView(
-          child: Container(
-            decoration: AppThemeCubit.isDarkMode
-                ? null
-                : BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Colors.pink.shade100,
-                        Colors.blue.shade200,
-                      ],
-                      stops: const [0.0, 1.0],
-                    ),
+        return Container(
+          decoration: AppThemeCubit.isDarkMode
+              ? null
+              : BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      Colors.pink.shade100,
+                      Colors.blue.shade200,
+                    ],
+                    stops: const [0.0, 1.0],
                   ),
-            child: const Column(
+                ),
+          child: const SingleChildScrollView(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
