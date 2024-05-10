@@ -44,8 +44,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "createNewAccountTextKey":
             MessageLookupByLibrary.simpleMessage("إنشاء حساب جديد"),
         "darkTextKey": MessageLookupByLibrary.simpleMessage("داكن"),
-        "defaultErrorTextKey":
-            MessageLookupByLibrary.simpleMessage("خطأ افتراضي"),
+        "defaultErrorMessageTextKey": MessageLookupByLibrary.simpleMessage(
+            "حدث خطأ ما، يرجى المحاولة مرة أخرى"),
         "doNotHaveAnAccountTextKey":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "dragonsTextKey": MessageLookupByLibrary.simpleMessage("التنانين"),
@@ -54,6 +54,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "editTextKey": MessageLookupByLibrary.simpleMessage("يحرر"),
         "emailAddressTextKey":
             MessageLookupByLibrary.simpleMessage("عنوان البريد الإلكتروني"),
+        "emailAlreadyExistsTextKey": MessageLookupByLibrary.simpleMessage(
+            "البريد الإلكتروني موجود بالفعل"),
         "emailTextKey":
             MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "embarkOnAnInterstellarTextKey": MessageLookupByLibrary.simpleMessage(
@@ -70,6 +72,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "استكشف عجائب المجرات: انغمس في رحلة كونية لتتعرف على المجرات المذهلة التي تسكن عالمنا."),
         "explorerTextKey": MessageLookupByLibrary.simpleMessage("مستكشف"),
         "feedbackTextKey": MessageLookupByLibrary.simpleMessage("رأي"),
+        "forbiddenErrorTextKey":
+            MessageLookupByLibrary.simpleMessage("خطأ، ممنوع"),
         "forgotPasswordTextKey":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة السر؟"),
         "galaxiesTextKey": MessageLookupByLibrary.simpleMessage("مجرات"),
@@ -85,6 +89,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "insightsTextKey": MessageLookupByLibrary.simpleMessage("الرؤى"),
         "internalServerErrorTextKey":
             MessageLookupByLibrary.simpleMessage("خطأ في الخادم"),
+        "invalidCredentialsTextKey":
+            MessageLookupByLibrary.simpleMessage("بيانات غير صالحة"),
+        "invalidEmailTextKey":
+            MessageLookupByLibrary.simpleMessage("بريد إلكتروني غير صالح"),
         "landpadsTextKey": MessageLookupByLibrary.simpleMessage("منصات الهبوط"),
         "languageTextKey": MessageLookupByLibrary.simpleMessage("اللغة"),
         "learnAboutTextKey": MessageLookupByLibrary.simpleMessage("تعلم عن"),
@@ -99,11 +107,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "logInTextKey": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "noContentErrorTextKey": MessageLookupByLibrary.simpleMessage(
             "خطأ في الاستجابة: لا توجد محتويات"),
+        "noInternetConnectionKey":
+            MessageLookupByLibrary.simpleMessage("فقدت الاتصال بشبكةالانترنت"),
         "noInternetErrorTextKey":
             MessageLookupByLibrary.simpleMessage("لا يوجد إنترنت"),
         "notFoundErrorTextKey":
             MessageLookupByLibrary.simpleMessage("خطأ، غير موجو"),
         "okTextKey": MessageLookupByLibrary.simpleMessage("حسنًا"),
+        "operationNotAllowedTextKey":
+            MessageLookupByLibrary.simpleMessage("العملية غير مسموحة"),
         "passwordTextKey": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "planetsTextKey": MessageLookupByLibrary.simpleMessage("كواكب"),
         "preferencesTextKey": MessageLookupByLibrary.simpleMessage("تفضيلات"),
@@ -127,25 +139,39 @@ class MessageLookup extends MessageLookupByLibrary {
         "stellarDiscoveriesTextKey": MessageLookupByLibrary.simpleMessage(
             "الاكتشافات النجمية: انطلق في رحلة مضيئة لكشف أسرار النجوم. من ولادة النجوم المتوهجة إلى الأبراج الساحرة التي تزين سماءنا ليلاً."),
         "themeTextKey": MessageLookupByLibrary.simpleMessage("المظهر"),
+        "thereIsNotDataKey": MessageLookupByLibrary.simpleMessage(
+            "لا يوجد اي معلومات، من فضلك تحقق من تحقق من الاتصال بشبكة الانترنت"),
         "timeoutErrorTextKey":
             MessageLookupByLibrary.simpleMessage("خطأ في الوقت"),
+        "tooManyRequestsTextKey":
+            MessageLookupByLibrary.simpleMessage("طلبات كثيرة"),
         "topPicksTextKey": MessageLookupByLibrary.simpleMessage("أفضل اللقطات"),
         "unauthorizedErrorTextKey":
             MessageLookupByLibrary.simpleMessage("خطأ، غير مصرح به"),
+        "undefinedErrorTextKey":
+            MessageLookupByLibrary.simpleMessage("خطأ غير معروف"),
         "universeTextKey": MessageLookupByLibrary.simpleMessage("الكون"),
         "unknownErrorTextKey":
             MessageLookupByLibrary.simpleMessage("خطأ غير معروف"),
         "unlockAUniverseTextKey": MessageLookupByLibrary.simpleMessage(
             "افتح عالمًا من المعرفة والمغامرة باستخدام بطاقتك."),
+        "userDisabledTextKey":
+            MessageLookupByLibrary.simpleMessage("المستخدم معطل"),
         "userNameTextKey": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
+        "userNotFoundTextKey":
+            MessageLookupByLibrary.simpleMessage("المستخدم غير موجود"),
         "ventureIntoTextKey": MessageLookupByLibrary.simpleMessage(
             "انطلق في مغامرة إلى عالم العجائب التي صنعها الإنسان والتي تدور حول كوكبنا. في هذا القسم، ستكتشف براعة الأقمار الصناعية، من أقمار الاتصالات التي تربط العالم بالأرض."),
         "virtualTextKey": MessageLookupByLibrary.simpleMessage("افتراضي"),
         "weWillLearnTextKey": MessageLookupByLibrary.simpleMessage(
             "سوف نتعلم جميع التخصصات العلمية التي تنطوي عليها."),
+        "weakPasswordTextKey":
+            MessageLookupByLibrary.simpleMessage("كلمة مرور ضعيفة"),
         "welcomeOnboardTextKey":
             MessageLookupByLibrary.simpleMessage("مرحبًا بك،"),
         "welcomeTextKey": MessageLookupByLibrary.simpleMessage("مرحبا"),
+        "wrongPasswordTextKey":
+            MessageLookupByLibrary.simpleMessage("كلمة المرور خاطئة"),
         "yourEmailIsRequiredTextKey": MessageLookupByLibrary.simpleMessage(
             "يرجى إدخال البريد الإلكتروني"),
         "yourNameIsRequiredTextKey":

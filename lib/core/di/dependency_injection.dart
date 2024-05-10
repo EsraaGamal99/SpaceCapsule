@@ -21,6 +21,7 @@ import '../networking/api_service/dio_factory.dart';
 import '../../features/localization/data/repos/localization_repo.dart';
 import '../../features/localization/logic/localization_cubit.dart';
 import '../networking/internet_checker.dart';
+import '../networking/internet_checker/logic/internet_checker_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -33,6 +34,8 @@ Future<void> setupGetIt() async{
   // Internet Connection Checker
   getIt.registerLazySingleton(() => InternetConnectionChecker());
   getIt.registerLazySingleton(() => InternetCheckerImpl(getIt()));
+  // Internet Connection cubit
+  getIt.registerFactory(() => InternetCheckerCubit(getIt()));
 
   // Initial local data
   final sharedPref = await SharedPreferences.getInstance();

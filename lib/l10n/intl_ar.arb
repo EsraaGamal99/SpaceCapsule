@@ -1,4 +1,5 @@
 {
+  "thereIsNotDataKey"                 : "لا يوجد اي معلومات، من فضلك تحقق من تحقق من الاتصال بشبكة الانترنت",
   "noInternetConnectionKey"           : "فقدت الاتصال بشبكةالانترنت",
   "virtualTextKey"                    : "افتراضي",
   "galaxyTextKey"                     : "مجرة",

@@ -49,8 +49,10 @@ class DragonCubit extends Cubit<DragonState> {
     if(await internetChecker.isConnected){
       emitGetAllDragonsStates(context);
     }else {
-      emit(DragonState.internetConnectionFaild());
       emitCachedDragonsStates(context);
+      if(dragons.isEmpty){
+        emit(DragonState.internetConnectionFaild());
+      }
     }
   }
 

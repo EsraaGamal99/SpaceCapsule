@@ -1,4 +1,5 @@
 {
+  "thereIsNotDataKey"                 : "There is not Data, please check your Internet",
   "noInternetConnectionKey"           : "No Internet Connection",
   "virtualTextKey"                    : "Virtual",
   "galaxyTextKey"                     : "Galaxy",

@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:space_app/core/helpers/constants.dart';
+import 'package:space_app/core/networking/internet_checker/logic/internet_checker_cubit.dart';
+import 'package:space_app/core/networking/internet_checker/logic/internet_checker_cubit.dart';
 import 'package:space_app/core/theming/app_theme_cubit/app_theme_cubit.dart';
 import 'package:space_app/core/theming/app_themes.dart';
 import 'package:space_app/features/localization/logic/localization_cubit.dart';
@@ -25,6 +27,9 @@ class SpaceApp extends StatelessWidget {
         providers: [
         BlocProvider<AppThemeCubit>(
         create: (context) => getIt<AppThemeCubit>()..fetchAppTheme(),
+          ),
+          BlocProvider<InternetCheckerCubit>(
+            create: (context) => getIt<InternetCheckerCubit>(),
           ),
         ],
           child: BlocBuilder<AppThemeCubit, AppThemeState>(
