@@ -43,7 +43,6 @@ class LoginCubit extends Cubit<LogInState> {
             emit(LogInState.error(error: error.errorModel.message ?? ''));
           });
     }else{
-      print("==============================object");
       emit(LogInState.internetConnectionFaild());
     }
 

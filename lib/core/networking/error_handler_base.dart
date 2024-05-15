@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:space_app/core/helpers/extenstions.dart';
 import 'firebase_service/firebase_auth_error_handler/firebase_auth_error-handler.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -61,11 +62,11 @@ class SharedPreferencesErrorHandler extends ErrorHandlerBaise {
   ErrorModel handle(BuildContext context) {
     if (error == null) {
       // Local data is empty
-      return ErrorModel(message: "There is not Data in Shared Memory");
+      return ErrorModel(message: context.translate.thereIsNotDataKey);
     } else {
       // default error
       debugPrint("confirm Shared Preferences Implmentation");
-      return ErrorModel(message: "confirm Shared Preferences Implmentation");
+      return ErrorModel(message: context.translate.thereIsNotDataKey);
     }
   }
 }

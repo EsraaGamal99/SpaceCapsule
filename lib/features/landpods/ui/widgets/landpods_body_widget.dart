@@ -1,0 +1,46 @@
+
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:space_app/core/routing/routes.dart';
+import 'package:space_app/core/theming/assets.dart';
+import 'package:space_app/features/home_of_items/ui/screens/widgets/list_of_space_items.dart';
+import 'package:space_app/features/home_of_items/ui/screens/widgets/space_item_app_bar.dart';
+import 'package:space_app/features/landpods/logic/landpod_cubit.dart';
+import 'package:space_app/features/landpods/ui/widgets/lanpods_list.dart';
+
+class LandPodsBodyWidget extends StatefulWidget {
+  const LandPodsBodyWidget({super.key});
+
+  @override
+  State<LandPodsBodyWidget> createState() => _LandPodsBodyWidgetState();
+}
+
+class _LandPodsBodyWidgetState extends State<LandPodsBodyWidget> {
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<LandpodCubit>(context).getLandpods(context);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(AppAssets.landPodsBackground),
+              fit: BoxFit.cover,
+            )),
+        child: const Column(
+          children: [
+            SpaceItemsAppBar(
+              screenTitle: 'Land Pods',
+            ),
+            LandPodsList(),
+          ],
+        ),
+      ),
+    );
+  }
+}

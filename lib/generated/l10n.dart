@@ -1,8 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:space_app/features/localization/logic/translation_generated/messages_all.dart';
-// import 'intl/messages_all.dart';
+import 'intl/messages_all.dart';
 
 // **************************************************************************
 // Generator: Flutter Intl IDE plugin
@@ -49,6 +48,26 @@ class S {
 
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
+  }
+
+  /// `There is not Data, please check your Internet`
+  String get thereIsNotDataKey {
+    return Intl.message(
+      'There is not Data, please check your Internet',
+      name: 'thereIsNotDataKey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Internet Connection`
+  String get noInternetConnectionKey {
+    return Intl.message(
+      'No Internet Connection',
+      name: 'noInternetConnectionKey',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Virtual`
@@ -801,6 +820,16 @@ class S {
     );
   }
 
+  /// `Forbidden`
+  String get forbiddenErrorTextKey {
+    return Intl.message(
+      'Forbidden',
+      name: 'forbiddenErrorTextKey',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Unauthorized`
   String get unauthorizedErrorTextKey {
     return Intl.message(
@@ -916,6 +945,116 @@ class S {
     return Intl.message(
       'OK',
       name: 'okTextKey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email already exists`
+  String get emailAlreadyExistsTextKey {
+    return Intl.message(
+      'Email already exists',
+      name: 'emailAlreadyExistsTextKey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid credentials`
+  String get invalidCredentialsTextKey {
+    return Intl.message(
+      'Invalid credentials',
+      name: 'invalidCredentialsTextKey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wrong password`
+  String get wrongPasswordTextKey {
+    return Intl.message(
+      'Wrong password',
+      name: 'wrongPasswordTextKey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weak password`
+  String get weakPasswordTextKey {
+    return Intl.message(
+      'Weak password',
+      name: 'weakPasswordTextKey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid email`
+  String get invalidEmailTextKey {
+    return Intl.message(
+      'Invalid email',
+      name: 'invalidEmailTextKey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User not found`
+  String get userNotFoundTextKey {
+    return Intl.message(
+      'User not found',
+      name: 'userNotFoundTextKey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User disabled`
+  String get userDisabledTextKey {
+    return Intl.message(
+      'User disabled',
+      name: 'userDisabledTextKey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Operation not allowed`
+  String get operationNotAllowedTextKey {
+    return Intl.message(
+      'Operation not allowed',
+      name: 'operationNotAllowedTextKey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Too many requests`
+  String get tooManyRequestsTextKey {
+    return Intl.message(
+      'Too many requests',
+      name: 'tooManyRequestsTextKey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Undefined error`
+  String get undefinedErrorTextKey {
+    return Intl.message(
+      'Undefined error',
+      name: 'undefinedErrorTextKey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong. Please try again later.`
+  String get defaultErrorMessageTextKey {
+    return Intl.message(
+      'Something went wrong. Please try again later.',
+      name: 'defaultErrorMessageTextKey',
       desc: '',
       args: [],
     );
